@@ -1,0 +1,14 @@
+# Downloaded assets - exclude from version control
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.css
+*.woff2
+*.woff
+*.ttf
+*.otf
+
+# Keep tracking manifest and logs for audit trail
+!.manifest.txt
+!.failed.txt
