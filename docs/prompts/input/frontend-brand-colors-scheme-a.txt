@@ -1,0 +1,65 @@
+You are a senior frontend engineer performing a brand theme standardization pass for the AntarYog Foundation landing page.
+
+Goal:
+Update the existing landing page mockup so that the entire UI uses the Saffron Spiritual color system (Option A) while keeping layout, assets, and content unchanged.
+
+COLOR SYSTEM (MANDATORY)
+
+Set the global design palette:
+
+Primary: Deep Saffron — #D97706
+
+Secondary: Sacred Gold — #E6B325
+
+Accent CTA: Vermilion — #C2410C
+
+Background: Warm Ivory — #FFF7E6
+
+Text Primary: Dark Brown — #3A2A1A
+
+Text Secondary: Muted Brown — #6B4E2E
+
+IMPLEMENTATION RULES
+
+Replace all previously used teal, blue, or unrelated colors with this palette.
+
+Apply colors consistently:
+
+Header background: Warm Ivory
+
+Navigation hover: Sacred Gold
+
+Primary CTA buttons: Deep Saffron with white text
+
+Secondary CTA buttons: Vermilion
+
+Links: Deep Saffron
+
+Section dividers / highlights: subtle Sacred Gold tones
+
+Ensure accessibility contrast for text and buttons.
+
+Create reusable Tailwind design tokens:
+
+colors: {
+  primary: "#D97706",
+  secondary: "#E6B325",
+  accent: "#C2410C",
+  background: "#FFF7E6",
+  text: "#3A2A1A"
+}
+
+
+Do NOT change layout, assets, or section hierarchy.
+
+Keep this as mockup phase only (no backend logic or API calls).
+
+OUTPUT REQUIRED
+
+Return:
+
+Updated Tailwind configuration snippet with new color tokens
+
+Updated landing page HTML using the new palette
+
+Short “theme usage guide” showing how headers, buttons, and sections use the colors
