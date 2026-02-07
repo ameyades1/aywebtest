@@ -73,6 +73,13 @@ We follow **Conventional Commits** format for clear, scannable commit history.
 - **config**: Configuration files
 - **docs**: Documentation
 
+### Guidelines:
+- **Use clear, descriptive messages**: Explain what changed and why
+- **Use imperative mood**: "add feature" not "added feature"
+- **Keep subject line under 50 characters**: For readability
+- **No emojis**: Avoid emojis - they look unprofessional in commit history
+- **Capitalize first letter**: Start with uppercase letter
+
 ### Examples:
 
 **Simple feature:**

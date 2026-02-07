@@ -27,6 +27,13 @@
 - **prompts**: Documentation/prompts folder
 - **config**: Configuration files
 
+### Guidelines:
+- **Use clear, descriptive messages**: Explain what changed and why
+- **Use imperative mood**: "add feature" not "added feature"
+- **Keep subject line under 50 characters**: For readability
+- **No emojis**: Avoid emojis - they look unprofessional in commit history
+- **Capitalize first letter**: Start with uppercase letter
+
 ## Examples:
 
 ### Simple commits
