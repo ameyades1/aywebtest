@@ -1,0 +1,73 @@
+You are a senior frontend engineer performing a **brand-correction pass** on an existing landing page mockup.
+
+INPUTS PROVIDED:
+
+1. Existing mockup code (wireframe already generated)
+2. Screenshot of current Antaryog site (for color reference)
+3. Official website:
+   [https://learn.antaryogfoundation.in/](https://learn.antaryogfoundation.in/)
+
+GOAL:
+Transform the existing mockup so that it becomes **fully brand-accurate**, using **real downloaded assets, real navigation structure, and correct color palette** from the official site.
+
+---
+
+MANDATORY REQUIREMENTS
+
+ASSET EXTRACTION
+
+* Automatically crawl the provided website and download:
+
+  * Official logo (header + footer)
+  * Founder images
+  * Spiritual background images
+  * Any section artwork used on the site
+* Replace all placeholder images with these real assets.
+* Store assets in /assets folder and reference them in HTML.
+
+COLOR CORRECTION
+
+* Extract the primary, secondary, and accent colors from:
+
+  * Official logo
+  * Screenshot provided
+* Replace all current Tailwind colors with the extracted palette.
+* Ensure header, CTA buttons, links, and section highlights match official branding.
+
+CONTENT ALIGNMENT
+
+* Remove any placeholder sections, programs, kriyas, meditations, or events that DO NOT exist on the official site.
+* Only keep navigation and content categories actually present, including:
+
+  * Our Work
+  * Discourses
+  * Naadi Jyotish
+  * Donate
+  * Upcoming Events (only if present)
+  * Login / Signup
+  * Other existing official sections
+* Program cards must reflect only real AntarYog offerings listed on the official site.
+
+LAYOUT RULES
+
+* Maintain the modern section-based layout already created.
+* Maintain responsive Tailwind layout.
+* Keep placeholder links for now (no backend integration yet).
+
+---
+
+OUTPUT REQUIRED
+
+Return:
+
+1. Updated HTML/Tailwind landing page using real assets
+2. Extracted color palette (HEX values)
+3. Asset manifest table:
+
+   * File name
+   * Source URL
+   * Section used
+4. Updated sitemap reflecting ONLY official AntarYog navigation
+
+This is still a visual mockup phase.
+Do NOT implement backend logic or APIs.
