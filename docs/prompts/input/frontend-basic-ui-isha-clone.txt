@@ -1,0 +1,102 @@
+You are a senior UX designer and frontend architect.
+
+Goal:
+Create a **landing page user journey mockup (UI wireframe only, not functional)** for the **Antaryog Foundation** website.
+The page must use **Antaryog branding, content themes, and colors**, but **layout inspiration should follow the structure and sectioning style of isha.sadhguru.org**.
+
+This is only the **Phase-1 wireframe implementation**.
+All sections should contain **placeholder content and placeholder links**, since full features will be implemented later.
+
+---
+
+DESIGN PRINCIPLES
+
+* Clean spiritual aesthetic, calm typography, sacred geometric accents.
+* Large hero sections and modular scroll-based storytelling.
+* Every section must include:
+
+  * Section Title
+  * Short placeholder description
+  * CTA button (placeholder link)
+* Responsive layout ready (desktop-first wireframe).
+* Navigation must support future expansion into many programs and courses.
+
+---
+
+PRIMARY USER JOURNEY FLOW
+Design the landing page to guide the user through this journey:
+
+1. Arrival / Awareness
+
+   * Hero banner introducing Antaryog Foundation
+   * Primary CTA: "Begin Your Journey"
+   * Secondary CTA: "Upcoming Programs"
+
+2. About the Master / Tradition
+
+   * Section: Meet Acharya Upendra Ji
+   * Placeholder biography
+   * CTA: "Know More"
+
+3. Paths Offered
+   Grid section showing:
+
+   * Meditation
+   * Sadhana Programs
+   * Discourses
+   * Healing Sessions
+   * Gurukul / Leadership Development
+     Each card must contain placeholder link.
+
+4. Featured Programs
+   Carousel style section
+
+   * Placeholder program cards
+   * CTA: "View All Programs"
+
+5. Impact / Mission
+
+   * Vision, societal transformation themes
+   * CTA: "Our Work"
+
+6. Upcoming Events
+
+   * Event listing mock cards
+   * CTA: "See Events"
+
+7. Join the Movement
+
+   * Volunteer CTA
+   * Donate CTA
+   * Newsletter Signup placeholder
+
+8. Footer
+
+   * Placeholder navigation links
+   * Contact
+   * Social links
+   * Legal links
+
+---
+
+OUTPUT FORMAT
+Return:
+
+1. Landing page wireframe hierarchy (section-by-section)
+2. Navigation sitemap (future scalable)
+3. Component list (hero, cards, CTA blocks, sliders, etc.)
+4. Placeholder copy text for each section
+5. Tailwind-based HTML skeleton layout (no functionality)
+
+Do NOT implement backend logic.
+Do NOT implement real API calls.
+This is a structure-only design for future phased implementation.
+
+---
+
+COLOR & STYLE GUIDANCE
+
+* Use warm saffron / gold accents
+* Light background tones
+* Calm serif headings + readable sans-serif body
+* Spiritual minimalism (avoid clutter)

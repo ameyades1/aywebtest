@@ -1,0 +1,1 @@
+Read the prompt '<>', Tell me which model will yield best results with a token estimate and can this be finished in this session ?
