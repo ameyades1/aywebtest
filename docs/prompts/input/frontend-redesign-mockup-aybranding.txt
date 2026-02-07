@@ -1,0 +1,101 @@
+You are a senior UI/UX engineer and frontend architect.
+
+INPUT:
+
+1. Existing landing page wireframe mockup (previous output)
+2. Brand assets (logo, images, founder photos, colors)
+3. Content and navigation references from:
+   [https://learn.antaryogfoundation.in/](https://learn.antaryogfoundation.in/)
+
+GOAL:
+Update the existing landing page mockup so that it becomes a **brand-accurate AntarYog Foundation landing page**, while still keeping the **modern layout structure inspired by isha.sadhguru.org**.
+
+IMPORTANT REQUIREMENTS:
+
+* Remove all Isha-related program names or references.
+* Replace every placeholder program, guru profile, event, or CTA with **AntarYog Foundation programs, themes, and navigation categories** extracted from the reference site.
+* Use actual logos, founder images, and spiritual imagery from provided assets.
+* Maintain mockup-level implementation (no backend functionality yet).
+* Every link should still remain a placeholder URL for now.
+
+---
+
+ASSET USAGE RULES
+
+* Automatically detect and use:
+
+  * Logo (header + footer)
+  * Founder image (hero + about section)
+  * Spiritual imagery for section backgrounds
+* Generate consistent color palette from logo automatically.
+* Use typography suitable for spiritual / heritage organizations.
+
+---
+
+ANTARYOG CONTENT STRUCTURE TO REFLECT
+The landing page must include sections reflecting these themes:
+
+1. Hero Section
+
+   * Founder image
+   * Tagline introducing AntarYog Way of Life
+   * CTA: Begin Your Journey
+
+2. About Acharya Upendra Ji
+
+   * Biography highlight
+   * CTA: Know the Master
+
+3. AntarYog Programs / Paths
+   Cards representing:
+
+   * Discourses
+   * Sadhana Programs
+   * Healing Sessions
+   * Naadi Jyotish
+   * Vastu Rupantaran
+   * Leadership / Gurukul Programs
+
+4. Mission & Transformation Areas
+   Grid representing:
+
+   * Sanatan Dharma revival
+   * Youth leadership
+   * Women empowerment
+   * Healing sciences
+   * Meditation movements
+   * National transformation initiatives
+
+5. Upcoming Events
+   Event cards placeholder
+
+6. Join AntarYog Movement
+
+   * Volunteer
+   * Donate
+   * Join Daily Meditation
+
+7. Footer Navigation
+
+   * Our Work
+   * Programs
+   * Discourses
+   * Events
+   * Donate
+   * Contact
+   * Login / Signup
+
+---
+
+OUTPUT FORMAT
+Return:
+
+1. Updated landing page wireframe hierarchy
+2. Asset mapping table (which image/logo used in which section)
+3. Updated sitemap reflecting AntarYog structure
+4. Tailwind HTML skeleton using imported assets
+5. Placeholder links for all features
+
+Do NOT implement APIs.
+Do NOT implement real authentication.
+This is still a visual mockup phase.
