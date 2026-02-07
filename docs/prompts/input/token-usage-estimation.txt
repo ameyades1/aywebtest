@@ -1,0 +1,18 @@
+User Prompt: Token Usage Estimation and Optimization
+
+Request:
+I want to estimate token usage before large tasks. Can you suggest ways, including but not limited to prefix prompts, skills etc to estimate and save token usage for any prompt?
+
+Context:
+- Working on AntarYog Foundation website project
+- Using Claude Code (Haiku 4.5 model)
+- Current token usage: ~33k/200k (16%)
+- Need to plan large implementation tasks efficiently
+- Want to maximize output per token spent
+
+Goal:
+Provide practical strategies and techniques to:
+1. Estimate token usage before starting tasks
+2. Optimize token consumption for large projects
+3. Use tools, skills, memory, and planning effectively
+4. Create reusable patterns to save tokens in future sessions
