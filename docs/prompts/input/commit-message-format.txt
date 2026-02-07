@@ -1,0 +1,14 @@
+Question: Can you suggest a commit message format for this project?
+
+Context:
+- This is a new full-stack web development project for AntarYog Foundation
+- The project uses Next.js for frontend and Express.js for backend
+- The developer is a novice/beginner
+- The project will grow to include features like events, bookings, donations, multi-language support
+- Need a format that's easy to follow but scales well
+
+Requirements:
+- Simple enough for beginners to understand
+- Industry best practices
+- Works well for both frontend and backend changes
+- Clear and scannable in git history
