@@ -494,6 +494,69 @@
                 </form>
             </div>
 
+            <!-- Email Verification Modal -->
+            <div id="verificationModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all">
+                    <!-- Checkmark Icon -->
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+
+                    <!-- Modal Content -->
+                    <h2 class="text-2xl font-bold text-ay-gray text-center mb-3">Check Your Email</h2>
+                    <p class="text-ay-gray-light text-center mb-6">
+                        We've sent a verification link to <span class="font-semibold text-ay-gray" id="verificationEmail"></span>
+                    </p>
+
+                    <!-- Email Verification Steps -->
+                    <div class="bg-ay-beige rounded-lg p-4 mb-6">
+                        <p class="text-sm font-semibold text-ay-gray mb-3">Next Steps:</p>
+                        <ol class="text-sm text-ay-gray-light space-y-2">
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-ay-teal text-white text-xs font-bold mr-3 flex-shrink-0">1</span>
+                                <span>Open your email inbox</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-ay-teal text-white text-xs font-bold mr-3 flex-shrink-0">2</span>
+                                <span>Click the verification link</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-ay-teal text-white text-xs font-bold mr-3 flex-shrink-0">3</span>
+                                <span>Complete your profile</span>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <!-- Simulated Verification Button (for mockup) -->
+                    <button
+                        onclick="simulateEmailVerification()"
+                        class="w-full bg-ay-teal hover:bg-ay-teal-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 mb-3"
+                    >
+                        I've Verified My Email
+                    </button>
+
+                    <!-- Resend Link -->
+                    <p class="text-center text-sm text-ay-gray-light">
+                        Didn't receive the email?
+                        <button onclick="resendEmail()" class="text-ay-teal hover:text-ay-teal-dark font-semibold">
+                            Resend it
+                        </button>
+                    </p>
+
+                    <!-- Helpful Tips -->
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-xs text-ay-gray-light mb-2 font-semibold">💡 Helpful tips:</p>
+                        <ul class="text-xs text-ay-gray-light space-y-1">
+                            <li>• Check your spam folder if you don't see the email</li>
+                            <li>• Links expire in 24 hours</li>
+                            <li>• Contact <a href="mailto:support@antaryog.org" class="text-ay-teal hover:underline">support</a> if you need help</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- Privacy Info -->
             <div class="mt-8 text-center text-xs text-ay-gray-light px-4">
                 <p>
@@ -772,9 +835,35 @@
                     password,
                     notifications: document.getElementById('notifications').checked
                 });
-                alert('Signup mockup - In a real app, you would receive a verification email.');
+
+                // Show email verification modal
+                showVerificationModal(email, fullName);
             }
         });
+
+        // Show email verification modal
+        function showVerificationModal(email, fullName) {
+            document.getElementById('verificationEmail').textContent = email;
+            document.getElementById('verificationModal').classList.remove('hidden');
+
+            // Hide form
+            document.querySelector('form').style.display = 'none';
+        }
+
+        // Simulate email verification (in real app, this would happen when user clicks email link)
+        function simulateEmailVerification() {
+            // Extract first name from full name
+            const fullName = document.getElementById('fullName').value;
+            const firstName = fullName.split(' ')[0];
+
+            // Redirect to profile completion page with user data
+            window.location.href = `profile-completion-antaryog.html?firstName=${encodeURIComponent(firstName)}&email=${encodeURIComponent(document.getElementById('email').value)}`;
+        }
+
+        // Resend verification email (mockup)
+        function resendEmail() {
+            alert('Verification email has been resent to ' + document.getElementById('email').value);
+        }
     </script>
 </body>
 </html>

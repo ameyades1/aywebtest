@@ -790,11 +790,22 @@
             alert(`Profile completed! Welcome, ${formData.firstName} ${formData.lastName}!`);
 
             // In real app: Submit to backend API
-            // window.location.href = 'welcome-dashboard-antaryog.html';
+            // Redirect to welcome dashboard with user's first name
+            window.location.href = `welcome-dashboard-antaryog.html?firstName=${encodeURIComponent(formData.firstName)}&language=${encodeURIComponent(formData.language)}`;
         });
 
         // Initialize form validation on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Get firstName and email from URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const firstName = params.get('firstName');
+            const email = params.get('email');
+
+            // Pre-fill first name if provided
+            if (firstName) {
+                document.getElementById('firstName').value = firstName;
+            }
+
             validateForm();
         });
     </script>
