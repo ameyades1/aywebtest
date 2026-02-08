@@ -146,6 +146,43 @@ aywebtest/
 **Phase 3:** Community Features (events, programs, enrollment)
 **Phase 4:** Advanced Features (consultation booking, donations, membership)
 
+## Responsive Navigation System
+
+### Mobile-First Design Mockups
+
+All design mockups (`frontend-branded-antaryog-v1.html` through `v4.html`) include a **comprehensive responsive navigation system** that ensures proper display on all devices:
+
+**Mobile/Tablet (< 1024px):**
+- Hamburger menu button (visible on small screens)
+- Slide-in mobile menu panel from the right (320px width, max 85vw)
+- Smooth CSS animations (300ms transitions)
+- All navigation links accessible in scrollable menu
+- Login/Signup buttons prominent at top of menu
+
+**Desktop (1024px+):**
+- Full desktop navigation bar displayed
+- Login/Signup buttons inline (right-aligned)
+- Mobile menu hidden and non-functional
+- No layout shifts or responsive breakpoint issues
+
+**Key Implementation Details:**
+- **Fixed header** with proper z-index (40 for header, 50 for overlay)
+- **Flexbox layout** restructured to prevent centering conflicts when desktop nav is hidden
+- **Vanilla JavaScript** for menu toggle (no dependencies) - opens via hamburger, closes via X button, backdrop click, or Escape key
+- **iOS Safari fixes** - bounce scroll prevention, viewport height adjustments
+- **Touch optimizations** - minimum 44px targets on mobile, 1.5rem padding on tablets
+- **Two color themes:**
+  - Teal (v1, v2): `ay-teal` (#09A59A), `ay-teal-dark` (#078078)
+  - Saffron (v3, v4): `primary` (#D97706), `accent` (#C2410C)
+
+**Device Support:**
+- iPhone 375-428px ✅
+- Android phones 360-428px ✅
+- Tablets 768-1024px ✅
+- Desktop 1024px+ ✅
+
+See `RESPONSIVE_NAVIGATION_GUIDE.md` in memory for complete testing checklist and technical specifications.
+
 ## Asset Management
 
 ### Asset Discovery System (`download-assets.sh`)
