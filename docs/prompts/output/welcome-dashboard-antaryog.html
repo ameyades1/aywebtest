@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AntarYog - Your Spiritual Journey Begins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+        }
+
+        /* Tailwind Custom Colors */
+        :root {
+            --color-ay-teal: #09A59A;
+            --color-ay-teal-dark: #078078;
+            --color-ay-teal-light: #0BC4B7;
+            --color-ay-gray: #2b3636;
+            --color-ay-gray-light: #4a5555;
+            --color-ay-beige: #F8F6F3;
+        }
+
+        .bg-ay-teal { background-color: var(--color-ay-teal); }
+        .bg-ay-teal-dark { background-color: var(--color-ay-teal-dark); }
+        .bg-ay-teal-light { background-color: var(--color-ay-teal-light); }
+        .text-ay-gray { color: var(--color-ay-gray); }
+        .text-ay-gray-light { color: var(--color-ay-gray-light); }
+        .bg-ay-beige { background-color: var(--color-ay-beige); }
+        .border-ay-teal { border-color: var(--color-ay-teal); }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 40;
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-ay-teal);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 0;
+            width: 320px;
+            max-width: 85vw;
+            height: calc(100vh - 60px);
+            background-color: white;
+            border-left: 1px solid #e5e7eb;
+            z-index: 50;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 45;
+        }
+
+        .mobile-overlay.active {
+            display: block;
+        }
+
+        @media (max-width: 1023px) {
+            .hamburger-menu {
+                display: flex;
+            }
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hamburger-menu {
+                display: none !important;
+            }
+            .mobile-menu {
+                display: none !important;
+            }
+            .mobile-overlay {
+                display: none !important;
+            }
+            .desktop-nav {
+                display: flex !important;
+            }
+        }
+
+        /* Main content padding for fixed header */
+        main {
+            margin-top: 70px;
+        }
+
+        /* Card hover effects */
+        .program-card, .event-card {
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover, .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(9, 165, 154, 0.1);
+        }
+
+        /* Section spacing */
+        .section-spacing {
+            margin-bottom: 4rem;
+        }
+
+        /* Responsive grid */
+        @media (max-width: 640px) {
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .program-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="bg-ay-beige text-ay-gray">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-ay-teal rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">अ</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-ay-gray">AntarYog</h1>
+                    <p class="text-xs text-ay-gray-light">Foundation</p>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav hidden items-center space-x-8">
+                <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">Home</a>
+                <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">Programs</a>
+                <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">Events</a>
+                <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">About</a>
+                <button class="bg-ay-teal text-white px-4 py-2 rounded-full hover:bg-ay-teal-dark transition-colors">
+                    Profile
+                </button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="hamburger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-menu">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <h2 class="font-bold text-ay-gray">Menu</h2>
+            <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="px-6 py-4 space-y-4">
+            <a href="#" class="block text-ay-gray hover:text-ay-teal transition-colors font-medium">Home</a>
+            <a href="#" class="block text-ay-gray hover:text-ay-teal transition-colors font-medium">Programs</a>
+            <a href="#" class="block text-ay-gray hover:text-ay-teal transition-colors font-medium">Events</a>
+            <a href="#" class="block text-ay-gray hover:text-ay-teal transition-colors font-medium">About</a>
+            <div class="border-t border-gray-200 pt-4 mt-4">
+                <button class="w-full bg-ay-teal text-white px-4 py-2 rounded-full hover:bg-ay-teal-dark transition-colors">
+                    Profile
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Banner -->
+        <section class="bg-gradient-to-r from-ay-teal to-ay-teal-light text-white py-12 sm:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="font-semibold">Email verified!</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold mb-3">
+                            Welcome to AntarYog Foundation, <span id="userName">Friend</span>!
+                        </h2>
+                        <p class="text-lg text-ay-teal-light mb-6">
+                            Your spiritual journey begins here. Explore programs, attend events, and connect with our community.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#programs" class="bg-white text-ay-teal font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-center">
+                                Explore Programs
+                            </a>
+                            <a href="#events" class="border-2 border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors text-center">
+                                View Events
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <svg class="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <!-- Featured Programs Section -->
+            <section class="section-spacing" id="programs">
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-ay-gray mb-3">Featured Programs</h3>
+                    <p class="text-ay-gray-light">Explore our spiritual and educational programs</p>
+                </div>
+
+                <div class="program-grid grid gap-6">
+                    <!-- Program Card 1 -->
+                    <div class="program-card bg-white rounded-xl overflow-hidden shadow-md">
+                        <div class="h-40 bg-gradient-to-br from-ay-teal to-ay-teal-dark flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-ay-gray mb-2">Meditation & Mindfulness</h4>
+                            <p class="text-ay-gray-light text-sm mb-4">
+                                Learn techniques to calm your mind and deepen your inner peace through guided meditation sessions.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-ay-teal">8 Week Course</span>
+                                <a href="#" class="text-ay-teal font-semibold hover:text-ay-teal-dark transition-colors">
+                                    Learn More →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Program Card 2 -->
+                    <div class="program-card bg-white rounded-xl overflow-hidden shadow-md">
+                        <div class="h-40 bg-gradient-to-br from-ay-teal-light to-ay-teal flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 6.75 3 9.072 3 13.5c0 3.526 2.607 6.462 6 7.674m9-13.75C17.5 6.75 21 9.072 21 13.5c0 3.526-2.607 6.462-6 7.674m3-13.5H3m18 0h.01M3 13.5a6 6 0 016 6m9-6a6 6 0 00-6 6"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-ay-gray mb-2">Vedantic Teachings</h4>
+                            <p class="text-ay-gray-light text-sm mb-4">
+                                Discover timeless Vedantic wisdom that addresses life's fundamental questions and spiritual growth.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-ay-teal">Ongoing Sessions</span>
+                                <a href="#" class="text-ay-teal font-semibold hover:text-ay-teal-dark transition-colors">
+                                    Learn More →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Program Card 3 -->
+                    <div class="program-card bg-white rounded-xl overflow-hidden shadow-md">
+                        <div class="h-40 bg-gradient-to-br from-ay-teal-light to-ay-teal-dark flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-ay-gray mb-2">Naadi Jyotish Consultation</h4>
+                            <p class="text-ay-gray-light text-sm mb-4">
+                                Get personalized insights from ancient Naadi astrology to understand your life path and purpose.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-ay-teal">1-Hour Session</span>
+                                <a href="#" class="text-ay-teal font-semibold hover:text-ay-teal-dark transition-colors">
+                                    Learn More →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#" class="inline-block border-2 border-ay-teal text-ay-teal font-semibold px-8 py-3 rounded-full hover:bg-ay-teal/5 transition-colors">
+                        View All Programs
+                    </a>
+                </div>
+            </section>
+
+            <!-- Upcoming Events Section -->
+            <section class="section-spacing" id="events">
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-ay-gray mb-3">Upcoming Events</h3>
+                    <p class="text-ay-gray-light">Join our community and participate in transformative experiences</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Event Card 1 -->
+                    <div class="event-card bg-white rounded-lg shadow-md p-6 flex flex-col sm:flex-row gap-6">
+                        <div class="flex items-center gap-4 sm:flex-col sm:items-start">
+                            <div class="w-16 h-16 bg-ay-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="text-center text-white">
+                                    <div class="text-lg font-bold">23</div>
+                                    <div class="text-xs">Feb</div>
+                                </div>
+                            </div>
+                            <div class="sm:hidden">
+                                <div class="font-semibold text-ay-gray">10:00 AM</div>
+                                <div class="text-sm text-ay-gray-light">Online</div>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-xl font-bold text-ay-gray mb-2">Satsang with Swami</h4>
+                            <p class="text-ay-gray-light text-sm mb-3">
+                                A sacred gathering for spiritual discourse and meditation. Open to all seekers.
+                            </p>
+                            <div class="hidden sm:flex items-center gap-6 text-sm">
+                                <span class="flex items-center gap-1 text-ay-gray-light">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 2m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    10:00 AM - 11:30 AM
+                                </span>
+                                <span class="flex items-center gap-1 text-ay-gray-light">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    </svg>
+                                    Online
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 sm:flex-col sm:items-end">
+                            <button class="bg-ay-teal text-white px-6 py-2 rounded-full hover:bg-ay-teal-dark transition-colors font-semibold text-sm">
+                                Register
+                            </button>
+                            <span class="text-xs text-ay-gray-light">Spots: 24/50</span>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 2 -->
+                    <div class="event-card bg-white rounded-lg shadow-md p-6 flex flex-col sm:flex-row gap-6">
+                        <div class="flex items-center gap-4 sm:flex-col sm:items-start">
+                            <div class="w-16 h-16 bg-ay-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="text-center text-white">
+                                    <div class="text-lg font-bold">02</div>
+                                    <div class="text-xs">Mar</div>
+                                </div>
+                            </div>
+                            <div class="sm:hidden">
+                                <div class="font-semibold text-ay-gray">6:00 PM</div>
+                                <div class="text-sm text-ay-gray-light">Mumbai</div>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-xl font-bold text-ay-gray mb-2">Yoga & Wellness Retreat</h4>
+                            <p class="text-ay-gray-light text-sm mb-3">
+                                A weekend retreat combining yoga practices, wellness sessions, and spiritual teachings in a serene setting.
+                            </p>
+                            <div class="hidden sm:flex items-center gap-6 text-sm">
+                                <span class="flex items-center gap-1 text-ay-gray-light">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 2m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    6:00 PM - 8:00 PM
+                                </span>
+                                <span class="flex items-center gap-1 text-ay-gray-light">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    </svg>
+                                    Mumbai
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 sm:flex-col sm:items-end">
+                            <button class="bg-ay-teal text-white px-6 py-2 rounded-full hover:bg-ay-teal-dark transition-colors font-semibold text-sm">
+                                Register
+                            </button>
+                            <span class="text-xs text-ay-gray-light">Spots: 15/30</span>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 3 -->
+                    <div class="event-card bg-white rounded-lg shadow-md p-6 flex flex-col sm:flex-row gap-6">
+                        <div class="flex items-center gap-4 sm:flex-col sm:items-start">
+                            <div class="w-16 h-16 bg-ay-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="text-center text-white">
+                                    <div class="text-lg font-bold">15</div>
+                                    <div class="text-xs">Mar</div>
+                                </div>
+                            </div>
+                            <div class="sm:hidden">
+                                <div class="font-semibold text-ay-gray">3:00 PM</div>
+                                <div class="text-sm text-ay-gray-light">Delhi</div>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-xl font-bold text-ay-gray mb-2">Vedantic Study Circle</h4>
+                            <p class="text-ay-gray-light text-sm mb-3">
+                                Deep exploration of Upanishadic teachings through group discussion and guided study sessions.
+                            </p>
+                            <div class="hidden sm:flex items-center gap-6 text-sm">
+                                <span class="flex items-center gap-1 text-ay-gray-light">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 2m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    3:00 PM - 5:00 PM
+                                </span>
+                                <span class="flex items-center gap-1 text-ay-gray-light">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    </svg>
+                                    Delhi
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 sm:flex-col sm:items-end">
+                            <button class="bg-ay-teal text-white px-6 py-2 rounded-full hover:bg-ay-teal-dark transition-colors font-semibold text-sm">
+                                Register
+                            </button>
+                            <span class="text-xs text-ay-gray-light">Spots: 8/20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#" class="inline-block border-2 border-ay-teal text-ay-teal font-semibold px-8 py-3 rounded-full hover:bg-ay-teal/5 transition-colors">
+                        View All Events
+                    </a>
+                </div>
+            </section>
+
+            <!-- Quick Actions Section -->
+            <section class="section-spacing">
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-ay-gray mb-3">Get Started</h3>
+                    <p class="text-ay-gray-light">What would you like to do next?</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Quick Action Card 1 -->
+                    <a href="#" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg hover:border-ay-teal border-2 border-transparent transition-all">
+                        <div class="w-12 h-12 bg-ay-teal/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-ay-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-ay-gray mb-2">Browse Programs</h4>
+                        <p class="text-sm text-ay-gray-light">Explore all courses and learning paths</p>
+                    </a>
+
+                    <!-- Quick Action Card 2 -->
+                    <a href="#" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg hover:border-ay-teal border-2 border-transparent transition-all">
+                        <div class="w-12 h-12 bg-ay-teal/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-ay-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-ay-gray mb-2">View Events</h4>
+                        <p class="text-sm text-ay-gray-light">Find and register for upcoming events</p>
+                    </a>
+
+                    <!-- Quick Action Card 3 -->
+                    <a href="#" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg hover:border-ay-teal border-2 border-transparent transition-all">
+                        <div class="w-12 h-12 bg-ay-teal/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-ay-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-ay-gray mb-2">Learn More</h4>
+                        <p class="text-sm text-ay-gray-light">Read about our spiritual mission</p>
+                    </a>
+
+                    <!-- Quick Action Card 4 -->
+                    <a href="#" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg hover:border-ay-teal border-2 border-transparent transition-all">
+                        <div class="w-12 h-12 bg-ay-teal/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-ay-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-ay-gray mb-2">Contact Us</h4>
+                        <p class="text-sm text-ay-gray-light">Get in touch with our team</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ay-gray text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h4 class="font-semibold mb-4">About</h4>
+                    <p class="text-gray-300 text-sm">AntarYog Foundation is dedicated to reviving Vedantic knowledge and creating societal transformation.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Events</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>Email: <a href="mailto:info@antaryog.org" class="hover:text-white transition-colors">info@antaryog.org</a></li>
+                        <li>Phone: +91 (123) 456-7890</li>
+                        <li>Location: India</li>
+                    </ul>
+                </div>
+
+                <!-- Follow Us -->
+                <div>
+                    <h4 class="font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20v-7.21H5.5V9.25h2.79V7.07c0-2.7 1.65-4.18 4.07-4.18 1.16 0 2.16.087 2.45.126v2.84h-1.68c-1.32 0-1.57.63-1.57 1.55V9.25h3.14l-.41 3.54h-2.73V20"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417a9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6 text-sm text-gray-300">
+                    <div>
+                        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    </div>
+                    <div class="text-center">
+                        <p>&copy; 2024 AntarYog Foundation. All rights reserved.</p>
+                    </div>
+                    <div class="text-right">
+                        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.mobile-overlay');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Set user name from URL parameter or localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const firstName = params.get('firstName') || localStorage.getItem('firstName') || 'Friend';
+            document.getElementById('userName').textContent = firstName;
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
