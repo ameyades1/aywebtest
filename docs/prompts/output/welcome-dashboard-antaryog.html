@@ -176,13 +176,16 @@
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="desktop-nav hidden items-center space-x-8">
+            <nav class="desktop-nav hidden items-center space-x-6">
                 <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">Home</a>
                 <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">Programs</a>
                 <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">Events</a>
                 <a href="#" class="text-ay-gray hover:text-ay-teal transition-colors">About</a>
                 <button class="bg-ay-teal text-white px-4 py-2 rounded-full hover:bg-ay-teal-dark transition-colors">
                     Profile
+                </button>
+                <button onclick="handleLogout()" class="border-2 border-ay-teal text-ay-teal px-4 py-2 rounded-full hover:bg-ay-teal/10 transition-colors font-medium">
+                    Logout
                 </button>
             </nav>
 
@@ -211,9 +214,12 @@
             <a href="#" class="block text-ay-gray hover:text-ay-teal transition-colors font-medium">Programs</a>
             <a href="#" class="block text-ay-gray hover:text-ay-teal transition-colors font-medium">Events</a>
             <a href="#" class="block text-ay-gray hover:text-ay-teal transition-colors font-medium">About</a>
-            <div class="border-t border-gray-200 pt-4 mt-4">
+            <div class="border-t border-gray-200 pt-4 mt-4 space-y-3">
                 <button class="w-full bg-ay-teal text-white px-4 py-2 rounded-full hover:bg-ay-teal-dark transition-colors">
                     Profile
+                </button>
+                <button onclick="handleLogout()" class="w-full border-2 border-ay-teal text-ay-teal px-4 py-2 rounded-full hover:bg-ay-teal/10 transition-colors font-medium">
+                    Logout
                 </button>
             </div>
         </nav>
@@ -620,6 +626,15 @@
             const overlay = document.querySelector('.mobile-overlay');
             mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
+        }
+
+        function handleLogout() {
+            // Clear user data from localStorage
+            localStorage.removeItem('firstName');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userId');
+            // Redirect to login page
+            window.location.href = 'login-branded-antaryog.html';
         }
 
         // Set user name from URL parameter or localStorage
