@@ -1,0 +1,56 @@
+You are a senior frontend engineer performing a brand theme standardization pass for the AntarYog Foundation landing page.
+
+Goal:
+Update the existing landing page mockup so that the entire UI uses the Earth-Gold Harmony color system (Option v5) while keeping layout, assets, and content unchanged.
+
+COLOR SYSTEM (MANDATORY)
+
+Set the global design palette:
+
+Primary: Brand Brown — #6B3E2E
+Secondary: Soft Gold — #D9A441
+Accent CTA: Copper — #B45309
+Background Main: Warm Cream — #F6F1E7
+Alternate Section Background: Soft Sand — #EFE6D6
+Text Primary: Deep Brown — #3A2418
+Text Secondary: Muted Earth — #6E5C4F
+
+IMPLEMENTATION RULES
+
+Replace all previously used teal, blue, or saffron-dominant colors with this palette.
+
+Apply colors consistently:
+
+Header background: Warm Cream
+Navigation hover: Soft Gold
+Primary CTA buttons: Brand Brown with white text
+Secondary CTA buttons: Copper
+Links: Brand Brown
+Section alternate backgrounds: Soft Sand
+Section dividers / highlights: subtle Soft Gold tones
+
+Ensure accessibility contrast for text and buttons.
+
+Create reusable Tailwind design tokens:
+
+colors: {
+  primary: "#6B3E2E",
+  secondary: "#D9A441",
+  accent: "#B45309",
+  background: "#F6F1E7",
+  sectionAlt: "#EFE6D6",
+  text: "#3A2418"
+}
+
+
+Do NOT change layout, assets, or section hierarchy.
+
+Keep this as mockup phase only (no backend logic or API calls).
+
+OUTPUT REQUIRED
+
+Return:
+
+• Updated Tailwind configuration snippet with new color tokens
+• Updated landing page HTML using the new palette
+• Short “theme usage guide” showing how headers, buttons, and sections use the colors
