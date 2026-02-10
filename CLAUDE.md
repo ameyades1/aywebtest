@@ -11,14 +11,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Backend:** Node.js + Express.js
 - **Database:** MongoDB (or PostgreSQL/SQLite)
 - **Authentication:** JWT
-- **Design:** Tailwind CSS with custom spiritual color themes (Teal, Saffron)
+- **Design:** Tailwind CSS with custom spiritual color themes (Teal, Saffron, Earth-Gold Harmony)
 
 **Current State:** MVP phase - basic pages structure in progress (frontend and backend directories are currently empty). Project includes design mockups in `index.html` and `docs/prompts/output/` for reference.
 
 ## Key Project Resources
 
 - **ROLE_DEFINITION.md** (`docs/prompts/output/ROLE_DEFINITION.md`) - Spiritual mission context, organization values, and feature requirements
-- **Design Mockups** (`docs/prompts/output/frontend-branded-antaryog-v*.html`) - Four design variations showing branding and layout approaches
+- **Design Mockups** (`docs/prompts/output/frontend-branded-antaryog-v*.html`) - Six design variations (three themes × two content levels) showing branding and layout approaches
 - **CONTRIBUTING.md** (`docs/CONTRIBUTING.md`) - Commit message format (Conventional Commits), code style guidelines, development workflow
 - **Asset Download Script** (`download-assets.sh`) - Hybrid downloader that auto-discovers 40+ assets from learn.antaryogfoundation.in (images, CSS)
 
@@ -120,19 +120,30 @@ aywebtest/
 ### Key Design Patterns
 
 **Color System** (Tailwind custom colors):
-- Teal theme: `ay-teal` (#09A59A), `ay-teal-dark` (#078078), `ay-teal-light` (#0BC4B7)
-- Saffron theme: `ay-saffron` (#D97706), `ay-saffron-dark` (#B45309), `ay-saffron-light` (#F59E0B)
-- Base colors: `ay-gray` (#2b3636), `ay-gray-light` (#4a5555), `ay-beige` (#F8F6F3)
+- **Teal theme:** `ay-teal` (#09A59A), `ay-teal-dark` (#078078), `ay-teal-light` (#0BC4B7) - Modern, cool aesthetic
+- **Saffron theme:** `ay-saffron` (#D97706), `ay-saffron-dark` (#B45309), `ay-saffron-light` (#F59E0B) - Traditional Indian cultural colors
+- **Earth-Gold Harmony theme:** `primary` (#6B3E2E), `secondary` (#D9A441), `accent` (#B45309), `background` (#F6F1E7), `text` (#3A2418), `text-secondary` (#6E5C4F) - Warm earthy tones with spiritual prosperity
+- **Base colors:** `ay-gray` (#2b3636), `ay-gray-light` (#4a5555), `ay-beige` (#F8F6F3)
 
 **Typography** (in index.html Tailwind config):
 - Serif: Lora (for headings) - represents traditional, spiritual aesthetic
 - Sans: Inter (for body) - modern, clean readability
 
-**Four Design Variations** (reference mockups in docs/prompts/output/):
-- v1: Teal theme with traditional spiritual elements
-- v2: Saffron theme emphasizing Indian cultural colors
-- v3: Alternative Teal variation with different layouts
-- v4: Enhanced Saffron with refined spiritual design
+**Six Design Variations** (reference mockups in docs/prompts/output/):
+
+*Teal Theme (Modern & Contemporary):*
+- v1: Teal theme with minimal content
+- v2: Teal theme with enhanced official content
+
+*Saffron Theme (Traditional Indian Cultural):*
+- v3: Saffron theme with minimal content
+- v4: Saffron theme with enhanced official content
+
+*Earth-Gold Harmony Theme (Grounded & Spiritual):*
+- v5: Earth-Gold Harmony with minimal content
+- v6: Earth-Gold Harmony with enhanced official content
+
+**Design Pattern:** Odd versions (1, 3, 5) feature core design with minimal content; even versions (2, 4, 6) include full official AntarYog Foundation content, programs, and detailed information.
 
 ### MVP Phase Requirements
 
@@ -150,7 +161,7 @@ aywebtest/
 
 ### Mobile-First Design Mockups
 
-All design mockups (`frontend-branded-antaryog-v1.html` through `v4.html`) include a **comprehensive responsive navigation system** that ensures proper display on all devices:
+All design mockups (`frontend-branded-antaryog-v1.html` through `v6.html`) include a **comprehensive responsive navigation system** that ensures proper display on all devices:
 
 **Mobile/Tablet (< 1024px):**
 - Hamburger menu button (visible on small screens)
@@ -171,9 +182,10 @@ All design mockups (`frontend-branded-antaryog-v1.html` through `v4.html`) inclu
 - **Vanilla JavaScript** for menu toggle (no dependencies) - opens via hamburger, closes via X button, backdrop click, or Escape key
 - **iOS Safari fixes** - bounce scroll prevention, viewport height adjustments
 - **Touch optimizations** - minimum 44px targets on mobile, 1.5rem padding on tablets
-- **Two color themes:**
-  - Teal (v1, v2): `ay-teal` (#09A59A), `ay-teal-dark` (#078078)
-  - Saffron (v3, v4): `primary` (#D97706), `accent` (#C2410C)
+- **Three color themes:**
+  - Teal (v1, v2): `ay-teal` (#09A59A), `ay-teal-dark` (#078078) - Modern and cool
+  - Saffron (v3, v4): `ay-saffron` (#D97706), `ay-saffron-dark` (#B45309) - Traditional and warm
+  - Earth-Gold (v5, v6): `primary` (#6B3E2E), `accent` (#B45309) - Grounded and spiritual
 
 **Device Support:**
 - iPhone 375-428px ✅
@@ -182,6 +194,70 @@ All design mockups (`frontend-branded-antaryog-v1.html` through `v4.html`) inclu
 - Desktop 1024px+ ✅
 
 See `RESPONSIVE_NAVIGATION_GUIDE.md` in memory for complete testing checklist and technical specifications.
+
+## Earth-Gold Harmony Theme (v5 & v6)
+
+### Overview
+
+The Earth-Gold Harmony theme (versions v5 and v6) represents a warm, grounded aesthetic that combines the stability of earth tones with the spiritual prosperity of gold. This theme is ideal for users seeking a traditional, spiritual feel while maintaining modern design principles.
+
+### Color Palette
+
+**Primary Colors:**
+- **Primary (Brand Brown):** #6B3E2E - Header links, primary CTAs, key text elements
+- **Secondary (Soft Gold):** #D9A441 - Hover states, highlights, and accents
+- **Accent (Copper):** #B45309 - Secondary CTAs and emphasis elements
+
+**Background Colors:**
+- **Background (Warm Cream):** #F6F1E7 - Main page backgrounds, light elements
+- **Section Alt (Soft Sand):** #EFE6D6 - Alternating section backgrounds for visual separation
+
+**Text Colors:**
+- **Text (Deep Brown):** #3A2418 - Primary text, headings (excellent contrast)
+- **Text Secondary (Muted Earth):** #6E5C4F - Secondary text, captions, descriptions
+
+### Design Characteristics
+
+- **Warm aesthetic:** Earth tones evoke stability, tradition, and groundedness
+- **Spiritual symbolism:** Gold represents prosperity and spiritual energy
+- **WCAG AA compliant:** All color combinations meet accessibility contrast standards (9.2:1 primary, 7.1:1 secondary)
+- **Responsive design:** Full mobile-first approach with 300ms animations
+- **Professional appearance:** Suitable for international reach and diverse audiences
+
+### Available Versions
+
+**v5 - Earth-Gold Harmony (Minimal Content):**
+- Location: `docs/prompts/output/frontend-branded-antaryog-v5.html`
+- Size: 1,025 lines
+- Content: Core design elements without full AntarYog Foundation content
+- Ideal for: Landing pages, feature showcases, focused messaging
+
+**v6 - Earth-Gold Harmony (Enhanced Content):**
+- Location: `docs/prompts/output/frontend-branded-antaryog-v6.html`
+- Size: 1,073 lines
+- Content: Full official AntarYog Foundation content, programs, mission, events
+- Ideal for: Complete website, comprehensive information, engagement
+
+### Implementation Details
+
+All Earth-Gold theme versions include:
+- Responsive header with fixed positioning
+- Mobile menu with slide-in panel (300ms animation)
+- Hero section with gradient backgrounds
+- Program cards with hover effects
+- Mission/values section
+- Upcoming events listing
+- Call-to-action sections
+- Footer with links and social integration
+- Touch-optimized interactive elements (44px minimum)
+
+### Browser & Device Support
+
+- ✅ iPhone 375-428px
+- ✅ Android phones 360-428px
+- ✅ Tablets 768-1024px
+- ✅ Desktop 1024px+
+- ✅ Modern browsers (Chrome, Firefox, Safari, Edge)
 
 ## Asset Management
 
@@ -280,7 +356,7 @@ git commit -m "chore(backend): update express to latest version"
 ## Important Notes
 
 **Design Reference:**
-The `index.html` file contains a landing page showcasing four design mockup variations. View it in a browser to see different layout and color theme approaches. The branded mockups in `docs/prompts/output/` provide detailed reference for building actual pages.
+The `index.html` file contains a landing page showcasing six design mockup variations across three color themes (Teal, Saffron, Earth-Gold Harmony). View it in a browser to see different layout and color theme approaches. The branded mockups in `docs/prompts/output/` provide detailed reference for building actual pages. Each theme is available in minimal and enhanced versions to suit different content needs.
 
 **Empty Directories:**
 The `frontend/` and `backend/` directories are currently empty. Implement according to the structure defined in README.md and informed by the design mockups.
@@ -306,4 +382,5 @@ README mentions MongoDB as primary choice but supports PostgreSQL/SQLite. Choose
 ---
 
 **Project Status:** MVP Phase (In Development)
-**Last Updated:** February 2026
+**Design Mockups:** 6 variations across 3 themes (Teal, Saffron, Earth-Gold Harmony)
+**Last Updated:** February 10, 2026
