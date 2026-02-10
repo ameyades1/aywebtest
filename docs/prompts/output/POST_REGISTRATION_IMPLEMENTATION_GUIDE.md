@@ -140,7 +140,6 @@ other             → Catch-all for unexpected channels
 ├── Success Indicator
 │   ├── Checkmark icon
 │   ├── "Complete Your Profile" title
-│   └── "Email verified successfully" message
 │
 ├── FORM (id="profileForm")
 │   ├── Section 1: Personal Details
