@@ -818,11 +818,6 @@
                     if (value && index < otpInputs.length - 1) {
                         otpInputs[index + 1].focus();
                     }
-
-                    // Auto-submit when all 6 digits filled
-                    if (index === otpInputs.length - 1 && value) {
-                        setTimeout(() => handleOTPVerification(), 200);
-                    }
                 });
 
                 // Handle backspace
@@ -850,7 +845,6 @@
                             inp.value = digits[i];
                             inp.classList.add('filled');
                         });
-                        setTimeout(() => handleOTPVerification(), 200);
                     }
                 });
             });
