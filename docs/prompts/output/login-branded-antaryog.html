@@ -892,8 +892,8 @@
                     identifier: authState.identifier,
                     otp: otp
                 });
-                alert(`Welcome back! OTP verified for ${authState.method === 'email' ? 'email' : 'phone'} ${authState.identifier}`);
-                // In real app, would redirect to dashboard
+                // Redirect to welcome dashboard
+                window.location.href = 'welcome-dashboard-antaryog.html';
             } else {
                 showOTPError('Invalid code. Please try again or request a new one.');
             }
