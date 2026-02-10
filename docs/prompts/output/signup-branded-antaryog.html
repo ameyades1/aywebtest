@@ -120,36 +120,103 @@
             ring: 2px;
         }
 
-        /* Password strength indicator */
-        .strength-bar {
-            height: 6px;
-            background-color: #e5e7eb;
-            border-radius: 9999px;
-            overflow: hidden;
+        /* Multi-screen state management */
+        .screen {
+            display: none;
         }
 
-        .strength-fill {
-            height: 100%;
-            width: 0;
-            transition: width 300ms ease, background-color 300ms ease;
+        .screen.active {
+            display: block;
+            animation: fadeIn 300ms ease-in-out;
         }
 
-        .strength-weak {
-            background-color: #DC2626;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .strength-medium {
-            background-color: #F59E0B;
-        }
-
-        .strength-strong {
-            background-color: #10B981;
-        }
-
-        /* Password visibility toggle */
-        .password-toggle {
+        /* Method selection buttons */
+        .method-btn {
+            padding: 1rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.75rem;
+            background-color: white;
             cursor: pointer;
-            user-select: none;
+            transition: all 300ms ease;
+            text-align: center;
+            font-weight: 600;
+            color: #2b3636;
+        }
+
+        .method-btn:hover {
+            border-color: #09A59A;
+            background-color: #f0fffe;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(9, 165, 154, 0.15);
+        }
+
+        /* OTP Input Styling */
+        .otp-container {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .otp-input {
+            width: 3rem;
+            height: 3.5rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            transition: all 200ms ease;
+            background-color: white;
+        }
+
+        .otp-input:focus {
+            outline: none;
+            border-color: #09A59A;
+            box-shadow: 0 0 0 3px rgba(9, 165, 154, 0.1);
+        }
+
+        .otp-input.filled {
+            border-color: #09A59A;
+            background-color: #f0fffe;
+        }
+
+        .otp-input.error {
+            border-color: #DC2626;
+            background-color: #FEE2E2;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Resend button state */
+        .resend-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Masked identifier display */
+        .masked-identifier {
+            font-size: 0.875rem;
+            color: #4a5555;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -297,10 +364,10 @@
 
     <!-- Main Content -->
     <main class="min-h-screen py-12 lg:py-20 flex items-center justify-center">
-        <div class="w-full max-w-lg px-4 md:px-6 lg:px-8">
+        <div class="w-full max-w-md px-4 md:px-6 lg:px-8">
             <!-- Signup Card -->
             <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-10">
-                <!-- Logo and Heading -->
+                <!-- Logo and Heading (fixed for all screens) -->
                 <div class="text-center mb-8">
                     <div class="inline-block mb-6">
                         <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation" class="h-12 w-auto">
@@ -309,162 +376,93 @@
                     <p class="text-ay-gray-light text-base md:text-lg">Join our spiritual community</p>
                 </div>
 
-                <!-- Signup Form -->
-                <form id="signupForm" class="space-y-5">
-                    <!-- Full Name Field -->
-                    <div>
-                        <label for="fullName" class="block text-sm font-semibold text-ay-gray mb-2">
-                            Full Name <span class="text-red-500">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            id="fullName"
-                            name="fullName"
-                            placeholder="Enter your full name"
-                            required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
-                        >
-                        <p class="mt-1 text-sm text-red-500 hidden" id="fullName-error"></p>
-                    </div>
+                <!-- Screen 1: Method Selection -->
+                <div id="methodScreen" class="screen active space-y-4">
+                    <p class="text-center text-ay-gray-light mb-6">Choose your preferred signup method</p>
+                    <button
+                        type="button"
+                        onclick="showScreen('emailSignupScreen')"
+                        class="method-btn w-full"
+                    >
+                        <svg class="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Sign Up with Email
+                    </button>
+                    <button
+                        type="button"
+                        onclick="showScreen('phoneSignupScreen')"
+                        class="method-btn w-full"
+                    >
+                        <svg class="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 00.948.684l1.498 7.492a1 1 0 00.502.756l4.618 2.311a1 1 0 001.497-1.295l-5.335-5.334a6 6 0 008.485 0l-5.335 5.334a1 1 0 001.497 1.295l4.618-2.31a1 1 0 00.502-.757l1.498-7.492a1 1 0 00.948-.684H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
+                        </svg>
+                        Sign Up with Phone
+                    </button>
 
-                    <!-- Email Field -->
+                    <!-- Login link -->
+                    <div class="text-center pt-6 border-t border-gray-200">
+                        <p class="text-ay-gray-light text-sm">
+                            Already have an account?
+                            <a href="login-branded-antaryog.html" class="text-ay-teal hover:text-ay-teal-dark font-semibold transition-colors">
+                                Login here
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Screen 2a: Email Signup -->
+                <div id="emailSignupScreen" class="screen space-y-5">
                     <div>
-                        <label for="email" class="block text-sm font-semibold text-ay-gray mb-2">
+                        <label for="signupEmail" class="block text-sm font-semibold text-ay-gray mb-2">
                             Email Address <span class="text-red-500">*</span>
                         </label>
                         <input
                             type="email"
-                            id="email"
-                            name="email"
+                            id="signupEmail"
                             placeholder="you@example.com"
-                            required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
                         >
-                        <p class="mt-1 text-sm text-red-500 hidden" id="email-error"></p>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="signupEmail-error"></p>
                     </div>
 
-                    <!-- Phone Number Field -->
                     <div>
-                        <label for="phone" class="block text-sm font-semibold text-ay-gray mb-2">
-                            Phone Number <span class="text-red-500">*</span>
+                        <label for="signupName" class="block text-sm font-semibold text-ay-gray mb-2">
+                            Full Name <span class="text-red-500">*</span>
                         </label>
-                        <div class="flex gap-2">
-                            <select
-                                id="countryCode"
-                                name="countryCode"
-                                class="w-24 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
-                            >
-                                <option value="+91">+91</option>
-                                <option value="+1">+1</option>
-                                <option value="+44">+44</option>
-                                <option value="+91">+86</option>
-                                <option value="+91">+81</option>
-                            </select>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="9876543210"
-                                pattern="[0-9]{10}"
-                                required
-                                class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
-                            >
-                        </div>
-                        <p class="mt-1 text-xs text-ay-gray-light">
-                            10-digit mobile number
-                        </p>
-                        <p class="mt-1 text-sm text-red-500 hidden" id="phone-error"></p>
-                    </div>
-
-                    <!-- Password Field -->
-                    <div>
-                        <label for="password" class="block text-sm font-semibold text-ay-gray mb-2">
-                            Password <span class="text-red-500">*</span>
-                        </label>
-                        <div class="relative">
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Enter your password"
-                                required
-                                class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
-                            >
-                            <button
-                                type="button"
-                                onclick="togglePassword('password')"
-                                class="absolute right-3 top-1/2 -translate-y-1/2 text-ay-gray-light hover:text-ay-gray transition-colors password-toggle"
-                            >
-                                <svg id="eye-icon-password" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <!-- Password Strength Indicator -->
-                        <div class="mt-3">
-                            <div class="strength-bar">
-                                <div id="strengthBar" class="strength-fill" style="width: 0%"></div>
-                            </div>
-                            <p class="mt-1 text-xs text-ay-gray-light">
-                                <span id="strengthText">Weak</span> - Min 8 characters, 1 uppercase, 1 number, 1 special character
-                            </p>
-                        </div>
-                        <p class="mt-1 text-sm text-red-500 hidden" id="password-error"></p>
-                    </div>
-
-                    <!-- Confirm Password Field -->
-                    <div>
-                        <label for="confirmPassword" class="block text-sm font-semibold text-ay-gray mb-2">
-                            Confirm Password <span class="text-red-500">*</span>
-                        </label>
-                        <div class="relative">
-                            <input
-                                type="password"
-                                id="confirmPassword"
-                                name="confirmPassword"
-                                placeholder="Confirm your password"
-                                required
-                                class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
-                            >
-                            <button
-                                type="button"
-                                onclick="togglePassword('confirmPassword')"
-                                class="absolute right-3 top-1/2 -translate-y-1/2 text-ay-gray-light hover:text-ay-gray transition-colors password-toggle"
-                            >
-                                <svg id="eye-icon-confirmPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <p class="mt-1 text-sm text-red-500 hidden" id="confirmPassword-error"></p>
+                        <input
+                            type="text"
+                            id="signupName"
+                            placeholder="Enter your full name"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
+                        >
+                        <p class="mt-1 text-sm text-red-500 hidden" id="signupName-error"></p>
                     </div>
 
                     <!-- Notification Opt-in -->
-                    <div class="flex items-start pt-2">
+                    <div class="flex items-start">
                         <input
                             type="checkbox"
-                            id="notifications"
-                            name="notifications"
+                            id="emailNotifications"
+                            name="emailNotifications"
                             checked
                             class="mt-1 h-4 w-4 text-ay-teal focus:ring-ay-teal border-gray-300 rounded"
                         >
-                        <label for="notifications" class="ml-3 text-sm text-ay-gray-light">
+                        <label for="emailNotifications" class="ml-3 text-sm text-ay-gray-light">
                             I want to receive updates about events, programs, and spiritual guidance
                         </label>
                     </div>
 
                     <!-- Terms & Privacy Agreement -->
-                    <div class="flex items-start pt-2">
+                    <div class="flex items-start">
                         <input
                             type="checkbox"
-                            id="terms"
-                            name="terms"
+                            id="emailTerms"
+                            name="emailTerms"
                             required
                             class="mt-1 h-4 w-4 text-ay-teal focus:ring-ay-teal border-gray-300 rounded"
                         >
-                        <label for="terms" class="ml-3 text-sm text-ay-gray">
+                        <label for="emailTerms" class="ml-3 text-sm text-ay-gray">
                             I agree to the
                             <a href="#" class="text-ay-teal hover:text-ay-teal-dark font-semibold">Terms & Conditions</a>
                             and
@@ -472,88 +470,163 @@
                             <span class="text-red-500">*</span>
                         </label>
                     </div>
-                    <p class="text-sm text-red-500 hidden" id="terms-error"></p>
+                    <p class="text-sm text-red-500 hidden" id="emailTerms-error"></p>
 
-                    <!-- Create Account Button -->
                     <button
-                        type="submit"
-                        class="w-full bg-ay-teal hover:bg-ay-teal-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 mt-8"
+                        type="button"
+                        onclick="handleEmailSignup()"
+                        class="w-full bg-ay-teal hover:bg-ay-teal-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
-                        Create Account
+                        Send OTP & Continue
                     </button>
 
-                    <!-- Login Link -->
-                    <div class="text-center pt-4 border-t border-gray-200">
-                        <p class="text-ay-gray-light">
-                            Already have an account?
-                            <a href="login-branded-antaryog.html" class="text-ay-teal hover:text-ay-teal-dark font-semibold transition-colors">
-                                Login
-                            </a>
-                        </p>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Email Verification Modal -->
-            <div id="verificationModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all">
-                    <!-- Checkmark Icon -->
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Modal Content -->
-                    <h2 class="text-2xl font-bold text-ay-gray text-center mb-3">Check Your Email</h2>
-                    <p class="text-ay-gray-light text-center mb-6">
-                        We've sent a verification link to <span class="font-semibold text-ay-gray" id="verificationEmail"></span>
-                    </p>
-
-                    <!-- Email Verification Steps -->
-                    <div class="bg-ay-beige rounded-lg p-4 mb-6">
-                        <p class="text-sm font-semibold text-ay-gray mb-3">Next Steps:</p>
-                        <ol class="text-sm text-ay-gray-light space-y-2">
-                            <li class="flex items-start">
-                                <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-ay-teal text-white text-xs font-bold mr-3 flex-shrink-0">1</span>
-                                <span>Open your email inbox</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-ay-teal text-white text-xs font-bold mr-3 flex-shrink-0">2</span>
-                                <span>Click the verification link</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-ay-teal text-white text-xs font-bold mr-3 flex-shrink-0">3</span>
-                                <span>Complete your profile</span>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <!-- Simulated Verification Button (for mockup) -->
                     <button
-                        onclick="simulateEmailVerification()"
-                        class="w-full bg-ay-teal hover:bg-ay-teal-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 mb-3"
+                        type="button"
+                        onclick="showScreen('methodScreen')"
+                        class="w-full text-ay-teal hover:text-ay-teal-dark font-semibold py-3 px-6 rounded-full transition-all border border-ay-teal hover:bg-ay-beige"
                     >
-                        I've Verified My Email
+                        Back
+                    </button>
+                </div>
+
+                <!-- Screen 2b: Phone Signup -->
+                <div id="phoneSignupScreen" class="screen space-y-5">
+                    <div>
+                        <label for="signupPhone" class="block text-sm font-semibold text-ay-gray mb-2">
+                            Phone Number <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex gap-2">
+                            <select
+                                id="signupCountryCode"
+                                class="w-24 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
+                            >
+                                <option value="+91">+91</option>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                                <option value="+86">+86</option>
+                                <option value="+81">+81</option>
+                            </select>
+                            <input
+                                type="tel"
+                                id="signupPhone"
+                                placeholder="9876543210"
+                                pattern="[0-9]{10}"
+                                class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
+                            >
+                        </div>
+                        <p class="mt-1 text-xs text-ay-gray-light">10-digit mobile number</p>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="signupPhone-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="phoneName" class="block text-sm font-semibold text-ay-gray mb-2">
+                            Full Name <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="phoneName"
+                            placeholder="Enter your full name"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
+                        >
+                        <p class="mt-1 text-sm text-red-500 hidden" id="phoneName-error"></p>
+                    </div>
+
+                    <!-- Notification Opt-in -->
+                    <div class="flex items-start">
+                        <input
+                            type="checkbox"
+                            id="phoneNotifications"
+                            name="phoneNotifications"
+                            checked
+                            class="mt-1 h-4 w-4 text-ay-teal focus:ring-ay-teal border-gray-300 rounded"
+                        >
+                        <label for="phoneNotifications" class="ml-3 text-sm text-ay-gray-light">
+                            I want to receive updates about events, programs, and spiritual guidance
+                        </label>
+                    </div>
+
+                    <!-- Terms & Privacy Agreement -->
+                    <div class="flex items-start">
+                        <input
+                            type="checkbox"
+                            id="phoneTerms"
+                            name="phoneTerms"
+                            required
+                            class="mt-1 h-4 w-4 text-ay-teal focus:ring-ay-teal border-gray-300 rounded"
+                        >
+                        <label for="phoneTerms" class="ml-3 text-sm text-ay-gray">
+                            I agree to the
+                            <a href="#" class="text-ay-teal hover:text-ay-teal-dark font-semibold">Terms & Conditions</a>
+                            and
+                            <a href="#" class="text-ay-teal hover:text-ay-teal-dark font-semibold">Privacy Policy</a>
+                            <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    <p class="text-sm text-red-500 hidden" id="phoneTerms-error"></p>
+
+                    <button
+                        type="button"
+                        onclick="handlePhoneSignup()"
+                        class="w-full bg-ay-teal hover:bg-ay-teal-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    >
+                        Send OTP & Continue
                     </button>
 
-                    <!-- Resend Link -->
-                    <p class="text-center text-sm text-ay-gray-light">
-                        Didn't receive the email?
-                        <button onclick="resendEmail()" class="text-ay-teal hover:text-ay-teal-dark font-semibold">
-                            Resend it
+                    <button
+                        type="button"
+                        onclick="showScreen('methodScreen')"
+                        class="w-full text-ay-teal hover:text-ay-teal-dark font-semibold py-3 px-6 rounded-full transition-all border border-ay-teal hover:bg-ay-beige"
+                    >
+                        Back
+                    </button>
+                </div>
+
+                <!-- Screen 3: OTP Verification -->
+                <div id="otpScreen" class="screen space-y-6">
+                    <div class="masked-identifier" id="maskedIdentifier"></div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-ay-gray mb-3 text-center">
+                            Enter 6-digit code
+                        </label>
+                        <div class="otp-container">
+                            <input type="text" class="otp-input" id="otp1" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp2" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp3" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp4" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp5" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp6" maxlength="1" inputmode="numeric">
+                        </div>
+                        <p class="mt-2 text-sm text-red-500 hidden text-center" id="otp-error"></p>
+                    </div>
+
+                    <button
+                        type="button"
+                        onclick="handleOTPVerification()"
+                        class="w-full bg-ay-teal hover:bg-ay-teal-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    >
+                        Verify & Create Account
+                    </button>
+
+                    <div class="text-center">
+                        <p class="text-sm text-ay-gray-light mb-3">Didn't receive the code?</p>
+                        <button
+                            type="button"
+                            id="resendBtn"
+                            onclick="handleResendOTP()"
+                            class="resend-btn text-ay-teal hover:text-ay-teal-dark font-semibold"
+                        >
+                            Resend OTP in <span id="resendTimer">60</span>s
                         </button>
-                    </p>
-
-                    <!-- Helpful Tips -->
-                    <div class="mt-6 pt-6 border-t border-gray-200">
-                        <p class="text-xs text-ay-gray-light mb-2 font-semibold">💡 Helpful tips:</p>
-                        <ul class="text-xs text-ay-gray-light space-y-1">
-                            <li>• Check your spam folder if you don't see the email</li>
-                            <li>• Links expire in 24 hours</li>
-                            <li>• Contact <a href="mailto:support@antaryog.org" class="text-ay-teal hover:underline">support</a> if you need help</li>
-                        </ul>
                     </div>
+
+                    <button
+                        type="button"
+                        onclick="goToPreviousScreen()"
+                        class="w-full text-ay-teal hover:text-ay-teal-dark font-semibold py-3 px-6 rounded-full transition-all border border-ay-teal hover:bg-ay-beige"
+                    >
+                        Edit Details
+                    </button>
                 </div>
             </div>
 
@@ -717,153 +790,335 @@
             });
         })();
 
-        // Password Toggle Function
-        function togglePassword(inputId) {
-            const input = document.getElementById(inputId);
-            const eyeIcon = document.getElementById(`eye-icon-${inputId}`);
-            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-            input.setAttribute('type', type);
+        // ========== OTP Authentication State ==========
+        let signupState = {
+            method: null,
+            identifier: null,
+            fullName: null,
+            countryCode: '+91',
+            notifications: true,
+            previousScreen: null
+        };
 
-            // Toggle eye icon visibility
-            if (type === 'text') {
-                // Eye open
-                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>';
-            } else {
-                // Eye closed
-                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-2.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path>';
+        // ========== Screen Navigation ==========
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+
+            // Handle OTP screen initialization
+            if (screenId === 'otpScreen') {
+                document.getElementById('otp1').focus();
+                startResendTimer();
             }
         }
 
-        // Password Strength Calculation
-        function checkPasswordStrength(password) {
-            let strength = 0;
-
-            // Length checks
-            if (password.length >= 8) strength++;
-            if (password.length >= 12) strength++;
-
-            // Character variety checks
-            if (/[a-z]/.test(password)) strength++;
-            if (/[A-Z]/.test(password)) strength++;
-            if (/[0-9]/.test(password)) strength++;
-            if (/[^a-zA-Z0-9]/.test(password)) strength++;
-
-            // Return strength level
-            if (strength < 3) return { level: 'weak', percent: 33 };
-            if (strength < 5) return { level: 'medium', percent: 66 };
-            return { level: 'strong', percent: 100 };
+        function goToPreviousScreen() {
+            if (signupState.method === 'email') {
+                showScreen('emailSignupScreen');
+                document.getElementById('signupEmail').focus();
+            } else if (signupState.method === 'phone') {
+                showScreen('phoneSignupScreen');
+                document.getElementById('signupPhone').focus();
+            }
         }
 
-        // Update password strength indicator
-        document.getElementById('password').addEventListener('input', function(e) {
-            const strength = checkPasswordStrength(e.target.value);
-            const strengthBar = document.getElementById('strengthBar');
-            const strengthText = document.getElementById('strengthText');
-
-            strengthBar.style.width = strength.percent + '%';
-            strengthBar.className = `strength-fill strength-${strength.level}`;
-            strengthText.textContent = strength.level.charAt(0).toUpperCase() + strength.level.slice(1);
-        });
-
-        // Form Validation
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const fullName = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.replace(/\D/g, '');
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const terms = document.getElementById('terms').checked;
-
-            let isValid = true;
+        // ========== Email Signup ==========
+        function handleEmailSignup() {
+            const email = document.getElementById('signupEmail').value.trim();
+            const fullName = document.getElementById('signupName').value.trim();
+            const terms = document.getElementById('emailTerms').checked;
 
             // Clear previous errors
-            document.querySelectorAll('[id$="-error"]').forEach(el => {
-                el.classList.add('hidden');
-            });
+            document.getElementById('signupEmail-error').classList.add('hidden');
+            document.getElementById('signupName-error').classList.add('hidden');
+            document.getElementById('emailTerms-error').classList.add('hidden');
 
-            // Validate full name
-            if (fullName.length < 2) {
-                document.getElementById('fullName-error').textContent = 'Please enter a valid full name';
-                document.getElementById('fullName-error').classList.remove('hidden');
-                isValid = false;
-            }
+            let isValid = true;
 
             // Validate email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                document.getElementById('email-error').textContent = 'Please enter a valid email address';
-                document.getElementById('email-error').classList.remove('hidden');
+                document.getElementById('signupEmail-error').textContent = 'Please enter a valid email address';
+                document.getElementById('signupEmail-error').classList.remove('hidden');
                 isValid = false;
             }
 
-            // Validate phone
-            if (phone.length !== 10) {
-                document.getElementById('phone-error').textContent = 'Please enter a valid 10-digit phone number';
-                document.getElementById('phone-error').classList.remove('hidden');
-                isValid = false;
-            }
-
-            // Validate password
-            if (password.length < 8) {
-                document.getElementById('password-error').textContent = 'Password must be at least 8 characters';
-                document.getElementById('password-error').classList.remove('hidden');
-                isValid = false;
-            }
-
-            // Validate confirm password
-            if (password !== confirmPassword) {
-                document.getElementById('confirmPassword-error').textContent = 'Passwords do not match';
-                document.getElementById('confirmPassword-error').classList.remove('hidden');
+            // Validate name
+            if (fullName.length < 2) {
+                document.getElementById('signupName-error').textContent = 'Please enter a valid full name';
+                document.getElementById('signupName-error').classList.remove('hidden');
                 isValid = false;
             }
 
             // Validate terms
             if (!terms) {
-                document.getElementById('terms-error').textContent = 'You must agree to the Terms & Conditions and Privacy Policy';
-                document.getElementById('terms-error').classList.remove('hidden');
+                document.getElementById('emailTerms-error').textContent = 'You must agree to the Terms & Conditions and Privacy Policy';
+                document.getElementById('emailTerms-error').classList.remove('hidden');
                 isValid = false;
             }
 
-            if (isValid) {
-                // In a real application, this would submit to a backend
-                console.log('Form submitted:', {
-                    fullName,
-                    email,
-                    phone,
-                    password,
-                    notifications: document.getElementById('notifications').checked
+            if (!isValid) return;
+
+            // Store state and show OTP screen
+            signupState.method = 'email';
+            signupState.identifier = email;
+            signupState.fullName = fullName;
+            signupState.notifications = document.getElementById('emailNotifications').checked;
+            signupState.previousScreen = 'emailSignupScreen';
+
+            // Display masked email
+            const maskedEmail = maskEmail(email);
+            document.getElementById('maskedIdentifier').textContent = `Verification code sent to ${maskedEmail}`;
+
+            // Reset OTP inputs
+            resetOTPInputs();
+            showScreen('otpScreen');
+        }
+
+        // ========== Phone Signup ==========
+        function handlePhoneSignup() {
+            const phone = document.getElementById('signupPhone').value.replace(/\D/g, '');
+            const countryCode = document.getElementById('signupCountryCode').value;
+            const fullName = document.getElementById('phoneName').value.trim();
+            const terms = document.getElementById('phoneTerms').checked;
+
+            // Clear previous errors
+            document.getElementById('signupPhone-error').classList.add('hidden');
+            document.getElementById('phoneName-error').classList.add('hidden');
+            document.getElementById('phoneTerms-error').classList.add('hidden');
+
+            let isValid = true;
+
+            // Validate phone
+            if (phone.length !== 10) {
+                document.getElementById('signupPhone-error').textContent = 'Please enter a valid 10-digit phone number';
+                document.getElementById('signupPhone-error').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Validate name
+            if (fullName.length < 2) {
+                document.getElementById('phoneName-error').textContent = 'Please enter a valid full name';
+                document.getElementById('phoneName-error').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Validate terms
+            if (!terms) {
+                document.getElementById('phoneTerms-error').textContent = 'You must agree to the Terms & Conditions and Privacy Policy';
+                document.getElementById('phoneTerms-error').classList.remove('hidden');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Store state and show OTP screen
+            signupState.method = 'phone';
+            signupState.identifier = phone;
+            signupState.fullName = fullName;
+            signupState.countryCode = countryCode;
+            signupState.notifications = document.getElementById('phoneNotifications').checked;
+            signupState.previousScreen = 'phoneSignupScreen';
+
+            // Display masked phone
+            const maskedPhone = maskPhone(countryCode + phone);
+            document.getElementById('maskedIdentifier').textContent = `Verification code sent to ${maskedPhone}`;
+
+            // Reset OTP inputs
+            resetOTPInputs();
+            showScreen('otpScreen');
+        }
+
+        // ========== OTP Input Handling ==========
+        function setupOTPInputs() {
+            const otpInputs = document.querySelectorAll('.otp-input');
+
+            otpInputs.forEach((input, index) => {
+                // Handle numeric input only
+                input.addEventListener('input', (e) => {
+                    const value = e.target.value;
+
+                    // Only allow digits
+                    if (!/^\d$/.test(value) && value !== '') {
+                        e.target.value = '';
+                        return;
+                    }
+
+                    // Mark as filled if has value
+                    if (value) {
+                        input.classList.add('filled');
+                        input.classList.remove('error');
+                    } else {
+                        input.classList.remove('filled');
+                    }
+
+                    // Auto-focus next input
+                    if (value && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+
+                    // Auto-submit when all 6 digits filled
+                    if (index === otpInputs.length - 1 && value) {
+                        setTimeout(() => handleOTPVerification(), 200);
+                    }
                 });
 
-                // Show email verification modal
-                showVerificationModal(email, fullName);
+                // Handle backspace
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace') {
+                        if (input.value) {
+                            input.value = '';
+                            input.classList.remove('filled');
+                        } else if (index > 0) {
+                            otpInputs[index - 1].focus();
+                            otpInputs[index - 1].value = '';
+                            otpInputs[index - 1].classList.remove('filled');
+                        }
+                    }
+                });
+
+                // Handle paste
+                input.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    const pastedData = e.clipboardData.getData('text');
+                    const digits = pastedData.replace(/\D/g, '').slice(0, 6);
+
+                    if (digits.length === 6) {
+                        otpInputs.forEach((inp, i) => {
+                            inp.value = digits[i];
+                            inp.classList.add('filled');
+                        });
+                        setTimeout(() => handleOTPVerification(), 200);
+                    }
+                });
+            });
+        }
+
+        function resetOTPInputs() {
+            document.querySelectorAll('.otp-input').forEach(input => {
+                input.value = '';
+                input.classList.remove('filled', 'error');
+            });
+            document.getElementById('otp-error').classList.add('hidden');
+        }
+
+        // ========== OTP Verification ==========
+        function handleOTPVerification() {
+            const otp = Array.from(document.querySelectorAll('.otp-input'))
+                .map(input => input.value)
+                .join('');
+
+            // Clear previous error
+            document.getElementById('otp-error').classList.add('hidden');
+
+            // Validate OTP length
+            if (otp.length !== 6) {
+                showOTPError('Please enter all 6 digits');
+                return;
             }
+
+            // Validate OTP format
+            if (!/^\d{6}$/.test(otp)) {
+                showOTPError('Please enter valid digits only');
+                return;
+            }
+
+            // For mockup: accept "123456" as valid code
+            if (otp === '123456') {
+                console.log('OTP verified:', {
+                    method: signupState.method,
+                    identifier: signupState.identifier,
+                    fullName: signupState.fullName,
+                    notifications: signupState.notifications,
+                    otp: otp
+                });
+
+                // Redirect to profile completion page
+                const firstName = signupState.fullName.split(' ')[0];
+                const email = signupState.method === 'email' ? signupState.identifier : '';
+                const phone = signupState.method === 'phone' ? signupState.identifier : '';
+
+                window.location.href = `profile-completion-antaryog.html?firstName=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
+            } else {
+                showOTPError('Invalid code. Please try again or request a new one.');
+            }
+        }
+
+        function showOTPError(message) {
+            const errorEl = document.getElementById('otp-error');
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
+
+            // Shake animation and clear inputs
+            document.querySelectorAll('.otp-input').forEach(input => {
+                input.classList.add('error');
+            });
+
+            setTimeout(() => {
+                resetOTPInputs();
+                document.getElementById('otp1').focus();
+            }, 600);
+        }
+
+        // ========== Resend OTP ==========
+        let resendTimerInterval;
+
+        function handleResendOTP() {
+            const resendBtn = document.getElementById('resendBtn');
+            resendBtn.disabled = true;
+
+            // In real app, would make API call to resend OTP
+            console.log('Resending OTP to', signupState.identifier);
+            alert('OTP resent to ' + signupState.identifier);
+
+            // Reset timer
+            startResendTimer();
+        }
+
+        function startResendTimer() {
+            let secondsLeft = 60;
+            const resendBtn = document.getElementById('resendBtn');
+            const timerSpan = document.getElementById('resendTimer');
+
+            resendBtn.disabled = true;
+            timerSpan.textContent = secondsLeft;
+
+            // Clear previous interval if exists
+            if (resendTimerInterval) clearInterval(resendTimerInterval);
+
+            resendTimerInterval = setInterval(() => {
+                secondsLeft--;
+                timerSpan.textContent = secondsLeft;
+
+                if (secondsLeft === 0) {
+                    clearInterval(resendTimerInterval);
+                    resendBtn.disabled = false;
+                    resendBtn.innerHTML = 'Resend OTP';
+                }
+            }, 1000);
+        }
+
+        // ========== Helper Functions ==========
+        function maskEmail(email) {
+            const [localPart, domain] = email.split('@');
+            if (localPart.length <= 2) {
+                return email; // Show full email if local part is too short
+            }
+            const masked = localPart[0] + '*'.repeat(localPart.length - 2) + localPart[localPart.length - 1];
+            return masked + '@' + domain;
+        }
+
+        function maskPhone(fullPhone) {
+            // fullPhone is like "+919876543210"
+            const countryCode = fullPhone.slice(0, fullPhone.length - 10);
+            const lastDigits = fullPhone.slice(-3);
+            return `${countryCode} ****${lastDigits}`;
+        }
+
+        // ========== Initialize ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            setupOTPInputs();
         });
-
-        // Show email verification modal
-        function showVerificationModal(email, fullName) {
-            document.getElementById('verificationEmail').textContent = email;
-            document.getElementById('verificationModal').classList.remove('hidden');
-
-            // Hide form
-            document.querySelector('form').style.display = 'none';
-        }
-
-        // Simulate email verification (in real app, this would happen when user clicks email link)
-        function simulateEmailVerification() {
-            // Extract first name from full name
-            const fullName = document.getElementById('fullName').value;
-            const firstName = fullName.split(' ')[0];
-
-            // Redirect to profile completion page with user data
-            window.location.href = `profile-completion-antaryog.html?firstName=${encodeURIComponent(firstName)}&email=${encodeURIComponent(document.getElementById('email').value)}`;
-        }
-
-        // Resend verification email (mockup)
-        function resendEmail() {
-            alert('Verification email has been resent to ' + document.getElementById('email').value);
-        }
     </script>
 </body>
 </html>
