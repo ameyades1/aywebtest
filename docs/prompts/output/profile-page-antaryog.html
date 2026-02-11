@@ -228,6 +228,165 @@
             display: block;
         }
 
+        /* Mobile Profile Navigation Drawer */
+        .profile-drawer {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: min(280px, 90vw);
+            height: 100vh;
+            background-color: white;
+            border-right: 1px solid #e5e7eb;
+            z-index: 55;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .profile-drawer.active {
+            left: 0;
+        }
+
+        @media (max-width: 1023px) {
+            .profile-drawer {
+                display: block;
+            }
+        }
+
+        .profile-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 50;
+            display: none;
+        }
+
+        .profile-drawer-overlay.active {
+            display: block;
+        }
+
+        .profile-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            background-color: var(--background);
+        }
+
+        .profile-drawer-header h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .profile-drawer-close {
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-drawer-close:hover {
+            color: var(--text);
+        }
+
+        .profile-drawer-nav {
+            padding: 1rem 0;
+        }
+
+        .profile-drawer-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            padding: 1rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            border-left: 3px solid transparent;
+        }
+
+        .profile-drawer-item:hover {
+            background-color: var(--background);
+            color: var(--primary);
+        }
+
+        .profile-drawer-item.active {
+            background-color: var(--background);
+            color: var(--primary);
+            border-left-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .drawer-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: currentColor;
+            flex-shrink: 0;
+        }
+
+        .profile-drawer-divider {
+            margin: 1rem 0;
+            border: none;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Mobile Profile Navigation FAB */
+        .profile-nav-fab {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 0.875rem 1.5rem;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(184, 115, 51, 0.4);
+            cursor: pointer;
+            z-index: 35;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .profile-nav-fab:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(184, 115, 51, 0.5);
+        }
+
+        .nav-fab-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        @media (max-width: 1023px) {
+            .profile-nav-fab {
+                display: flex;
+            }
+        }
+
         /* Main Content */
         main {
             max-width: 1400px;
@@ -1107,6 +1266,7 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            overflow-y: auto;
         }
 
         .modal.active {
@@ -1120,6 +1280,19 @@
             max-width: 500px;
             width: 100%;
             box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+            max-height: 90vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Mobile-specific modal adjustments */
+        @media (max-width: 768px) {
+            .modal-content,
+            .modal-content-large {
+                padding: 1.5rem 1rem;
+                max-height: 85vh;
+                margin: 1rem;
+            }
         }
 
         .modal-header {
@@ -1253,6 +1426,70 @@
         <a href="#profile">Profile</a>
         <a href="#settings">Settings</a>
         <a href="#logout" onclick="handleLogout()">Logout</a>
+    </div>
+
+    <!-- Mobile Profile Navigation Drawer -->
+    <div class="profile-drawer-overlay" id="profileDrawerOverlay"></div>
+    <div class="profile-drawer" id="profileDrawer">
+        <div class="profile-drawer-header">
+            <h3>Profile Sections</h3>
+            <button class="profile-drawer-close" onclick="toggleProfileDrawer()">×</button>
+        </div>
+        <nav class="profile-drawer-nav">
+            <button class="profile-drawer-item active" onclick="showSectionMobile('personal')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>Personal Information</span>
+            </button>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('location')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Location & Preferences</span>
+            </button>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('settings')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m3.08-3.08l4.24-4.24"/>
+                </svg>
+                <span>Account Settings</span>
+            </button>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('referral')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span>Referral & Community</span>
+            </button>
+
+            <div class="profile-drawer-divider"></div>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('enrolled-center')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>My Enrolled Center</span>
+            </button>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('browse-centers')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                </svg>
+                <span>Browse Centers</span>
+            </button>
+        </nav>
     </div>
 
     <!-- Main Content -->
@@ -1742,6 +1979,17 @@
         </div>
     </div>
 
+    <!-- Mobile Profile Navigation FAB Button -->
+    <button class="profile-nav-fab" id="profileNavFab" onclick="toggleProfileDrawer()">
+        <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <span>Sections</span>
+    </button>
+
     <!-- Footer -->
     <footer>
         <div class="max-w">
@@ -2224,6 +2472,62 @@
             modal.addEventListener('click', function(e) {
                 if (e.target === this) {
                     this.classList.remove('active');
+                }
+            });
+        });
+
+        // Mobile Profile Drawer Functions
+        function toggleProfileDrawer() {
+            const drawer = document.getElementById('profileDrawer');
+            const overlay = document.getElementById('profileDrawerOverlay');
+            const fab = document.getElementById('profileNavFab');
+
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+
+            // Hide FAB when drawer is open
+            if (drawer.classList.contains('active')) {
+                fab.style.display = 'none';
+            } else {
+                fab.style.display = 'flex';
+            }
+        }
+
+        // Show section and auto-close drawer on mobile
+        function showSectionMobile(sectionName) {
+            // Call existing showSection function with null event
+            showSection(sectionName, null);
+
+            // Close drawer
+            toggleProfileDrawer();
+
+            // Update active state on drawer items
+            document.querySelectorAll('.profile-drawer-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.profile-drawer-item').classList.add('active');
+
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Setup drawer event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close drawer when clicking overlay
+            const overlay = document.getElementById('profileDrawerOverlay');
+            if (overlay) {
+                overlay.addEventListener('click', function() {
+                    toggleProfileDrawer();
+                });
+            }
+
+            // Close drawer on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const drawer = document.getElementById('profileDrawer');
+                    if (drawer && drawer.classList.contains('active')) {
+                        toggleProfileDrawer();
+                    }
                 }
             });
         });
