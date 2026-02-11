@@ -1,0 +1,155 @@
+# Claude Code Prompt: Generate v7 and v8 with White Copper Colors
+
+## Task
+
+Create two new HTML files — `frontend-branded-antaryog-v7.html` and `frontend-branded-antaryog-v8.html` — in `docs/prompts/output/`.
+
+These are **not restyled versions** of the old v7/v8. They are **brand new files** built by taking the complete HTML and CSS structure of the existing files listed below, keeping all fonts exactly as they are, and replacing only the color scheme with the White Copper palette defined in this prompt.
+
+- Base `v7` on: `docs/prompts/output/frontend-branded-antaryog-v5.html` *(or any odd-numbered minimal version — single-column, core layout)*
+- Base `v8` on: `docs/prompts/output/frontend-branded-antaryog-v6.html` *(or any even-numbered full-content version — expanded layout with more program details)*
+
+---
+
+## White Copper Color Palette
+
+Replace the `:root` color variables in each file with exactly these:
+
+```css
+:root {
+  --pure-white:     #FFFFFF;
+  --warm-white:     #FDFBF8;
+  --paper:          #F9F6F0;
+  --copper:         #B87333;
+  --copper-light:   #D4956A;
+  --copper-pale:    #F7EDE3;
+  --gold:           #C8960C;
+  --gold-light:     #E8B84B;
+  --gold-pale:      #FDF5DC;
+  --ink:            #1C1510;
+  --ink-mid:        #3A2D24;
+  --ink-light:      #7A6858;
+  --logo-brown:     #5C3010;
+  --accent-yellow:  #F5C115;
+  --divider:        rgba(184, 115, 51, 0.15);
+  --divider-strong: rgba(184, 115, 51, 0.35);
+}
+```
+
+---
+
+## Color Mapping
+
+Apply the palette using semantic role. Every place a color appears in the CSS — whether as a hardcoded hex, `rgba()`, or existing variable — remap it according to this table:
+
+| Role | New value |
+|---|---|
+| Page / body background | `var(--pure-white)` |
+| Light alternate section background | `var(--warm-white)` |
+| Parchment / panel background | `var(--paper)` |
+| Dark bands (stat strip, footer, announcement bar) | `var(--logo-brown)` |
+| Primary accent color (buttons, icons, borders) | `var(--copper)` |
+| Primary accent hover state | `var(--logo-brown)` |
+| Secondary / decorative highlight | `var(--gold-light)` |
+| Numbers / text inside dark bands | `var(--accent-yellow)` |
+| Section eyebrow / label text | `var(--copper)` |
+| All heading text (`h1`–`h4`) | `var(--logo-brown)` |
+| Body paragraph text | `var(--ink-light)` |
+| Nav link text (default) | `var(--ink-mid)` |
+| Nav link text (hover) | `var(--copper)` |
+| Primary CTA button background | `var(--copper)` |
+| Primary CTA button hover background | `var(--logo-brown)` |
+| Outline button border | `var(--divider-strong)` |
+| Outline button hover background | `var(--copper-pale)` |
+| Card / tile background | `var(--pure-white)` |
+| Card hover background | `var(--gold-pale)` |
+| Card border | `var(--divider)` |
+| Card hover border | `var(--copper)` |
+| Card accent stripe (top or left) | `var(--copper)` |
+| Dividers and rules | `1px solid var(--divider)` |
+| Footer section heading text | `var(--gold-light)` |
+| Footer link text | `rgba(255, 255, 255, 0.45)` |
+| Footer link hover | `var(--gold-light)` |
+| Footer body / tagline text | `rgba(255, 255, 255, 0.50)` |
+| Testimonial / blockquote left border | `var(--copper)` |
+| Badge / pill background | `var(--copper-pale)` |
+| Badge / pill text | `var(--copper)` |
+| Marquee / banner strip background | `var(--logo-brown)` |
+| Marquee item text | `var(--gold-light)` |
+| Box shadow on cards | `rgba(184, 115, 51, 0.12)` |
+| Box shadow on buttons | `rgba(184, 115, 51, 0.30)` |
+| Box shadow on nav | `rgba(184, 115, 51, 0.06)` |
+| Hero background gradient | `linear-gradient(135deg, var(--pure-white), var(--warm-white), var(--paper))` |
+| About / secondary section gradient | `linear-gradient(135deg, var(--warm-white), var(--paper))` |
+| Decorative watermark / large faded text | `rgba(184, 115, 51, 0.06)` |
+| Radial glow behind visual elements | `radial-gradient(circle, rgba(245, 193, 21, 0.08), transparent 60%)` |
+| Ring / orbit decorations | `var(--divider-strong)` |
+| Glowing circle core background | `radial-gradient(circle, var(--gold-pale), var(--copper-pale))` |
+| Glowing circle box-shadow | `0 0 60px rgba(184, 115, 51, 0.25), 0 0 100px rgba(184, 115, 51, 0.10)` |
+
+---
+
+## Logo
+
+Replace any emoji, text, or icon placeholder used as the logo in the **nav** and **footer** with the real AntarYog Foundation logo image. The file is at `assets/logo-antaryog.png` relative to the output HTML files.
+
+```html
+<!-- Nav: full colour on white background -->
+<img src="assets/logo-antaryog.png" alt="AntarYog Foundation" style="height: 50px; width: auto;" />
+
+<!-- Footer: white-inverted on dark brown background -->
+<img src="assets/logo-antaryog.png" alt="AntarYog Foundation"
+     style="height: 40px; width: auto; filter: brightness(0) invert(1); opacity: 0.85;" />
+```
+
+---
+
+## What Must NOT Change
+
+| Category | Rule |
+|---|---|
+| **Fonts** | Keep every `font-family` declaration and every Google Fonts `<link>` tag exactly as found in the source file. Do not add or remove any typeface. |
+| **Font sizing** | No changes to `font-size`, `line-height`, `letter-spacing`, or `font-weight`. |
+| **HTML content** | Every word stays as written — headings, body copy, nav labels, button text, stat numbers, testimonials, program names, footer links. |
+| **HTML structure** | No elements added, moved, or removed (other than the logo swap above). |
+| **Class names & IDs** | Unchanged. |
+| **Layout & spacing** | No changes to `grid`, `flex`, `padding`, `margin`, `width`, `height`, or `gap`. |
+| **Animations** | Preserve all `@keyframes` and `transition` values. Only update color values used within them. |
+| **JavaScript** | No changes. |
+
+---
+
+## Scheme Label
+
+Update the `.scheme-label` banner text at the top of each page to:
+
+- **v7:** `VERSION 7 · WHITE COPPER · [name of source file's font pair] · White Copper color scheme`
+- **v8:** `VERSION 8 · WHITE COPPER ENHANCED · [name of source file's font pair] · White Copper color scheme`
+
+Update the background of `.scheme-label` to `var(--copper)` with white text.
+
+---
+
+## Output Files
+
+```
+docs/prompts/output/frontend-branded-antaryog-v7.html
+docs/prompts/output/frontend-branded-antaryog-v8.html
+```
+
+---
+
+## Verification Checklist
+
+Before finishing each file:
+
+- [ ] No old teal, saffron, marigold, or earth-gold hex values remain anywhere in the CSS
+- [ ] All color values either use a `--variable` from the new palette or an approved `rgba()` from the mapping table above
+- [ ] `var(--copper)`, `var(--logo-brown)`, `var(--gold-light)` appear as the dominant accent colors
+- [ ] Logo `<img>` tag is present in nav and footer (no emoji or text placeholder)
+- [ ] All Google Fonts `<link>` tags from the source file are still present and unchanged
+- [ ] No `font-family` values were altered
+- [ ] Text content is word-for-word identical to the source file
+- [ ] Layout renders identically to the source — same sections, same order, same component structure
+
+---
