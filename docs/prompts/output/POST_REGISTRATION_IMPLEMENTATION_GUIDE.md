@@ -2,29 +2,30 @@
 
 ## Overview
 
-This guide details the complete post-registration onboarding flow for AntarYog Foundation website, including profile completion and welcome dashboard mockups.
+This guide details the complete post-registration onboarding flow for AntarYog Foundation website, including dual email + phone verification, profile completion, and welcome dashboard mockups.
 
-**Status:** ✅ Complete with two ready-to-use mockups
+**Status:** ✅ Complete with dual verification implementation
 
 ---
 
-## User Journey Flow
+## User Journey Flow (Updated with Dual Verification)
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ 1. SIGNUP (Simplified)                                          │
-│    ├─ Email Address                                             │
-│    ├─ Phone Number                                              │
-│    ├─ Password                                                  │
-│    └─ Notification Consent (default: checked)                   │
-│    → System sends verification email                            │
+│ 1. SIGNUP (Email OR Phone)                                      │
+│    Choose Method:                                               │
+│    ├─ Email Path: Email + Full Name + Terms                    │
+│    └─ Phone Path: Phone + Full Name + Terms                    │
+│    → System sends OTP to chosen method                          │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│ 2. EMAIL VERIFICATION                                           │
-│    User clicks link in email                                    │
-│    → Account activated                                          │
-│    → Redirect to: /complete-profile                             │
+│ 2. SIGNUP OTP VERIFICATION (First Contact)                      │
+│    User enters 6-digit code from email or SMS                   │
+│    ✓ OTP input: Auto-focus, paste support, backspace nav       │
+│    ✓ 60-second resend timer                                    │
+│    ✓ Error handling with shake animation                       │
+│    → Account created and verified for first contact method      │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
@@ -38,7 +39,9 @@ This guide details the complete post-registration onboarding flow for AntarYog F
 │    ├─ City (min 2 chars)                                        │
 │    ├─ Language (English/हिन्दी/मराठी)                          │
 │    ├─ How Did You Hear About Us? (dropdown)                     │
-│    └─ Referral Person (conditional - if friend/member selected) │
+│    ├─ Referral Person (conditional - if friend/member selected) │
+│    ├─ Secondary Contact* (NEW - Email if phone signup,         │
+│    │   Phone if email signup)                                  │
 │                                                                  │
 │    OPTIONAL Fields (nice to have):                              │
 │    ├─ Middle Name                                               │
@@ -47,6 +50,8 @@ This guide details the complete post-registration onboarding flow for AntarYog F
 │                                                                  │
 │    Features:                                                    │
 │    ✓ Form validation with error messages                        │
+│    ✓ Conditional secondary contact field (email or phone)       │
+│    ✓ Account security section with trust messaging              │
 │    ✓ Smart conditional fields (referral person, industry)       │
 │    ✓ Disabled submit button until all required fields filled    │
 │    ✓ Trust-building explanation box                             │
@@ -54,16 +59,35 @@ This guide details the complete post-registration onboarding flow for AntarYog F
 │    ✓ Language selection buttons with visual feedback            │
 │    ✓ Accessibility features (labels, ARIA, proper tab order)    │
 │                                                                  │
-│    → On submit: Redirect to welcome dashboard                   │
+│    → On submit: Show secondary OTP verification screen          │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│ 4. WELCOME DASHBOARD                                            │
+│ 4. SECONDARY CONTACT OTP VERIFICATION (NEW)                     │
+│    📄 form: profile-completion-antaryog.html (Screen 2)         │
+│                                                                  │
+│    Verify second contact method:                                │
+│    ├─ If email signup → Verify phone via SMS                    │
+│    └─ If phone signup → Verify email via email                  │
+│                                                                  │
+│    Features:                                                    │
+│    ✓ 6-digit OTP input with auto-focus & paste support         │
+│    ✓ Masked identifier display (a****@example.com)             │
+│    ✓ 60-second resend timer with disable/enable                │
+│    ✓ Back button to return to profile form                      │
+│    ✓ Error shake animation with auto-clear                     │
+│    ✓ Smooth screen transition from form to OTP                  │
+│                                                                  │
+│    → On verification: Both email and phone now verified         │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│ 5. WELCOME DASHBOARD                                            │
 │    📄 file: welcome-dashboard-antaryog.html                    │
 │                                                                  │
 │    Features:                                                    │
 │    ✓ Welcome banner with personalized greeting                  │
-│    ✓ Email verification success indicator                       │
+│    ✓ Both contacts verified indicator                           │
 │    ✓ Featured programs carousel (3 cards)                       │
 │    ✓ Upcoming events list (3 sample events)                     │
 │    ✓ Quick action cards (Browse, Events, Learn, Contact)        │
@@ -72,7 +96,7 @@ This guide details the complete post-registration onboarding flow for AntarYog F
 │    ✓ Dynamic user name display                                  │
 │    ✓ Smooth scroll navigation                                   │
 │                                                                  │
-│    → User can now explore content and register for programs     │
+│    → User can now explore content with complete profile         │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -80,19 +104,72 @@ This guide details the complete post-registration onboarding flow for AntarYog F
 
 ## Key Design Decisions
 
+### Why Dual Email + Phone Verification?
+
+**Problem:**
+- Email-only signup → No phone for SMS notifications
+- Phone-only signup → No email for important communications
+- No dual-factor authentication possible
+- Limited account recovery options
+
+**Solution: Sequential Verification**
+```
+User provides ONE contact (email or phone)
+              ↓
+         Verify first contact with OTP
+              ↓
+    Complete profile + provide SECOND contact
+              ↓
+       Verify second contact with OTP
+              ↓
+  Both email and phone verified before access
+```
+
+**Benefits:**
+1. ✅ Balanced conversion (low friction on signup) + completeness
+2. ✅ Users have verified multiple communication channels
+3. ✅ Enables SMS + Email notifications
+4. ✅ Dual-factor authentication possible
+5. ✅ Multiple account recovery paths
+6. ✅ Better data quality (users engage during both verifications)
+7. ✅ Industry standard (Google 2FA, AWS OTP, WhatsApp)
+
+**User Experience:**
+- Signup is quick (pick ONE method)
+- Profile completion feels natural (ask for missing contact)
+- OTP verification twice → Higher security perception
+- Users understand why both needed (clear messaging)
+
+### Why Sequential Rather Than Upfront?
+
+**Alternative 1: Ask Both on Signup**
+- ❌ Longer form, higher abandonment
+- ✅ Complete upfront
+
+**Alternative 2: Ask Second During Login**
+- ❌ Confusing (why ask phone at login?)
+- ✅ Lower friction on signup
+
+**Chosen: During Profile Completion**
+- ✅ Natural flow: Signup → Profile → Dashboard
+- ✅ User already engaged and filling profile
+- ✅ Clear messaging: "complete your account security"
+- ✅ Best balance of friction vs. completeness
+
 ### Why Simplified Signup?
 
-**Current:** Signup only collects Email, Phone, Password
+**Current:** Signup only collects Email OR Phone (one method)
 **Reason:** Lower friction → Higher signup conversion rate
 
 ### Why Profile Completion is Required?
 
 **Design:** Must complete profile to access dashboard
 **Reasons:**
-1. ✅ Ensures 100% complete user profiles
+1. ✅ Ensures 100% complete user profiles (name, location, preferences)
 2. ✅ Enables personalization from day 1
 3. ✅ Better data quality (user is engaged, not rushed)
-4. ✅ Clear user journey: Signup → Verify → Profile → Dashboard
+4. ✅ Collects both verified email and phone
+5. ✅ Clear user journey: Signup → Verify → Profile → Verify → Dashboard
 
 ### Why These Specific Fields?
 
@@ -131,6 +208,8 @@ other             → Catch-all for unexpected channels
 
 #### Component Structure
 
+**Screen 1: Profile Form**
+
 ```html
 <!-- HEADER -->
 ├── Logo + Navigation (responsive with mobile menu)
@@ -162,6 +241,15 @@ other             → Catch-all for unexpected channels
 │   │   ├── Occupation (dropdown - optional)
 │   │   └── Industry (text - shown only if occupation filled)
 │   │
+│   ├── Section 6: Account Security (NEW) *
+│   │   ├── Trust message: "We need both email and phone..."
+│   │   └── Secondary Contact Field (shown conditionally):
+│   │       ├── Email field (if user signed up with phone)
+│   │       │   └── type="email", validation: valid email
+│   │       └── Phone field (if user signed up with email)
+│   │           ├── Country code dropdown (+91, +1, +44, etc)
+│   │           └── Phone input (10 digits)
+│   │
 │   ├── Trust Box (information)
 │   │   └── Explanation of why we ask for each field
 │   │
@@ -172,20 +260,79 @@ other             → Catch-all for unexpected channels
     └── Same as v1-v4 mockups
 ```
 
+**Screen 2: Secondary OTP Verification (NEW)**
+
+```html
+<!-- HEADER -->
+├── Logo + Navigation (responsive with mobile menu)
+└── Fixed positioning with z-index management
+
+<!-- MAIN -->
+├── [← Back to Profile] Button
+│   └── Returns to form, preserves data
+│
+├── Section: OTP Verification
+│   ├── Title: "Verify Your Email" or "Verify Your Phone"
+│   ├── Subtitle: "We've sent a 6-digit code to:"
+│   ├── Masked Identifier: "a****@example.com" or "+91 ****3210"
+│   │
+│   └── OTP Input Section
+│       ├── 6 digit boxes (1 char each)
+│       │   └── Auto-focus, paste support, backspace nav
+│       ├── Error message (hidden until error occurs)
+│       ├── [Verify & Complete Profile] Button
+│       │
+│       └── Resend Section
+│           ├── Text: "Didn't receive the code?"
+│           └── [Resend OTP in 60s] Button
+│               └── Disabled with countdown, enables after 60s
+│
+└── FOOTER
+    └── Same as v1-v4 mockups
+```
+
+**State Management:**
+```javascript
+// Signup method determines which secondary contact field to show
+signupMethod === 'email'  → Show phone field
+signupMethod === 'phone'  → Show email field
+
+// On form submit:
+- Hide form, show OTP screen
+- Populate OTP screen with masked identifier
+- Start 60-second resend timer
+
+// On OTP verification:
+- Validate 6 digits
+- If "123456" (mockup): Redirect to dashboard
+- If invalid: Show error with shake animation
+```
+
 #### Form Validation Rules
 
-**Real-time Validation:**
+**Real-time Validation - Profile Form:**
 ```javascript
-First Name:    ≥ 2 characters, required
-Middle Name:   optional
-Last Name:     ≥ 2 characters, required
-Country:       must select value, required
-City:          ≥ 2 characters, required
-Language:      must select one button, required
-Referral:      must select value, required
-Referral Person: ≥ 2 chars if referral is 'friend-family' or 'existing-member'
-Occupation:    optional
-Industry:      optional (only visible if occupation selected)
+First Name:         ≥ 2 characters, required
+Middle Name:        optional
+Last Name:          ≥ 2 characters, required
+Country:            must select value, required
+City:               ≥ 2 characters, required
+Language:           must select one button, required
+Referral:           must select value, required
+Referral Person:    ≥ 2 chars if referral is 'friend-family' or 'existing-member'
+Occupation:         optional
+Industry:           optional (only visible if occupation selected)
+
+// NEW - Secondary Contact Field
+Secondary Email:    valid email format, required (if phone signup)
+Secondary Phone:    exactly 10 digits, required (if email signup)
+```
+
+**OTP Validation - Secondary Verification Screen:**
+```javascript
+OTP Code:           exactly 6 digits, required
+                    → Valid: "123456" (mockup)
+                    → Invalid: any other 6-digit code shows error
 ```
 
 **Error Display:**
@@ -211,11 +358,24 @@ hover:background: #078078 (teal-dark)
 #### JavaScript Functions
 
 ```javascript
-// Language selection
-selectLanguage(lang)        // Select one language, store in variable
-toggleReferralField()       // Show/hide referral person field
-toggleIndustryField()       // Show/hide industry field
-validateForm()              // Real-time validation of all fields
+// Profile Form Functions
+selectLanguage(lang)              // Select one language, store in variable
+toggleReferralField()             // Show/hide referral person field
+toggleIndustryField()             // Show/hide industry field
+validateForm()                    // Real-time validation of all fields
+validateSecondaryContact()        // Validate secondary email or phone
+
+// Secondary OTP Screen Functions (NEW)
+setupSecondaryOTPInputs()         // Initialize OTP input event listeners
+resetSecondaryOTPInputs()         // Clear OTP inputs and errors
+handleSecondaryOTPVerification()  // Verify OTP code
+showSecondaryOTPError(msg)        // Display error with shake animation
+handleResendSecondaryOTP()        // Resend OTP to secondary contact
+startSecondaryResendTimer()       // 60-second countdown for resend button
+
+// Utility Functions (NEW)
+maskEmail(email)                  // Mask email for privacy: a****@example.com
+maskPhone(fullPhone)              // Mask phone for privacy: +91 ****3210
 ```
 
 #### Responsive Behavior
@@ -238,6 +398,134 @@ validateForm()              // Real-time validation of all fields
 - Form max-width: 600px (centered on page)
 - 3rem padding
 - Full visual hierarchy
+
+#### Detailed Implementation Flow
+
+**1. Initialization on Page Load:**
+```javascript
+// Read URL parameters from signup
+const params = new URLSearchParams(window.location.search);
+const method = params.get('method');        // 'email' or 'phone'
+const firstName = params.get('firstName');  // Pre-fill
+const phoneCode = params.get('phoneCode');  // Optional
+
+// Determine which secondary field to show
+if (method === 'phone') {
+    // Phone signup → show email field
+    document.getElementById('emailFieldContainer').classList.remove('hidden');
+} else if (method === 'email') {
+    // Email signup → show phone field
+    document.getElementById('phoneFieldContainer').classList.remove('hidden');
+    // Pre-select country code if provided
+    if (phoneCode) document.getElementById('secondaryPhoneCode').value = phoneCode;
+}
+```
+
+**2. Form Submission Triggers OTP Screen:**
+```javascript
+// When user completes profile and submits form:
+document.getElementById('profileForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // 1. Validate all profile fields
+    if (!validateForm()) return;
+
+    // 2. Validate secondary contact field
+    if (!validateSecondaryContact()) return;
+
+    // 3. Gather all data
+    const formData = gatherProfileData();  // includes secondary contact
+
+    // 4. Hide form, show OTP screen
+    document.getElementById('profileForm').classList.add('hidden');
+    document.getElementById('secondaryOtpScreen').classList.remove('hidden');
+
+    // 5. Display masked identifier
+    const masked = maskIdentifier(formData.secondaryContact);
+    document.getElementById('secondaryMaskedIdentifier').textContent = masked;
+
+    // 6. Focus first OTP input and start timer
+    document.querySelector('.secondary-otp-input').focus();
+    startSecondaryResendTimer();
+});
+```
+
+**3. OTP Screen Interaction:**
+```javascript
+// OTP Input: Auto-focus next on digit entry
+otpInput.addEventListener('input', (e) => {
+    if (e.target.value && index < 6) {
+        otpInputs[index + 1].focus();  // Auto-focus next
+    }
+});
+
+// Paste: Enter all 6 digits at once
+otpInput.addEventListener('paste', (e) => {
+    const digits = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
+    if (digits.length === 6) {
+        otpInputs.forEach((inp, i) => {
+            inp.value = digits[i];
+            inp.classList.add('filled');
+        });
+    }
+});
+
+// Backspace: Navigate backwards
+otpInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' && !input.value && index > 0) {
+        otpInputs[index - 1].focus();
+    }
+});
+```
+
+**4. OTP Verification:**
+```javascript
+// When user submits OTP (or after entering all 6 digits)
+function handleSecondaryOTPVerification() {
+    const otp = Array.from(otpInputs).map(inp => inp.value).join('');
+
+    // Validate format
+    if (otp.length !== 6 || !/^\d{6}$/.test(otp)) {
+        showError('Please enter all 6 digits');
+        return;
+    }
+
+    // For mockup: accept "123456"
+    // In production: send to backend verification endpoint
+    if (otp === '123456') {
+        // Success: Redirect to dashboard with complete data
+        window.location.href = `welcome-dashboard-antaryog.html?` +
+            `firstName=${formData.firstName}&` +
+            `email=${formData.email}&` +
+            `phone=${formData.phone}`;
+    } else {
+        // Error: show message with shake animation
+        showError('Invalid code. Please try again.');
+    }
+}
+```
+
+**5. Resend Timer Logic:**
+```javascript
+function startSecondaryResendTimer() {
+    let secondsLeft = 60;
+    const resendBtn = document.getElementById('resendSecondaryOtpBtn');
+    const timerSpan = document.getElementById('secondaryOtpTimer');
+
+    resendBtn.disabled = true;
+
+    const interval = setInterval(() => {
+        secondsLeft--;
+        timerSpan.textContent = secondsLeft;
+
+        if (secondsLeft === 0) {
+            clearInterval(interval);
+            resendBtn.disabled = false;
+            resendBtn.textContent = 'Resend OTP';  // Remove timer
+        }
+    }, 1000);
+}
+```
 
 ---
 
@@ -341,19 +629,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 ## Database Schema (Backend Reference)
 
-### Users Table (Already Exists)
+### Users Table (Updated for Dual Verification)
 ```sql
 users {
     id: UUID PRIMARY KEY
-    email: VARCHAR(255) UNIQUE NOT NULL
-    phone: VARCHAR(20) NOT NULL
-    password_hash: VARCHAR(255) NOT NULL
-    email_verified: BOOLEAN DEFAULT FALSE
-    email_verified_at: TIMESTAMP NULL
+    email: VARCHAR(255) UNIQUE NOT NULL                    -- BOTH required & verified
+    phone: VARCHAR(20) UNIQUE NOT NULL                     -- BOTH required & verified
+    email_verified: BOOLEAN NOT NULL DEFAULT FALSE         -- TRUE before dashboard access
+    phone_verified: BOOLEAN NOT NULL DEFAULT FALSE         -- TRUE before dashboard access
+    email_verified_at: TIMESTAMP NULL                      -- First verification timestamp
+    phone_verified_at: TIMESTAMP NULL                      -- Second verification timestamp
+    primary_signup_method: ENUM('email', 'phone') NOT NULL -- Which method was used to signup
+    password_hash: VARCHAR(255) NOT NULL                   -- Not used with OTP, for future auth
     created_at: TIMESTAMP DEFAULT NOW()
     updated_at: TIMESTAMP DEFAULT NOW()
+
+    -- Constraint: Both contacts must be verified before profile access
+    CONSTRAINT check_both_verified CHECK (
+        email_verified = TRUE AND phone_verified = TRUE
+    )
 }
 ```
+
+**Key Changes from Old Schema:**
+- `phone` is now NOT NULL and UNIQUE (was optional)
+- Both `email_verified` and `phone_verified` must be TRUE
+- Added `primary_signup_method` to track which contact was used for signup
+- Added `phone_verified_at` timestamp for audit trail
+- New constraint ensures both are verified
 
 ### New: User Profiles Table
 ```sql
@@ -415,39 +718,68 @@ CREATE INDEX idx_users_profiles_referral_source ON users_profiles(referral_sourc
 ## Implementation Checklist
 
 ### Frontend
-- [x] Create profile-completion mockup (HTML/CSS/JS)
+- [x] Create profile-completion mockup with dual verification (HTML/CSS/JS)
 - [x] Create welcome-dashboard mockup (HTML/CSS/JS)
+- [x] Add secondary contact field to profile form
+- [x] Add secondary OTP verification screen
+- [x] Implement OTP input handling (auto-focus, paste, backspace)
+- [x] Implement resend timer for secondary OTP
 - [ ] Integrate profile form with backend API
+- [ ] Connect signup OTP to profile completion flow
 - [ ] Add form submission to `/api/users/profile`
+- [ ] Add secondary OTP submission to `/api/users/verify-secondary-contact`
 - [ ] Implement error handling for API
 - [ ] Add loading states during submission
-- [ ] Store completion status in session/state
-- [ ] Redirect flow after email verification
+- [ ] Store user data through entire flow
+- [ ] Redirect flow after signup OTP verification
+- [ ] Redirect flow after secondary OTP verification
 - [ ] Test on multiple devices (phone, tablet, desktop)
 
 ### Backend
-- [ ] Create `/users` table (if not exists)
+- [ ] Update `users` table schema for dual verification
+  - Add `phone_verified` and `phone_verified_at` columns
+  - Add `primary_signup_method` column
+  - Add constraint: both email_verified and phone_verified must be TRUE
 - [ ] Create `users_profiles` table
+- [ ] Update API endpoint: `POST /api/auth/send-otp`
+  - Accept context parameter: 'signup', 'login', 'secondary-verification'
+  - Send OTP to email or phone based on method
+- [ ] Update API endpoint: `POST /api/auth/verify-otp`
+  - Return indicatior if secondary verification needed
+  - Return which method still needs verification
 - [ ] Create API endpoint: `POST /api/users/profile`
-  - Accept: firstName, middleName, lastName, country, city, language, referralSource, referralPerson, occupation, industry
-  - Validate: All required fields, conditional referral person
-  - Store in database with user_id
-  - Return: Success/error response
+  - Accept: all profile fields + secondaryContact field
+  - Validate: All required fields, secondary contact format
+  - Send OTP to secondary contact
+  - Store profile data with user_id
+  - Return: Success with secondary verification indicator
+- [ ] Create API endpoint: `POST /api/users/verify-secondary-contact`
+  - Verify secondary contact OTP
+  - Mark both email_verified and phone_verified as TRUE
+  - Return redirect to dashboard
 - [ ] Create API endpoint: `GET /api/users/profile` (retrieve current user profile)
 - [ ] Add profile completion check middleware
-- [ ] Return profile status on login
+- [ ] Return dual verification status on login
 - [ ] Add form validation on backend (never trust client)
 - [ ] Add error messages for validation failures
+- [ ] Implement rate limiting for OTP sends (3 per 15 min)
+- [ ] Implement attempt limiting for OTP verification (5 attempts)
 
 ### Testing
-- [ ] Form validation works correctly
+- [ ] Email signup path: signup → verify email → profile → verify phone → dashboard
+- [ ] Phone signup path: signup → verify phone → profile → verify email → dashboard
+- [ ] Profile form validation: secondary contact field validates
 - [ ] Required fields prevent submission
 - [ ] Conditional fields show/hide properly
 - [ ] Error messages display correctly
+- [ ] OTP input: auto-focus, paste, backspace work
+- [ ] Resend timer counts down and enables after 60s
+- [ ] Back button on OTP screen returns to profile
 - [ ] Mobile responsiveness works
 - [ ] All links navigate correctly
 - [ ] Dashboard greeting uses correct name
-- [ ] Language selection saves and displays
+- [ ] Both email and phone stored in user record
+- [ ] Both verified flags are TRUE before dashboard access
 
 ### Styling
 - [x] Matches existing v1-v4 mockup color scheme
@@ -459,27 +791,51 @@ CREATE INDEX idx_users_profiles_referral_source ON users_profiles(referral_sourc
 
 ---
 
-## Key Files Created
+## Key Files Created & Updated
 
-### New Files
+### Files Created (Feb 2026)
 ```
 docs/prompts/output/
-├── profile-completion-antaryog.html    (NEW - form mockup)
-├── welcome-dashboard-antaryog.html     (NEW - post-registration dashboard)
-└── POST_REGISTRATION_IMPLEMENTATION_GUIDE.md  (THIS FILE - documentation)
+├── profile-completion-antaryog.html    (form mockup with secondary OTP screen)
+├── welcome-dashboard-antaryog.html     (post-registration dashboard)
+└── POST_REGISTRATION_IMPLEMENTATION_GUIDE.md  (this documentation)
 ```
 
-### Files to Update
+### Files Updated (Feb 2026 - Dual Verification Implementation)
 ```
 docs/prompts/output/
-├── index.html  (landing page - add links to auth screens)
-└── signup-branded-antaryog.html (simplify to remove "Full Name")
+├── signup-branded-antaryog.html        (UPDATED: pass method & phoneCode to profile)
+├── profile-completion-antaryog.html    (UPDATED: add secondary contact field + OTP screen)
+└── login-branded-antaryog.html         (UPDATED: messaging supports both email/phone login)
+```
 
+**Changes Made:**
+- **signup-branded-antaryog.html:**
+  - Pass `method` parameter to profile-completion (email or phone)
+  - Pass `phoneCode` parameter for international phone support
+
+- **profile-completion-antaryog.html:**
+  - Add secondary contact field section (email if phone signup, phone if email)
+  - Add secondary OTP verification screen with 6-digit input
+  - Add JavaScript for OTP input handling (auto-focus, paste, backspace)
+  - Add 60-second resend timer for secondary OTP
+  - Add mask functions for identifier privacy
+  - Add form submission handler to show OTP instead of direct redirect
+  - Update final redirect to include complete user data
+
+- **login-branded-antaryog.html:**
+  - Update messaging: "Login with your verified email address or phone number"
+
+### Files to Create Next (Backend)
+```
 frontend/
-└── (implementation when backend is ready)
+└── (Next.js component implementation)
 
 backend/
-└── (new endpoints and database schema)
+├── routes/auth.js          (POST /api/auth/send-otp, POST /api/auth/verify-otp)
+├── routes/users.js         (POST /api/users/profile, POST /api/users/verify-secondary-contact)
+├── models/User.js          (Database schema with dual verification)
+└── middleware/auth.js      (Profile completion check)
 ```
 
 ---
@@ -554,12 +910,63 @@ Warning:   #f59e0b (orange)
 
 ## API Endpoints (Backend Implementation)
 
-### POST /api/users/profile
-**Purpose:** Create/update user profile after verification
+### POST /api/auth/send-otp (Updated)
+**Purpose:** Send OTP to email or phone (used for both signup and secondary verification)
 
 **Request:**
 ```json
 {
+    "identifier": "user@example.com",              // email or phone number
+    "method": "email",                             // 'email' or 'phone'
+    "context": "signup"                            // 'signup', 'login', or 'secondary-verification'
+}
+```
+
+**Response Success (200):**
+```json
+{
+    "success": true,
+    "message": "OTP sent successfully",
+    "expiresIn": 300,                              // 5 minutes
+    "maskedIdentifier": "user****@example.com"     // for UI display
+}
+```
+
+---
+
+### POST /api/auth/verify-otp (Updated)
+**Purpose:** Verify OTP from signup (now indicates secondary verification needed)
+
+**Request:**
+```json
+{
+    "identifier": "user@example.com",
+    "otp": "123456",
+    "context": "signup"
+}
+```
+
+**Response Success (200):**
+```json
+{
+    "success": true,
+    "userId": "uuid-here",
+    "message": "First contact verified",
+    "requiresSecondaryVerification": true,        // NEW: indicates next step
+    "verifiedMethod": "email",                    // which method was verified
+    "needsMethod": "phone"                        // which method still needs verification
+}
+```
+
+---
+
+### POST /api/users/profile (Updated)
+**Purpose:** Save profile data + secondary contact (triggers secondary OTP send)
+
+**Request:**
+```json
+{
+    "userId": "uuid-here",
     "firstName": "Rajesh",
     "middleName": "Kumar",
     "lastName": "Singh",
@@ -569,7 +976,11 @@ Warning:   #f59e0b (orange)
     "referralSource": "friend-family",
     "referralPerson": "Arjun",
     "occupation": "professional",
-    "industry": "Technology"
+    "industry": "Technology",
+    "secondaryContact": {                          // NEW
+        "method": "phone",                         // 'email' or 'phone' (opposite of signup)
+        "value": "+919876543210"                   // email or phone number
+    }
 }
 ```
 
@@ -577,15 +988,16 @@ Warning:   #f59e0b (orange)
 ```json
 {
     "success": true,
-    "message": "Profile completed successfully",
+    "message": "Profile saved. OTP sent to verify secondary contact.",
+    "requiresVerification": true,
+    "verificationMethod": "phone",
     "profile": {
         "user_id": "uuid...",
         "first_name": "Rajesh",
         "last_name": "Singh",
         "country": "IN",
         "city": "Mumbai",
-        "language_preference": "hi",
-        "profile_completed_at": "2024-02-23T10:30:00Z"
+        "language_preference": "hi"
     }
 }
 ```
@@ -597,7 +1009,7 @@ Warning:   #f59e0b (orange)
     "error": "Validation failed",
     "fields": {
         "firstName": "First name is required",
-        "referralPerson": "Referral person required when source is friend-family"
+        "secondaryContact": "Invalid email format"
     }
 }
 ```
@@ -613,6 +1025,59 @@ Warning:   #f59e0b (orange)
 - referralPerson: Conditional - Required if source is 'friend-family' or 'existing-member', 2-255 chars
 - occupation: Optional, must be in enum if provided
 - industry: Optional, 0-100 chars
+- **secondaryContact.method:** Required, must be opposite of signup method
+- **secondaryContact.value:** Required, valid email or phone format
+
+---
+
+### POST /api/users/verify-secondary-contact (NEW)
+**Purpose:** Verify the secondary contact OTP and complete onboarding
+
+**Request:**
+```json
+{
+    "userId": "uuid-here",
+    "method": "phone",                             // 'email' or 'phone'
+    "identifier": "+919876543210",                 // the contact being verified
+    "otp": "123456"
+}
+```
+
+**Response Success (200):**
+```json
+{
+    "success": true,
+    "message": "Secondary contact verified successfully",
+    "bothContactsVerified": true,
+    "profileComplete": true,
+    "redirectTo": "/dashboard",
+    "user": {
+        "id": "uuid-here",
+        "email": "user@example.com",
+        "phone": "+919876543210",
+        "email_verified": true,
+        "phone_verified": true,
+        "email_verified_at": "2026-02-11T10:00:00Z",
+        "phone_verified_at": "2026-02-11T10:05:00Z"
+    }
+}
+```
+
+**Response Error (400):**
+```json
+{
+    "success": false,
+    "error": "Invalid OTP",
+    "message": "Please check the code and try again",
+    "attemptsRemaining": 4
+}
+```
+
+**Validation Rules (Backend):**
+- OTP: Required, exactly 6 digits
+- Max 5 verification attempts per OTP
+- OTP expires after 5 minutes
+- Rate limiting: Max 3 OTP sends per 15 minutes per identifier
 
 ---
 
@@ -650,31 +1115,43 @@ Warning:   #f59e0b (orange)
 
 ## Next Steps
 
-### Phase 1 (Current)
-✅ Complete design mockups for:
-- Profile completion form
+### Phase 1 (Current) ✅ COMPLETE
+✅ Complete design mockups with dual verification:
+- Profile completion form with secondary contact field
+- Secondary OTP verification screen
 - Welcome dashboard
+- Login with flexible methods (email or phone)
+- Complete documentation and API specs
 
-### Phase 2 (Backend Integration)
-- Implement database schema
-- Create API endpoints
-- Add form validation
-- Connect frontend to backend
-- Deploy to staging
+### Phase 2 (Immediate - Backend Integration)
+- [ ] Implement database schema with dual verification
+- [ ] Create authentication API endpoints
+- [ ] Create profile management API endpoints
+- [ ] Add OTP generation and validation (SMS provider integration)
+- [ ] Add form validation on backend
+- [ ] Connect frontend mockups to backend APIs
+- [ ] Implement error handling and retry logic
+- [ ] Test on staging environment
 
-### Phase 3 (Enhancements)
-- Add profile picture upload
-- Implement profile completion progress indicator
-- Add profile strength gauge
-- Create profile editing page
-- Add program interest collection
+### Phase 3 (Post-MVP - Enhancements)
+- [ ] Add email/SMS service integration (SendGrid, Twilio)
+- [ ] Implement OTP rate limiting and security
+- [ ] Add profile picture upload capability
+- [ ] Implement profile completion progress indicator
+- [ ] Add profile strength gauge
+- [ ] Create profile editing page
+- [ ] Add program interest collection
+- [ ] Implement contact preference settings (email vs SMS)
 
-### Phase 4 (Advanced)
-- Add AI-powered personalization
-- Create dashboard widgets based on language
-- Implement event recommendations
-- Add community member directory
-- Create referral rewards system
+### Phase 4 (Long-term - Advanced Features)
+- [ ] Add AI-powered personalization
+- [ ] Create dashboard widgets based on language
+- [ ] Implement event recommendations
+- [ ] Add community member directory
+- [ ] Create referral rewards system
+- [ ] Add social login (Google, Facebook)
+- [ ] Implement two-factor authentication with backup codes
+- [ ] Add login history and security audit log
 
 ---
 
@@ -758,7 +1235,44 @@ White:     #FFFFFF  (cards, containers)
 
 ---
 
-**Last Updated:** 2026-02-09
-**Status:** Ready for Implementation
+**Last Updated:** 2026-02-11
+**Status:** Complete with Dual Verification Implementation
 **Created by:** Claude Code
-**Version:** 1.0
+**Version:** 2.0
+
+---
+
+## Changelog
+
+### Version 2.0 (2026-02-11) - Dual Email + Phone Verification
+**Major Update:** Implemented dual contact verification flow
+
+**Added:**
+- Secondary contact field to profile completion form
+- Secondary OTP verification screen with 6-digit input
+- OTP input handling (auto-focus, paste, backspace navigation)
+- 60-second resend timer for both signup and secondary OTP
+- Masked identifier display for privacy
+- Back button on OTP screen to return to form
+- Phone country code support for international numbers
+- Context parameter to distinguish signup/login/secondary OTP
+
+**Updated:**
+- User journey flow with 5 steps instead of 4
+- Database schema with dual verification constraints
+- API endpoints for secondary OTP verification
+- Profile form validation to include secondary contact
+- Implementation checklist with new verification steps
+
+**Benefits:**
+✅ Users have both email and phone verified
+✅ Enables SMS + email notifications
+✅ Improved account recovery options
+✅ Industry-standard security pattern
+✅ Clear user journey with engagement at two touchpoints
+
+### Version 1.0 (2026-02-09) - Initial Implementation
+- Profile completion form with conditional fields
+- Welcome dashboard with personalization
+- Database schema and API specifications
+- Accessibility and responsive design features
