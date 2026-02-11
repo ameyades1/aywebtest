@@ -176,6 +176,41 @@
                 margin-right: auto;
             }
         }
+
+        /* Secondary OTP Input Styles */
+        .secondary-otp-input {
+            width: 48px;
+            height: 48px;
+            font-size: 20px;
+            text-align: center;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-otp-input:focus {
+            border-color: #09A59A;
+            box-shadow: 0 0 0 3px rgba(9, 165, 154, 0.1);
+        }
+
+        .secondary-otp-input.filled {
+            border-color: #09A59A;
+            background-color: rgba(9, 165, 154, 0.05);
+            font-weight: 600;
+        }
+
+        .secondary-otp-input.error {
+            border-color: #ef4444;
+            background-color: rgba(239, 68, 68, 0.05);
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
     </style>
 </head>
 <body class="bg-ay-beige text-ay-gray">
@@ -533,6 +568,70 @@
                         </div>
                     </div>
 
+                    <!-- Account Security & Secondary Contact Section (NEW) -->
+                    <div id="secondaryContactSection" class="hidden border-t border-gray-200 pt-6">
+                        <h3 class="text-lg font-bold text-ay-gray mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            Account Security
+                        </h3>
+                        <p class="text-sm text-ay-gray-light mb-5">
+                            We need both email and phone to keep your account secure and reach you with important updates.
+                        </p>
+
+                        <!-- Email Field (shown if phone signup) -->
+                        <div id="emailFieldContainer" class="hidden mb-6">
+                            <label for="secondaryEmail" class="block text-sm font-semibold text-ay-gray mb-2">
+                                Email Address <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="secondaryEmail"
+                                name="email"
+                                placeholder="your.email@example.com"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
+                                oninput="validateSecondaryContact()"
+                            >
+                            <p class="mt-1 text-sm text-red-500 hidden" id="secondaryEmail-error">
+                                Please enter a valid email address
+                            </p>
+                        </div>
+
+                        <!-- Phone Field (shown if email signup) -->
+                        <div id="phoneFieldContainer" class="hidden mb-6">
+                            <label for="secondaryPhone" class="block text-sm font-semibold text-ay-gray mb-2">
+                                Phone Number <span class="text-red-500">*</span>
+                            </label>
+                            <div class="flex gap-2">
+                                <select
+                                    id="secondaryPhoneCode"
+                                    class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
+                                >
+                                    <option value="+91">+91 (India)</option>
+                                    <option value="+1">+1 (US/Canada)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+86">+86 (China)</option>
+                                    <option value="+81">+81 (Japan)</option>
+                                </select>
+                                <input
+                                    type="tel"
+                                    id="secondaryPhone"
+                                    name="phone"
+                                    placeholder="9876543210"
+                                    pattern="[0-9]{10}"
+                                    inputmode="numeric"
+                                    class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ay-teal focus:border-transparent transition-all"
+                                    oninput="validateSecondaryContact()"
+                                >
+                            </div>
+                            <p class="mt-1 text-xs text-ay-gray-light">10-digit mobile number</p>
+                            <p class="mt-1 text-sm text-red-500 hidden" id="secondaryPhone-error">
+                                Please enter a valid 10-digit phone number
+                            </p>
+                        </div>
+                    </div>
+
                     <!-- Trust Box -->
                     <div class="trust-box border rounded-lg p-5">
                         <h4 class="font-semibold text-ay-gray mb-3 flex items-center">
@@ -584,6 +683,61 @@
                         All fields marked with <span class="text-red-500">*</span> are required
                     </p>
                 </form>
+
+                <!-- Secondary Contact OTP Verification Screen (NEW) -->
+                <div id="secondaryOtpScreen" class="hidden">
+                    <div class="text-center mb-8">
+                        <button id="backToProfileBtn" class="flex items-center text-ay-gray hover:text-ay-teal mb-6 transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Back to Profile
+                        </button>
+                        <h2 class="text-3xl font-bold text-ay-gray mb-3">
+                            Verify Your <span id="secondaryOtpLabel">Email</span>
+                        </h2>
+                        <p class="text-ay-gray-light mb-2">
+                            We've sent a 6-digit verification code to
+                        </p>
+                        <p class="font-semibold text-ay-gray" id="secondaryMaskedIdentifier">
+                            a****@example.com
+                        </p>
+                    </div>
+
+                    <!-- OTP Input -->
+                    <form id="secondaryOtpForm" class="space-y-6">
+                        <div class="flex gap-2 justify-center">
+                            <input type="text" class="secondary-otp-input" maxlength="1" inputmode="numeric">
+                            <input type="text" class="secondary-otp-input" maxlength="1" inputmode="numeric">
+                            <input type="text" class="secondary-otp-input" maxlength="1" inputmode="numeric">
+                            <input type="text" class="secondary-otp-input" maxlength="1" inputmode="numeric">
+                            <input type="text" class="secondary-otp-input" maxlength="1" inputmode="numeric">
+                            <input type="text" class="secondary-otp-input" maxlength="1" inputmode="numeric">
+                        </div>
+
+                        <p class="mt-2 text-sm text-red-500 hidden text-center" id="secondaryOtp-error"></p>
+
+                        <button
+                            type="submit"
+                            class="w-full bg-ay-teal hover:bg-ay-teal-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                        >
+                            Verify & Complete Profile
+                        </button>
+
+                        <div class="text-center">
+                            <p class="text-sm text-ay-gray-light mb-3">Didn't receive the code?</p>
+                            <button
+                                type="button"
+                                id="resendSecondaryOtpBtn"
+                                onclick="handleResendSecondaryOTP()"
+                                class="text-ay-teal hover:text-ay-teal-dark font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled
+                            >
+                                Resend OTP in <span id="secondaryOtpTimer">60</span>s
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
@@ -762,11 +916,21 @@
             }
         }
 
-        // Form Submission
+        // Form Submission - Show Secondary OTP Screen
+        let profileData = {};
+        let signupMethod = '';
+        let verifiedContact = '';
+
         document.getElementById('profileForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const formData = {
+            // Validate secondary contact before proceeding
+            if (!validateSecondaryContact()) {
+                return;
+            }
+
+            profileData = {
+                method: signupMethod,
                 firstName: document.getElementById('firstName').value.trim(),
                 middleName: document.getElementById('middleName').value.trim(),
                 lastName: document.getElementById('lastName').value.trim(),
@@ -779,28 +943,316 @@
                 industry: document.getElementById('industry').value.trim()
             };
 
-            console.log('Profile submitted:', formData);
-            alert(`Profile completed! Welcome, ${formData.firstName} ${formData.lastName}!`);
+            // Get secondary contact details
+            if (signupMethod === 'email') {
+                const phone = document.getElementById('secondaryPhone').value.replace(/\D/g, '');
+                const countryCode = document.getElementById('secondaryPhoneCode').value;
+                profileData.phone = phone;
+                profileData.phoneCountryCode = countryCode;
+                verifiedContact = countryCode + phone;
 
-            // In real app: Submit to backend API
-            // Redirect to welcome dashboard with user's first name
-            window.location.href = `welcome-dashboard-antaryog.html?firstName=${encodeURIComponent(formData.firstName)}&language=${encodeURIComponent(formData.language)}`;
+                // Update masked identifier display
+                document.getElementById('secondaryOtpLabel').textContent = 'Phone Number';
+                document.getElementById('secondaryMaskedIdentifier').textContent = maskPhone(verifiedContact);
+            } else if (signupMethod === 'phone') {
+                const email = document.getElementById('secondaryEmail').value.trim();
+                profileData.email = email;
+                verifiedContact = email;
+
+                // Update masked identifier display
+                document.getElementById('secondaryOtpLabel').textContent = 'Email';
+                document.getElementById('secondaryMaskedIdentifier').textContent = maskEmail(email);
+            }
+
+            // Hide form and show OTP screen
+            document.getElementById('profileForm').classList.add('hidden');
+            document.getElementById('secondaryOtpScreen').classList.remove('hidden');
+
+            // Initialize OTP inputs
+            setupSecondaryOTPInputs();
+
+            // Reset OTP inputs
+            resetSecondaryOTPInputs();
+            document.querySelector('.secondary-otp-input').focus();
+
+            // Start resend timer
+            startSecondaryResendTimer();
         });
 
         // Initialize form validation on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Get firstName and email from URL parameters
+            // Get all URL parameters
             const params = new URLSearchParams(window.location.search);
+            const method = params.get('method'); // 'email' or 'phone'
             const firstName = params.get('firstName');
             const email = params.get('email');
+            const phone = params.get('phone');
+            const phoneCode = params.get('phoneCode');
+
+            // Store signup method
+            signupMethod = method || 'email';
 
             // Pre-fill first name if provided
             if (firstName) {
                 document.getElementById('firstName').value = firstName;
             }
 
+            // Show appropriate secondary contact field
+            if (signupMethod === 'phone') {
+                // Phone signup - show email field
+                document.getElementById('secondaryContactSection').classList.remove('hidden');
+                document.getElementById('emailFieldContainer').classList.remove('hidden');
+            } else if (signupMethod === 'email') {
+                // Email signup - show phone field
+                document.getElementById('secondaryContactSection').classList.remove('hidden');
+                document.getElementById('phoneFieldContainer').classList.remove('hidden');
+
+                // Pre-select phone country code if provided
+                if (phoneCode) {
+                    document.getElementById('secondaryPhoneCode').value = phoneCode;
+                }
+            }
+
             validateForm();
         });
+
+        // ========== Secondary Contact Validation ==========
+        function validateSecondaryContact() {
+            const emailField = document.getElementById('secondaryEmail');
+            const phoneField = document.getElementById('secondaryPhone');
+            const phoneError = document.getElementById('secondaryPhone-error');
+            const emailError = document.getElementById('secondaryEmail-error');
+
+            let isValid = true;
+
+            if (signupMethod === 'phone' && emailField.parentElement.parentElement.classList.contains('hidden') === false) {
+                // Validating email
+                const email = emailField.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailRegex.test(email)) {
+                    emailError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    emailError.classList.add('hidden');
+                }
+            } else if (signupMethod === 'email' && phoneField.parentElement.parentElement.classList.contains('hidden') === false) {
+                // Validating phone
+                const phone = phoneField.value.replace(/\D/g, '');
+
+                if (phone.length !== 10) {
+                    phoneError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    phoneError.classList.add('hidden');
+                }
+            }
+
+            return isValid;
+        }
+
+        // ========== Mask Functions ==========
+        function maskEmail(email) {
+            const [localPart, domain] = email.split('@');
+            if (localPart.length <= 2) {
+                return email;
+            }
+            const masked = localPart[0] + '*'.repeat(localPart.length - 2) + localPart[localPart.length - 1];
+            return masked + '@' + domain;
+        }
+
+        function maskPhone(fullPhone) {
+            // fullPhone is like "+919876543210"
+            const countryCode = fullPhone.slice(0, fullPhone.length - 10);
+            const lastDigits = fullPhone.slice(-3);
+            return `${countryCode} ****${lastDigits}`;
+        }
+
+        // ========== Back to Profile Button ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const backBtn = document.getElementById('backToProfileBtn');
+            if (backBtn) {
+                backBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('secondaryOtpScreen').classList.add('hidden');
+                    document.getElementById('profileForm').classList.remove('hidden');
+                    resetSecondaryOTPInputs();
+                });
+            }
+        });
+
+        // ========== Secondary OTP Input Handling ==========
+        function setupSecondaryOTPInputs() {
+            const otpInputs = document.querySelectorAll('.secondary-otp-input');
+
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', (e) => {
+                    const value = e.target.value;
+
+                    // Only allow digits
+                    if (!/^\d$/.test(value) && value !== '') {
+                        e.target.value = '';
+                        return;
+                    }
+
+                    // Mark as filled if has value
+                    if (value) {
+                        input.classList.add('filled');
+                        input.classList.remove('error');
+                    } else {
+                        input.classList.remove('filled');
+                    }
+
+                    // Auto-focus next input
+                    if (value && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+
+                // Handle backspace
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace') {
+                        if (input.value) {
+                            input.value = '';
+                            input.classList.remove('filled');
+                        } else if (index > 0) {
+                            otpInputs[index - 1].focus();
+                            otpInputs[index - 1].value = '';
+                            otpInputs[index - 1].classList.remove('filled');
+                        }
+                    }
+                });
+
+                // Handle paste
+                input.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    const pastedData = e.clipboardData.getData('text');
+                    const digits = pastedData.replace(/\D/g, '').slice(0, 6);
+
+                    if (digits.length === 6) {
+                        otpInputs.forEach((inp, i) => {
+                            inp.value = digits[i];
+                            inp.classList.add('filled');
+                        });
+                    }
+                });
+            });
+        }
+
+        function resetSecondaryOTPInputs() {
+            document.querySelectorAll('.secondary-otp-input').forEach(input => {
+                input.value = '';
+                input.classList.remove('filled', 'error');
+            });
+            document.getElementById('secondaryOtp-error').classList.add('hidden');
+        }
+
+        // ========== Secondary OTP Form Submission ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const otpForm = document.getElementById('secondaryOtpForm');
+            if (otpForm) {
+                otpForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleSecondaryOTPVerification();
+                });
+            }
+        });
+
+        function handleSecondaryOTPVerification() {
+            const otp = Array.from(document.querySelectorAll('.secondary-otp-input'))
+                .map(input => input.value)
+                .join('');
+
+            // Clear previous error
+            document.getElementById('secondaryOtp-error').classList.add('hidden');
+
+            // Validate OTP length
+            if (otp.length !== 6) {
+                showSecondaryOTPError('Please enter all 6 digits');
+                return;
+            }
+
+            // Validate OTP format
+            if (!/^\d{6}$/.test(otp)) {
+                showSecondaryOTPError('Please enter valid digits only');
+                return;
+            }
+
+            // For mockup: accept "123456" as valid code
+            if (otp === '123456') {
+                console.log('Secondary OTP verified:', {
+                    identifier: verifiedContact,
+                    method: signupMethod === 'email' ? 'phone' : 'email',
+                    otp: otp
+                });
+
+                // Redirect to welcome dashboard with all profile data
+                const queryParams = new URLSearchParams({
+                    firstName: profileData.firstName,
+                    language: profileData.language,
+                    email: signupMethod === 'email' ? (profileData.email || '') : profileData.email,
+                    phone: signupMethod === 'phone' ? (profileData.phone || '') : profileData.phone,
+                    method: signupMethod
+                });
+
+                window.location.href = `welcome-dashboard-antaryog.html?${queryParams.toString()}`;
+            } else {
+                showSecondaryOTPError('Invalid code. Please try again or request a new one.');
+            }
+        }
+
+        function showSecondaryOTPError(message) {
+            const errorEl = document.getElementById('secondaryOtp-error');
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
+
+            // Shake animation
+            document.querySelectorAll('.secondary-otp-input').forEach(input => {
+                input.classList.add('error');
+            });
+
+            setTimeout(() => {
+                resetSecondaryOTPInputs();
+            }, 600);
+        }
+
+        // ========== Resend Secondary OTP ==========
+        let secondaryResendTimerInterval;
+
+        function handleResendSecondaryOTP() {
+            const resendBtn = document.getElementById('resendSecondaryOtpBtn');
+            resendBtn.disabled = true;
+
+            // In real app, would make API call to resend OTP
+            console.log('Resending OTP to', verifiedContact);
+            alert('OTP resent to ' + verifiedContact);
+
+            // Reset timer
+            startSecondaryResendTimer();
+        }
+
+        function startSecondaryResendTimer() {
+            let secondsLeft = 60;
+            const resendBtn = document.getElementById('resendSecondaryOtpBtn');
+            const timerSpan = document.getElementById('secondaryOtpTimer');
+
+            resendBtn.disabled = true;
+            timerSpan.textContent = secondsLeft;
+
+            // Clear previous interval if exists
+            if (secondaryResendTimerInterval) clearInterval(secondaryResendTimerInterval);
+
+            secondaryResendTimerInterval = setInterval(() => {
+                secondsLeft--;
+                timerSpan.textContent = secondsLeft;
+
+                if (secondsLeft === 0) {
+                    clearInterval(secondaryResendTimerInterval);
+                    resendBtn.disabled = false;
+                    resendBtn.innerHTML = 'Resend OTP';
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>

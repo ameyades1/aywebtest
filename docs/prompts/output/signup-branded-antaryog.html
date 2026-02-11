@@ -1030,8 +1030,9 @@
                 const firstName = signupState.fullName.split(' ')[0];
                 const email = signupState.method === 'email' ? signupState.identifier : '';
                 const phone = signupState.method === 'phone' ? signupState.identifier : '';
+                const phoneCode = signupState.method === 'phone' ? signupState.countryCode : '';
 
-                window.location.href = `profile-completion-antaryog.html?firstName=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
+                window.location.href = `profile-completion-antaryog.html?method=${signupState.method}&firstName=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&phoneCode=${encodeURIComponent(phoneCode)}`;
             } else {
                 showOTPError('Invalid code. Please try again or request a new one.');
             }
