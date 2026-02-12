@@ -1227,6 +1227,189 @@
             background-color: var(--section-alt);
         }
 
+        /* Shibir History */
+        .shibir-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .shibir-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
+        }
+
+        .shibir-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .shibir-card-title h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .shibir-card-title p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .shibir-badge {
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.1), rgba(232, 184, 75, 0.1));
+            color: var(--primary);
+            padding: 0.375rem 0.625rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(184, 115, 51, 0.2);
+            white-space: nowrap;
+        }
+
+        .shibir-card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .shibir-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+
+        .shibir-info-item .icon-xs {
+            width: 1rem;
+            height: 1rem;
+            flex-shrink: 0;
+            color: var(--primary);
+            margin-top: 0.125rem;
+        }
+
+        .shibir-info-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .shibir-certificate {
+            background-color: rgba(184, 115, 51, 0.05);
+            border: 1px solid rgba(184, 115, 51, 0.15);
+            border-radius: 0.375rem;
+            padding: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .certificate-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            margin-bottom: 0.25rem;
+        }
+
+        .certificate-id {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+        }
+
+        .btn-download-cert {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .btn-download-cert:hover {
+            background-color: var(--accent);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background-color: var(--section-alt);
+            border-radius: 0.5rem;
+        }
+
+        .empty-state-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 1rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .empty-state-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Responsive: Shibir History */
+        @media (max-width: 768px) {
+            .shibir-card {
+                padding: 1rem;
+            }
+
+            .shibir-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .shibir-badge {
+                align-self: flex-start;
+            }
+
+            .shibir-certificate {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-download-cert {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .empty-state {
+                padding: 2rem 1rem;
+            }
+        }
+
         /* Footer */
         footer {
             background-color: var(--ay-gray);
@@ -1471,20 +1654,20 @@
                 <span>My Profile</span>
             </button>
 
-            <button class="profile-drawer-item" onclick="showSectionMobile('settings')">
-                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m3.08-3.08l4.24-4.24"/>
-                </svg>
-                <span>Account Settings</span>
-            </button>
-
             <button class="profile-drawer-item" onclick="showSectionMobile('sadhak')">
                 <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="4" width="18" height="16" rx="2"/>
                     <path d="M7 9h10M7 13h10M7 17h4"/>
                 </svg>
                 <span>Sadhak ID & Membership</span>
+            </button>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('settings')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m3.08-3.08l4.24-4.24"/>
+                </svg>
+                <span>Account Settings</span>
             </button>
 
             <div class="profile-drawer-divider"></div>
@@ -1506,6 +1689,14 @@
                 </svg>
                 <span>Browse Centers</span>
             </button>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('shibir-history')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Shibir History</span>
+            </button>
         </nav>
     </div>
 
@@ -1523,20 +1714,20 @@
                         <span>My Profile</span>
                     </button>
 
-                    <button class="nav-item" onclick="showSection('settings', event)">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m3.08-3.08l4.24-4.24"/>
-                        </svg>
-                        <span>Account Settings</span>
-                    </button>
-
                     <button class="nav-item" onclick="showSection('sadhak', event)">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="16" rx="2"/>
                             <path d="M7 9h10M7 13h10M7 17h4"/>
                         </svg>
                         <span>Sadhak ID & Membership</span>
+                    </button>
+
+                    <button class="nav-item" onclick="showSection('settings', event)">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m3.08-3.08l4.24-4.24"/>
+                        </svg>
+                        <span>Account Settings</span>
                     </button>
 
                     <div class="nav-divider"></div>
@@ -1557,6 +1748,14 @@
                             <rect x="3" y="14" width="7" height="7"/>
                         </svg>
                         <span>Browse Centers</span>
+                    </button>
+
+                    <button class="nav-item" onclick="showSection('shibir-history', event)">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span>Shibir History</span>
                     </button>
                 </nav>
             </aside>
@@ -1852,6 +2051,20 @@
 
                     <div class="load-more-section">
                         <button class="btn-load-more" onclick="loadMoreCenters()">Load More Centers</button>
+                    </div>
+                </section>
+
+                <!-- Section: Shibir History -->
+                <section id="shibir-history-section" class="content-section">
+                    <div class="section-header">
+                        <div>
+                            <h2 class="section-title">Shibir History</h2>
+                            <p class="section-subtitle">Your completed spiritual workshops and courses</p>
+                        </div>
+                    </div>
+
+                    <div id="shibirHistoryContent">
+                        <!-- Will be populated by renderShibirs() function -->
                     </div>
                 </section>
             </div>
@@ -2155,6 +2368,89 @@
             }
         ];
 
+        const shibirsData = [
+            {
+                id: 1,
+                name: "Durga Saptashati Advanced Level",
+                date: "2025-12-15",
+                location_type: "center",
+                center_name: "Bandra West Center",
+                address: "Bandra, Mumbai, Maharashtra",
+                duration_days: 7,
+                certificate_id: "DSS-ADV-2025-001234",
+                instructor: "Acharya Prashant Kumar",
+                completed_date: "December 15, 2025"
+            },
+            {
+                id: 2,
+                name: "Pitru Rin Mukti Sadhana",
+                date: "2025-10-22",
+                location_type: "online",
+                duration_days: 3,
+                certificate_id: "PRM-ONL-2025-000987",
+                instructor: "Swami Ananda Bharati",
+                completed_date: "October 22, 2025"
+            },
+            {
+                id: 3,
+                name: "Shree Vidya Upasana - Foundation",
+                date: "2025-08-10",
+                location_type: "center",
+                center_name: "Lodhi Garden Center",
+                address: "Lodhi Garden, Delhi, Delhi",
+                duration_days: 5,
+                certificate_id: "SVU-FND-2025-005678",
+                instructor: "Dr. Ramakrishnan Iyer",
+                completed_date: "August 10, 2025"
+            },
+            {
+                id: 4,
+                name: "Navagraha Shanti Path",
+                date: "2025-06-05",
+                location_type: "center",
+                center_name: "Powai Center",
+                address: "Powai, Mumbai, Maharashtra",
+                duration_days: 2,
+                certificate_id: "NSP-2025-003456",
+                instructor: "Pandit Vijay Sharma",
+                completed_date: "June 5, 2025"
+            },
+            {
+                id: 5,
+                name: "Advanced Meditation Techniques",
+                date: "2025-03-18",
+                location_type: "online",
+                duration_days: 4,
+                certificate_id: "AMT-ONL-2025-002789",
+                instructor: "Swami Vivekananda Das",
+                completed_date: "March 18, 2025"
+            },
+            {
+                id: 6,
+                name: "Vedic Chanting - Beginner Level",
+                date: "2024-12-20",
+                location_type: "center",
+                center_name: "Indiranagar Center",
+                address: "Indiranagar, Bangalore, Karnataka",
+                duration_days: 3,
+                certificate_id: "VCH-BEG-2024-007890",
+                instructor: "Acharya Gauri Devi",
+                completed_date: "December 20, 2024"
+            },
+            {
+                id: 7,
+                name: "Kundalini Shakti Awakening Workshop",
+                date: "2024-09-10",
+                location_type: "center",
+                center_name: "Coorg Nature Retreat",
+                address: "Coorg, Karnataka",
+                duration_days: 7,
+                certificate_id: "KSA-2024-009123",
+                instructor: "Swami Ananda Saraswati",
+                completed_date: "September 10, 2024"
+            }
+        ];
+
         let displayedCenters = 6;
         let confirmedAction = null;
 
@@ -2313,6 +2609,100 @@
         function loadMoreCenters() {
             displayedCenters += 4;
             renderCenters(centersData.slice(0, displayedCenters));
+        }
+
+        // Render shibir cards
+        function renderShibirs(shibirs) {
+            const container = document.getElementById('shibirHistoryContent');
+
+            // Empty state check
+            if (!shibirs || shibirs.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20m8-4H4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                        <h3>No Shibir History Yet</h3>
+                        <p>You haven't attended any shibirs yet. Explore our spiritual workshops and courses to start your learning journey.</p>
+                        <div class="empty-state-actions">
+                            <button class="btn-primary" onclick="showSection('browse-centers', null)">
+                                Browse Centers
+                            </button>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort by date (most recent first)
+            const sortedShibirs = [...shibirs].sort((a, b) =>
+                new Date(b.date) - new Date(a.date)
+            );
+
+            // Create responsive grid
+            const grid = document.createElement('div');
+            grid.className = 'centers-grid'; // Reuse existing grid styles
+
+            sortedShibirs.forEach(shibir => {
+                const card = document.createElement('div');
+                card.className = 'shibir-card';
+
+                const locationDisplay = shibir.location_type === 'online'
+                    ? '<strong>Online</strong>'
+                    : `<strong>${shibir.center_name}</strong><br><span style="font-size: 0.8rem; color: var(--text-secondary);">${shibir.address}</span>`;
+
+                card.innerHTML = `
+                    <div class="shibir-card-header">
+                        <div class="shibir-card-title">
+                            <h3>${shibir.name}</h3>
+                            <p>Completed on ${shibir.completed_date}</p>
+                        </div>
+                        <span class="shibir-badge">${shibir.duration_days} Day${shibir.duration_days > 1 ? 's' : ''}</span>
+                    </div>
+
+                    <div class="shibir-card-info">
+                        <div class="shibir-info-item">
+                            <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>${locationDisplay}</span>
+                        </div>
+                        <div class="shibir-info-item">
+                            <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span><span class="shibir-info-label">Instructor:</span> ${shibir.instructor}</span>
+                        </div>
+                    </div>
+
+                    <div class="shibir-certificate">
+                        <div class="certificate-info">
+                            <div class="certificate-label">Certificate ID</div>
+                            <div class="certificate-id">${shibir.certificate_id}</div>
+                        </div>
+                        <button class="btn-download-cert" onclick="downloadCertificate('${shibir.certificate_id}')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 0.875rem; height: 0.875rem;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            container.innerHTML = '';
+            container.appendChild(grid);
+        }
+
+        // Download certificate
+        function downloadCertificate(certificateId) {
+            alert(`Downloading certificate ${certificateId}... (Mockup - backend will implement actual PDF download)`);
         }
 
         // Join center
@@ -2526,6 +2916,7 @@
                     else if (span.textContent.includes('Sadhak')) itemSection = 'sadhak';
                     else if (span.textContent.includes('Enrolled')) itemSection = 'enrolled-center';
                     else if (span.textContent.includes('Browse')) itemSection = 'browse-centers';
+                    else if (span.textContent.includes('Shibir')) itemSection = 'shibir-history';
 
                     if (itemSection === sectionName) {
                         item.classList.add('active');
@@ -2536,6 +2927,9 @@
 
         // Setup drawer event listeners
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize shibir history
+            renderShibirs(shibirsData);
+
             // Close drawer when clicking overlay
             const overlay = document.getElementById('profileDrawerOverlay');
             if (overlay) {
