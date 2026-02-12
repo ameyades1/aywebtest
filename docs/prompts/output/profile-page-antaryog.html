@@ -535,17 +535,25 @@
         }
 
         .form-group input,
-        .form-group select {
+        .form-group select,
+        .form-group textarea {
             width: 100%;
             padding: 0.625rem 0.875rem;
             border: 1px solid #e5e7eb;
             border-radius: 0.375rem;
             font-size: 0.875rem;
             background-color: var(--section-alt);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
         }
 
         .form-group input:disabled,
-        .form-group select:disabled {
+        .form-group select:disabled,
+        .form-group textarea:disabled {
             background-color: #f3f4f6;
             color: #6b7280;
             cursor: not-allowed;
@@ -1841,6 +1849,239 @@
                 margin: 1.5rem 0;
             }
         }
+
+        /* ========== VOLUNTEERING PROFILE STYLES ========== */
+
+        /* Volunteering Summary Card */
+        .volunteering-summary-card {
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.05), rgba(232, 184, 75, 0.05));
+            border-left: 4px solid var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Shibir Count Badge */
+        .shibir-count-display {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .shibir-count-badge {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(34, 197, 94, 0.1));
+            color: #065f46;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            border: 1px solid #d1fae5;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .field-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Badge Container for Checkboxes Display */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .interest-badge {
+            background-color: rgba(184, 115, 51, 0.1);
+            color: var(--primary);
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid rgba(184, 115, 51, 0.2);
+        }
+
+        /* Checkbox Group Styling (in modal) */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .checkbox-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 1.125rem;
+            height: 1.125rem;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .checkbox-item label {
+            font-size: 0.875rem;
+            color: var(--text);
+            cursor: pointer;
+            margin: 0;
+        }
+
+        /* Radio Group Styling */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-item input[type="radio"] {
+            width: 1.125rem;
+            height: 1.125rem;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .radio-item label {
+            font-size: 0.875rem;
+            color: var(--text);
+            cursor: pointer;
+            margin: 0;
+        }
+
+        /* Character Counter for Textareas */
+        .char-counter {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .char-counter.limit-reached {
+            color: #dc2626;
+        }
+
+        /* Modal Field Group */
+        .modal-field-group {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .modal-field-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .modal-group-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Form Grid 2 Columns */
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Empty State for Volunteering */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.05), rgba(232, 184, 75, 0.05));
+            border-radius: 0.75rem;
+            border: 1px solid rgba(184, 115, 51, 0.1);
+        }
+
+        .empty-state-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1rem;
+            color: var(--primary);
+            opacity: 0.6;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .empty-state-actions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Read-only Field Display */
+        .form-group input:disabled,
+        .form-group textarea:disabled,
+        .form-group select:disabled {
+            background-color: #f3f4f6;
+            color: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        /* Responsive: Mobile adjustments */
+        @media (max-width: 768px) {
+            .volunteering-summary-card {
+                padding: 1.25rem;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-field-group {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            .empty-state {
+                padding: 2rem 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1952,6 +2193,13 @@
                 </svg>
                 <span>Shibir History</span>
             </button>
+
+            <button class="profile-drawer-item" onclick="showSectionMobile('volunteering')">
+                <svg class="drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span>Volunteering Profile</span>
+            </button>
         </nav>
     </div>
 
@@ -2011,6 +2259,13 @@
                             <polyline points="12 6 12 12 16 14"/>
                         </svg>
                         <span>Shibir History</span>
+                    </button>
+
+                    <button class="nav-item" onclick="showSection('volunteering', event)">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <span>Volunteering Profile</span>
                     </button>
                 </nav>
             </aside>
@@ -2383,6 +2638,24 @@
                         <!-- Will be populated by renderShibirs() function -->
                     </div>
                 </section>
+
+                <!-- Section Separator -->
+                <hr class="section-separator">
+
+                <!-- Section: Volunteering Profile -->
+                <section id="volunteering-section" class="content-section">
+                    <div class="section-header">
+                        <div>
+                            <h2 class="section-title">Volunteering Profile</h2>
+                            <p class="section-subtitle">Share your skills and interests to contribute to our mission</p>
+                        </div>
+                        <button class="btn-primary" onclick="openEditVolunteeringModal()">Edit Volunteering Profile</button>
+                    </div>
+
+                    <div id="volunteeringContent">
+                        <!-- Will be populated by renderVolunteeringProfile() function -->
+                    </div>
+                </section>
             </div>
         </div>
     </main>
@@ -2575,6 +2848,429 @@
             <div class="modal-actions">
                 <button class="btn-cancel" onclick="closeModal('confirmModal')">Cancel</button>
                 <button class="btn-confirm" id="confirmBtn" onclick="confirmAction()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Volunteering Modal -->
+    <div class="modal" id="editVolunteeringModal">
+        <div class="modal-content modal-content-large" style="max-width: 900px;">
+            <div class="modal-header">
+                <h3>Edit Volunteering Profile</h3>
+                <button class="close-btn" onclick="closeModal('editVolunteeringModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="volunteeringForm">
+                    <!-- Group 1: Professional Background -->
+                    <div class="modal-field-group">
+                        <div class="modal-group-title">Professional Background</div>
+                        <div class="form-grid form-grid-2">
+                            <div class="form-group">
+                                <label>Current Occupation/Profession</label>
+                                <input type="text" id="volOccupation" placeholder="E.g., Software Engineer, Teacher">
+                            </div>
+                            <div class="form-group">
+                                <label>Years of Professional Experience</label>
+                                <select id="volYearsExp">
+                                    <option value="">Select...</option>
+                                    <option value="0-2">0-2 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="6-10">6-10 years</option>
+                                    <option value="11-20">11-20 years</option>
+                                    <option value="20+">20+ years</option>
+                                    <option value="n/a">Not applicable</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Industry/Field of Expertise</label>
+                                <input type="text" id="volIndustry" placeholder="E.g., Information Technology, Education">
+                            </div>
+                            <div class="form-group">
+                                <label>Key Professional Skills</label>
+                                <textarea id="volProfSkills" rows="2" placeholder="E.g., Project management, Public speaking, Data analysis..." maxlength="500"></textarea>
+                                <small class="char-counter"><span id="volProfSkillsCount">0</span>/500</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 2: Educational Background -->
+                    <div class="modal-field-group">
+                        <div class="modal-group-title">Educational Background</div>
+                        <div class="form-grid form-grid-2">
+                            <div class="form-group">
+                                <label>Highest Level of Education</label>
+                                <select id="volEducation">
+                                    <option value="">Select...</option>
+                                    <option value="high-school">High School</option>
+                                    <option value="diploma">Diploma/Certificate</option>
+                                    <option value="bachelor">Bachelor's Degree</option>
+                                    <option value="master">Master's Degree</option>
+                                    <option value="phd">Doctoral Degree (PhD)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Field of Study/Specialization</label>
+                                <input type="text" id="volFieldOfStudy" placeholder="E.g., Philosophy, Computer Science">
+                            </div>
+                            <div class="form-group">
+                                <label>Teaching/Training Experience</label>
+                                <select id="volTeachingExp">
+                                    <option value="">Select...</option>
+                                    <option value="none">No experience</option>
+                                    <option value="informal">Informal (family/friends)</option>
+                                    <option value="1-3">1-3 years</option>
+                                    <option value="4-10">4-10 years</option>
+                                    <option value="10+">10+ years professional</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 3: Volunteer & Spiritual Experience -->
+                    <div class="modal-field-group">
+                        <div class="modal-group-title">Volunteer & Spiritual Experience</div>
+                        <div class="form-group">
+                            <label>Previous Volunteering Experience</label>
+                            <textarea id="volPrevExp" rows="4" placeholder="Describe any previous volunteer work with spiritual organizations, NGOs, or community service..." maxlength="1000"></textarea>
+                            <small class="char-counter"><span id="volPrevExpCount">0</span>/1000</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Spiritual Practice Background</label>
+                            <textarea id="volSpiritualBg" rows="3" placeholder="Share your spiritual journey, practices (meditation, yoga, vedic study)..." maxlength="500"></textarea>
+                            <small class="char-counter"><span id="volSpiritualBgCount">0</span>/500</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Completed Shibirs</label>
+                            <div class="shibir-count-display">
+                                <span class="shibir-count-badge" id="shibirCountBadge">0 Shibirs Completed</span>
+                                <small class="field-note">Complete more workshops to deepen your contribution</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Areas of Volunteer Interest (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt1" value="Teaching & Instruction">
+                                    <label for="volInt1">Teaching & Instruction</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt2" value="Event Coordination & Management">
+                                    <label for="volInt2">Event Coordination & Management</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt3" value="Content Creation">
+                                    <label for="volInt3">Content Creation</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt4" value="Counseling & Guidance">
+                                    <label for="volInt4">Counseling & Guidance</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt5" value="Administrative Support">
+                                    <label for="volInt5">Administrative Support</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt6" value="Technology & Digital">
+                                    <label for="volInt6">Technology & Digital</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt7" value="Translation Services">
+                                    <label for="volInt7">Translation Services</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt8" value="Graphic Design & Creative Arts">
+                                    <label for="volInt8">Graphic Design & Creative Arts</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt9" value="Center Coordination">
+                                    <label for="volInt9">Center Coordination</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volInt10" value="Fundraising & Outreach">
+                                    <label for="volInt10">Fundraising & Outreach</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 4: Skills & Talents -->
+                    <div class="modal-field-group">
+                        <div class="modal-group-title">Skills & Talents</div>
+                        <div class="form-group">
+                            <label>Languages Spoken (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volLang1" value="English">
+                                    <label for="volLang1">English (fluent)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volLang2" value="Hindi">
+                                    <label for="volLang2">Hindi (fluent)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volLang3" value="Marathi">
+                                    <label for="volLang3">Marathi (fluent)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volLang4" value="Sanskrit">
+                                    <label for="volLang4">Sanskrit</label>
+                                </div>
+                            </div>
+                            <div id="sanskritLevelGroup" style="display: none; margin-top: 1rem;">
+                                <select id="volSanskritLevel">
+                                    <option value="">Select Sanskrit level...</option>
+                                    <option value="basic">Basic</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Technical Skills (if applicable)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTech1" value="Web Development">
+                                    <label for="volTech1">Web Development</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTech2" value="Graphic Design">
+                                    <label for="volTech2">Graphic Design</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTech3" value="Video Editing">
+                                    <label for="volTech3">Video Editing</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTech4" value="Social Media Management">
+                                    <label for="volTech4">Social Media Management</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTech5" value="Photography">
+                                    <label for="volTech5">Photography</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTech6" value="Audio Production">
+                                    <label for="volTech6">Audio Production</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Creative & Artistic Talents (if applicable)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volCreative1" value="Music">
+                                    <label for="volCreative1">Music (vocal, instruments)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volCreative2" value="Writing">
+                                    <label for="volCreative2">Writing (articles, blogs, poetry)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volCreative3" value="Visual Arts">
+                                    <label for="volCreative3">Visual Arts (painting, sketching)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volCreative4" value="Performance Arts">
+                                    <label for="volCreative4">Performance Arts (drama, storytelling)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volCreative5" value="Crafts & Handwork">
+                                    <label for="volCreative5">Crafts & Handwork</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Management & Organizational Skills (if applicable)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volMgmt1" value="Project Management">
+                                    <label for="volMgmt1">Project Management</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volMgmt2" value="Team Leadership">
+                                    <label for="volMgmt2">Team Leadership</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volMgmt3" value="Event Planning">
+                                    <label for="volMgmt3">Event Planning & Logistics</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volMgmt4" value="Budget Management">
+                                    <label for="volMgmt4">Budget Management</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volMgmt5" value="Communications">
+                                    <label for="volMgmt5">Communication & Public Relations</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volMgmt6" value="Training & Mentoring">
+                                    <label for="volMgmt6">Training & Mentoring</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Skills, Hobbies, or Unique Talents</label>
+                            <textarea id="volAdditionalSkills" rows="3" placeholder="Share any other skills, hobbies, or talents not covered above..." maxlength="500"></textarea>
+                            <small class="char-counter"><span id="volAdditionalSkillsCount">0</span>/500</small>
+                        </div>
+                    </div>
+
+                    <!-- Group 5: Availability & Commitment -->
+                    <div class="modal-field-group">
+                        <div class="modal-group-title">Availability & Commitment</div>
+                        <div class="form-grid form-grid-2">
+                            <div class="form-group">
+                                <label>Hours Available Per Week</label>
+                                <select id="volHours">
+                                    <option value="">Select...</option>
+                                    <option value="1-2">1-2 hours</option>
+                                    <option value="3-5">3-5 hours</option>
+                                    <option value="6-10">6-10 hours</option>
+                                    <option value="11-20">11-20 hours</option>
+                                    <option value="20+">20+ hours</option>
+                                    <option value="flexible">Flexible/Variable</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Volunteering Days (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay1" value="Monday">
+                                    <label for="volDay1">Monday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay2" value="Tuesday">
+                                    <label for="volDay2">Tuesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay3" value="Wednesday">
+                                    <label for="volDay3">Wednesday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay4" value="Thursday">
+                                    <label for="volDay4">Thursday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay5" value="Friday">
+                                    <label for="volDay5">Friday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay6" value="Saturday">
+                                    <label for="volDay6">Saturday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay7" value="Sunday">
+                                    <label for="volDay7">Sunday</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volDay8" value="Flexible">
+                                    <label for="volDay8">Flexible (any day)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time Slots</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTime1" value="Early Morning">
+                                    <label for="volTime1">Early Morning (6am-9am)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTime2" value="Morning">
+                                    <label for="volTime2">Morning (9am-12pm)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTime3" value="Afternoon">
+                                    <label for="volTime3">Afternoon (12pm-4pm)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTime4" value="Evening">
+                                    <label for="volTime4">Evening (4pm-8pm)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTime5" value="Night">
+                                    <label for="volTime5">Night (8pm onwards)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volTime6" value="Flexible">
+                                    <label for="volTime6">Flexible (any time)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Volunteering Format Preference</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="volFormat1" name="volFormat" value="In-Person">
+                                    <label for="volFormat1">In-Person (at physical centers)</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="volFormat2" name="volFormat" value="Remote">
+                                    <label for="volFormat2">Remote/Online (from home)</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="volFormat3" name="volFormat" value="Hybrid">
+                                    <label for="volFormat3">Hybrid (both in-person and remote)</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="volFormat4" name="volFormat" value="No preference">
+                                    <label for="volFormat4">No preference</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Willingness to Travel for Events/Shibirs</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="volTravel1" name="volTravel" value="within-city">
+                                    <label for="volTravel1">Yes, willing to travel within city</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="volTravel2" name="volTravel" value="within-state">
+                                    <label for="volTravel2">Yes, willing to travel within state</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="volTravel3" name="volTravel" value="national">
+                                    <label for="volTravel3">Yes, willing to travel nationally</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="volTravel4" name="volTravel" value="local-only">
+                                    <label for="volTravel4">No, prefer local volunteering only</label>
+                                </div>
+                            </div>
+                            <div id="travelDistanceGroup" style="display: none; margin-top: 1rem;">
+                                <label for="travelDistance">Maximum travel distance (km)</label>
+                                <input type="number" id="travelDistance" min="0" placeholder="E.g., 200">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 6: Motivation & Goals -->
+                    <div class="modal-field-group">
+                        <div class="modal-group-title">Motivation & Goals</div>
+                        <div class="form-group">
+                            <label>Why do you want to volunteer with AntarYog Foundation?</label>
+                            <textarea id="volMotivation" rows="5" placeholder="Share what motivates you to contribute your time and skills to our mission..." maxlength="1000"></textarea>
+                            <small class="char-counter"><span id="volMotivationCount">0</span>/1000</small>
+                        </div>
+                        <div class="form-group">
+                            <label>What are your goals in volunteering?</label>
+                            <textarea id="volGoals" rows="4" placeholder="What do you hope to gain or achieve through volunteering?..." maxlength="800"></textarea>
+                            <small class="char-counter"><span id="volGoalsCount">0</span>/800</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Special Projects or Initiatives You'd Like to Contribute To</label>
+                            <textarea id="volSpecialProjects" rows="3" placeholder="Are there specific programs, events, or initiatives you're particularly interested in supporting?..." maxlength="500"></textarea>
+                            <small class="char-counter"><span id="volSpecialProjectsCount">0</span>/500</small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('editVolunteeringModal')">Cancel</button>
+                <button class="btn-primary" onclick="saveVolunteeringProfile()">Save Profile</button>
             </div>
         </div>
     </div>
@@ -3197,6 +3893,11 @@
             }
         }
 
+        // Open modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
         // Close modal
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
@@ -3412,6 +4113,7 @@
                     else if (span.textContent.includes('Enrolled')) itemSection = 'enrolled-center';
                     else if (span.textContent.includes('Browse')) itemSection = 'browse-centers';
                     else if (span.textContent.includes('Shibir')) itemSection = 'shibir-history';
+                    else if (span.textContent.includes('Volunteering')) itemSection = 'volunteering';
 
                     if (itemSection === sectionName) {
                         item.classList.add('active');
@@ -3420,10 +4122,493 @@
             });
         }
 
+        // ========== VOLUNTEERING PROFILE SECTION ==========
+
+        // Sample volunteering profile data
+        let volunteeringProfileData = {
+            // Professional Background
+            occupation: "Software Engineer",
+            yearsExperience: "11-20",
+            industry: "Information Technology",
+            professionalSkills: "Full-stack development, Project management, Team leadership",
+
+            // Educational Background
+            educationLevel: "master",
+            fieldOfStudy: "Computer Science",
+            teachingExperience: "1-3",
+
+            // Volunteer & Spiritual Experience
+            volunteerExperience: "Volunteered with local NGO for 2 years in tech mentoring programs",
+            spiritualBackground: "Practicing meditation for 5 years, regular yoga practitioner, studying Vedantic texts",
+            volunteerInterests: ["Teaching & Instruction", "Content Creation", "Technology & Digital"],
+
+            // Skills & Talents
+            languages: ["English", "Hindi"],
+            sanskritLevel: "",
+            technicalSkills: ["Web Development", "Social Media Management"],
+            creativeSkills: ["Writing"],
+            managementSkills: ["Project Management"],
+            additionalSkills: "Photography, cooking for large gatherings",
+
+            // Availability & Commitment
+            hoursPerWeek: "6-10",
+            preferredDays: ["Saturday", "Sunday"],
+            preferredTimeSlots: ["Morning", "Afternoon"],
+            volunteeringFormat: "Hybrid",
+            willingToTravel: "within-state",
+            travelDistance: "200",
+
+            // Motivation & Goals
+            motivation: "I want to give back to the community that has enriched my spiritual journey. Technology is my passion and I'd love to help AntarYog Foundation reach more people.",
+            goals: "Develop teaching skills, deepen my spiritual practice while serving others, help build better tools for the organization",
+            specialProjects: "Interested in digital content creation and online workshop coordination, especially for tech-savvy younger members",
+
+            // Metadata
+            profileCompleted: true
+        };
+
+        // Load volunteering profile from localStorage or use sample data
+        function loadVolunteeringProfile() {
+            const saved = localStorage.getItem('volunteeringProfile');
+            return saved ? JSON.parse(saved) : volunteeringProfileData;
+        }
+
+        // Open edit volunteering modal and populate form with saved data
+        function openEditVolunteeringModal() {
+            openModal('editVolunteeringModal');
+            populateVolunteeringForm();
+        }
+
+        // Populate form with saved volunteering data
+        function populateVolunteeringForm() {
+            const profile = loadVolunteeringProfile();
+
+            // Text inputs and selects
+            document.getElementById('volOccupation').value = profile.occupation || '';
+            document.getElementById('volYearsExp').value = profile.yearsExperience || '';
+            document.getElementById('volIndustry').value = profile.industry || '';
+            document.getElementById('volProfSkills').value = profile.professionalSkills || '';
+            document.getElementById('volEducation').value = profile.educationLevel || '';
+            document.getElementById('volFieldOfStudy').value = profile.fieldOfStudy || '';
+            document.getElementById('volTeachingExp').value = profile.teachingExperience || '';
+            document.getElementById('volPrevExp').value = profile.volunteerExperience || '';
+            document.getElementById('volSpiritualBg').value = profile.spiritualBackground || '';
+            document.getElementById('volAdditionalSkills').value = profile.additionalSkills || '';
+            document.getElementById('volHours').value = profile.hoursPerWeek || '';
+            document.getElementById('volMotivation').value = profile.motivation || '';
+            document.getElementById('volGoals').value = profile.goals || '';
+            document.getElementById('volSpecialProjects').value = profile.specialProjects || '';
+            document.getElementById('travelDistance').value = profile.travelDistance || '';
+            document.getElementById('volSanskritLevel').value = profile.sanskritLevel || '';
+
+            // Handle all checkboxes
+            const allCheckboxes = document.querySelectorAll('#editVolunteeringModal input[type="checkbox"]');
+            allCheckboxes.forEach(checkbox => {
+                checkbox.checked = false; // Reset all first
+            });
+
+            // Volunteer interests
+            (profile.volunteerInterests || []).forEach(interest => {
+                const checkbox = Array.from(document.querySelectorAll('#volInt1, #volInt2, #volInt3, #volInt4, #volInt5, #volInt6, #volInt7, #volInt8, #volInt9, #volInt10'))
+                    .find(cb => cb.value === interest);
+                if (checkbox) checkbox.checked = true;
+            });
+
+            // Languages
+            (profile.languages || []).forEach(lang => {
+                const checkbox = Array.from(document.querySelectorAll('#volLang1, #volLang2, #volLang3, #volLang4'))
+                    .find(cb => cb.value === lang);
+                if (checkbox) checkbox.checked = true;
+            });
+
+            // Technical skills
+            (profile.technicalSkills || []).forEach(skill => {
+                const checkbox = Array.from(document.querySelectorAll('#volTech1, #volTech2, #volTech3, #volTech4, #volTech5, #volTech6'))
+                    .find(cb => cb.value === skill);
+                if (checkbox) checkbox.checked = true;
+            });
+
+            // Creative skills
+            (profile.creativeSkills || []).forEach(skill => {
+                const checkbox = Array.from(document.querySelectorAll('#volCreative1, #volCreative2, #volCreative3, #volCreative4, #volCreative5'))
+                    .find(cb => cb.value === skill);
+                if (checkbox) checkbox.checked = true;
+            });
+
+            // Management skills
+            (profile.managementSkills || []).forEach(skill => {
+                const checkbox = Array.from(document.querySelectorAll('#volMgmt1, #volMgmt2, #volMgmt3, #volMgmt4, #volMgmt5, #volMgmt6'))
+                    .find(cb => cb.value === skill);
+                if (checkbox) checkbox.checked = true;
+            });
+
+            // Preferred days
+            (profile.preferredDays || []).forEach(day => {
+                const checkbox = Array.from(document.querySelectorAll('#volDay1, #volDay2, #volDay3, #volDay4, #volDay5, #volDay6, #volDay7, #volDay8'))
+                    .find(cb => cb.value === day);
+                if (checkbox) checkbox.checked = true;
+            });
+
+            // Preferred time slots
+            (profile.preferredTimeSlots || []).forEach(time => {
+                const checkbox = Array.from(document.querySelectorAll('#volTime1, #volTime2, #volTime3, #volTime4, #volTime5, #volTime6'))
+                    .find(cb => cb.value === time);
+                if (checkbox) checkbox.checked = true;
+            });
+
+            // Radio buttons
+            if (profile.volunteeringFormat) {
+                const formatRadio = document.querySelector(`input[name="volFormat"][value="${profile.volunteeringFormat}"]`);
+                if (formatRadio) formatRadio.checked = true;
+            }
+
+            if (profile.willingToTravel) {
+                const travelRadio = document.querySelector(`input[name="volTravel"][value="${profile.willingToTravel}"]`);
+                if (travelRadio) travelRadio.checked = true;
+                // Show/hide travel distance
+                const travelDistanceGroup = document.getElementById('travelDistanceGroup');
+                travelDistanceGroup.style.display = (profile.willingToTravel !== 'local-only') ? 'block' : 'none';
+            }
+
+            // Show/hide Sanskrit level
+            const sanskritCheckbox = document.getElementById('volLang4');
+            const sanskritLevelGroup = document.getElementById('sanskritLevelGroup');
+            if (sanskritCheckbox && sanskritCheckbox.checked) {
+                sanskritLevelGroup.style.display = 'block';
+            } else {
+                sanskritLevelGroup.style.display = 'none';
+            }
+
+            // Update character counters for all textareas
+            ['volProfSkills', 'volPrevExp', 'volSpiritualBg', 'volAdditionalSkills', 'volMotivation', 'volGoals', 'volSpecialProjects'].forEach(id => {
+                const textarea = document.getElementById(id);
+                if (textarea) {
+                    const counterId = id + 'Count';
+                    updateCharacterCount(id, counterId, parseInt(textarea.maxLength) || 500);
+                }
+            });
+        }
+
+        // Save volunteering profile to localStorage
+        function saveVolunteeringProfile() {
+            // Collect form data
+            const profile = {
+                // Professional Background
+                occupation: document.getElementById('volOccupation').value,
+                yearsExperience: document.getElementById('volYearsExp').value,
+                industry: document.getElementById('volIndustry').value,
+                professionalSkills: document.getElementById('volProfSkills').value,
+
+                // Educational Background
+                educationLevel: document.getElementById('volEducation').value,
+                fieldOfStudy: document.getElementById('volFieldOfStudy').value,
+                teachingExperience: document.getElementById('volTeachingExp').value,
+
+                // Volunteer & Spiritual Experience
+                volunteerExperience: document.getElementById('volPrevExp').value,
+                spiritualBackground: document.getElementById('volSpiritualBg').value,
+                volunteerInterests: Array.from(document.querySelectorAll('#volInt1, #volInt2, #volInt3, #volInt4, #volInt5, #volInt6, #volInt7, #volInt8, #volInt9, #volInt10'))
+                    .filter(cb => cb.checked).map(cb => cb.value),
+
+                // Skills & Talents
+                languages: Array.from(document.querySelectorAll('#volLang1, #volLang2, #volLang3, #volLang4'))
+                    .filter(cb => cb.checked).map(cb => cb.value),
+                sanskritLevel: document.getElementById('volLang4').checked ? document.getElementById('volSanskritLevel').value : '',
+                technicalSkills: Array.from(document.querySelectorAll('#volTech1, #volTech2, #volTech3, #volTech4, #volTech5, #volTech6'))
+                    .filter(cb => cb.checked).map(cb => cb.value),
+                creativeSkills: Array.from(document.querySelectorAll('#volCreative1, #volCreative2, #volCreative3, #volCreative4, #volCreative5'))
+                    .filter(cb => cb.checked).map(cb => cb.value),
+                managementSkills: Array.from(document.querySelectorAll('#volMgmt1, #volMgmt2, #volMgmt3, #volMgmt4, #volMgmt5, #volMgmt6'))
+                    .filter(cb => cb.checked).map(cb => cb.value),
+                additionalSkills: document.getElementById('volAdditionalSkills').value,
+
+                // Availability & Commitment
+                hoursPerWeek: document.getElementById('volHours').value,
+                preferredDays: Array.from(document.querySelectorAll('#volDay1, #volDay2, #volDay3, #volDay4, #volDay5, #volDay6, #volDay7, #volDay8'))
+                    .filter(cb => cb.checked).map(cb => cb.value),
+                preferredTimeSlots: Array.from(document.querySelectorAll('#volTime1, #volTime2, #volTime3, #volTime4, #volTime5, #volTime6'))
+                    .filter(cb => cb.checked).map(cb => cb.value),
+                volunteeringFormat: document.querySelector('input[name="volFormat"]:checked')?.value || '',
+                willingToTravel: document.querySelector('input[name="volTravel"]:checked')?.value || '',
+                travelDistance: document.getElementById('travelDistance').value,
+
+                // Motivation & Goals
+                motivation: document.getElementById('volMotivation').value,
+                goals: document.getElementById('volGoals').value,
+                specialProjects: document.getElementById('volSpecialProjects').value,
+
+                // Metadata
+                profileCompleted: true
+            };
+
+            // Save to localStorage
+            localStorage.setItem('volunteeringProfile', JSON.stringify(profile));
+            volunteeringProfileData = profile;
+
+            // Close modal and update display
+            closeModal('editVolunteeringModal');
+            renderVolunteeringProfile(profile);
+
+            // Show success message
+            alert('Volunteering profile saved successfully!');
+        }
+
+        // Render volunteering profile in read-only view
+        function renderVolunteeringProfile(data) {
+            const container = document.getElementById('volunteeringContent');
+
+            // If profile has no data, show empty state
+            if (!data.profileCompleted || (!data.occupation && !data.volunteerExperience && !data.motivation)) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <h3>Create Your Volunteering Profile</h3>
+                        <p>Share your skills, experience, and interests to contribute meaningfully to our spiritual community</p>
+                        <div class="empty-state-actions">
+                            <button class="btn-primary" onclick="openEditVolunteeringModal()">Get Started</button>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Build profile display
+            let html = ``;
+
+            // Professional Background
+            if (data.occupation || data.industry || data.yearsExperience) {
+                html += `
+                    <div class="content-card">
+                        <div class="field-group-header">Professional Background</div>
+                        <div class="form-grid">
+                `;
+                if (data.occupation) {
+                    html += `<div class="form-group"><label>Occupation/Profession</label><input type="text" value="${data.occupation}" disabled></div>`;
+                }
+                if (data.yearsExperience) {
+                    const yearLabels = {'0-2': '0-2 years', '3-5': '3-5 years', '6-10': '6-10 years', '11-20': '11-20 years', '20+': '20+ years', 'n/a': 'Not applicable'};
+                    html += `<div class="form-group"><label>Experience</label><input type="text" value="${yearLabels[data.yearsExperience] || data.yearsExperience}" disabled></div>`;
+                }
+                if (data.industry) {
+                    html += `<div class="form-group"><label>Industry/Field</label><input type="text" value="${data.industry}" disabled></div>`;
+                }
+                if (data.professionalSkills) {
+                    html += `<div class="form-group"><label>Professional Skills</label><textarea disabled>${data.professionalSkills}</textarea></div>`;
+                }
+                html += `</div></div>`;
+            }
+
+            // Educational Background
+            if (data.educationLevel || data.fieldOfStudy || data.teachingExperience) {
+                html += `
+                    <div class="content-card">
+                        <div class="field-group-header">Educational Background</div>
+                        <div class="form-grid">
+                `;
+                if (data.educationLevel) {
+                    const eduLabels = {'high-school': 'High School', 'diploma': 'Diploma/Certificate', 'bachelor': "Bachelor's Degree", 'master': "Master's Degree", 'phd': 'Doctoral Degree (PhD)', 'other': 'Other'};
+                    html += `<div class="form-group"><label>Education Level</label><input type="text" value="${eduLabels[data.educationLevel] || data.educationLevel}" disabled></div>`;
+                }
+                if (data.fieldOfStudy) {
+                    html += `<div class="form-group"><label>Field of Study</label><input type="text" value="${data.fieldOfStudy}" disabled></div>`;
+                }
+                if (data.teachingExperience) {
+                    const teachLabels = {'none': 'No experience', 'informal': 'Informal (family/friends)', '1-3': '1-3 years', '4-10': '4-10 years', '10+': '10+ years professional'};
+                    html += `<div class="form-group"><label>Teaching Experience</label><input type="text" value="${teachLabels[data.teachingExperience] || data.teachingExperience}" disabled></div>`;
+                }
+                html += `</div></div>`;
+            }
+
+            // Volunteer & Spiritual Experience
+            if (data.volunteerExperience || data.spiritualBackground || data.volunteerInterests.length > 0) {
+                html += `
+                    <div class="content-card">
+                        <div class="field-group-header">Volunteer & Spiritual Experience</div>
+                `;
+                if (data.volunteerExperience) {
+                    html += `<div class="form-group"><label>Previous Volunteering</label><textarea disabled>${data.volunteerExperience}</textarea></div>`;
+                }
+                if (data.spiritualBackground) {
+                    html += `<div class="form-group"><label>Spiritual Background</label><textarea disabled>${data.spiritualBackground}</textarea></div>`;
+                }
+                // Shibir count badge
+                const shibirCount = shibirsData ? shibirsData.length : 0;
+                html += `
+                    <div class="form-group">
+                        <label>Completed Shibirs</label>
+                        <div class="shibir-count-display">
+                            <span class="shibir-count-badge">${shibirCount} Shibirs Completed</span>
+                        </div>
+                    </div>
+                `;
+                if (data.volunteerInterests.length > 0) {
+                    html += `
+                        <div class="form-group">
+                            <label>Areas of Interest</label>
+                            <div class="badge-container">
+                                ${data.volunteerInterests.map(interest => `<span class="interest-badge">${interest}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                html += `</div>`;
+            }
+
+            // Skills & Talents
+            if (data.languages.length > 0 || data.technicalSkills.length > 0 || data.creativeSkills.length > 0 || data.managementSkills.length > 0 || data.additionalSkills) {
+                html += `<div class="content-card"><div class="field-group-header">Skills & Talents</div>`;
+                if (data.languages.length > 0) {
+                    html += `
+                        <div class="form-group">
+                            <label>Languages</label>
+                            <div class="badge-container">
+                                ${data.languages.map(lang => `<span class="interest-badge">${lang}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                if (data.technicalSkills.length > 0) {
+                    html += `
+                        <div class="form-group">
+                            <label>Technical Skills</label>
+                            <div class="badge-container">
+                                ${data.technicalSkills.map(skill => `<span class="interest-badge">${skill}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                if (data.creativeSkills.length > 0) {
+                    html += `
+                        <div class="form-group">
+                            <label>Creative Talents</label>
+                            <div class="badge-container">
+                                ${data.creativeSkills.map(skill => `<span class="interest-badge">${skill}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                if (data.managementSkills.length > 0) {
+                    html += `
+                        <div class="form-group">
+                            <label>Management Skills</label>
+                            <div class="badge-container">
+                                ${data.managementSkills.map(skill => `<span class="interest-badge">${skill}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                if (data.additionalSkills) {
+                    html += `<div class="form-group"><label>Additional Skills</label><textarea disabled>${data.additionalSkills}</textarea></div>`;
+                }
+                html += `</div>`;
+            }
+
+            // Availability & Commitment
+            if (data.hoursPerWeek || data.volunteeringFormat || data.willingToTravel) {
+                html += `
+                    <div class="content-card">
+                        <div class="field-group-header">Availability & Commitment</div>
+                        <div class="form-grid">
+                `;
+                if (data.hoursPerWeek) {
+                    const hoursLabels = {'1-2': '1-2 hours', '3-5': '3-5 hours', '6-10': '6-10 hours', '11-20': '11-20 hours', '20+': '20+ hours', 'flexible': 'Flexible/Variable'};
+                    html += `<div class="form-group"><label>Hours Available</label><input type="text" value="${hoursLabels[data.hoursPerWeek] || data.hoursPerWeek}" disabled></div>`;
+                }
+                if (data.preferredDays.length > 0) {
+                    html += `<div class="form-group"><label>Preferred Days</label><input type="text" value="${data.preferredDays.join(', ')}" disabled></div>`;
+                }
+                if (data.volunteeringFormat) {
+                    html += `<div class="form-group"><label>Format</label><input type="text" value="${data.volunteeringFormat}" disabled></div>`;
+                }
+                if (data.willingToTravel) {
+                    const travelLabels = {'within-city': 'Within city', 'within-state': 'Within state', 'national': 'Nationally', 'local-only': 'Local only'};
+                    html += `<div class="form-group"><label>Travel Willingness</label><input type="text" value="${travelLabels[data.willingToTravel] || data.willingToTravel}" disabled></div>`;
+                }
+                html += `</div></div>`;
+            }
+
+            // Motivation & Goals
+            if (data.motivation || data.goals || data.specialProjects) {
+                html += `<div class="content-card"><div class="field-group-header">Motivation & Goals</div>`;
+                if (data.motivation) {
+                    html += `<div class="form-group"><label>Why Volunteer</label><textarea disabled>${data.motivation}</textarea></div>`;
+                }
+                if (data.goals) {
+                    html += `<div class="form-group"><label>Volunteering Goals</label><textarea disabled>${data.goals}</textarea></div>`;
+                }
+                if (data.specialProjects) {
+                    html += `<div class="form-group"><label>Special Projects</label><textarea disabled>${data.specialProjects}</textarea></div>`;
+                }
+                html += `</div>`;
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Update character counter for textareas
+        function updateCharacterCount(textareaId, counterId, maxLength) {
+            const textarea = document.getElementById(textareaId);
+            const counter = document.getElementById(counterId);
+            if (textarea && counter) {
+                counter.textContent = textarea.value.length;
+                if (textarea.value.length >= maxLength * 0.9) {
+                    counter.parentElement.classList.add('limit-reached');
+                } else {
+                    counter.parentElement.classList.remove('limit-reached');
+                }
+            }
+        }
+
         // Setup drawer event listeners
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize shibir history
             renderShibirs(shibirsData);
+
+            // Initialize volunteering profile
+            const volunteeringProfile = loadVolunteeringProfile();
+            renderVolunteeringProfile(volunteeringProfile);
+
+            // Populate form with saved data when modal opens
+            const editVolModal = document.getElementById('editVolunteeringModal');
+            if (editVolModal) {
+                editVolModal.addEventListener('click', function(e) {
+                    if (e.target === editVolModal) {
+                        // Don't do anything on backdrop click
+                    }
+                });
+            }
+
+            // Setup character counters
+            ['volProfSkills', 'volPrevExp', 'volSpiritualBg', 'volAdditionalSkills', 'volMotivation', 'volGoals', 'volSpecialProjects'].forEach(id => {
+                const textarea = document.getElementById(id);
+                if (textarea) {
+                    textarea.addEventListener('input', function() {
+                        const counterId = id + 'Count';
+                        const maxLength = parseInt(textarea.maxLength) || 500;
+                        updateCharacterCount(id, counterId, maxLength);
+                    });
+                }
+            });
+
+            // Setup Sanskrit level visibility toggle
+            const sanskritCheckbox = document.getElementById('volLang4');
+            const sanskritLevelGroup = document.getElementById('sanskritLevelGroup');
+            if (sanskritCheckbox) {
+                sanskritCheckbox.addEventListener('change', function() {
+                    sanskritLevelGroup.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+
+            // Setup travel distance visibility toggle
+            const travelRadios = document.querySelectorAll('input[name="volTravel"]');
+            const travelDistanceGroup = document.getElementById('travelDistanceGroup');
+            travelRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    travelDistanceGroup.style.display = (this.value !== 'local-only') ? 'block' : 'none';
+                });
+            });
 
             // Initialize Aadhaar verification state
             // In production, this will be fetched from backend
