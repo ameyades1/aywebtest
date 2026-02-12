@@ -66,7 +66,7 @@
 
         /* Add padding to body to prevent content overlap */
         body {
-            padding-top: 80px;
+            padding-top: 64px;
         }
 
         nav {
@@ -270,8 +270,8 @@
             <img src="../../../assets/visuals/antar-yog-overview.jpg" alt="" class="w-full h-full object-cover">
         </div>
 
-        <div class="container mx-auto px-4 lg:px-8 py-20 lg:py-32 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="container mx-auto px-4 lg:px-8 py-12 lg:py-20 pt-8 lg:pt-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <!-- Hero Content -->
                 <div class="space-y-8">
                     <div class="inline-block">
@@ -289,9 +289,6 @@
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#programs" class="bg-primary hover:bg-accent text-white px-8 py-4 rounded-full font-semibold text-center transition-all transform hover:scale-105 shadow-lg">
                             Explore Our Programs
-                        </a>
-                        <a href="#daily-meditation" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-semibold text-center transition-all">
-                            Join Daily Meditation
                         </a>
                     </div>
 
@@ -313,28 +310,28 @@
                 </div>
 
                 <!-- Hero Image -->
-                <div class="relative">
+                <div class="relative mx-auto max-w-lg">
                     <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                         <img src="../../../assets/founder/acharya-upendra-ji-portrait.jpg" alt="Acharya Upendra Ji - Jeevan Mukt Sadguru" class="w-full h-auto">
                     </div>
-                    <div class="absolute -bottom-6 -right-6 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
-                    <div class="absolute -top-6 -left-6 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -top-6 -left-6 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Acharya Upendra Ji -->
-    <section class="py-20 lg:py-32 bg-white">
+    <section class="py-12 lg:py-20 bg-white">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-[1.1fr_1fr] gap-4 items-center">
                 <!-- Image -->
-                <div class="order-2 lg:order-1">
+                <div class="max-w-lg">
                     <div class="relative">
-                        <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl">
                             <img src="../../../assets/founder/acharya-upendra-ji-alt.jpg" alt="Acharya Upendra Ji - Founder, AntarYog Foundation" class="w-full h-full object-cover">
                         </div>
-                        <div class="absolute -bottom-8 -left-8 bg-primary text-white p-8 rounded-xl shadow-xl max-w-xs">
+                        <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-xl shadow-xl max-w-xs">
                             <div class="text-4xl font-bold mb-2">25+</div>
                             <div class="text-sm opacity-90">Years of Spiritual Guidance</div>
                         </div>
@@ -345,10 +342,10 @@
                 <div class="order-1 lg:order-2 space-y-6">
                     <div>
                         <span class="text-primary font-semibold text-sm uppercase tracking-wider">Jeevan Mukt Sadguru</span>
-                        <h2 class="text-4xl lg:text-5xl font-bold text-text mt-3 mb-6">Meet Acharya Upendra Ji</h2>
+                        <h2 class="text-5xl lg:text-6xl font-bold text-text mt-3 mb-6">Meet Acharya Upendra Ji</h2>
                     </div>
 
-                    <div class="prose prose-lg text-text-secondary space-y-4">
+                    <div class="prose prose-xl text-text-secondary space-y-4">
                         <p>
                             A Jeevan Mukt Sadguru, Acharya Upendra Ji is a beacon of spiritual wisdom, dedicated to reviving the ancient knowledge of Sanatan Dharma and making Bharat a Vishwa Guru.
                         </p>
@@ -361,7 +358,7 @@
                     </div>
 
                     <div class="pt-6">
-                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold text-lg group">
+                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold text-xl group">
                             Know the Master
                             <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -396,32 +393,23 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="py-20 lg:py-32 bg-gradient-to-b from-background to-white">
+    <section id="programs" class="pt-8 pb-10 lg:pt-14 lg:pb-16 bg-gradient-to-b from-background to-white">
         <div class="container mx-auto px-4 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Our Pathways</span>
-                <h2 class="text-4xl lg:text-5xl font-bold text-text mt-3 mb-6">Spiritual Transformation Programs</h2>
-                <p class="text-xl text-text-secondary">
-                    Explore ancient wisdom through diverse programs designed for holistic spiritual growth and self-realization
-                </p>
-            </div>
-
             <!-- Programs Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Program 1: Discourses -->
                 <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                         <img src="../../../assets/images/founder/8bR0jsdCRK2DhCGklmBR_Guru+Brochure++page+10+Img+1.jpg" alt="Vedanta Discourses" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center mb-3">
-                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
+                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-text">Discourses</h3>
+                            <h3 class="text-xl font-bold text-text">Discourses</h3>
                         </div>
                         <p class="text-text-secondary mb-4">
                             Deep dive into Vedanta teachings and spiritual wisdom from ancient scriptures, guided by Acharya Upendra Ji's profound insights.
@@ -437,17 +425,17 @@
 
                 <!-- Program 2: Naadi Jyotish -->
                 <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                         <img src="../../../assets/images/founder/dyECDDLQ56nRvpzpeNNw_Guru+Brochure++page+5+Img+6.jpg" alt="Naadi Jyotish - Spiritual Astrology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center mb-3">
-                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
+                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-text">Naadi Jyotish</h3>
+                            <h3 class="text-xl font-bold text-text">Naadi Jyotish</h3>
                         </div>
                         <p class="text-text-secondary mb-4">
                             Ancient spiritual astrology for divine life guidance. Discover your karmic path through sacred Naadi leaf readings and consultations.
@@ -463,17 +451,17 @@
 
                 <!-- Program 3: Vastu Rupantaran -->
                 <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                         <img src="../../../assets/images/founder/GV3pzYbBSDOkZrTaWXpq_Guru+Brochure++page+20+Img+1.jpg" alt="Vastu Rupantaran - Space Transformation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center mb-3">
-                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
+                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-text">Vastu Rupantaran</h3>
+                            <h3 class="text-xl font-bold text-text">Vastu Rupantaran</h3>
                         </div>
                         <p class="text-text-secondary mb-4">
                             Transform your living and working spaces through ancient Vastu principles for harmonious energy flow and prosperity.
@@ -489,18 +477,18 @@
 
                 <!-- Program 4: Gurukul -->
                 <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                         <img src="../../../assets/programs/gurukul-temple.jpg" alt="Gurukul - Spiritual Leadership Education" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center mb-3">
-                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
+                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-text">Gurukul</h3>
+                            <h3 class="text-xl font-bold text-text">Gurukul</h3>
                         </div>
                         <p class="text-text-secondary mb-4">
                             Comprehensive spiritual leadership and education programs empowering youth with ancient wisdom and modern skills.
@@ -516,17 +504,17 @@
 
                 <!-- Program 5: Yoga Paths -->
                 <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                         <img src="../../../assets/visuals/antar-yog-overview.jpg" alt="Four Paths of Yoga" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center mb-3">
-                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
+                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-text">Yoga Paths</h3>
+                            <h3 class="text-xl font-bold text-text">Yoga Paths</h3>
                         </div>
                         <p class="text-text-secondary mb-4">
                             Explore the four classical paths of Yoga: Karma Yoga, Bhakti Yoga, Dnyan Yoga, and Dhyan Yoga for complete spiritual evolution.
@@ -542,17 +530,17 @@
 
                 <!-- Program 6: Healing Sciences -->
                 <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                         <img src="../../../assets/images/founder/0lY9wgWTRg6HFVVmykR4_Guru+Brochure++page+17+Img+1.jpg" alt="Ancient Healing Sciences" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center mb-3">
-                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
+                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-text">Healing Sciences</h3>
+                            <h3 class="text-xl font-bold text-text">Healing Sciences</h3>
                         </div>
                         <p class="text-text-secondary mb-4">
                             Discover ancient healing methodologies for holistic wellness, integrating body, mind, and spirit through time-tested practices.
@@ -580,36 +568,22 @@
     </section>
 
     <!-- Mission & Transformation -->
-    <section class="py-20 lg:py-32 bg-white">
+    <section class="pt-8 pb-10 lg:pt-14 lg:pb-16 bg-white">
         <div class="container mx-auto px-4 lg:px-8">
             <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Our Mission</span>
-                <h2 class="text-4xl lg:text-5xl font-bold text-text mt-3 mb-6">Re-establishing Sanatan Dharma for National Transformation</h2>
+            <div class="text-center max-w-3xl mx-auto mb-6 lg:mb-8">
+                <h2 class="text-4xl lg:text-5xl font-bold text-text mt-3 mb-6">Re-establish Sanatan Dharma for National Transformation</h2>
                 <p class="text-xl text-text-secondary">
                     A holistic approach to spiritual, social, and national renaissance through ancient wisdom
                 </p>
             </div>
 
             <!-- Mission Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Mission 1 -->
-                <div class="bg-gradient-to-br from-background to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text mb-4">Sanatan Dharma Revival</h3>
-                    <p class="text-text-secondary leading-relaxed">
-                        Restoring the eternal principles and timeless wisdom of Sanatan Dharma through scripture study, spiritual practices, and cultural preservation.
-                    </p>
-                </div>
-
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Mission 2 -->
-                <div class="bg-gradient-to-br from-background to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-gradient-to-br from-background to-white p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
@@ -620,9 +594,9 @@
                 </div>
 
                 <!-- Mission 3 -->
-                <div class="bg-gradient-to-br from-background to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-gradient-to-br from-background to-white p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3L9 20M3 5a2 2 0 012-2h3.28a1 1 0 00.948-.684l1.498-4.493a1 1 0 011.502 0l1.498 4.493a1 1 0 00.948.684H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
                         </svg>
                     </div>
@@ -632,23 +606,10 @@
                     </p>
                 </div>
 
-                <!-- Mission 4 -->
-                <div class="bg-gradient-to-br from-background to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text mb-4">Healing Sciences</h3>
-                    <p class="text-text-secondary leading-relaxed">
-                        Reviving traditional wellness practices and ancient healing methodologies for complete physical, mental, and spiritual health.
-                    </p>
-                </div>
-
                 <!-- Mission 5 -->
-                <div class="bg-gradient-to-br from-background to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-gradient-to-br from-background to-white p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
@@ -657,28 +618,15 @@
                         Cultivating daily sadhana and meditation practices for inner peace, mental clarity, and spiritual awakening across communities.
                     </p>
                 </div>
-
-                <!-- Mission 6 -->
-                <div class="bg-gradient-to-br from-background to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20H7m6-4h.01M15 12h-4.01"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text mb-4">National Transformation</h3>
-                    <p class="text-text-secondary leading-relaxed">
-                        Building Bharat as a Vishwa Guru through spiritual renaissance, cultural pride, and collective consciousness transformation.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Upcoming Events -->
-    <section class="py-20 lg:py-32 bg-gradient-to-b from-background to-white">
+    <section class="pt-8 pb-10 lg:pt-14 lg:pb-16 bg-gradient-to-b from-background to-white">
         <div class="container mx-auto px-4 lg:px-8">
             <!-- Section Header -->
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-4 lg:mb-6">
                 <div>
                     <span class="text-primary font-semibold text-sm uppercase tracking-wider">Transformative Experiences</span>
                     <h2 class="text-4xl lg:text-5xl font-bold text-text mt-3 mb-4">Upcoming Events</h2>
@@ -695,10 +643,10 @@
             </div>
 
             <!-- Events Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Event 1: Navratri Celebration -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="bg-primary text-white px-3 py-1 rounded-lg text-sm font-semibold">
                                 Sep 22 - Oct 2
@@ -723,7 +671,7 @@
 
                 <!-- Event 2: Pitru-Rin Mukti Shibir -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="bg-primary text-white px-3 py-1 rounded-lg text-sm font-semibold">
                                 Sep 7-21
@@ -748,7 +696,7 @@
 
                 <!-- Event 3: Science of Healing -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="bg-primary text-white px-3 py-1 rounded-lg text-sm font-semibold">
                                 Sep 10-11
@@ -775,14 +723,14 @@
     </section>
 
     <!-- Join the Movement CTA -->
-    <section id="daily-meditation" class="py-20 lg:py-32 bg-gradient-to-br from-primary to-accent relative overflow-hidden">
+    <section id="daily-meditation" class="pt-8 pb-10 lg:pt-14 lg:pb-16 bg-gradient-to-br from-primary to-accent relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <img src="../../../assets/visuals/antar-yog-overview.jpg" alt="" class="w-full h-full object-cover">
         </div>
 
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-10 lg:mb-12">
                 <h2 class="text-4xl lg:text-5xl font-bold text-white mt-3 mb-6">Be Part of the Transformation</h2>
                 <p class="text-xl text-white/90">
                     Join thousands on the journey of spiritual awakening and contribute to making Bharat a Vishwa Guru
@@ -790,11 +738,11 @@
             </div>
 
             <!-- CTA Cards -->
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6">
                 <!-- Volunteer -->
-                <div class="bg-white rounded-2xl p-8 shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-2xl p-6 shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
@@ -808,9 +756,9 @@
                 </div>
 
                 <!-- Donate -->
-                <div class="bg-white rounded-2xl p-8 shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-2xl p-6 shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
                     </div>
@@ -824,9 +772,9 @@
                 </div>
 
                 <!-- Daily Meditation -->
-                <div class="bg-white rounded-2xl p-8 shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white rounded-2xl p-6 shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
@@ -841,7 +789,7 @@
             </div>
 
             <!-- Additional CTA -->
-            <div class="text-center mt-12">
+            <div class="text-center mt-8">
                 <p class="text-white/90 text-lg mb-4">Connect with us on social media for daily inspiration</p>
                 <div class="flex justify-center space-x-6">
                     <a href="#" class="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all">
@@ -871,8 +819,8 @@
 
     <!-- Footer -->
     <footer class="bg-text text-white">
-        <div class="container mx-auto px-4 lg:px-8 py-16">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div class="container mx-auto px-4 lg:px-8 pt-8 pb-10 lg:pt-10 lg:pb-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <!-- About Column -->
                 <div class="lg:col-span-1">
                     <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation" class="h-12 w-auto mb-6">
@@ -905,8 +853,8 @@
 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
                         <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Our Work</a></li>
                         <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Upcoming Events</a></li>
                         <li><a href="#" class="text-white/80 hover:text-primary transition-colors">About Acharya Upendra Ji</a></li>
@@ -918,8 +866,8 @@
 
                 <!-- Programs -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Our Programs</h4>
-                    <ul class="space-y-3">
+                    <h4 class="text-lg font-bold mb-4">Our Programs</h4>
+                    <ul class="space-y-2">
                         <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Discourses</a></li>
                         <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Naadi Jyotish</a></li>
                         <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Vastu Rupantaran</a></li>
@@ -931,8 +879,8 @@
 
                 <!-- Connect -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Connect</h4>
-                    <ul class="space-y-3 mb-6">
+                    <h4 class="text-lg font-bold mb-4">Connect</h4>
+                    <ul class="space-y-2 mb-6">
                         <li><a href="login-branded-antaryog.html" class="text-white/80 hover:text-primary transition-colors">Login</a></li>
                         <li><a href="signup-branded-antaryog.html" class="text-white/80 hover:text-primary transition-colors">Sign Up</a></li>
                         <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Volunteer</a></li>
