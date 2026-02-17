@@ -1,0 +1,6 @@
+I want to add a Naadi Jyotish section to the profile.
+This should be after "Account settings". The top section of this page should show the user's Name, Date, place of birth and time of birth (HH::MM) AM/PM format. It should also show his rashi, and nakshatra. There should be button to download his patrika (horoscope)
+
+After this section, the bottom section should show cards of his past Naadi Jyotish consultations. They are always conducted online. The types of readings can be General chapter, past life chapter, Tulya Naadi, Aatma naadi etc. (He can do only one at a time). The card should include the name of the Naadi Guruji who read his Naadi and the date when it was read. It should have a download button to download all materials related to this consultation.
+
+Can you suggest a plan to implement this ?
