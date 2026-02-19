@@ -101,9 +101,21 @@
             margin-left: auto;
         }
 
+        .lg-separator {
+            display: none;
+            width: 1px;
+            height: 1.5rem;
+            background-color: #d1d5db;
+            flex-shrink: 0;
+        }
+
         @media (min-width: 1024px) {
             .header-user-section {
                 display: flex;
+            }
+
+            .lg-separator {
+                display: block;
             }
         }
 
@@ -2359,11 +2371,16 @@
 
             <!-- Desktop Navigation -->
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#programs">Programs</a>
-                <a href="#events">Events</a>
-                <a href="#about">About</a>
+                <a href="#">Our Work</a>
+                <a href="#">Upcoming Events</a>
+                <a href="#">Donate</a>
+                <a href="#">Discourses</a>
+                <a href="#">Naadi Jyotish</a>
+                <a href="#">Newsroom</a>
             </div>
+
+            <!-- Separator -->
+            <div class="lg-separator"></div>
 
             <!-- User Section (Desktop) -->
             <div class="header-user-section">
@@ -2386,10 +2403,12 @@
     <!-- Mobile Menu -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#home">Home</a>
-        <a href="#programs">Programs</a>
-        <a href="#events">Events</a>
-        <a href="#about">About</a>
+        <a href="#">Our Work</a>
+        <a href="#">Upcoming Events</a>
+        <a href="#">Donate</a>
+        <a href="#">Discourses</a>
+        <a href="#">Naadi Jyotish</a>
+        <a href="#">Newsroom</a>
         <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 0.5rem 0;">
         <a href="#profile">Profile</a>
         <a href="#settings">Settings</a>
