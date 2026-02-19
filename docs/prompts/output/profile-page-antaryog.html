@@ -224,6 +224,43 @@
             color: var(--primary);
         }
 
+        .mobile-menu-actions {
+            padding: 1rem 1.5rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .mobile-menu-btn-primary {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.625rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .mobile-menu-btn-primary:hover { background-color: var(--accent); }
+        .mobile-menu-btn-outline {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.625rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            transition: background-color 0.2s;
+        }
+        .mobile-menu-btn-outline:hover { background-color: rgba(184, 115, 51, 0.1); }
+
         /* Menu Overlay */
         .menu-overlay {
             position: fixed;
@@ -2403,16 +2440,16 @@
     <!-- Mobile Menu -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-actions">
+            <a href="profile-page-antaryog.html" class="mobile-menu-btn-primary">Profile</a>
+            <button onclick="handleLogout()" class="mobile-menu-btn-outline">Logout</button>
+        </div>
         <a href="#">Our Work</a>
         <a href="#">Upcoming Events</a>
         <a href="#">Donate</a>
         <a href="#">Discourses</a>
         <a href="#">Naadi Jyotish</a>
         <a href="#">Newsroom</a>
-        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 0.5rem 0;">
-        <a href="#profile">Profile</a>
-        <a href="#settings">Settings</a>
-        <a href="#logout" onclick="handleLogout()">Logout</a>
     </div>
 
     <!-- Mobile Profile Navigation Drawer -->
