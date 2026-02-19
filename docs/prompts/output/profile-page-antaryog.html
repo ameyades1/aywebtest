@@ -1626,6 +1626,13 @@
             color: var(--primary);
         }
 
+        .astro-symbol {
+            font-size: 1.1em;
+            margin-right: 0.2em;
+            vertical-align: middle;
+            opacity: 0.85;
+        }
+
         /* Naadi Consultation Cards */
         .consultations-grid {
             display: grid;
@@ -4017,6 +4024,22 @@
 
         // ========== NAADI JYOTISH SECTION ==========
 
+        // Rashi zodiac symbol lookup (supports Sanskrit and English names)
+        const rashiSymbols = {
+            'mesha': '♈', 'aries': '♈',
+            'vrishabha': '♉', 'taurus': '♉',
+            'mithuna': '♊', 'gemini': '♊',
+            'karka': '♋', 'cancer': '♋',
+            'simha': '♌', 'leo': '♌',
+            'kanya': '♍', 'virgo': '♍',
+            'tula': '♎', 'libra': '♎',
+            'vrishchika': '♏', 'scorpio': '♏',
+            'dhanu': '♐', 'sagittarius': '♐',
+            'makara': '♑', 'capricorn': '♑',
+            'kumbha': '♒', 'aquarius': '♒',
+            'meena': '♓', 'pisces': '♓'
+        };
+
         // Naadi Jyotish Birth Profile
         const naadiUserProfile = {
             fullName: "Vivek Kumar",
@@ -4375,8 +4398,14 @@
                 </div>
             `).join('');
 
-            rashiElement.textContent = profile.rashi;
-            nakshatraElement.textContent = profile.nakshatra;
+            const rashiKey = profile.rashi.split(/[\s(]/)[0].toLowerCase();
+            const rashiSym = rashiSymbols[rashiKey] || '';
+            rashiElement.innerHTML = rashiSym
+                ? `<span class="astro-symbol">${rashiSym}</span>${profile.rashi}`
+                : profile.rashi;
+
+            nakshatraElement.innerHTML =
+                `<span class="astro-symbol">✦</span>${profile.nakshatra}`;
         }
 
         // Render Naadi Jyotish Consultations
