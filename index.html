@@ -3,350 +3,725 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AntarYog Foundation - Website Design Mockups</title>
-    <meta name="description" content="Explore different design variations of the AntarYog Foundation website. View four distinct mockups showcasing modern and traditional Indian spiritual aesthetics.">
+    <title>AntarYog Foundation — Design Mockups</title>
+    <meta name="description" content="Explore different design variations of the AntarYog Foundation website. View mockups showcasing modern and traditional Indian spiritual aesthetics.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'ay-teal': '#09A59A',
-                        'ay-teal-dark': '#078078',
-                        'ay-teal-light': '#0BC4B7',
-                        'ay-saffron': '#D97706',
-                        'ay-saffron-dark': '#B45309',
-                        'ay-saffron-light': '#F59E0B',
-                        'ay-brown': '#6B3E2E',
-                        'ay-gold': '#D9A441',
-                        'ay-copper': '#B45309',
-                        'ay-gray': '#2b3636',
-                        'ay-gray-light': '#4a5555',
-                        'ay-beige': '#F8F6F3',
-                    },
-                    fontFamily: {
-                        'serif': ['Lora', 'Georgia', 'serif'],
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --copper:   #B87333;
+            --copper-dark: #8B5A2B;
+            --gold:     #C9953A;
+            --gold-light: #E8C878;
+            --cream:    #F9F5EE;
+            --parchment: #EFE5D0;
+            --ink:      #2C2018;
+            --ink-soft: #5C4A32;
+            --ink-muted: #8A7560;
+            --white-warm: #FDFAF4;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            color: #2b3636;
+            background: var(--cream);
+            color: var(--ink);
+            margin: 0;
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', Georgia, serif;
+
+        /* ── Grain overlay ─────────────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.5;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── Header ────────────────────────────────── */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--white-warm);
+            border-bottom: 1px solid rgba(184, 115, 51, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--copper);
+            background: rgba(184,115,51,0.1);
+            border: 1px solid rgba(184,115,51,0.25);
+            padding: 0.3rem 0.85rem;
+            border-radius: 2rem;
+        }
+
+        /* ── Hero text ─────────────────────────────── */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: end;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--copper);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--copper);
+        }
+
+        .hero-headline {
+            font-size: clamp(2.5rem, 5vw, 4.25rem);
+            font-weight: 300;
+            line-height: 1.12;
+            color: var(--ink);
+            margin: 0 0 1.5rem;
+            max-width: 760px;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--copper);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--ink-muted);
+            max-width: 540px;
+        }
+
+        .hero-meta {
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--ink-muted);
+            white-space: nowrap;
+            padding-bottom: 0.25rem;
+        }
+
+        .hero-meta strong {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--ink-soft);
+            margin-bottom: 0.25rem;
+        }
+
+        /* ── Section label ─────────────────────────── */
+        .section-label {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(184,115,51,0.3), transparent);
+        }
+
+        .section-label-text {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            white-space: nowrap;
+        }
+
+        /* ── THE CARD ──────────────────────────────── */
+        .card-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        .showcase-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(184,115,51,0.2);
+            background: var(--white-warm);
+            box-shadow:
+                0 2px 4px rgba(44,32,24,0.04),
+                0 8px 32px rgba(44,32,24,0.07),
+                0 32px 64px rgba(44,32,24,0.06);
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
+        }
+
+        .showcase-card:hover {
+            box-shadow:
+                0 4px 8px rgba(44,32,24,0.05),
+                0 16px 48px rgba(44,32,24,0.12),
+                0 48px 96px rgba(44,32,24,0.10);
+            transform: translateY(-3px);
+        }
+
+        /* Top: thumbnail */
+        .card-thumb {
+            position: relative;
+            overflow: hidden;
+            background: var(--parchment);
+            aspect-ratio: 1550 / 706;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .showcase-card:hover .card-thumb img {
+            transform: scale(1.04);
+        }
+
+        /* Badge overlay */
+        .selected-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(249,245,238,0.95);
+            color: var(--copper-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.45rem 0.9rem;
+            border-radius: 4px;
+            border: 1px solid rgba(184,115,51,0.4);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 12px rgba(44,32,24,0.15);
+        }
+
+        .selected-badge::before {
+            content: '✓';
+            font-size: 0.75rem;
+            color: var(--copper);
+        }
+
+        /* Gradient fade bottom edge of thumb toward text panel */
+        .card-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(253,250,244,0.4) 100%);
+            pointer-events: none;
+        }
+
+        /* Bottom: text panel */
+        .card-panel {
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 3.5rem;
+            border-top: 1px solid rgba(184,115,51,0.12);
+            border-left: none;
+            background: linear-gradient(160deg, var(--white-warm) 0%, #FEF8EC 100%);
+        }
+
+        .panel-eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--copper);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel-eyebrow::before {
+            content: '■';
+            font-size: 0.5rem;
+        }
+
+        .panel-title {
+            font-size: 2.4rem;
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--ink);
+            margin: 0 0 0.5rem;
+        }
+
+        .panel-subtitle {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--copper);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(184,115,51,0.15);
+        }
+
+        .panel-body {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: var(--ink-soft);
+            flex: 1;
+        }
+
+        .panel-body p + p {
+            margin-top: 1rem;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            align-items: center;
+        }
+
+        .swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.6);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .swatch-label {
+            font-size: 0.7rem;
+            color: var(--ink-muted);
+            letter-spacing: 0.05em;
+            margin-left: 0.5rem;
+        }
+
+        .panel-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 2.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--copper);
+            color: var(--white-warm);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: background 0.2s ease, gap 0.2s ease;
+            align-self: flex-start;
+            border: none;
+            cursor: pointer;
+        }
+
+        .showcase-card:hover .panel-cta {
+            background: var(--copper-dark);
+            gap: 1.1rem;
+        }
+
+        /* ── Alternative options note ──────────────── */
+        .alts-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+
+        .alts-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--ink-soft);
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(184,115,51,0.12);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .alts-heading span {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .alts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .alt-card {
+            background: var(--white-warm);
+            border: 1px solid rgba(184,115,51,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .alt-card:hover {
+            box-shadow: 0 8px 32px rgba(44,32,24,0.1);
+            transform: translateY(-2px);
+        }
+
+        .alt-thumb {
+            aspect-ratio: 1581 / 821;
+            overflow: hidden;
+            background: var(--parchment);
+            position: relative;
+        }
+
+        .alt-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.4s ease;
+        }
+
+        .alt-card:hover .alt-thumb img {
+            transform: scale(1.05);
+        }
+
+        .alt-thumb-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--ink-muted);
+            opacity: 0.3;
+        }
+
+        .alt-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .alt-badge {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+
+        .alt-badge.teal    { background: rgba(9,165,154,0.1);  color: #078078; border: 1px solid rgba(9,165,154,0.2); }
+        .alt-badge.saffron { background: rgba(217,119,6,0.1);  color: #B45309; border: 1px solid rgba(217,119,6,0.2); }
+        .alt-badge.earth   { background: rgba(107,62,46,0.1);  color: #6B3E2E; border: 1px solid rgba(107,62,46,0.2); }
+
+        .alt-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .alt-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--ink-muted);
+            flex: 1;
+        }
+
+        .alt-link {
+            margin-top: 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--copper);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Footer ────────────────────────────────── */
+        .site-footer {
+            background: var(--ink);
+            color: rgba(253,250,244,0.6);
+            padding: 2.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-inner img {
+            height: 32px;
+            width: auto;
+            opacity: 0.5;
+            filter: brightness(10);
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Responsive ────────────────────────────── */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; gap: 1rem; }
+            .hero-meta { text-align: left; }
+            .card-thumb img { object-position: center top; }
+            .card-panel { padding: 2rem 2rem; }
+            .panel-title { font-size: 1.8rem; }
+            .alts-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 3rem 1.25rem 2rem; }
+            .card-wrapper, .alts-section, .section-label { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .card-panel { padding: 1.75rem 1.5rem; }
+            .alts-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
         }
     </style>
 </head>
-<body class="antialiased bg-white">
+<body>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-        <nav class="container mx-auto px-4 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="/" class="flex items-center gap-2">
-                        <img src="assets/logo-antaryog.png" alt="AntarYog Foundation" class="h-12 w-auto">
-                        <span class="text-lg font-serif font-semibold text-ay-gray hidden sm:inline">AntarYog Foundation</span>
-                    </a>
-                </div>
-                <div class="text-sm text-ay-gray-light">Design Mockups</div>
-            </div>
-        </nav>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/">
+                <img src="assets/logo-antaryog.png" alt="AntarYog Foundation" style="height:44px;width:auto;">
+            </a>
+            <span class="header-tag">Design Mockups</span>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-ay-beige to-white py-16 lg:py-24">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-4xl lg:text-5xl font-serif font-bold text-ay-gray mb-6">
-                    Website Design Mockups
-                </h1>
-                <p class="text-lg text-ay-gray-light mb-4">
-                    Explore distinct design variations of the AntarYog Foundation website, showcasing different color themes and aesthetic approaches.
-                </p>
-                <p class="text-base text-ay-gray-light opacity-80">
-                    Click on any version below to view the full interactive mockup.
-                </p>
-            </div>
+    <!-- Hero -->
+    <div class="hero">
+        <div>
+            <h1 class="hero-headline">
+                The palette of <em>copper, gold</em><br>and ancient parchment
+            </h1>
+            <p class="hero-sub">
+                Materials woven into India's sacred life for millennia — ritual vessels,
+                temple lamp flames, the cream of palm-leaf manuscripts.
+                This is the visual language chosen for AntarYog Foundation.
+            </p>
         </div>
-    </section>
+    </div>
 
-    <!-- Mockups Grid -->
-    <section class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+    <!-- Section label -->
+    <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Featured Mockup</span>
+        <div class="section-label-line" style="background:linear-gradient(to left,rgba(184,115,51,0.3),transparent)"></div>
+    </div>
 
-                <!-- Version 1: Teal Theme (Original) -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v1.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <img src="assets/thumbnails/v1.png" alt="Version 1 - Teal Theme" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 1 - Original Teal
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Modern design with clean teal color scheme. Features contemporary layout with smooth animations and professional typography.
-                        </p>
-                        <div class="flex items-center gap-2 text-ay-teal font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
+    <!-- Main card -->
+    <div class="card-wrapper">
+        <a href="docs/prompts/output/frontend-branded-antaryog-v7.html" class="showcase-card">
 
-                <!-- Version 2: Teal Theme (Enhanced) -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v2.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <img src="assets/thumbnails/v2.png" alt="Version 2 - Teal Enhanced" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 2 - Teal Enhanced
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Enhanced version of the teal theme with official AntarYog Foundation content, expanded program information, and rich media integration.
-                        </p>
-                        <div class="flex items-center gap-2 text-ay-teal font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Version 3: Saffron Spiritual Theme -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v3.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <img src="assets/thumbnails/v3.png" alt="Version 3 - Saffron Spiritual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 3 - Saffron Spiritual
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Traditional Indian spiritual aesthetics with warm saffron tones. Evokes cultural heritage while maintaining modern design principles.
-                        </p>
-                        <div class="flex items-center gap-2 text-ay-saffron font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Version 4: Saffron Spiritual Theme Enhanced -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v4.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <img src="assets/thumbnails/v4.png" alt="Version 4 - Saffron Enhanced" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 4 - Saffron Enhanced
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Enhanced saffron theme with official AntarYog content, spiritual programs, and comprehensive information. Rich cultural experience.
-                        </p>
-                        <div class="flex items-center gap-2 text-ay-saffron font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Version 5: Earth-Gold Harmony Theme -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v5.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <div class="w-full h-full bg-gradient-to-br from-orange-100 via-amber-50 to-yellow-50 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="text-4xl font-serif font-bold text-amber-900 mb-2">v5</div>
-                                <div class="text-sm text-amber-800">Earth-Gold Harmony</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 5 - Earth-Gold Harmony
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Warm earth tones with soft gold accents. Combines stability of brown with prosperity of gold for a grounded, spiritual aesthetic. Minimal content.
-                        </p>
-                        <div class="flex items-center gap-2 text-ay-brown font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Version 6: Earth-Gold Harmony Theme Enhanced -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v6.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <div class="w-full h-full bg-gradient-to-br from-orange-100 via-amber-50 to-yellow-50 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="text-4xl font-serif font-bold text-amber-900 mb-2">v6</div>
-                                <div class="text-sm text-amber-800">Earth-Gold Harmony Enhanced</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 6 - Earth-Gold Enhanced
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Enhanced earth-gold theme with official AntarYog content, comprehensive programs, mission details, and full spiritual information.
-                        </p>
-                        <div class="flex items-center gap-2 text-ay-brown font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Version 7: White Copper Theme -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v7.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <div class="w-full h-full bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="text-4xl font-serif font-bold text-amber-800 mb-2">v7</div>
-                                <div class="text-sm text-amber-700">White Copper</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 7 - White Copper
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Refined copper accents on clean white backgrounds. Combines warm copper with cool paper tones for an elegant, professional spiritual aesthetic. Minimal content.
-                        </p>
-                        <div class="flex items-center gap-2 text-amber-700 font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Version 8: White Copper Theme Enhanced -->
-                <a href="docs/prompts/output/frontend-branded-antaryog-v8.html"
-                   class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden bg-gray-100">
-                        <div class="w-full h-full bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="text-4xl font-serif font-bold text-amber-800 mb-2">v8</div>
-                                <div class="text-sm text-amber-700">White Copper Enhanced</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-serif font-bold text-ay-gray mb-2">
-                            Version 8 - White Copper Enhanced
-                        </h3>
-                        <p class="text-ay-gray-light mb-4 text-sm leading-relaxed">
-                            Enhanced white-copper theme with official AntarYog Foundation content, detailed programs, mission vision, and comprehensive spiritual information.
-                        </p>
-                        <div class="flex items-center gap-2 text-amber-700 font-medium text-sm group-hover:gap-3 transition-all">
-                            View Demo
-                            <span>→</span>
-                        </div>
-                    </div>
-                </a>
-
+            <!-- Thumbnail: fills its panel with object-cover, no empty space -->
+            <div class="card-thumb">
+                <img src="assets/thumbnails/v7.png"
+                     alt="Version 7 – White Copper theme preview">
             </div>
-        </div>
-    </section>
 
-    <!-- Information Section -->
-    <section class="py-16 lg:py-24 bg-ay-beige">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl font-serif font-bold text-ay-gray mb-8 text-center">
-                    Design Overview
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div>
-                        <h3 class="text-lg font-serif font-bold text-ay-gray mb-3 flex items-center gap-2">
-                            <span class="text-ay-teal">■</span> Teal Versions
-                        </h3>
-                        <p class="text-ay-gray-light text-sm leading-relaxed">
-                            Modern and contemporary aesthetic using cool teal as the primary color. Emphasizes innovation, clarity, and forward-thinking design principles suitable for a dynamic spiritual organization.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-serif font-bold text-ay-gray mb-3 flex items-center gap-2">
-                            <span class="text-ay-saffron">■</span> Saffron Versions
-                        </h3>
-                        <p class="text-ay-gray-light text-sm leading-relaxed">
-                            Traditional Indian spiritual aesthetic using warm saffron tones. Celebrates cultural heritage and spiritual traditions while maintaining contemporary web design standards.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-serif font-bold text-ay-gray mb-3 flex items-center gap-2">
-                            <span class="text-ay-brown">■</span> Earth-Gold Versions
-                        </h3>
-                        <p class="text-ay-gray-light text-sm leading-relaxed">
-                            Warm earth tones with soft gold accents. Combines grounded stability with spiritual prosperity, representing ancient wisdom and modern transformation.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-serif font-bold text-ay-gray mb-3 flex items-center gap-2">
-                            <span class="text-amber-700">■</span> White Copper Versions
-                        </h3>
-                        <p class="text-ay-gray-light text-sm leading-relaxed">
-                            Refined copper accents on clean white backgrounds. Elegant and professional aesthetic combining warm copper with cool paper tones for spiritual sophistication. NEW!
-                        </p>
-                    </div>
-                </div>
-                <div class="border-t border-gray-300 mt-8 pt-8">
-                    <h3 class="font-serif font-bold text-ay-gray mb-4">Design Variations:</h3>
-                    <ul class="space-y-2 text-sm text-ay-gray-light">
-                        <li class="flex items-start gap-3">
-                            <span class="text-ay-teal font-bold mt-0.5">•</span>
-                            <span><strong>Original vs Enhanced:</strong> Odd versions (1, 3, 5, 7) feature core design, while even versions (2, 4, 6, 8) include full official content and program details</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-ay-teal font-bold mt-0.5">•</span>
-                            <span><strong>Color Themes:</strong> Choose from modern teal, traditional saffron, warm earth-gold harmony, or refined white copper to match your brand vision</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-ay-teal font-bold mt-0.5">•</span>
-                            <span><strong>White Copper (NEW):</strong> Versions 7 & 8 feature refined copper accents on clean white with sophisticated paper tones for professional elegance</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-ay-teal font-bold mt-0.5">•</span>
-                            <span><strong>Responsive Design:</strong> All versions work seamlessly on desktop, tablet, and mobile devices with optimized touch interactions</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+            <!-- Text panel -->
+            <div class="card-panel">
+                <div class="panel-eyebrow">The Chosen Palette</div>
+                <h2 class="panel-title">Version 7<br>White Copper</h2>
+                <p class="panel-subtitle">Copper · Gold · Parchment-White</p>
 
-    <!-- Footer -->
-    <footer class="bg-ay-gray text-white py-8 lg:py-12">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-sm opacity-80">
-                        © 2026 AntarYog Foundation. All rights reserved.
+                <div class="panel-body">
+                    <p>
+                        Copper is the metal of Indian ritual — kalash vessels, temple bells,
+                        puja thalis passed down through generations. Gold is the colour of
+                        spiritual illumination and the Vedic fire ceremony.
+                    </p>
+                    <p>
+                        Paper-white evokes the palm-leaf manuscripts that carried ancient
+                        knowledge across centuries. Together they form a palette immediately
+                        familiar to anyone rooted in Indian spiritual life — clean and legible
+                        on screen, timeless in meaning.
                     </p>
                 </div>
-                <div class="text-xs opacity-60">
-                    Design Mockup Preview Gallery
+
+                <div class="color-swatches">
+                    <div class="swatch" style="background:#B87333;" title="Copper"></div>
+                    <div class="swatch" style="background:#C9953A;" title="Gold"></div>
+                    <div class="swatch" style="background:#EFE5D0;" title="Parchment"></div>
+                    <div class="swatch" style="background:#2C2018;" title="Ink"></div>
+                    <span class="swatch-label">Palette</span>
+                </div>
+
+                <div class="panel-cta">
+                    View Live Demo <span>→</span>
                 </div>
             </div>
+
+        </a>
+    </div>
+
+    <!-- Alternative mockups -->
+    <div class="alts-section">
+        <h3 class="alts-heading">
+            Other Mockups &nbsp;
+            <span>Also available</span>
+        </h3>
+
+        <div class="alts-grid">
+
+            <a href="docs/prompts/output/frontend-branded-antaryog-v1.html" class="alt-card">
+                <div class="alt-thumb">
+                    <img src="assets/thumbnails/v1.png"
+                         alt="Version 1 – Teal Minimal preview"
+                         loading="lazy">
+                </div>
+                <div class="alt-body">
+                    <span class="alt-badge teal">Teal · Modern</span>
+                    <div class="alt-title">Version 1 – Teal Minimal</div>
+                    <p class="alt-desc">Cool contemporary aesthetic. Minimal content, clean structure. Ideal for a forward-looking brand tone.</p>
+                    <div class="alt-link">View Demo <span>→</span></div>
+                </div>
+            </a>
+
+            <a href="docs/prompts/output/frontend-branded-antaryog-v2.html" class="alt-card">
+                <div class="alt-thumb">
+                    <img src="assets/thumbnails/v2.png"
+                         alt="Version 2 – Teal Full Content preview"
+                         loading="lazy">
+                </div>
+                <div class="alt-body">
+                    <span class="alt-badge teal">Teal · Full Content</span>
+                    <div class="alt-title">Version 2 – Teal Enhanced</div>
+                    <p class="alt-desc">Full official AntarYog Foundation content in the modern teal theme. Programs, events, mission.</p>
+                    <div class="alt-link">View Demo <span>→</span></div>
+                </div>
+            </a>
+
+            <a href="docs/prompts/output/frontend-branded-antaryog-v3.html" class="alt-card">
+                <div class="alt-thumb">
+                    <img src="assets/thumbnails/v3.png"
+                         alt="Version 3 – Saffron Traditional preview"
+                         loading="lazy">
+                </div>
+                <div class="alt-body">
+                    <span class="alt-badge saffron">Saffron · Traditional</span>
+                    <div class="alt-title">Version 3 – Saffron Minimal</div>
+                    <p class="alt-desc">Warm saffron tones evoking traditional Indian cultural colours. Minimal layout.</p>
+                    <div class="alt-link">View Demo <span>→</span></div>
+                </div>
+            </a>
+
+            <a href="docs/prompts/output/frontend-branded-antaryog-v4.html" class="alt-card">
+                <div class="alt-thumb">
+                    <img src="assets/thumbnails/v4.png"
+                         alt="Version 4 – Saffron Full Content preview"
+                         loading="lazy">
+                </div>
+                <div class="alt-body">
+                    <span class="alt-badge saffron">Saffron · Full Content</span>
+                    <div class="alt-title">Version 4 – Saffron Enhanced</div>
+                    <p class="alt-desc">Full content in saffron theme — programs, events, detailed information for all audiences.</p>
+                    <div class="alt-link">View Demo <span>→</span></div>
+                </div>
+            </a>
+
+            <a href="docs/prompts/output/frontend-branded-antaryog-v5.html" class="alt-card">
+                <div class="alt-thumb">
+                    <div class="alt-thumb-placeholder" style="background: linear-gradient(135deg,#F6F1E7,#EFE6D6); color:#B45309;">
+                        <span style="font-family:'Cormorant Garamond',serif;font-size:3rem;opacity:0.4;">v5</span>
+                    </div>
+                </div>
+                <div class="alt-body">
+                    <span class="alt-badge earth">Earth-Gold · Minimal</span>
+                    <div class="alt-title">Version 5 – Earth-Gold Minimal</div>
+                    <p class="alt-desc">Warm grounded earth tones with gold. Stability and spiritual prosperity, minimal content.</p>
+                    <div class="alt-link">View Demo <span>→</span></div>
+                </div>
+            </a>
+
+            <a href="docs/prompts/output/frontend-branded-antaryog-v6.html" class="alt-card">
+                <div class="alt-thumb">
+                    <div class="alt-thumb-placeholder" style="background: linear-gradient(135deg,#F6F1E7,#EFE6D6); color:#B45309;">
+                        <span style="font-family:'Cormorant Garamond',serif;font-size:3rem;opacity:0.4;">v6</span>
+                    </div>
+                </div>
+                <div class="alt-body">
+                    <span class="alt-badge earth">Earth-Gold · Full Content</span>
+                    <div class="alt-title">Version 6 – Earth-Gold Enhanced</div>
+                    <p class="alt-desc">Full official content in the warm earth-gold palette. Comprehensive programs and mission detail.</p>
+                    <div class="alt-link">View Demo <span>→</span></div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <img src="assets/logo-antaryog.png" alt="AntarYog Foundation">
+            <p class="footer-text">© 2026 AntarYog Foundation · Design Mockup Gallery</p>
         </div>
     </footer>
 
