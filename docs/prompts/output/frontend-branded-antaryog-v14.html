@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AntarYog Foundation — Temple Brass / Brutalist Sacred</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS CUSTOM PROPERTIES
+       ======================================== */
+    :root {
+      --temple-stone: #E8E0D0;
+      --raw-brass: #C8A832;
+      --vermillion: #D93826;
+      --charcoal: #1A1A1A;
+      --deep-brown: #2A1A0A;
+      --warm-grey: #8A7E72;
+      --off-white: #F4F0E8;
+      --font-heading: 'Bebas Neue', sans-serif;
+      --font-body: 'Crimson Pro', serif;
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto; /* brutalist: no smooth scroll */
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      background: var(--temple-stone);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: var(--font-heading);
+      border: none;
+      border-radius: 0 !important;
+    }
+
+    /* NO border-radius anywhere */
+    * {
+      border-radius: 0 !important;
+    }
+
+    /* ========================================
+       SCROLL REVEAL ANIMATIONS
+       ======================================== */
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    .reveal-left.revealed,
+    .reveal-right.revealed {
+      opacity: 1;
+      transform: translateX(0);
+      transition: transform 300ms ease-out, opacity 300ms ease-out;
+    }
+
+    /* Hero clip-path reveal */
+    .hero-title-reveal {
+      clip-path: inset(0 100% 0 0);
+      animation: clipReveal 800ms ease-out 200ms forwards;
+    }
+    @keyframes clipReveal {
+      to { clip-path: inset(0 0 0 0); }
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 80px;
+      background: var(--charcoal);
+      border-bottom: 4px solid var(--raw-brass);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--off-white);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--warm-grey);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 150ms;
+    }
+
+    .nav-links a:hover {
+      color: var(--off-white);
+    }
+
+    .btn-enroll {
+      background: var(--vermillion);
+      color: var(--off-white);
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      padding: 10px 28px;
+      text-transform: uppercase;
+      border: none;
+      transition: background 150ms;
+    }
+
+    .btn-enroll:hover {
+      background: #B82E1E;
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: var(--off-white);
+      transition: transform 200ms, opacity 200ms;
+    }
+
+    .nav-hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 84px;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: var(--charcoal);
+      border-bottom: 4px solid var(--raw-brass);
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a,
+    .mobile-menu button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--off-white);
+      padding: 18px 40px;
+      background: none;
+      border: none;
+      border-top: 2px solid #333;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu button:hover {
+      background: var(--deep-brown);
+    }
+
+    .mobile-menu .mobile-enroll {
+      background: var(--vermillion);
+      color: var(--off-white);
+      text-align: center;
+      border-top: 2px solid var(--vermillion);
+    }
+
+    /* ========================================
+       HERO SECTION (100vh)
+       ======================================== */
+    .hero {
+      min-height: 100vh;
+      background: var(--temple-stone);
+      padding-top: 84px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 60px 40px 40px;
+      position: relative;
+      width: 100%;
+    }
+
+    .hero-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(4rem, 12vw, 12rem);
+      line-height: 0.9;
+      color: var(--charcoal);
+      width: 60%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-heading .underlined {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-heading .underlined::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--vermillion);
+    }
+
+    .hero-portrait {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 340px;
+      height: 440px;
+      object-fit: cover;
+      box-shadow: 12px 12px 0 var(--raw-brass);
+      z-index: 3;
+    }
+
+    .hero-mission {
+      font-family: var(--font-body);
+      font-size: 1.25rem;
+      color: var(--deep-brown);
+      max-width: 500px;
+      margin-top: 32px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-rule {
+      width: 100%;
+      height: 4px;
+      background: var(--raw-brass);
+      margin-top: 48px;
+      border: none;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border: 3px solid var(--charcoal);
+      margin-top: 32px;
+    }
+
+    .hero-stat {
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .hero-stat:not(:last-child) {
+      border-right: 3px solid var(--charcoal);
+    }
+
+    .hero-stat-number {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      color: var(--raw-brass);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--warm-grey);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ========================================
+       PROGRAMS SECTION
+       ======================================== */
+    .programs {
+      background: var(--off-white);
+      padding: 100px 40px;
+    }
+
+    .programs-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-accent {
+      width: 40px;
+      height: 6px;
+      background: var(--vermillion);
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 6vw, 6rem);
+      color: var(--charcoal);
+      letter-spacing: 3px;
+      line-height: 1;
+      margin-bottom: 60px;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0;
+    }
+
+    .program-card {
+      border: 2px solid var(--charcoal);
+      padding: 40px 32px 32px;
+      position: relative;
+      background: var(--off-white);
+      transition: transform 150ms ease;
+      overflow: visible;
+      margin: -1px;
+    }
+
+    .program-card:hover {
+      background: var(--charcoal);
+      color: var(--off-white);
+      z-index: 5;
+      border-left: 6px solid var(--raw-brass);
+    }
+
+    .program-card:hover .program-title {
+      color: var(--off-white);
+    }
+
+    .program-card:hover .program-desc {
+      color: var(--warm-grey);
+    }
+
+    .program-card:hover .program-number {
+      color: var(--raw-brass);
+    }
+
+    .program-card--tall {
+      grid-row: 1 / 3;
+      grid-column: 1;
+    }
+
+    .program-number {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--temple-stone);
+      position: absolute;
+      top: -20px;
+      left: 12px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .program-tag {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: var(--warm-grey);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .program-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      transition: color 0ms;
+    }
+
+    .program-desc {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: var(--deep-brown);
+      line-height: 1.65;
+      transition: color 0ms;
+    }
+
+    /* Bottom row: 3 columns */
+    .programs-grid-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin-top: -2px;
+    }
+
+    /* ========================================
+       FOUNDER SECTION
+       ======================================== */
+    .founder {
+      background: var(--charcoal);
+      padding: 100px 40px;
+    }
+
+    .founder-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .founder-portrait {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border: 4px solid var(--vermillion);
+    }
+
+    .founder-text {
+      color: var(--off-white);
+    }
+
+    .founder-label {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      color: var(--warm-grey);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .founder-name {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--off-white);
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .founder-bio {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--warm-grey);
+      margin-bottom: 40px;
+    }
+
+    .founder-rule {
+      width: 100%;
+      height: 4px;
+      background: var(--raw-brass);
+      border: none;
+      margin-bottom: 40px;
+    }
+
+    .founder-quote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 3rem);
+      color: var(--raw-brass);
+      line-height: 1.2;
+      padding-left: 28px;
+      border-left: 6px solid var(--raw-brass);
+    }
+
+    /* ========================================
+       EVENTS SECTION
+       ======================================== */
+    .events {
+      background: var(--temple-stone);
+      padding: 100px 40px;
+    }
+
+    .events-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .event-band {
+      border-top: 3px solid var(--charcoal);
+      display: grid;
+      grid-template-columns: 200px 1fr 180px;
+      align-items: center;
+      gap: 32px;
+      padding: 32px 24px;
+      transition: transform 150ms ease;
+    }
+
+    .event-band:last-child {
+      border-bottom: 3px solid var(--charcoal);
+    }
+
+    .event-band:hover {
+      background: var(--charcoal);
+    }
+
+    .event-band:hover .event-date,
+    .event-band:hover .event-title,
+    .event-band:hover .event-meta {
+      color: var(--off-white);
+    }
+
+    .event-band:hover .event-desc {
+      color: var(--warm-grey);
+    }
+
+    .event-date {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--raw-brass);
+      line-height: 1.1;
+      transition: color 0ms;
+    }
+
+    .event-content {
+      min-width: 0;
+    }
+
+    .event-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      transition: color 0ms;
+    }
+
+    .event-desc {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--warm-grey);
+      transition: color 0ms;
+    }
+
+    .event-meta {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--deep-brown);
+      margin-top: 4px;
+      transition: color 0ms;
+    }
+
+    .btn-register {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--charcoal);
+      color: var(--off-white);
+      padding: 12px 24px;
+      border: 2px solid var(--charcoal);
+      text-align: center;
+      display: inline-block;
+      transition: background 150ms, color 150ms, border-color 150ms;
+    }
+
+    .event-band:hover .btn-register {
+      background: var(--vermillion);
+      border-color: var(--vermillion);
+      color: var(--off-white);
+    }
+
+    /* ========================================
+       CTA SECTION
+       ======================================== */
+    .cta {
+      background: var(--vermillion);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      color: var(--off-white);
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      line-height: 1.05;
+    }
+
+    .cta-sub {
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      color: rgba(244, 240, 232, 0.85);
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-primary {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--charcoal);
+      color: var(--off-white);
+      padding: 16px 40px;
+      border: 3px solid var(--charcoal);
+      transition: background 150ms, color 150ms;
+    }
+
+    .btn-cta-primary:hover {
+      background: var(--deep-brown);
+      border-color: var(--deep-brown);
+    }
+
+    .btn-cta-secondary {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--off-white);
+      padding: 16px 40px;
+      border: 3px solid var(--off-white);
+      transition: background 150ms, color 150ms;
+    }
+
+    .btn-cta-secondary:hover {
+      background: var(--off-white);
+      color: var(--vermillion);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: var(--charcoal);
+      border-top: 6px solid var(--raw-brass);
+      padding: 60px 40px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .footer-col-heading {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      color: var(--off-white);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--warm-grey);
+      line-height: 2;
+      transition: color 150ms;
+    }
+
+    .footer-col a:hover {
+      color: var(--raw-brass);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copyright {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--warm-grey);
+      font-variant: small-caps;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--warm-grey);
+      transition: color 150ms;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--raw-brass);
+    }
+
+    /* ========================================
+       RESPONSIVE: TABLET (max-width: 1024px)
+       ======================================== */
+    @media (max-width: 1024px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero-heading { width: 55%; }
+      .hero-portrait { width: 280px; height: 360px; right: 24px; }
+
+      .founder-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .founder-portrait {
+        width: 100%;
+        max-width: 500px;
+        height: 400px;
+      }
+
+      .event-band {
+        grid-template-columns: 140px 1fr 150px;
+        gap: 20px;
+        padding: 24px 16px;
+      }
+
+      .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ========================================
+       RESPONSIVE: MOBILE (max-width: 768px)
+       ======================================== */
+    @media (max-width: 768px) {
+      .nav { height: 70px; padding: 0 20px; }
+      .nav-logo-text { font-size: 1.2rem; }
+      .nav-logo img { height: 40px; }
+      .mobile-menu { top: 74px; }
+
+      .hero { padding-top: 70px; }
+      .hero-inner { padding: 40px 20px 30px; }
+      .hero-heading {
+        width: 100%;
+        font-size: clamp(3rem, 14vw, 5rem);
+      }
+      .hero-portrait {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        max-width: 320px;
+        height: 380px;
+        margin-top: 32px;
+      }
+      .hero-mission { margin-top: 24px; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .hero-stat:not(:last-child) {
+        border-right: none;
+        border-bottom: 3px solid var(--charcoal);
+      }
+      .hero-stat { padding: 20px 16px; }
+      .hero-stat-number { font-size: 2.5rem; }
+
+      .programs { padding: 60px 20px; }
+      .section-heading { margin-bottom: 40px; }
+      .programs-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .program-card--tall {
+        grid-row: auto;
+        grid-column: auto;
+      }
+      .programs-grid-bottom {
+        grid-template-columns: 1fr;
+      }
+      .program-card { padding: 32px 24px 24px; }
+      .program-number { font-size: 3.5rem; top: -14px; }
+
+      .founder { padding: 60px 20px; }
+      .founder-portrait { height: 320px; max-width: 100%; }
+
+      .events { padding: 60px 20px; }
+      .event-band {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 24px 16px;
+      }
+      .btn-register { width: 100%; text-align: center; }
+
+      .cta { padding: 60px 20px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .btn-cta-primary, .btn-cta-secondary { width: 100%; max-width: 320px; text-align: center; }
+
+      .footer { padding: 40px 20px 30px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 30px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ========================================
+       RESPONSIVE: SMALL MOBILE (max-width: 420px)
+       ======================================== */
+    @media (max-width: 420px) {
+      .hero-heading { font-size: clamp(2.5rem, 16vw, 4rem); }
+      .program-title { font-size: 1.5rem; }
+      .event-date { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       NAVIGATION
+       ========================================== -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation">
+      <span class="nav-logo-text">ANTARYOG</span>
+    </a>
+    <div class="nav-links">
+      <a href="#">ABOUT</a>
+      <a href="#">PROGRAMS</a>
+      <a href="#">EVENTS</a>
+      <a href="#">GURUKUL</a>
+      <a href="#">CONTACT</a>
+      <a href="#" class="btn-enroll">ENROLL</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#">ABOUT</a>
+    <a href="#">PROGRAMS</a>
+    <a href="#">EVENTS</a>
+    <a href="#">GURUKUL</a>
+    <a href="#">CONTACT</a>
+    <a href="#" class="mobile-enroll">ENROLL</a>
+  </div>
+
+  <!-- ==========================================
+       HERO
+       ========================================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-heading hero-title-reveal">
+        <span class="underlined">ANTARYOG</span><br>FOUNDATION
+      </h1>
+
+      <img
+        src="../../../assets/founder/acharya-upendra-ji-alt.jpg"
+        alt="Acharya Upendra Ji"
+        class="hero-portrait"
+      >
+
+      <p class="hero-mission">
+        Reviving the timeless Vedantic wisdom of Bharat through direct experience,
+        authentic Guru-Shishya Parampara, and transformative spiritual practices for
+        the modern seeker.
+      </p>
+
+      <hr class="hero-rule">
+
+      <div class="hero-stats">
+        <div class="hero-stat reveal-left">
+          <div class="hero-stat-number">25+</div>
+          <div class="hero-stat-label">Years of Teaching</div>
+        </div>
+        <div class="hero-stat reveal-left">
+          <div class="hero-stat-number">6</div>
+          <div class="hero-stat-label">Core Programs</div>
+        </div>
+        <div class="hero-stat reveal-right">
+          <div class="hero-stat-number">1</div>
+          <div class="hero-stat-label">Mission: Vishwa Guru</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PROGRAMS
+       ========================================== -->
+  <section class="programs">
+    <div class="programs-inner">
+      <div class="section-accent reveal-left"></div>
+      <h2 class="section-heading reveal-left">PROGRAMS</h2>
+
+      <div class="programs-grid">
+        <!-- Card 1: Tall card spanning 2 rows -->
+        <div class="program-card program-card--tall reveal-left">
+          <span class="program-number">01</span>
+          <div class="program-tag">Vedanta</div>
+          <h3 class="program-title">DISCOURSES</h3>
+          <p class="program-desc">
+            Deep immersive study of Upanishads, Bhagavad Gita, and Yoga Vasistha.
+            Direct experience of the Self through the living word of a realized master.
+            Not academic philosophy but transformative transmission of truth.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="program-card reveal-right">
+          <span class="program-number">02</span>
+          <div class="program-tag">Ancient Astrology</div>
+          <h3 class="program-title">NAADI JYOTISH</h3>
+          <p class="program-desc">
+            Sacred palm-leaf scripture consultations revealing karmic blueprint and life purpose.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="program-card reveal-right">
+          <span class="program-number">03</span>
+          <div class="program-tag">Wellness</div>
+          <h3 class="program-title">SCIENCE OF HEALING</h3>
+          <p class="program-desc">
+            Ancient healing integrating Pranic healing, Ayurvedic principles, and Vedic consciousness science.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom row: 3 columns -->
+      <div class="programs-grid-bottom">
+        <!-- Card 4 -->
+        <div class="program-card reveal-left">
+          <span class="program-number">04</span>
+          <div class="program-tag">Sacred Space</div>
+          <h3 class="program-title">VASTU RUPANTARAN</h3>
+          <p class="program-desc">
+            Transform spaces through ancient Vastu Shastra. Align spatial energies for consciousness expansion.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="program-card reveal-left">
+          <span class="program-number">05</span>
+          <div class="program-tag">Education</div>
+          <h3 class="program-title">GURUKUL</h3>
+          <p class="program-desc">
+            Residential immersion in living Guru-Shishya Parampara. Spiritual leadership with ancient and modern wisdom.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="program-card reveal-right">
+          <span class="program-number">06</span>
+          <div class="program-tag">Practice</div>
+          <h3 class="program-title">YOGA PATHS</h3>
+          <p class="program-desc">
+            Four classical paths &mdash; Karma, Bhakti, Jnana, Raja Yoga &mdash; as living disciplines, not philosophy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOUNDER
+       ========================================== -->
+  <section class="founder">
+    <div class="founder-inner">
+      <img
+        src="../../../assets/founder/acharya-upendra-ji-alt.jpg"
+        alt="Jeevan Mukt Sadguru Acharya Upendra Ji"
+        class="founder-portrait reveal-left"
+      >
+      <div class="founder-text reveal-right">
+        <div class="founder-label">Founder &amp; Spiritual Guide</div>
+        <h2 class="founder-name">JEEVAN MUKT SADGURU ACHARYA UPENDRA JI</h2>
+        <p class="founder-bio">
+          For over 25 years, Acharya Upendra Ji has dedicated his life to reviving
+          the authentic Vedantic tradition of Bharat. Through direct experience and
+          unwavering commitment to the Guru-Shishya Parampara, he guides seekers
+          toward self-realization and the living truth of the scriptures.
+        </p>
+        <hr class="founder-rule">
+        <blockquote class="founder-quote">
+          &ldquo;The goal is not to escape the world but to transform it &mdash;
+          making Bharat a Vishwa Guru once again.&rdquo;
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       EVENTS
+       ========================================== -->
+  <section class="events">
+    <div class="events-inner">
+      <div class="section-accent reveal-left"></div>
+      <h2 class="section-heading reveal-left">UPCOMING EVENTS</h2>
+
+      <!-- Event 1 -->
+      <div class="event-band reveal-right">
+        <div class="event-date">SEP 22 &ndash;<br>OCT 2</div>
+        <div class="event-content">
+          <div class="event-title">NAVRATRI CELEBRATION: GODDESS WISDOM &amp; SPIRITUAL PROTECTION</div>
+          <div class="event-desc">11 Days of sacred rituals, Vedantic discourses, and devotional practice</div>
+          <div class="event-meta">Gurukul Campus, Pune</div>
+        </div>
+        <a href="#" class="btn-register">REGISTER</a>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-band reveal-left">
+        <div class="event-date">SEP 7 &ndash;<br>SEP 21</div>
+        <div class="event-content">
+          <div class="event-title">PITRU-RIN MUKTI SHIBIR: ANCESTRAL ENERGY RELEASE</div>
+          <div class="event-desc">15-day intensive for releasing ancestral karmic patterns and energetic blockages</div>
+          <div class="event-meta">Gurukul Campus, Pune</div>
+        </div>
+        <a href="#" class="btn-register">REGISTER</a>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-band reveal-right">
+        <div class="event-date">SEP 10 &ndash;<br>SEP 11</div>
+        <div class="event-content">
+          <div class="event-title">SCIENCE OF HEALING: MEDITATION &amp; WELLNESS</div>
+          <div class="event-desc">2-day workshop integrating ancient healing sciences with modern wellness practices</div>
+          <div class="event-meta">Gurukul Campus, Pune</div>
+        </div>
+        <a href="#" class="btn-register">REGISTER</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CTA
+       ========================================== -->
+  <section class="cta">
+    <div class="cta-inner">
+      <h2 class="cta-heading reveal-left">BEGIN YOUR JOURNEY INTO THE SACRED</h2>
+      <p class="cta-sub reveal-left">
+        Step into the living tradition. Experience Vedantic wisdom not as theory, but as transformation.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-cta-primary">EXPLORE PROGRAMS</a>
+        <a href="#" class="btn-cta-secondary">CONTACT US</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-col-heading">FOUNDATION</div>
+        <a href="#">About Us</a>
+        <a href="#">Our Mission</a>
+        <a href="#">Acharya Ji</a>
+        <a href="#">Gurukul Campus</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-heading">PROGRAMS</div>
+        <a href="#">Discourses</a>
+        <a href="#">Naadi Jyotish</a>
+        <a href="#">Science of Healing</a>
+        <a href="#">Vastu Rupantaran</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-heading">COMMUNITY</div>
+        <a href="#">Events</a>
+        <a href="#">Shibirs</a>
+        <a href="#">Volunteer</a>
+        <a href="#">Donate</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-heading">CONNECT</div>
+        <p>AntarYog Foundation</p>
+        <p>Gurukul Campus, Pune</p>
+        <a href="#">info@antaryogfoundation.in</a>
+        <a href="#">YouTube</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">&copy; 2026 ANTARYOG FOUNDATION. ALL RIGHTS RESERVED.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+  <script>
+    /* Mobile menu toggle */
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobileMenu');
+      var btn = document.querySelector('.nav-hamburger');
+      menu.classList.toggle('active');
+      btn.classList.toggle('active');
+    }
+
+    /* Close mobile menu on link click */
+    document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.querySelector('.nav-hamburger').classList.remove('active');
+      });
+    });
+
+    /* Close mobile menu on Escape */
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.querySelector('.nav-hamburger').classList.remove('active');
+      }
+    });
+
+    /* IntersectionObserver for scroll reveals */
+    (function() {
+      var revealElements = document.querySelectorAll('.reveal-left, .reveal-right');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        /* Fallback: show all immediately */
+        revealElements.forEach(function(el) {
+          el.classList.add('revealed');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
