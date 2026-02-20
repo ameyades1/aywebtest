@@ -85,7 +85,7 @@
         .hero {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 5rem 2rem 3.5rem;
+            padding: 2.5rem 2rem 2rem;
             display: grid;
             grid-template-columns: 1fr auto;
             gap: 2rem;
@@ -113,12 +113,13 @@
         }
 
         .hero-headline {
-            font-size: clamp(2.5rem, 5vw, 4.25rem);
+            font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 300;
             line-height: 1.12;
             color: var(--ink);
-            margin: 0 0 1.5rem;
-            max-width: 760px;
+            margin: 0;
+            max-width: 480px;
+            flex-shrink: 0;
         }
 
         .hero-headline em {
@@ -126,11 +127,26 @@
             color: var(--copper);
         }
 
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .hero-divider {
+            width: 1px;
+            align-self: stretch;
+            min-height: 3.5rem;
+            background: linear-gradient(to bottom, transparent, rgba(184,115,51,0.3) 25%, rgba(184,115,51,0.3) 75%, transparent);
+            flex-shrink: 0;
+            margin: 0 2.5rem;
+        }
+
         .hero-sub {
             font-size: 1.05rem;
             line-height: 1.75;
             color: var(--ink-muted);
-            max-width: 540px;
+            max-width: 440px;
         }
 
         .hero-meta {
@@ -527,6 +543,9 @@
         @media (max-width: 1024px) {
             .hero { grid-template-columns: 1fr; gap: 1rem; }
             .hero-meta { text-align: left; }
+            .hero-content { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+            .hero-divider { display: none; }
+            .hero-headline { max-width: none; }
             .card-thumb img { object-position: center top; }
             .card-panel { padding: 2rem 2rem; }
             .panel-title { font-size: 1.8rem; }
@@ -556,10 +575,11 @@
 
     <!-- Hero -->
     <div class="hero">
-        <div>
+        <div class="hero-content">
             <h1 class="hero-headline">
                 The palette of <em>copper, gold</em><br>and ancient parchment
             </h1>
+            <div class="hero-divider"></div>
             <p class="hero-sub">
                 Materials woven into India's sacred life for millennia — ritual vessels,
                 temple lamp flames, the cream of palm-leaf manuscripts.
