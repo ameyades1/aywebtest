@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AntarYog Foundation — Vedanta Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0D1117;
+      --paper:     #F8F4EC;
+      --gold:      #B8960C;
+      --gold-lt:   #D4AE2A;
+      --rose:      #C4887A;
+      --mid:       #6B6456;
+      --rule:      #D6CFB8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .eyebrow {
+      font-family: 'Cormorant SC', serif;
+      font-size: .78rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; }
+
+    /* clip-path wipe animation */
+    .wipe-left {
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path .9s cubic-bezier(.16,1,.3,1);
+    }
+    .wipe-left.visible {
+      clip-path: inset(0 0% 0 0);
+    }
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ============================================================
+       MASTHEAD / NAV
+    ============================================================ */
+    #masthead {
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .45rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .masthead-issue {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      color: var(--mid);
+    }
+    .masthead-tagline {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      color: var(--mid);
+      font-style: italic;
+    }
+
+    .masthead-logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: .9rem 3rem;
+      position: relative;
+    }
+    .masthead-logo-row img { height: 52px; width: auto; }
+    .masthead-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: .4rem;
+    }
+    .masthead-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      margin: 5px 0;
+      transition: all .3s;
+    }
+
+    .masthead-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+    }
+    .masthead-nav a {
+      font-family: 'Cormorant SC', serif;
+      font-size: .82rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding: .55rem 1.6rem;
+      border-right: 1px solid var(--rule);
+      transition: color .2s, background .2s;
+      font-weight: 500;
+    }
+    .masthead-nav a:first-child { border-left: 1px solid var(--rule); }
+    .masthead-nav a:hover { color: var(--gold); background: rgba(184,150,12,.04); }
+    .masthead-nav a.cta-nav {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+    .masthead-nav a.cta-nav:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+
+    /* Mobile nav */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,17,23,.55);
+      z-index: 200;
+    }
+    .mobile-nav-overlay.open { display: block; }
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(320px, 88vw);
+      height: 100vh;
+      background: var(--paper);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform .3s cubic-bezier(.16,1,.3,1);
+      overflow-y: auto;
+      padding: 2rem 2rem 3rem;
+      border-left: 1px solid var(--rule);
+    }
+    .mobile-nav-drawer.open { transform: translateX(0); }
+    .mobile-nav-close {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 2rem;
+    }
+    .mobile-nav-close button {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Cormorant SC', serif;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      color: var(--mid);
+    }
+    .mobile-nav-drawer a {
+      display: block;
+      font-family: 'Cormorant SC', serif;
+      font-size: 1.1rem;
+      letter-spacing: .1em;
+      color: var(--ink);
+      padding: .9rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .mobile-nav-drawer a:hover { color: var(--gold); }
+    .mobile-nav-drawer .cta-nav-mobile {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: .7rem 1.8rem;
+      font-family: 'Cormorant SC', serif;
+      letter-spacing: .14em;
+      font-size: .85rem;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* ============================================================
+       HERO — 85vh split
+    ============================================================ */
+    #hero {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      height: 85vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-portrait {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .hero-portrait-caption {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.4rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem;
+      letter-spacing: .16em;
+      color: var(--paper);
+      opacity: .75;
+    }
+
+    .hero-type {
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.5rem 3rem 3.5rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-type::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--gold);
+      opacity: .6;
+    }
+
+    .hero-volume {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem;
+      letter-spacing: .25em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .hero-org-name {
+      font-family: 'Cormorant SC', serif;
+      font-variant: small-caps;
+      color: var(--paper);
+      line-height: 1.05;
+      margin-bottom: 1.8rem;
+    }
+    .hero-org-name .line-antar {
+      display: block;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 300;
+      letter-spacing: .04em;
+      color: var(--paper);
+    }
+    .hero-org-name .line-yog {
+      display: block;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--gold);
+    }
+    .hero-org-name .line-foundation {
+      display: block;
+      font-size: clamp(1rem, 1.8vw, 1.6rem);
+      font-weight: 300;
+      letter-spacing: .28em;
+      color: var(--paper);
+      opacity: .7;
+      margin-top: .5rem;
+    }
+
+    .hero-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(.8rem, 1.1vw, 1rem);
+      color: var(--paper);
+      opacity: .72;
+      line-height: 1.65;
+      margin-bottom: 2.4rem;
+      font-style: italic;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Cormorant SC', serif;
+      font-size: .78rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: .8rem 2rem;
+      transition: background .2s, color .2s;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+    .hero-cta:hover { background: var(--gold-lt); }
+
+    .hero-years {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      color: var(--paper);
+      opacity: .4;
+    }
+
+    /* ============================================================
+       SECTION SHARED
+    ============================================================ */
+    section { padding: 5rem 3rem; }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .section-number {
+      font-family: 'Cormorant SC', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--rule);
+      font-weight: 700;
+      flex-shrink: 0;
+      letter-spacing: -.02em;
+    }
+    .section-label-block { flex: 1; padding-bottom: .5rem; }
+    .section-label-block h2 {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: .04em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    /* ============================================================
+       MISSION / ABOUT
+    ============================================================ */
+    #mission {
+      background: var(--paper);
+      border-top: 3px double var(--ink);
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .mission-body p {
+      margin-bottom: 1.4rem;
+      color: #2A2420;
+      font-size: 1.02rem;
+    }
+
+    .mission-pull {
+      position: relative;
+      padding: 2rem 0 2rem 2.5rem;
+      margin: 2rem 0;
+      border-left: 3px solid var(--rose);
+    }
+    .mission-pull blockquote {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--rose);
+      line-height: 1.35;
+      letter-spacing: .01em;
+    }
+    .mission-pull cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: 'Source Serif 4', serif;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      color: var(--mid);
+      font-style: normal;
+    }
+
+    .mission-sidebar { padding-top: 1rem; }
+    .mission-stat-card {
+      border: 1px solid var(--rule);
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .mission-stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--gold);
+    }
+    .stat-number {
+      font-family: 'Cormorant SC', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      font-family: 'Source Serif 4', serif;
+      font-size: .85rem;
+      color: var(--mid);
+      margin-top: .3rem;
+      display: block;
+    }
+
+    .founder-card {
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+    .founder-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+    }
+    .founder-card-body { padding: 1.4rem 1.6rem; }
+    .founder-card-body h3 {
+      font-family: 'Cormorant SC', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      margin-bottom: .3rem;
+    }
+    .founder-card-body p {
+      font-size: .85rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       PROGRAMS — 12-col editorial grid
+    ============================================================ */
+    #programs {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    #programs .section-number { color: rgba(248,244,236,.12); }
+    #programs .section-label-block h2 { color: var(--paper); }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5px;
+    }
+
+    .prog-card {
+      background: rgba(248,244,236,.04);
+      border: 1px solid rgba(248,244,236,.08);
+      padding: 2rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: background .25s;
+    }
+    .prog-card:hover { background: rgba(184,150,12,.08); }
+    .prog-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 1.2rem;
+      opacity: .65;
+      filter: grayscale(40%);
+      transition: opacity .3s, filter .3s;
+    }
+    .prog-card:hover img { opacity: .85; filter: grayscale(0%); }
+
+    .prog-index {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem;
+      letter-spacing: .22em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: .6rem;
+    }
+    .prog-title {
+      font-family: 'Cormorant SC', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--paper);
+      margin-bottom: .7rem;
+      line-height: 1.2;
+    }
+    .prog-desc {
+      font-size: .83rem;
+      color: rgba(248,244,236,.62);
+      line-height: 1.6;
+    }
+    .prog-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+      transition: color .2s;
+    }
+    .prog-link:hover { color: var(--gold-lt); }
+
+    .prog-span-8  { grid-column: span 8; }
+    .prog-span-4  { grid-column: span 4; }
+    .prog-span-7  { grid-column: span 7; }
+    .prog-span-5  { grid-column: span 5; }
+    .prog-span-4a { grid-column: span 4; }
+    .prog-span-4b { grid-column: span 4; }
+    .prog-span-4c { grid-column: span 4; }
+
+    .prog-span-8 img { height: 200px; }
+    .prog-span-7 img { height: 180px; }
+
+    /* ============================================================
+       EVENTS
+    ============================================================ */
+    #events {
+      background: var(--paper);
+      border-top: 3px double var(--ink);
+    }
+
+    .events-list { list-style: none; }
+    .event-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 0 2rem;
+      align-items: start;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background .2s, padding .2s, margin .2s;
+    }
+    .event-row:first-child { border-top: 1px solid var(--rule); }
+    .event-row:hover {
+      background: rgba(184,150,12,.04);
+      margin: 0 -1rem;
+      padding: 2rem 1rem;
+    }
+
+    .event-num {
+      font-family: 'Cormorant SC', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--rule);
+      line-height: 1;
+      padding-top: .1rem;
+    }
+
+    .event-body h3 {
+      font-family: 'Cormorant SC', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      margin-bottom: .4rem;
+      color: var(--ink);
+    }
+    .event-body .event-meta {
+      font-size: .82rem;
+      color: var(--mid);
+      margin-bottom: .5rem;
+      font-style: italic;
+    }
+    .event-body p {
+      font-size: .88rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    .event-date-block { text-align: right; }
+    .event-date-main {
+      font-family: 'Cormorant SC', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: .04em;
+      display: block;
+    }
+    .event-date-year {
+      font-family: 'Source Serif 4', serif;
+      font-size: .75rem;
+      color: var(--mid);
+      display: block;
+      margin-top: .15rem;
+    }
+    .event-reg-btn {
+      display: inline-block;
+      margin-top: .8rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem;
+      letter-spacing: .18em;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: .4rem .9rem;
+      transition: background .2s, color .2s;
+      cursor: pointer;
+      background: none;
+    }
+    .event-reg-btn:hover { background: var(--gold); color: var(--ink); }
+
+    /* ============================================================
+       PULL-QUOTE BREAK
+    ============================================================ */
+    #pullquote {
+      background: var(--ink);
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+    .pq-inner { max-width: 780px; margin: 0 auto; }
+    .pq-inner blockquote {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--paper);
+      line-height: 1.4;
+      letter-spacing: .02em;
+    }
+    .pq-inner blockquote em { color: var(--gold); font-style: normal; }
+    .pq-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.8rem auto;
+    }
+    .pq-attr {
+      font-family: 'Source Serif 4', serif;
+      font-size: .8rem;
+      letter-spacing: .15em;
+      color: rgba(248,244,236,.5);
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       VISION
+    ============================================================ */
+    #vision {
+      background: #EFEBE0;
+      border-top: 3px double var(--ink);
+    }
+
+    .vision-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .vision-col h3 {
+      font-family: 'Cormorant SC', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      color: var(--ink);
+      margin-bottom: .6rem;
+    }
+    .vision-col p {
+      font-size: .9rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .vision-icon {
+      font-size: 1.4rem;
+      margin-bottom: .8rem;
+      color: var(--gold);
+      font-family: 'Cormorant SC', serif;
+    }
+
+    /* ============================================================
+       CTA
+    ============================================================ */
+    #cta {
+      background: var(--ink);
+      text-align: center;
+      padding: 6rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: 'AY';
+      position: absolute;
+      font-family: 'Cormorant SC', serif;
+      font-size: 22rem;
+      font-weight: 700;
+      color: rgba(248,244,236,.03);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      letter-spacing: -.02em;
+      pointer-events: none;
+    }
+
+    .cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    .cta-inner .eyebrow { display: block; margin-bottom: 1.2rem; }
+    .cta-inner h2 {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 600;
+      color: var(--paper);
+      line-height: 1.15;
+      letter-spacing: .04em;
+      margin-bottom: 1.2rem;
+    }
+    .cta-inner p {
+      font-size: .95rem;
+      color: rgba(248,244,236,.6);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+    .cta-btn-gold {
+      display: inline-block;
+      font-family: 'Cormorant SC', serif;
+      font-size: .82rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 1rem 2.8rem;
+      font-weight: 700;
+      transition: background .2s;
+      margin-right: 1rem;
+      margin-bottom: .5rem;
+    }
+    .cta-btn-gold:hover { background: var(--gold-lt); }
+    .cta-btn-outline {
+      display: inline-block;
+      font-family: 'Cormorant SC', serif;
+      font-size: .82rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border: 1px solid rgba(248,244,236,.3);
+      color: rgba(248,244,236,.7);
+      padding: 1rem 2.8rem;
+      font-weight: 500;
+      transition: border-color .2s, color .2s;
+      margin-bottom: .5rem;
+    }
+    .cta-btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--paper);
+      border-top: 4px solid var(--ink);
+      padding: 3.5rem 3rem 2rem;
+    }
+    .footer-gold-rule {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 0 1.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand img { height: 44px; margin-bottom: 1rem; }
+    .footer-brand p {
+      font-size: .85rem;
+      color: var(--mid);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col h4 {
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .5rem; }
+    .footer-col ul li a {
+      font-size: .87rem;
+      color: var(--mid);
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .75rem;
+      color: var(--mid);
+      font-family: 'Cormorant SC', serif;
+      letter-spacing: .08em;
+    }
+    .footer-bottom a { color: var(--mid); }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 768px) {
+      body { font-size: 16px; }
+      section { padding: 3.5rem 1.2rem; }
+
+      .masthead-top { padding: .4rem 1.2rem; }
+      .masthead-tagline { display: none; }
+      .masthead-logo-row { padding: .7rem 1.2rem; }
+      .masthead-logo-row img { height: 40px; }
+      .masthead-hamburger { display: block; }
+      .masthead-nav { display: none; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: unset;
+      }
+      .hero-portrait { height: 55vw; min-height: 220px; }
+      .hero-type { padding: 2.5rem 1.5rem 3rem; }
+      .hero-org-name .line-antar,
+      .hero-org-name .line-yog { font-size: clamp(2.4rem, 10vw, 4rem); }
+      .hero-org-name .line-foundation { font-size: 1rem; }
+      .hero-volume { margin-bottom: 1.2rem; }
+      .hero-cta { padding: .7rem 1.5rem; font-size: .75rem; }
+
+      .mission-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .mission-pull blockquote { font-size: 1.4rem; }
+
+      .programs-grid { grid-template-columns: 1fr; gap: 1px; }
+      .prog-span-8, .prog-span-4, .prog-span-7, .prog-span-5,
+      .prog-span-4a, .prog-span-4b, .prog-span-4c { grid-column: span 1; }
+
+      .event-row {
+        grid-template-columns: 40px 1fr;
+        grid-template-rows: auto auto;
+        gap: .5rem 1rem;
+      }
+      .event-date-block {
+        grid-column: 2;
+        text-align: left;
+        margin-top: .5rem;
+      }
+
+      .vision-cols { grid-template-columns: 1fr; gap: 2rem; }
+
+      #cta { padding: 4rem 1.5rem; }
+      .cta-btn-gold, .cta-btn-outline {
+        display: block;
+        margin-right: 0;
+        text-align: center;
+      }
+
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
+
+      #pullquote { padding: 3.5rem 1.5rem; }
+      .pq-inner blockquote { font-size: 1.6rem; }
+
+      .section-number { font-size: 3.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .masthead-issue { font-size: .65rem; }
+      .hero-portrait { height: 260px; }
+      .hero-type { padding: 2rem 1.2rem 2.5rem; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .programs-grid { grid-template-columns: repeat(6, 1fr); }
+      .prog-span-8  { grid-column: span 6; }
+      .prog-span-4  { grid-column: span 6; }
+      .prog-span-7  { grid-column: span 3; }
+      .prog-span-5  { grid-column: span 3; }
+      .prog-span-4a { grid-column: span 2; }
+      .prog-span-4b { grid-column: span 2; }
+      .prog-span-4c { grid-column: span 2; }
+
+      .mission-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <header id="masthead">
+    <div class="masthead-top">
+      <span class="masthead-issue">Vol. I &nbsp;&bull;&nbsp; Issue 2025 &nbsp;&bull;&nbsp; Gurukul, Pune</span>
+      <span class="masthead-tagline">Reviving the Timeless Knowledge of Ancient Scriptures</span>
+    </div>
+    <div class="masthead-logo-row">
+      <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation" />
+      <button class="masthead-hamburger" id="hamburgerBtn" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="masthead-nav" aria-label="Main navigation">
+      <a href="#mission">Mission</a>
+      <a href="#programs">Programs</a>
+      <a href="#events">Events</a>
+      <a href="#vision">Vision</a>
+      <a href="#">Gurukul</a>
+      <a href="#">Naadi Jyotish</a>
+      <a href="#" class="cta-nav">Enroll Now</a>
+    </nav>
+  </header>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-nav-close">
+      <button id="drawerCloseBtn">Close &times;</button>
+    </div>
+    <a href="#mission" onclick="closeMobileNav()">Mission</a>
+    <a href="#programs" onclick="closeMobileNav()">Programs</a>
+    <a href="#events" onclick="closeMobileNav()">Events</a>
+    <a href="#vision" onclick="closeMobileNav()">Vision</a>
+    <a href="#" onclick="closeMobileNav()">Gurukul</a>
+    <a href="#" onclick="closeMobileNav()">Naadi Jyotish</a>
+    <a href="#" class="cta-nav-mobile" onclick="closeMobileNav()">Enroll Now</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-portrait">
+      <img
+        src="../../../assets/founder/acharya-upendra-ji-alt.jpg"
+        alt="Jeevan Mukt Sadguru Acharya Upendra Ji"
+      />
+      <span class="hero-portrait-caption">Jeevan Mukt Sadguru Acharya Upendra Ji &mdash; Founder</span>
+    </div>
+    <div class="hero-type">
+      <span class="hero-volume">Vedanta Review &nbsp;&mdash;&nbsp; 2025 Edition</span>
+      <div class="hero-org-name">
+        <span class="line-antar">Antar</span>
+        <span class="line-yog">Yog</span>
+        <span class="line-foundation">Foundation</span>
+      </div>
+      <div class="hero-rule"></div>
+      <p class="hero-subtitle">
+        Reviving timeless knowledge of ancient scriptures &mdash;<br />
+        transforming souls, transforming Bharat.
+      </p>
+      <a href="#programs" class="hero-cta">Explore Programs</a>
+      <span class="hero-years">25+ Years of Vedantic Service</span>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="section-header reveal-up">
+      <span class="section-number">01</span>
+      <div class="section-label-block">
+        <span class="eyebrow">Mission &amp; Purpose</span>
+        <h2>Awakening the Inner Self</h2>
+      </div>
+    </div>
+
+    <div class="mission-grid">
+      <div class="mission-body wipe-left">
+        <p>
+          AntarYog Foundation stands at the confluence of ancient Vedantic wisdom and the urgent need of our modern age. Founded by Jeevan Mukt Sadguru Acharya Upendra Ji &mdash; a realized master with over 25 years of dedicated service &mdash; the Foundation creates transformative pathways for seekers across Bharat and the world.
+        </p>
+
+        <div class="mission-pull">
+          <blockquote>
+            &ldquo;When the inner is purified, the outer world transforms &mdash; this is the eternal law of Vedanta.&rdquo;
+          </blockquote>
+          <cite>&mdash; Acharya Upendra Ji</cite>
+        </div>
+
+        <p>
+          The Foundation&rsquo;s approach is rooted in the living tradition of Guru-Shishya Parampara. Programs range from immersive Gurukul residencies to community Shibirs, each designed to initiate genuine transformation in the practitioner&rsquo;s daily life, relationships, and understanding of Self.
+        </p>
+        <p>
+          With an unwavering vision of making Bharat a Vishwa Guru, AntarYog Foundation weaves together the ancient sciences of Yoga, Vedanta, Naadi Jyotish, Ayurveda, and Vastu into an integrated curriculum of inner development.
+        </p>
+      </div>
+
+      <div class="mission-sidebar reveal-up">
+        <div class="mission-stat-card">
+          <span class="stat-number">25+</span>
+          <span class="stat-label">Years of active Vedantic teaching and community service</span>
+        </div>
+        <div class="mission-stat-card">
+          <span class="stat-number">10K+</span>
+          <span class="stat-label">Lives transformed through programs, Shibirs, and consultations</span>
+        </div>
+        <div class="mission-stat-card">
+          <span class="stat-number">6</span>
+          <span class="stat-label">Integrated disciplines: Yoga, Vedanta, Jyotish, Ayurveda, Vastu, Gurukul</span>
+        </div>
+
+        <div class="founder-card">
+          <img
+            src="../../../assets/founder/acharya-upendra-ji-alt.jpg"
+            alt="Acharya Upendra Ji"
+          />
+          <div class="founder-card-body">
+            <h3>Jeevan Mukt Sadguru</h3>
+            <p>Acharya Upendra Ji is a realized master of Vedanta, trained in the living Guru-Shishya tradition. He founded AntarYog Foundation to make ancient wisdom accessible to modern seekers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <div class="section-header reveal-up">
+      <span class="section-number">02</span>
+      <div class="section-label-block">
+        <span class="eyebrow">Editorial Feature</span>
+        <h2 style="color:var(--paper);">Six Paths of Transformation</h2>
+      </div>
+    </div>
+
+    <div class="programs-grid">
+
+      <div class="prog-card prog-span-8 wipe-left">
+        <img
+          src="../../../assets/images/founder/dyECDDLQ56nRvpzpeNNw_Guru+Brochure++page+5+Img+6.jpg"
+          alt="Discourses Program"
+        />
+        <span class="prog-index">Program No. 01</span>
+        <div class="prog-title">Vedantic Discourses</div>
+        <p class="prog-desc">
+          Deep immersive study of Upanishads, Bhagavad Gita, and Yoga Vasistha through live and recorded sessions led by Acharya Ji. These discourses form the intellectual and contemplative backbone of the AntarYog curriculum, offering systematic Vedanta for sincere seekers.
+        </p>
+        <a href="#" class="prog-link">Read More &rarr;</a>
+      </div>
+
+      <div class="prog-card prog-span-4 reveal-up">
+        <img
+          src="../../../assets/images/founder/0lY9wgWTRg6HFVVmykR4_Guru+Brochure++page+17+Img+1.jpg"
+          alt="Naadi Jyotish"
+        />
+        <span class="prog-index">Program No. 02</span>
+        <div class="prog-title">Naadi Jyotish</div>
+        <p class="prog-desc">
+          Ancient palm-leaf consultations offering profound insight into life purpose, karmic patterns, and spiritual path.
+        </p>
+        <a href="#" class="prog-link">Read More &rarr;</a>
+      </div>
+
+      <div class="prog-card prog-span-5 reveal-up">
+        <img
+          src="../../../assets/images/founder/8bR0jsdCRK2DhCGklmBR_Guru+Brochure++page+10+Img+1.jpg"
+          alt="Science of Healing"
+        />
+        <span class="prog-index">Program No. 03</span>
+        <div class="prog-title">Science of Healing</div>
+        <p class="prog-desc">
+          A rigorous two-day intensive integrating Pranic healing, Ayurvedic principles, and consciousness-based therapy. Participants learn to address root causes of disease at the energetic and karmic level.
+        </p>
+        <a href="#" class="prog-link">Read More &rarr;</a>
+      </div>
+
+      <div class="prog-card prog-span-7 wipe-left">
+        <span class="prog-index">Program No. 04</span>
+        <div class="prog-title">Vastu Rupantaran</div>
+        <p class="prog-desc">
+          Transforming living and working spaces according to the ancient science of Vastu Shastra. Acharya Ji&rsquo;s approach goes beyond structural adjustments to address the subtle energy fields that shape consciousness, relationships, and material well-being.
+        </p>
+        <a href="#" class="prog-link">Read More &rarr;</a>
+      </div>
+
+      <div class="prog-card prog-span-4a reveal-up">
+        <span class="prog-index">Program No. 05</span>
+        <div class="prog-title">Gurukul Residency</div>
+        <p class="prog-desc">
+          Residential immersion for deep seekers. Live, study, and serve in the traditional Guru-Shishya Parampara at the Gurukul campus in Pune.
+        </p>
+        <a href="#" class="prog-link">Read More &rarr;</a>
+      </div>
+
+      <div class="prog-card prog-span-4b reveal-up">
+        <span class="prog-index">Program No. 06</span>
+        <div class="prog-title">Yoga Paths</div>
+        <p class="prog-desc">
+          Comprehensive exploration of Karma Yoga, Bhakti Yoga, Jnana Yoga, and Raja Yoga as practical, living disciplines rather than theoretical frameworks.
+        </p>
+        <a href="#" class="prog-link">Read More &rarr;</a>
+      </div>
+
+      <div class="prog-card prog-span-4c" style="display:flex;flex-direction:column;justify-content:center;background:rgba(184,150,12,.08);border-color:rgba(184,150,12,.3);">
+        <span class="prog-index" style="font-size:.9rem;letter-spacing:.08em;">All Programs</span>
+        <p style="font-family:'Cormorant SC',serif;font-size:1.5rem;color:var(--paper);margin:1rem 0;font-weight:300;line-height:1.35;">
+          Discover the full curriculum of ancient wisdom.
+        </p>
+        <a href="#" class="prog-link" style="font-size:.8rem;">View All Offerings &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PULL-QUOTE -->
+  <div id="pullquote">
+    <div class="pq-inner reveal-up">
+      <blockquote>
+        &ldquo;Bharat is not merely a nation &mdash; it is a <em>civilization of consciousness</em>, and its revival begins within each awakened soul.&rdquo;
+      </blockquote>
+      <div class="pq-rule"></div>
+      <p class="pq-attr">Acharya Upendra Ji &nbsp;&bull;&nbsp; AntarYog Foundation</p>
+    </div>
+  </div>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="section-header reveal-up">
+      <span class="section-number">03</span>
+      <div class="section-label-block">
+        <span class="eyebrow">Upcoming Shibirs &amp; Events</span>
+        <h2>This Season at the Gurukul</h2>
+      </div>
+    </div>
+
+    <ul class="events-list">
+      <li class="event-row wipe-left">
+        <span class="event-num">01</span>
+        <div class="event-body">
+          <h3>Navratri Mahotsav</h3>
+          <p class="event-meta">11-Day Immersive Celebration &nbsp;&bull;&nbsp; Gurukul, Pune</p>
+          <p>A transformative 11-day celebration of the Divine Feminine through Vedic rituals, Devi Upasana, discourse, and sadhana. Open to all seekers and initiated members.</p>
+        </div>
+        <div class="event-date-block">
+          <span class="event-date-main">Sep 22 &ndash; Oct 2</span>
+          <span class="event-date-year">2025 &nbsp;&bull;&nbsp; Gurukul Campus</span>
+          <br />
+          <button class="event-reg-btn" onclick="alert('Registration opening soon.')">Register</button>
+        </div>
+      </li>
+
+      <li class="event-row reveal-up">
+        <span class="event-num">02</span>
+        <div class="event-body">
+          <h3>Pitru-Rin Mukti Shibir</h3>
+          <p class="event-meta">15-Day Intensive Shibir &nbsp;&bull;&nbsp; Gurukul, Pune</p>
+          <p>A profound 15-day residential Shibir focused on clearing ancestral karmas through specific Vedic sadhanas, Pitru Tarpan, and inner inquiry under Acharya Ji&rsquo;s direct guidance.</p>
+        </div>
+        <div class="event-date-block">
+          <span class="event-date-main">Sep 7 &ndash; Sep 21</span>
+          <span class="event-date-year">2025 &nbsp;&bull;&nbsp; Gurukul Campus</span>
+          <br />
+          <button class="event-reg-btn" onclick="alert('Registration opening soon.')">Register</button>
+        </div>
+      </li>
+
+      <li class="event-row wipe-left">
+        <span class="event-num">03</span>
+        <div class="event-body">
+          <h3>Science of Healing Intensive</h3>
+          <p class="event-meta">2-Day Workshop &nbsp;&bull;&nbsp; Gurukul, Pune</p>
+          <p>Weekend workshop exploring the intersection of Vedic healing science, consciousness research, and energetic medicine. Practical techniques for self-healing and helping others.</p>
+        </div>
+        <div class="event-date-block">
+          <span class="event-date-main">Sep 10 &ndash; Sep 11</span>
+          <span class="event-date-year">2025 &nbsp;&bull;&nbsp; Gurukul Campus</span>
+          <br />
+          <button class="event-reg-btn" onclick="alert('Registration opening soon.')">Register</button>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- VISION -->
+  <section id="vision">
+    <div class="section-header reveal-up">
+      <span class="section-number">04</span>
+      <div class="section-label-block">
+        <span class="eyebrow">Our Three Pillars</span>
+        <h2>The Vision of AntarYog</h2>
+      </div>
+    </div>
+
+    <div class="vision-cols">
+      <div class="vision-col reveal-up">
+        <div class="vision-icon">&#9670;</div>
+        <h3>Inner Transformation</h3>
+        <p>Every program at AntarYog is ultimately about the individual&rsquo;s inner journey. Drawing from Vedanta, Yoga, and the Guru-Shishya tradition, we guide seekers toward direct experience of the Self.</p>
+      </div>
+      <div class="vision-col reveal-up">
+        <div class="vision-icon">&#9670;</div>
+        <h3>Community &amp; Sangha</h3>
+        <p>Transformation deepens in conscious community. AntarYog cultivates a global Sangha of sincere seekers united by the pursuit of truth, service, and the revival of Vedantic culture in daily life.</p>
+      </div>
+      <div class="vision-col reveal-up">
+        <div class="vision-icon">&#9670;</div>
+        <h3>Bharat as Vishwa Guru</h3>
+        <p>The highest aim: to ignite within Bharat the light of spiritual leadership that can guide humanity. AntarYog Foundation trains teachers, healers, and leaders rooted in Vedantic dharma for global service.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="cta-inner reveal-up">
+      <span class="eyebrow">Begin Your Journey</span>
+      <h2>Step Into the Living Tradition</h2>
+      <p>AntarYog Foundation welcomes sincere seekers from all walks of life. Whether you come for a weekend Shibir or a year-long Gurukul residency, every step is a step inward.</p>
+      <a href="#" class="cta-btn-gold">Enroll in a Program</a>
+      <a href="#" class="cta-btn-outline">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-gold-rule"></div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation" />
+        <p>AntarYog Foundation &mdash; reviving timeless knowledge of ancient scriptures for the transformation of individuals and Bharat as Vishwa Guru.</p>
+        <span class="eyebrow" style="font-size:.68rem;">Gurukul, Pune &nbsp;&bull;&nbsp; Since 1999</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#">Vedantic Discourses</a></li>
+          <li><a href="#">Naadi Jyotish</a></li>
+          <li><a href="#">Science of Healing</a></li>
+          <li><a href="#">Vastu Rupantaran</a></li>
+          <li><a href="#">Gurukul Residency</a></li>
+          <li><a href="#">Yoga Paths</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Acharya Upendra Ji</a></li>
+          <li><a href="#">Mission &amp; Vision</a></li>
+          <li><a href="#">Gurukul Campus</a></li>
+          <li><a href="#">Community Sangha</a></li>
+          <li><a href="#">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Upcoming Events</a></li>
+          <li><a href="#">Register for Shibir</a></li>
+          <li><a href="#">Naadi Consultation</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 AntarYog Foundation. All Rights Reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a> &nbsp;&bull;&nbsp;
+        <a href="#">Terms of Service</a> &nbsp;&bull;&nbsp;
+        <a href="#">Sitemap</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Nav
+    var hamburger = document.getElementById('hamburgerBtn');
+    var overlay   = document.getElementById('mobileOverlay');
+    var drawer    = document.getElementById('mobileDrawer');
+    var closeBtn  = document.getElementById('drawerCloseBtn');
+
+    function openMobileNav() {
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileNav() {
+      overlay.classList.remove('open');
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openMobileNav);
+    overlay.addEventListener('click', closeMobileNav);
+    closeBtn.addEventListener('click', closeMobileNav);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+
+    // Scroll animations
+    var wipeEls   = document.querySelectorAll('.wipe-left');
+    var revealEls = document.querySelectorAll('.reveal-up');
+
+    var wipeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          wipeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    wipeEls.forEach(function(el) { wipeObserver.observe(el); });
+    revealEls.forEach(function(el) { revealObserver.observe(el); });
+
+    // Stagger vision cols
+    document.querySelectorAll('.vision-cols .vision-col').forEach(function(el, i) {
+      el.style.transitionDelay = (i * 0.15) + 's';
+    });
+  </script>
+
+</body>
+</html>

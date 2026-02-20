@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AntarYog Foundation — Sacred Geometry</title>
+  <meta name="description" content="AntarYog Foundation — Reviving timeless knowledge of ancient scriptures under Jeevan Mukt Sadguru Acharya Upendra Ji." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #FFFFFF;
+      --black: #111111;
+      --saffron: #E8830A;
+      --saffron-lt: #F59D2A;
+      --teal: #1A4A4A;
+      --teal-lt: #255C5C;
+      --gray-light: #F5F5F3;
+      --gray-mid: #888880;
+      --rule: #D8D5CC;
+      --paper: #FAFAF8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══ LOAD ANIMATIONS ═══════════════════════════════ */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .load-1 { animation: fadeIn .9s ease forwards; animation-delay: .05s; opacity: 0; }
+    .load-2 { animation: fadeIn .9s ease forwards; animation-delay: .15s; opacity: 0; }
+    .load-3 { animation: fadeIn .9s ease forwards; animation-delay: .25s; opacity: 0; }
+    .load-4 { animation: fadeIn .9s ease forwards; animation-delay: .35s; opacity: 0; }
+    .load-5 { animation: fadeIn .9s ease forwards; animation-delay: .45s; opacity: 0; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ═══ NAV ════════════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo img { height: 40px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: .4rem 1.1rem;
+      position: relative;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%; right: 50%;
+      height: 2px;
+      background: var(--saffron);
+      transition: left .25s, right .25s;
+    }
+    .nav-links a:hover { color: var(--saffron); }
+    .nav-links a:hover::after { left: 1.1rem; right: 1.1rem; }
+
+    .nav-cta {
+      font-family: 'Jost', sans-serif !important;
+      font-size: .78rem !important;
+      background: var(--teal) !important;
+      color: white !important;
+      padding: .55rem 1.4rem !important;
+      margin-left: .8rem;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-lt) !important; color: white !important; }
+    .nav-cta::after { display: none !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .4rem;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--black);
+      transition: all .3s;
+    }
+
+    .mob-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.35);
+      z-index: 600;
+    }
+    .mob-overlay.open { display: block; }
+    .mob-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(300px, 88vw);
+      height: 100vh;
+      background: white;
+      border-left: 1px solid var(--rule);
+      z-index: 700;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      overflow-y: auto;
+      padding: 2rem 1.8rem 3rem;
+    }
+    .mob-drawer.open { transform: translateX(0); }
+    .mob-close { display: flex; justify-content: flex-end; margin-bottom: 2rem; }
+    .mob-close button {
+      background: none; border: 1px solid var(--rule);
+      font-family: 'Jost', sans-serif; font-size: .75rem;
+      padding: .3rem .8rem; cursor: pointer; color: var(--gray-mid);
+    }
+    .mob-drawer a {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: .92rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .07em;
+      color: var(--black); padding: .85rem 0;
+      border-bottom: 1px solid var(--rule);
+      transition: color .2s;
+    }
+    .mob-drawer a:hover { color: var(--saffron); }
+    .mob-drawer .mob-cta {
+      display: block; margin-top: 1.5rem;
+      background: var(--teal); color: white !important;
+      text-align: center; padding: .8rem;
+      font-size: .82rem !important;
+    }
+
+    /* ═══ HERO ═══════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      padding-top: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    /* Rotating yantra SVG */
+    .yantra-bg {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: min(600px, 85vw);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      opacity: .06;
+      pointer-events: none;
+      animation: yantRot 90s linear infinite;
+    }
+    @keyframes yantRot {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      padding: 0 2rem;
+    }
+
+    .hero-label {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1.8rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 1.0;
+      color: var(--black);
+      letter-spacing: -.01em;
+      margin-bottom: 1.2rem;
+    }
+    .hero-title .saffron { color: var(--saffron); }
+    .hero-title .teal { color: var(--teal); }
+
+    /* Geometric diamond ornament */
+    .geo-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .geo-line { height: 1px; width: 80px; background: var(--rule); }
+    .geo-diamond {
+      width: 8px; height: 8px;
+      background: var(--saffron);
+      transform: rotate(45deg);
+    }
+
+    .hero-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--gray-mid);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-saffron {
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: var(--saffron);
+      color: white;
+      padding: .9rem 2.2rem;
+      transition: background .2s;
+      display: inline-block;
+    }
+    .btn-saffron:hover { background: var(--saffron-lt); }
+    .btn-teal {
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--teal);
+      border: 1.5px solid var(--teal);
+      padding: .9rem 2.2rem;
+      transition: background .2s, color .2s;
+      display: inline-block;
+    }
+    .btn-teal:hover { background: var(--teal); color: white; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+    .hero-scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--saffron), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: .4; transform: scaleY(.6); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ═══ SECTION DIVIDER ════════════════════════════════ */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+    .div-line { flex: 1; height: 1px; background: var(--rule); }
+    .div-diamond { width: 8px; height: 8px; background: var(--saffron); transform: rotate(45deg); flex-shrink: 0; }
+    .div-text {
+      font-family: 'Jost', sans-serif;
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      flex-shrink: 0;
+    }
+
+    /* ═══ ABOUT / MISSION ════════════════════════════════ */
+    #about {
+      padding: 100px 2.5rem;
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-portrait {
+      position: relative;
+    }
+    .about-portrait img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    /* Saffron corner brackets */
+    .about-portrait::before {
+      content: '';
+      position: absolute;
+      top: -10px; left: -10px;
+      width: 50px; height: 50px;
+      border-top: 2px solid var(--saffron);
+      border-left: 2px solid var(--saffron);
+    }
+    .about-portrait::after {
+      content: '';
+      position: absolute;
+      bottom: -10px; right: -10px;
+      width: 50px; height: 50px;
+      border-bottom: 2px solid var(--saffron);
+      border-right: 2px solid var(--saffron);
+    }
+
+    .about-text .label {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .about-text p {
+      font-size: .97rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 1.1rem;
+      font-weight: 300;
+    }
+    .about-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .stat-item strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--saffron);
+      line-height: 1;
+    }
+    .stat-item span {
+      font-size: .78rem;
+      color: var(--gray-mid);
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+
+    /* ═══ PROGRAMS ══════════════════════════════════════ */
+    #programs {
+      background: var(--gray-light);
+      padding: 100px 2.5rem;
+    }
+
+    .programs-inner { max-width: 1320px; margin: 0 auto; }
+
+    .programs-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3.5rem;
+    }
+    .programs-header .label {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      display: block;
+      margin-bottom: .6rem;
+    }
+    .programs-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.1;
+    }
+    .programs-header a {
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border-bottom: 1px solid var(--teal);
+      padding-bottom: 1px;
+      transition: color .2s;
+    }
+    .programs-header a:hover { color: var(--saffron); border-color: var(--saffron); }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .prog-card {
+      border: 1px solid var(--rule);
+      margin: -1px 0 0 -1px;
+      padding: 2.2rem 2rem;
+      background: white;
+      position: relative;
+      transition: box-shadow .3s, border-color .3s;
+      overflow: hidden;
+    }
+    .prog-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,.08);
+      border-color: var(--saffron);
+      z-index: 1;
+    }
+    .prog-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--saffron);
+      transition: width .4s ease;
+    }
+    .prog-card:hover::before { width: 100%; }
+
+    .prog-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: rgba(232,131,10,.12);
+      line-height: 1;
+      margin-bottom: .5rem;
+      letter-spacing: -.02em;
+    }
+    .prog-label {
+      font-family: 'Jost', sans-serif;
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .prog-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: .8rem;
+      line-height: 1.2;
+    }
+    .prog-desc {
+      font-size: .88rem;
+      color: #555;
+      line-height: 1.65;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .prog-link {
+      font-family: 'Jost', sans-serif;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      transition: color .2s;
+    }
+    .prog-link:hover { color: var(--saffron); }
+
+    /* ═══ EVENTS ════════════════════════════════════════ */
+    #events {
+      padding: 100px 2.5rem;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .events-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+    .events-header .label {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      display: block;
+      margin-bottom: .6rem;
+    }
+    .events-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.1;
+    }
+
+    .events-list { list-style: none; }
+    .event-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2.2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .event-item:first-child { border-top: 1px solid var(--rule); }
+
+    .event-num {
+      font-family: 'Jost', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--saffron);
+      display: block;
+      margin-bottom: .6rem;
+    }
+    .event-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: .5rem;
+      line-height: 1.2;
+    }
+    .event-meta {
+      font-family: 'Jost', sans-serif;
+      font-size: .8rem;
+      font-weight: 400;
+      color: var(--gray-mid);
+      margin-bottom: .5rem;
+    }
+    .event-desc {
+      font-size: .88rem;
+      color: #555;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .event-right { text-align: right; flex-shrink: 0; }
+    .event-date {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--saffron);
+      display: block;
+      margin-bottom: .3rem;
+    }
+    .event-loc {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      color: var(--gray-mid);
+      display: block;
+      margin-bottom: .8rem;
+    }
+    .event-btn {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      padding: .5rem 1.2rem;
+      transition: background .2s, color .2s;
+    }
+    .event-btn:hover { background: var(--teal); color: white; }
+
+    /* ═══ CTA ════════════════════════════════════════════ */
+    #cta {
+      background: var(--teal);
+      padding: 100px 2.5rem;
+      text-align: center;
+    }
+    .cta-inner { max-width: 680px; margin: 0 auto; }
+    .cta-inner .label {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cta-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .cta-inner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,.7);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: var(--saffron);
+      color: white;
+      padding: 1rem 2.5rem;
+      transition: background .2s;
+      display: inline-block;
+    }
+    .btn-white:hover { background: var(--saffron-lt); }
+    .btn-outline-white {
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border: 1.5px solid rgba(255,255,255,.4);
+      color: rgba(255,255,255,.8);
+      padding: 1rem 2.5rem;
+      transition: border-color .2s, color .2s;
+      display: inline-block;
+    }
+    .btn-outline-white:hover { border-color: white; color: white; }
+
+    /* ═══ FOOTER ═════════════════════════════════════════ */
+    footer {
+      background: var(--black);
+      padding: 4rem 2.5rem 2.5rem;
+      color: rgba(255,255,255,.7);
+    }
+    .footer-top {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 2rem;
+    }
+    .footer-brand img { height: 38px; margin-bottom: 1rem; opacity: .85; }
+    .footer-brand p { font-size: .85rem; font-weight: 300; line-height: 1.65; }
+
+    .footer-col h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1.1rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .5rem; }
+    .footer-col ul li a {
+      font-size: .87rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.55);
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--saffron); }
+
+    .footer-bottom {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-bottom a { color: rgba(255,255,255,.3); transition: color .2s; }
+    .footer-bottom a:hover { color: var(--saffron); }
+
+    /* ═══ RESPONSIVE ════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      #about { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      body { font-size: 16px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta.desktop { display: none; }
+
+      #hero { min-height: 90vh; }
+      .hero-title { font-size: clamp(2.5rem, 11vw, 4rem); }
+
+      #about {
+        grid-template-columns: 1fr;
+        padding: 60px 1.5rem;
+        gap: 3rem;
+      }
+      .about-portrait { max-width: 320px; margin: 0 auto; }
+
+      #programs { padding: 60px 1.5rem; }
+      .programs-inner { max-width: unset; }
+      .programs-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .prog-card { margin: 0 0 -1px 0; }
+
+      #events { padding: 60px 1.5rem; }
+      .events-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .event-item { grid-template-columns: 1fr; }
+      .event-right { text-align: left; }
+
+      #cta { padding: 60px 1.5rem; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .btn-white, .btn-outline-white { width: 100%; max-width: 300px; text-align: center; }
+
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
+
+      .section-divider { padding: 0 1.5rem; }
+      .nav-inner { padding: 0 1.2rem; }
+    }
+
+    @media (max-width: 375px) {
+      .hero-title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation" />
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#events">Events</a>
+        <a href="#">Naadi Jyotish</a>
+        <a href="#">Donate</a>
+        <a href="#" class="nav-cta desktop">Enroll Now</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-overlay" id="mobOverlay"></div>
+  <div class="mob-drawer" id="mobDrawer">
+    <div class="mob-close">
+      <button id="mobClose">Close ✕</button>
+    </div>
+    <a href="#about" onclick="closeMob()">About</a>
+    <a href="#programs" onclick="closeMob()">Programs</a>
+    <a href="#events" onclick="closeMob()">Events</a>
+    <a href="#" onclick="closeMob()">Naadi Jyotish</a>
+    <a href="#" onclick="closeMob()">Donate</a>
+    <a href="#" class="mob-cta" onclick="closeMob()">Enroll Now</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <!-- Sri Yantra SVG (simplified sacred geometry) -->
+    <svg class="yantra-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Outer circles -->
+      <circle cx="200" cy="200" r="195" stroke="#111" stroke-width="1"/>
+      <circle cx="200" cy="200" r="180" stroke="#111" stroke-width="0.5"/>
+      <!-- Lotus petals (outer 16) -->
+      <circle cx="200" cy="200" r="155" stroke="#111" stroke-width="0.8"/>
+      <!-- Lotus petals (inner 8) -->
+      <circle cx="200" cy="200" r="130" stroke="#111" stroke-width="0.5"/>
+      <!-- Outer square with gates -->
+      <rect x="30" y="30" width="340" height="340" stroke="#111" stroke-width="1" fill="none"/>
+      <!-- Inner triangles — 4 upward-pointing -->
+      <polygon points="200,60 300,220 100,220" stroke="#111" stroke-width="1" fill="none"/>
+      <polygon points="200,80 285,215 115,215" stroke="#111" stroke-width="0.7" fill="none"/>
+      <polygon points="200,100 270,210 130,210" stroke="#111" stroke-width="0.5" fill="none"/>
+      <polygon points="200,120 256,205 144,205" stroke="#111" stroke-width="0.4" fill="none"/>
+      <!-- 5 downward-pointing triangles -->
+      <polygon points="200,340 300,180 100,180" stroke="#111" stroke-width="1" fill="none"/>
+      <polygon points="200,315 288,190 112,190" stroke="#111" stroke-width="0.7" fill="none"/>
+      <polygon points="200,290 274,195 126,195" stroke="#111" stroke-width="0.5" fill="none"/>
+      <polygon points="200,265 260,198 140,198" stroke="#111" stroke-width="0.4" fill="none"/>
+      <polygon points="200,240 245,200 155,200" stroke="#111" stroke-width="0.3" fill="none"/>
+      <!-- Central bindu point -->
+      <circle cx="200" cy="200" r="6" stroke="#111" stroke-width="1" fill="none"/>
+      <circle cx="200" cy="200" r="2" fill="#111"/>
+    </svg>
+
+    <div class="hero-inner">
+      <span class="hero-label load-1">Jeevan Mukt Sadguru &nbsp;·&nbsp; Gurukul, Pune</span>
+      <h1 class="hero-title load-2">
+        Antar<span class="saffron">Yog</span><br />
+        <span class="teal">Foundation</span>
+      </h1>
+      <div class="geo-ornament load-3">
+        <div class="geo-line"></div>
+        <div class="geo-diamond"></div>
+        <div class="geo-line"></div>
+      </div>
+      <p class="hero-sub load-4">
+        Reviving timeless knowledge of ancient scriptures under the guidance of Acharya Upendra Ji — making Bharat a Vishwa Guru.
+      </p>
+      <div class="hero-actions load-5">
+        <a href="#programs" class="btn-saffron">Explore Programs</a>
+        <a href="#events" class="btn-teal">Upcoming Events</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <div class="section-divider" style="padding-top: 0; padding-bottom: 0;">
+    <div class="div-line"></div>
+    <span class="div-text">Our Mission</span>
+    <div class="div-diamond"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <div class="about-portrait">
+      <img
+        src="../../../assets/founder/acharya-upendra-ji-alt.jpg"
+        alt="Jeevan Mukt Sadguru Acharya Upendra Ji"
+      />
+    </div>
+    <div class="about-text">
+      <span class="label">Jeevan Mukt Sadguru</span>
+      <h2>Meet Acharya Upendra Ji</h2>
+      <p>
+        A liberated master living in the world, Acharya Upendra Ji is a beacon of Vedantic wisdom. With over 25 years of dedicated service, he guides thousands on the path of self-realization and genuine inner transformation.
+      </p>
+      <p>
+        His vision: to re-establish Bharat as Vishwa Guru — the world's spiritual teacher — by awakening Vedantic consciousness in each individual through the integrated practices of Yoga, Naadi Jyotish, Vastu, Ayurveda, and the Gurukul system.
+      </p>
+      <p>
+        AntarYog Foundation stands at the confluence of timeless ancient wisdom and the urgent need of our age, creating transformative pathways for seekers across Bharat and the world.
+      </p>
+      <a href="#" class="btn-teal" style="margin-top: 1rem;">Know the Master →</a>
+      <div class="about-stats">
+        <div class="stat-item">
+          <strong>25+</strong>
+          <span>Years Teaching</span>
+        </div>
+        <div class="stat-item">
+          <strong>10K+</strong>
+          <span>Lives Transformed</span>
+        </div>
+        <div class="stat-item">
+          <strong>6</strong>
+          <span>Disciplines</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <div class="div-line"></div>
+    <span class="div-text">Programs</span>
+    <div class="div-diamond"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <div class="programs-inner">
+      <div class="programs-header reveal">
+        <div>
+          <span class="label">Paths of Transformation</span>
+          <h2>Six Disciplines of<br />Ancient Wisdom</h2>
+        </div>
+        <a href="#">View All Programs</a>
+      </div>
+      <div class="programs-grid">
+
+        <div class="prog-card reveal">
+          <div class="prog-num">01</div>
+          <span class="prog-label">Vedanta</span>
+          <h3 class="prog-title">Discourses</h3>
+          <p class="prog-desc">Deep immersive study of Upanishads, Bhagavad Gita, and Yoga Vasistha. These sessions reveal direct experience of the Self beyond conceptual frameworks.</p>
+          <a href="#" class="prog-link">Learn More →</a>
+        </div>
+
+        <div class="prog-card reveal">
+          <div class="prog-num">02</div>
+          <span class="prog-label">Astrology</span>
+          <h3 class="prog-title">Naadi Jyotish</h3>
+          <p class="prog-desc">Ancient palm-leaf scripture consultations revealing your karmic blueprint and life purpose. A sacred encounter with your own eternal story.</p>
+          <a href="#" class="prog-link">Learn More →</a>
+        </div>
+
+        <div class="prog-card reveal">
+          <div class="prog-num">03</div>
+          <span class="prog-label">Wellness</span>
+          <h3 class="prog-title">Science of Healing</h3>
+          <p class="prog-desc">Ancient healing methodologies integrating Pranic healing, Ayurvedic principles, and Vedic consciousness science for holistic transformation.</p>
+          <a href="#" class="prog-link">Learn More →</a>
+        </div>
+
+        <div class="prog-card reveal">
+          <div class="prog-num">04</div>
+          <span class="prog-label">Space</span>
+          <h3 class="prog-title">Vastu Rupantaran</h3>
+          <p class="prog-desc">Transform living and working spaces through the ancient science of Vastu Shastra. Align spatial energies to support consciousness and prosperity.</p>
+          <a href="#" class="prog-link">Learn More →</a>
+        </div>
+
+        <div class="prog-card reveal">
+          <div class="prog-num">05</div>
+          <span class="prog-label">Education</span>
+          <h3 class="prog-title">Gurukul</h3>
+          <p class="prog-desc">Residential immersion in the living Guru-Shishya Parampara. Comprehensive spiritual leadership education blending ancient wisdom with modern empowerment.</p>
+          <a href="#" class="prog-link">Learn More →</a>
+        </div>
+
+        <div class="prog-card reveal">
+          <div class="prog-num">06</div>
+          <span class="prog-label">Practice</span>
+          <h3 class="prog-title">Yoga Paths</h3>
+          <p class="prog-desc">The four classical paths — Karma, Bhakti, Jnana, and Raja Yoga — as living disciplines rather than theoretical frameworks. Not philosophy but transformation.</p>
+          <a href="#" class="prog-link">Learn More →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" style="background: var(--gray-light); padding-top: 0;">
+    <div class="div-line"></div>
+    <span class="div-text">Events</span>
+    <div class="div-diamond"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="events-header reveal">
+      <div>
+        <span class="label">Upcoming Shibirs</span>
+        <h2>Sacred Gatherings<br />at the Gurukul</h2>
+      </div>
+      <a href="#" class="btn-teal" style="font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.7rem 1.5rem;">View All Events</a>
+    </div>
+
+    <ul class="events-list">
+      <li class="event-item reveal">
+        <div>
+          <span class="event-num">Event 01</span>
+          <h3 class="event-title">Navratri Celebration: Goddess Wisdom &amp; Spiritual Protection</h3>
+          <p class="event-meta">11 Days &nbsp;·&nbsp; Festival Immersive &nbsp;·&nbsp; Gurukul, Pune</p>
+          <p class="event-desc">Extended festival celebration with knowledge sessions and Devi invocation practices. 11 days of sacred rituals and Vedantic wisdom teachings.</p>
+        </div>
+        <div class="event-right">
+          <span class="event-date">Sep 22 – Oct 2</span>
+          <span class="event-loc">Gurukul Campus, Pune</span>
+          <a href="#" class="event-btn">Register</a>
+        </div>
+      </li>
+
+      <li class="event-item reveal">
+        <div>
+          <span class="event-num">Event 02</span>
+          <h3 class="event-title">Pitru-Rin Mukti Shibir: Ancestral Energy Release</h3>
+          <p class="event-meta">15 Days &nbsp;·&nbsp; Residential Intensive &nbsp;·&nbsp; Gurukul, Pune</p>
+          <p class="event-desc">15-day intensive addressing ancestral karmic debt through Vedic sadhana, Pitru Tarpan, and inner inquiry under Acharya Ji's direct guidance.</p>
+        </div>
+        <div class="event-right">
+          <span class="event-date">Sep 7–21</span>
+          <span class="event-loc">Gurukul Campus, Pune</span>
+          <a href="#" class="event-btn">Register</a>
+        </div>
+      </li>
+
+      <li class="event-item reveal">
+        <div>
+          <span class="event-num">Event 03</span>
+          <h3 class="event-title">Science of Healing: Meditation &amp; Wellness Integration</h3>
+          <p class="event-meta">2 Days &nbsp;·&nbsp; Workshop &nbsp;·&nbsp; Gurukul, Pune</p>
+          <p class="event-desc">Weekend workshop integrating Shiva meditation with wellness science — the intersection of ancient healing and modern understanding.</p>
+        </div>
+        <div class="event-right">
+          <span class="event-date">Sep 10–11</span>
+          <span class="event-loc">Gurukul Campus, Pune</span>
+          <a href="#" class="event-btn">Register</a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="cta-inner reveal">
+      <span class="label">Begin the Journey</span>
+      <h2>Be Part of the<br />Transformation</h2>
+      <p>
+        AntarYog Foundation welcomes sincere seekers across all paths. Serve, learn, and transform — every step inward is a step toward Vishwa Guru.
+      </p>
+      <div class="cta-btns">
+        <a href="#" class="btn-white">Enroll in a Program</a>
+        <a href="#" class="btn-outline-white">Make a Donation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation" />
+        <p>Reviving timeless knowledge of ancient scriptures under the guidance of Jeevan Mukt Sadguru Acharya Upendra Ji. Making Bharat a Vishwa Guru.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#">Discourses</a></li>
+          <li><a href="#">Naadi Jyotish</a></li>
+          <li><a href="#">Science of Healing</a></li>
+          <li><a href="#">Vastu Rupantaran</a></li>
+          <li><a href="#">Gurukul</a></li>
+          <li><a href="#">Yoga Paths</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Acharya Upendra Ji</a></li>
+          <li><a href="#">Mission &amp; Vision</a></li>
+          <li><a href="#">Gurukul Campus</a></li>
+          <li><a href="#">Newsroom</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Upcoming Events</a></li>
+          <li><a href="#">Register for Shibir</a></li>
+          <li><a href="#">Naadi Consultation</a></li>
+          <li><a href="#">Donate</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AntarYog Foundation. All Rights Reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms</a> &nbsp;·&nbsp;
+        <a href="#">Sitemap</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    var hamburger = document.getElementById('hamburger');
+    var mobOverlay = document.getElementById('mobOverlay');
+    var mobDrawer  = document.getElementById('mobDrawer');
+    var mobClose   = document.getElementById('mobClose');
+
+    function openMob() {
+      mobOverlay.classList.add('open');
+      mobDrawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMob() {
+      mobOverlay.classList.remove('open');
+      mobDrawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', openMob);
+    mobOverlay.addEventListener('click', closeMob);
+    mobClose.addEventListener('click', closeMob);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMob(); });
+
+    // Scroll reveal
+    var revealEls = document.querySelectorAll('.reveal');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function(el) { obs.observe(el); });
+  </script>
+</body>
+</html>
