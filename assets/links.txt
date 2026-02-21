@@ -1,0 +1,29 @@
+Update links for top nav bar items: 
+store: https://wellness.antaryogfoundation.in/
+vastu rupantaran https://vasturupantaran.antaryogfoundation.in/
+nirjanwas: https://nirjanvas.antaryogfoundation.in/
+science of healing: https://payment.antaryogfoundation.in/soh
+upcoming events: https://learn.antaryogfoundation.in/p/events
+newsroom: https://learn.antaryogfoundation.in/p/press
+donate: https://payment.antaryogfoundation.in/donation?_gl=1*1bnbpg7*_gcl_au*MTE5OTEwNzg0MC4xNzcxNjcyMzg1
+discourses: https://learn.antaryogfoundation.in/l/products?sortKey=recommended&sortDirection=asc&page=1
+
+https://learn.antaryogfoundation.in/p/vastu-rupantaran
+
+
+Our Work
+Upcoming events
+Donate
+Discourses
+Naadi Jyotish
+Newsroom
+Store
+
+Our Work
+Programs -> Upcoming Events, Discourses, Naadi Jyotish, Science of Healing, Vastu rupantaran, Nirjanwas
+Shibir -> Durga Sapta Shati, Pitru Rin Mukti, Shree Vidya, Navagraha, Ganesh Vidya  
+Donate
+Newsroom
+Store
+
+
