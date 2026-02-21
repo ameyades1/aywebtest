@@ -124,36 +124,50 @@
         /* Dropdown menus */
         .nav-dropdown {
             position: relative;
+            padding-bottom: 8px;
         }
         .nav-dropdown-panel {
-            display: none;
             position: absolute;
-            top: calc(100% + 4px);
+            top: 100%;
             left: 50%;
-            transform: translateX(-50%);
-            background: white;
+            background: #F9F6F0;
             border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-            min-width: 200px;
-            padding: 6px;
+            border-top: 2px solid #B87333;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 12px 32px rgba(92, 48, 16, 0.12);
+            min-width: 210px;
+            padding: 4px 4px 8px;
             z-index: 100;
+            visibility: hidden;
             opacity: 0;
             transform: translateX(-50%) translateY(-6px);
-            transition: opacity 150ms ease, transform 150ms ease;
+            transition: opacity 200ms ease, transform 200ms ease, visibility 0ms 200ms;
             pointer-events: none;
-            margin-top: -4px;
-            padding-top: 10px;
         }
-        .nav-dropdown:hover .nav-dropdown-panel,
         .nav-dropdown.open .nav-dropdown-panel {
-            display: block;
+            visibility: visible;
             opacity: 1;
             transform: translateX(-50%) translateY(0);
             pointer-events: auto;
+            transition: opacity 200ms ease, transform 200ms ease;
+        }
+        .nav-dropdown-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #B87333;
+            padding: 6px 10px 4px;
+        }
+        .nav-dropdown-divider {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 0 6px 4px;
         }
         .nav-dropdown-panel a {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 8px 14px;
             border-radius: 8px;
             font-size: 0.875rem;
@@ -161,8 +175,23 @@
             white-space: nowrap;
             transition: background 150ms, color 150ms;
         }
+        .nav-dropdown-panel a::after {
+            content: '→';
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: opacity 150ms, transform 150ms;
+            color: #B87333;
+            font-size: 0.75rem;
+        }
         .nav-dropdown-panel a:hover {
-            background: #F9F6F0;
+            background: rgba(184, 115, 51, 0.08);
+            color: #B87333;
+        }
+        .nav-dropdown-panel a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .nav-dropdown.open > button {
             color: #B87333;
         }
 
@@ -210,6 +239,8 @@
                                 </svg>
                             </button>
                             <div class="nav-dropdown-panel">
+                                <div class="nav-dropdown-label">Programs</div>
+                                <hr class="nav-dropdown-divider">
                                 <a href="https://learn.antaryogfoundation.in/p/events">Upcoming Events</a>
                                 <a href="https://learn.antaryogfoundation.in/l/products?sortKey=recommended&sortDirection=asc&page=1">Discourses</a>
                                 <a href="#">Naadi Jyotish</a>
@@ -228,6 +259,8 @@
                                 </svg>
                             </button>
                             <div class="nav-dropdown-panel">
+                                <div class="nav-dropdown-label">Shibir</div>
+                                <hr class="nav-dropdown-divider">
                                 <a href="#">Durga Sapta Shati</a>
                                 <a href="#">Pitru Rin Mukti</a>
                                 <a href="#">Shree Vidya</a>
