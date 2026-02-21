@@ -180,6 +180,98 @@
         .mobile-accordion-chevron.open {
             transform: rotate(180deg);
         }
+
+        /* Programs Carousel */
+        .prog-scroll-track {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 8px 0 16px;
+            padding-inline: calc((100vw - min(72vw, 640px)) / 2);
+            gap: 20px;
+            cursor: grab;
+        }
+        .prog-scroll-track::-webkit-scrollbar { display: none; }
+        .prog-scroll-track { scrollbar-width: none; }
+        .prog-scroll-track.grabbing { cursor: grabbing; }
+
+        .prog-card {
+            flex-shrink: 0;
+            width: min(72vw, 640px);
+            height: 480px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            scroll-snap-align: center;
+            box-shadow: 0 8px 24px rgba(92, 48, 16, 0.10);
+            transition: box-shadow 300ms ease;
+        }
+        .prog-card.active {
+            box-shadow: 0 24px 60px rgba(92, 48, 16, 0.25);
+        }
+        .prog-card-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 500ms ease;
+        }
+        .prog-card:hover .prog-card-img { transform: scale(1.04); }
+
+        .prog-card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(60, 30, 10, 0.88) 0%, rgba(60, 30, 10, 0.2) 55%, transparent 100%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 32px;
+        }
+        .prog-card-number {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 0.75rem; letter-spacing: 0.12em;
+            color: #B87333; margin-bottom: 8px;
+        }
+        .prog-card-title {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.75rem; font-weight: 700;
+            color: white; margin-bottom: 10px; line-height: 1.2;
+        }
+        .prog-card-desc {
+            font-size: 0.9rem; color: rgba(255,255,255,0.78);
+            line-height: 1.5; margin-bottom: 20px;
+            display: -webkit-box; -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .prog-card-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #B87333; color: white;
+            padding: 10px 20px; border-radius: 100px;
+            font-size: 0.85rem; font-weight: 600; align-self: flex-start;
+            transition: background 150ms;
+            text-decoration: none;
+        }
+        .prog-card-cta:hover { background: #5C3010; }
+
+        .prog-arrow {
+            width: 40px; height: 40px; border-radius: 50%;
+            border: 1.5px solid #e5e7eb; background: white; color: #5C3010;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 0.75rem; transition: all 150ms;
+            padding: 0; font: inherit;
+        }
+        .prog-arrow:hover { background: #B87333; color: white; border-color: #B87333; }
+        .prog-arrow:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+
+        .prog-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #e5e7eb; cursor: pointer; transition: all 200ms;
+        }
+        .prog-dot.active { width: 24px; border-radius: 3px; background: #B87333; }
+
+        @media (max-width: 767px) {
+            .prog-card { width: 88vw; height: 360px; }
+            .prog-scroll-track { padding-inline: calc((100vw - 88vw) / 2); gap: 14px; }
+            .prog-card-title { font-size: 1.4rem; }
+            .prog-card-overlay { padding: 24px; }
+        }
     </style>
 </head>
 <body class="antialiased bg-white">
@@ -499,178 +591,75 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="pt-8 pb-10 lg:pt-14 lg:pb-16 bg-gradient-to-b from-background to-white">
+    <section id="programs" class="pt-8 pb-10 lg:pt-14 lg:pb-16 bg-gradient-to-b from-background to-white overflow-hidden">
+        <!-- Section Header -->
         <div class="container mx-auto px-4 lg:px-8">
-            <!-- Programs Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Program 1: Discourses -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
-                        <img src="../../../assets/images/founder/8bR0jsdCRK2DhCGklmBR_Guru+Brochure++page+10+Img+1.jpg" alt="Vedanta Discourses" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center mb-3">
-                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-text">Discourses</h3>
-                        </div>
-                        <p class="text-text-secondary mb-4">
-                            Deep dive into Vedanta teachings and spiritual wisdom from ancient scriptures, guided by Acharya Upendra Ji's profound insights.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold group">
-                            Learn More
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">Ancient Wisdom</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-text mt-2">Our Programs</h2>
                 </div>
+                <div class="flex items-center gap-4">
+                    <span id="prog-counter" class="font-mono text-text-secondary text-sm">01 / 04</span>
+                    <button id="prog-prev" class="prog-arrow">◀</button>
+                    <button id="prog-next" class="prog-arrow">▶</button>
+                </div>
+            </div>
+        </div>
 
-                <!-- Program 2: Naadi Jyotish -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
-                        <img src="../../../assets/images/founder/dyECDDLQ56nRvpzpeNNw_Guru+Brochure++page+5+Img+6.jpg" alt="Naadi Jyotish - Spiritual Astrology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center mb-3">
-                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-text">Naadi Jyotish</h3>
-                        </div>
-                        <p class="text-text-secondary mb-4">
-                            Ancient spiritual astrology for divine life guidance. Discover your karmic path through sacred Naadi leaf readings and consultations.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold group">
-                            Learn More
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
+        <!-- Scroll Track (full-width) -->
+        <div id="prog-track" class="prog-scroll-track">
+            <!-- Program 1: Discourses -->
+            <div class="prog-card active" data-index="0">
+                <img src="../../../assets/images/founder/8bR0jsdCRK2DhCGklmBR_Guru+Brochure++page+10+Img+1.jpg" alt="Vedanta Discourses" class="prog-card-img">
+                <div class="prog-card-overlay">
+                    <div class="prog-card-number">01</div>
+                    <h3 class="prog-card-title">Discourses</h3>
+                    <p class="prog-card-desc">Deep dive into Vedanta teachings and spiritual wisdom from ancient scriptures, guided by Acharya Upendra Ji's profound insights.</p>
+                    <a href="#" class="prog-card-cta">Explore Program →</a>
                 </div>
-
-                <!-- Program 6: Healing Sciences -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
-                        <img src="../../../assets/images/founder/0lY9wgWTRg6HFVVmykR4_Guru+Brochure++page+17+Img+1.jpg" alt="Ancient Healing Sciences" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center mb-3">
-                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-text">Science of Healing</h3>
-                        </div>
-                        <p class="text-text-secondary mb-4">
-                            Discover ancient healing methodologies for holistic wellness, integrating body, mind, and spirit through time-tested practices.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold group">
-                            Learn More
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 3: Vastu Rupantaran -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
-                        <img src="../../../assets/images/founder/GV3pzYbBSDOkZrTaWXpq_Guru+Brochure++page+20+Img+1.jpg" alt="Vastu Rupantaran - Space Transformation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center mb-3">
-                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-text">Vastu Rupantaran</h3>
-                        </div>
-                        <p class="text-text-secondary mb-4">
-                            Transform your living and working spaces through ancient Vastu principles for harmonious energy flow and prosperity.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold group">
-                            Learn More
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 4: Gurukul -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
-                        <img src="../../../assets/programs/gurukul-temple.jpg" alt="Gurukul - Spiritual Leadership Education" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center mb-3">
-                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-text">Gurukul</h3>
-                        </div>
-                        <p class="text-text-secondary mb-4">
-                            Comprehensive spiritual leadership and education programs empowering youth with ancient wisdom and modern skills.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold group">
-                            Learn More
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 5: Yoga Paths -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="aspect-[16/11] overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
-                        <img src="../../../assets/visuals/antar-yog-overview.jpg" alt="Four Paths of Yoga" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center mb-3">
-                            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-text">Yoga Paths</h3>
-                        </div>
-                        <p class="text-text-secondary mb-4">
-                            Explore the four classical paths of Yoga: Karma Yoga, Bhakti Yoga, Dnyan Yoga, and Dhyan Yoga for complete spiritual evolution.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold group">
-                            Learn More
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
             </div>
 
-            <!-- CTA -->
-            <div class="text-center mt-12">
-                <a href="#" class="inline-flex items-center text-primary hover:text-accent font-semibold text-lg group">
-                    View All Programs
-                    <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
+            <!-- Program 2: Naadi Jyotish -->
+            <div class="prog-card" data-index="1">
+                <img src="../../../assets/images/founder/dyECDDLQ56nRvpzpeNNw_Guru+Brochure++page+5+Img+6.jpg" alt="Naadi Jyotish - Spiritual Astrology" class="prog-card-img">
+                <div class="prog-card-overlay">
+                    <div class="prog-card-number">02</div>
+                    <h3 class="prog-card-title">Naadi Jyotish</h3>
+                    <p class="prog-card-desc">Ancient spiritual astrology for divine life guidance. Discover your karmic path through sacred Naadi leaf readings and consultations.</p>
+                    <a href="#" class="prog-card-cta">Explore Program →</a>
+                </div>
             </div>
+
+            <!-- Program 3: Science of Healing -->
+            <div class="prog-card" data-index="2">
+                <img src="../../../assets/images/founder/0lY9wgWTRg6HFVVmykR4_Guru+Brochure++page+17+Img+1.jpg" alt="Ancient Healing Sciences" class="prog-card-img">
+                <div class="prog-card-overlay">
+                    <div class="prog-card-number">03</div>
+                    <h3 class="prog-card-title">Science of Healing</h3>
+                    <p class="prog-card-desc">Discover ancient healing methodologies for holistic wellness, integrating body, mind, and spirit through time-tested practices.</p>
+                    <a href="#" class="prog-card-cta">Explore Program →</a>
+                </div>
+            </div>
+
+            <!-- Program 4: Vastu Rupantaran -->
+            <div class="prog-card" data-index="3">
+                <img src="../../../assets/images/founder/GV3pzYbBSDOkZrTaWXpq_Guru+Brochure++page+20+Img+1.jpg" alt="Vastu Rupantaran - Space Transformation" class="prog-card-img">
+                <div class="prog-card-overlay">
+                    <div class="prog-card-number">04</div>
+                    <h3 class="prog-card-title">Vastu Rupantaran</h3>
+                    <p class="prog-card-desc">Transform your living and working spaces through ancient Vastu principles for harmonious energy flow and prosperity.</p>
+                    <a href="#" class="prog-card-cta">Explore Program →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dot Indicators -->
+        <div id="prog-dots" class="flex justify-center gap-2 mt-8">
+            <div class="prog-dot active"></div>
+            <div class="prog-dot"></div>
+            <div class="prog-dot"></div>
+            <div class="prog-dot"></div>
         </div>
     </section>
 
@@ -1074,6 +1063,66 @@
 
             // Initialize immediately (DOM is already ready since script is at end)
             initAuthState();
+        })();
+
+        // Programs Carousel
+        (function() {
+            const track = document.getElementById('prog-track');
+            if (!track) return;
+            const cards = track.querySelectorAll('.prog-card');
+            const dots  = document.querySelectorAll('.prog-dot');
+            const counter = document.getElementById('prog-counter');
+            const prevBtn = document.getElementById('prog-prev');
+            const nextBtn = document.getElementById('prog-next');
+            const total = cards.length; // 4
+            let current = 0;
+
+            function goTo(idx) {
+                current = Math.max(0, Math.min(idx, total - 1));
+                const card = cards[current];
+                const offset = card.offsetLeft - (track.offsetWidth - card.offsetWidth) / 2;
+                track.scrollTo({ left: offset, behavior: 'smooth' });
+                cards.forEach((c, i) => c.classList.toggle('active', i === current));
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+                counter.textContent = String(current + 1).padStart(2, '0') + ' / 0' + total;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === total - 1;
+            }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+            dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+            // Drag to scroll
+            let isDown = false, startX, scrollLeft;
+            track.addEventListener('mousedown', e => {
+                isDown = true; track.classList.add('grabbing');
+                startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+            });
+            ['mouseleave','mouseup'].forEach(ev => track.addEventListener(ev, () => {
+                isDown = false; track.classList.remove('grabbing');
+            }));
+            track.addEventListener('mousemove', e => {
+                if (!isDown) return; e.preventDefault();
+                track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX) * 1.5;
+            });
+
+            // Update active card on scroll end
+            let scrollTimer;
+            track.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    let closest = 0, minDist = Infinity;
+                    const trackMid = track.getBoundingClientRect().left + track.offsetWidth / 2;
+                    cards.forEach((c, i) => {
+                        const dist = Math.abs(c.getBoundingClientRect().left + c.offsetWidth / 2 - trackMid);
+                        if (dist < minDist) { minDist = dist; closest = i; }
+                    });
+                    if (closest !== current) goTo(closest);
+                }, 80);
+            });
+
+            goTo(0);
         })();
     </script>
 
