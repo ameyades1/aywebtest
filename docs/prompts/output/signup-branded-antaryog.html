@@ -1000,13 +1000,15 @@
                     otp: otp
                 });
 
-                // Redirect to profile completion page
+                // Redirect to homepage with authenticated session
                 const firstName = signupState.fullName.split(' ')[0];
-                const email = signupState.method === 'email' ? signupState.identifier : '';
-                const phone = signupState.method === 'phone' ? signupState.identifier : '';
-                const phoneCode = signupState.method === 'phone' ? signupState.countryCode : '';
+                const userEmail = signupState.identifier;
 
-                window.location.href = `profile-completion-antaryog.html?method=${signupState.method}&firstName=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&phoneCode=${encodeURIComponent(phoneCode)}`;
+                localStorage.setItem('firstName', firstName);
+                localStorage.setItem('userEmail', userEmail);
+
+                // Redirect to homepage — initAuthState() on v7 will pick up the session
+                window.location.href = 'frontend-branded-antaryog-v7.html';
             } else {
                 showOTPError('Invalid code. Please try again or request a new one.');
             }
