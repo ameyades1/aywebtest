@@ -275,6 +275,19 @@
             .prog-card-title { font-size: 1.4rem; }
             .prog-card-overlay { padding: 24px; }
         }
+
+        /* Featured Discourses — stagger fade-in */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .discourse-card {
+            animation: fadeInUp 0.5s ease both;
+        }
+        .discourse-card:nth-child(1) { animation-delay: 0s; }
+        .discourse-card:nth-child(2) { animation-delay: 0.1s; }
+        .discourse-card:nth-child(3) { animation-delay: 0.2s; }
+        .discourse-card:nth-child(4) { animation-delay: 0.3s; }
     </style>
 </head>
 <body class="antialiased bg-white">
@@ -544,6 +557,103 @@
                     <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/20 rounded-full blur-3xl"></div>
                     <div class="absolute -top-6 -left-6 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Discourses -->
+    <section class="py-12 lg:py-20 bg-section-alt">
+        <div class="container mx-auto px-4 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 lg:mb-12">
+                <div>
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">Sacred Knowledge</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-text mt-2">Featured Discourses</h2>
+                </div>
+                <a href="https://learn.antaryogfoundation.in/l/products" class="mt-6 lg:mt-0 text-primary hover:text-accent font-semibold text-lg flex items-center group">
+                    View All Discourses
+                    <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- 4-Card Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1: Ganapati Atharvashirsha -->
+                <div class="discourse-card relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="absolute top-4 right-4 text-6xl font-bold text-primary/10 select-none leading-none" aria-hidden="true">01</div>
+                    <div class="mb-4">
+                        <span class="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">Vedic Scripture</span>
+                    </div>
+                    <h3 class="font-bold text-xl text-text leading-snug mb-3 pr-8">Decoding the Ganapati Atharvashirsha</h3>
+                    <p class="text-sm text-text-secondary leading-relaxed">Unlock the hidden wisdom of Ganesh Atharvashirsha — integrate the qualities of Ganapati into your life for clarity, wisdom, and inner strength.</p>
+                    <div class="border-t border-gray-100 mt-4 pt-4">
+                        <a href="https://learn.antaryogfoundation.in/p/decoding-ganapati-atharvashirsha" class="text-primary hover:text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Explore Discourse
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Daan -->
+                <div class="discourse-card relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="absolute top-4 right-4 text-6xl font-bold text-primary/10 select-none leading-none" aria-hidden="true">02</div>
+                    <div class="mb-4">
+                        <span class="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">Dharma &amp; Prosperity</span>
+                    </div>
+                    <h3 class="font-bold text-xl text-text leading-snug mb-3 pr-8">Daan: Your Key to Ultimate Success and Liberation</h3>
+                    <p class="text-sm text-text-secondary leading-relaxed">Master the ancient art of giving described in sacred scriptures — reveal how conscious Daan unlocks material prosperity and spiritual liberation.</p>
+                    <div class="border-t border-gray-100 mt-4 pt-4">
+                        <a href="https://learn.antaryogfoundation.in/p/daan-donation-your-key-to-ultimate-success-and-liberation-advanced-course" class="text-primary hover:text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Explore Discourse
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Removing Negativities -->
+                <div class="discourse-card relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="absolute top-4 right-4 text-6xl font-bold text-primary/10 select-none leading-none" aria-hidden="true">03</div>
+                    <div class="mb-4">
+                        <span class="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">Relationships</span>
+                    </div>
+                    <h3 class="font-bold text-xl text-text leading-snug mb-3 pr-8">Removing Negativities in Relationships</h3>
+                    <p class="text-sm text-text-secondary leading-relaxed">A 4-step formula from the Shiv Puran to cleanse past sins, shield yourself from negativity, and build empowered, harmonious relationships.</p>
+                    <div class="border-t border-gray-100 mt-4 pt-4">
+                        <a href="https://learn.antaryogfoundation.in/p/removing-negativities-in-relationships" class="text-primary hover:text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Explore Discourse
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Lord Shani -->
+                <div class="discourse-card relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="absolute top-4 right-4 text-6xl font-bold text-primary/10 select-none leading-none" aria-hidden="true">04</div>
+                    <div class="mb-4">
+                        <span class="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">Vedic Astrology</span>
+                    </div>
+                    <h3 class="font-bold text-xl text-text leading-snug mb-3 pr-8">Understanding Lord Shani: Friend or Enemy?</h3>
+                    <p class="text-sm text-text-secondary leading-relaxed">Decode Saturn's karmic influence through the rare Shani Mahatmya discourse — understand why Shani is actually your greatest spiritual teacher.</p>
+                    <div class="border-t border-gray-100 mt-4 pt-4">
+                        <a href="https://learn.antaryogfoundation.in/p/understanding-lord-shani-friend-or-enemy" class="text-primary hover:text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Explore Discourse
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
