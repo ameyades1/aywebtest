@@ -602,7 +602,6 @@
                     <span class="text-primary font-semibold text-sm uppercase tracking-wider">Ancient Wisdom</span>
                     <h2 class="text-4xl lg:text-5xl font-bold text-text mt-2">Our Programs</h2>
                 </div>
-                <span id="prog-counter" class="font-mono text-text-secondary text-sm self-end pb-2">01 / 04</span>
             </div>
         </div>
 
@@ -651,6 +650,17 @@
                     <a href="https://vasturupantaran.antaryogfoundation.in/" class="prog-card-cta">Explore Program →</a>
                 </div>
             </div>
+
+            <!-- Program 5: Nirjanwas -->
+            <div class="prog-card" data-index="4">
+                <img src="../../../assets/programs/nirjanwas.jpg" alt="Nirjanwas - Sacred Yatra" class="prog-card-img">
+                <div class="prog-card-overlay">
+                    <div class="prog-card-number">05</div>
+                    <h3 class="prog-card-title">Nirjanwas</h3>
+                    <p class="prog-card-desc">Journeys that heal the body, refresh the mind, and awaken the soul.</p>
+                    <a href="https://nirjanvas.antaryogfoundation.in/" class="prog-card-cta">Explore Program →</a>
+                </div>
+            </div>
         </div>
 
         <!-- Controls Row -->
@@ -663,6 +673,7 @@
                 </button>
                 <div id="prog-dots" class="flex gap-2">
                     <div class="prog-dot active"></div>
+                    <div class="prog-dot"></div>
                     <div class="prog-dot"></div>
                     <div class="prog-dot"></div>
                     <div class="prog-dot"></div>
@@ -1084,10 +1095,9 @@
             if (!track) return;
             const cards = track.querySelectorAll('.prog-card');
             const dots  = document.querySelectorAll('.prog-dot');
-            const counter = document.getElementById('prog-counter');
             const prevBtn = document.getElementById('prog-prev');
             const nextBtn = document.getElementById('prog-next');
-            const total = cards.length; // 4
+            const total = cards.length;
             let current = 0;
 
             function goTo(idx) {
@@ -1098,7 +1108,6 @@
                 track.scrollTo({ left: offset, behavior: 'smooth' });
                 cards.forEach((c, i) => c.classList.toggle('active', i === current));
                 dots.forEach((d, i) => d.classList.toggle('active', i === current));
-                counter.textContent = String(current + 1).padStart(2, '0') + ' / 0' + total;
                 prevBtn.disabled = current === 0;
                 nextBtn.disabled = current === total - 1;
             }
