@@ -207,12 +207,10 @@
             overflow: hidden;
             position: relative;
             scroll-snap-align: start;
-            opacity: 0.72;
             box-shadow: 0 8px 24px rgba(92, 48, 16, 0.10);
-            transition: box-shadow 300ms ease, opacity 400ms ease;
+            transition: box-shadow 300ms ease;
         }
         .prog-card.active {
-            opacity: 1;
             box-shadow: 0 24px 60px rgba(92, 48, 16, 0.25);
         }
         .prog-card-img {
@@ -241,7 +239,7 @@
         .prog-card-desc {
             font-size: 0.9rem; color: rgba(255,255,255,0.78);
             line-height: 1.5; margin-bottom: 20px;
-            display: -webkit-box; -webkit-line-clamp: 2;
+            display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2;
             -webkit-box-orient: vertical; overflow: hidden;
         }
         .prog-card-cta {
