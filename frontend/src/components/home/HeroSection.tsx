@@ -50,8 +50,18 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Visual element (could be added later) */}
-          <div className="hidden lg:block" />
+          {/* Right: Hero Image */}
+          <div className="relative mx-auto max-w-lg hidden lg:block">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src={assetPath('/assets/founder/acharya-upendra-ji-portrait.jpg')}
+                alt="Acharya Upendra Ji - Jeevan Mukt Sadguru"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/20 rounded-full blur-3xl" />
+            <div className="absolute -top-6 -left-6 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+          </div>
         </div>
       </div>
     </section>
