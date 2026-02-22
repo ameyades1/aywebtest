@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { MobileMenu } from './MobileMenu'
+import { assetPath } from '@/lib/utils'
 
 export const Header: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -36,7 +37,7 @@ export const Header: React.FC = () => {
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <img
-                  src="/assets/logo-antaryog.png"
+                  src={assetPath('/assets/logo-antaryog.png')}
                   alt="AntarYog Foundation Logo"
                   className="h-14 w-auto"
                 />

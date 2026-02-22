@@ -1,4 +1,5 @@
 import React from 'react'
+import { assetPath } from '@/lib/utils'
 
 export const JoinMovementCTA: React.FC = () => {
   return (
@@ -6,7 +7,7 @@ export const JoinMovementCTA: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 opacity-10">
         <img
-          src="/assets/visuals/antar-yog-overview.jpg"
+          src={assetPath('/assets/visuals/antar-yog-overview.jpg')}
           alt=""
           className="w-full h-full object-cover"
         />

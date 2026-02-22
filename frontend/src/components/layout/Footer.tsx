@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { assetPath } from '@/lib/utils'
 
 export const Footer: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ export const Footer: React.FC = () => {
           <div>
             <div className="mb-4">
               <img
-                src="/assets/logo-antaryog.png"
+                src={assetPath('/assets/logo-antaryog.png')}
                 alt="AntarYog Foundation Logo"
                 className="h-10 w-auto"
               />

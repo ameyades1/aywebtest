@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { PROGRAMS } from '@/lib/data/programs'
+import { assetPath } from '@/lib/utils'
 
 export const ProgramsCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -79,7 +80,7 @@ export const ProgramsCarousel: React.FC = () => {
             data-index={index}
           >
             <img
-              src={program.imageUrl}
+              src={assetPath(program.imageUrl)}
               alt={program.imageAlt}
               className="prog-card-img"
             />

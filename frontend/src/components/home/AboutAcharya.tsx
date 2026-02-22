@@ -1,4 +1,5 @@
 import React from 'react'
+import { assetPath } from '@/lib/utils'
 
 export const AboutAcharya: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ export const AboutAcharya: React.FC = () => {
             <div className="relative">
               <div className="aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/assets/founder/acharya-upendra-ji-alt.jpg"
+                  src={assetPath('/assets/founder/acharya-upendra-ji-alt.jpg')}
                   alt="Acharya Upendra Ji - Founder, AntarYog Foundation"
                   className="w-full h-full object-cover"
                 />
