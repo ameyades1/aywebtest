@@ -197,6 +197,45 @@
             padding: 0 2rem 6rem;
         }
 
+        /* Two-finalist chosen grid */
+        .chosen-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .chosen-heading {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--copper);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .chosen-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(184,115,51,0.2);
+        }
+
+        .chosen-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 860px) {
+            .chosen-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .showcase-card {
             display: flex;
             flex-direction: column;
@@ -585,58 +624,100 @@
     <div class="hero">
         <div class="hero-content">
             <h1 class="hero-headline">
-                The palette of <em>copper, gold</em> and ancient parchment
+                Two finalists, one <em>sacred palette</em>
             </h1>
             <div class="hero-divider"></div>
             <p class="hero-sub">
-                Materials woven into India's sacred life for millennia — ritual vessels,
-                temple lamp flames, the cream of palm-leaf manuscripts.
+                Copper and gold drawn from ritual and scripture, paired with ivory parchment
+                and the golden warmth of the AntarYog brand — two approaches to the same
+                timeless palette, both grounded in centuries of Indian spiritual tradition.
             </p>
         </div>
     </div>
 
-    <!-- Main card -->
-    <div class="card-wrapper">
-        <a href="docs/prompts/output/frontend-branded-antaryog-v7.html" class="showcase-card">
+    <!-- Finalist designs -->
+    <div class="chosen-section">
+        <div class="chosen-heading">✦ Finalist Designs</div>
+        <div class="chosen-grid">
 
-            <!-- Thumbnail: fills its panel with object-cover, no empty space -->
-            <div class="card-thumb">
-                <img src="assets/thumbnails/v7.png"
-                     alt="Version 7 – White Copper theme preview">
-            </div>
-
-            <!-- Text panel -->
-            <div class="card-panel">
-                <h2 class="panel-title">Version 7: White, Copper and Gold </h2>
-
-                <div class="panel-body">
-                    <p>
-                        Copper is the metal of Indian ritual — kalash vessels, temple bells,
-                        puja thalis passed down through generations. Gold is the colour of
-                        spiritual illumination and the Vedic fire ceremony.
-                    </p>
-                    <p>
-                        Paper-white evokes the palm-leaf manuscripts that carried ancient
-                        knowledge across centuries. Together they form a palette immediately
-                        familiar to anyone rooted in Indian spiritual life — clean and legible
-                        on screen, timeless in meaning.
-                    </p>
+            <!-- Card 1: Version 7 -->
+            <a href="docs/prompts/output/frontend-branded-antaryog-v7.html" class="showcase-card">
+                <div class="card-thumb">
+                    <img src="assets/thumbnails/v7.png"
+                         alt="Version 7 – White Copper theme preview">
+                    <div class="selected-badge">Selected</div>
                 </div>
+                <div class="card-panel">
+                    <h2 class="panel-title">Version 7: White, Copper and Gold</h2>
 
-                <div class="color-swatches">
-                    <div class="swatch" style="background:#B87333;" title="Copper"></div>
-                    <div class="swatch" style="background:#C9953A;" title="Gold"></div>
-                    <div class="swatch" style="background:#EFE5D0;" title="Parchment"></div>
-                    <div class="swatch" style="background:#2C2018;" title="Ink"></div>
-                    <span class="swatch-label">Palette</span>
+                    <div class="panel-body">
+                        <p>
+                            Copper is the metal of Indian ritual — kalash vessels, temple bells,
+                            puja thalis passed down through generations. Gold is the colour of
+                            spiritual illumination and the Vedic fire ceremony.
+                        </p>
+                        <p>
+                            Paper-white evokes the palm-leaf manuscripts that carried ancient
+                            knowledge across centuries. Together they form a palette immediately
+                            familiar to anyone rooted in Indian spiritual life — clean and legible
+                            on screen, timeless in meaning.
+                        </p>
+                    </div>
+
+                    <div class="color-swatches">
+                        <div class="swatch" style="background:#B87333;" title="Copper"></div>
+                        <div class="swatch" style="background:#C9953A;" title="Gold"></div>
+                        <div class="swatch" style="background:#EFE5D0;" title="Parchment"></div>
+                        <div class="swatch" style="background:#2C2018;" title="Ink"></div>
+                        <span class="swatch-label">Palette</span>
+                    </div>
+
+                    <div class="panel-cta">
+                        View Live Demo <span>→</span>
+                    </div>
                 </div>
+            </a>
 
-                <div class="panel-cta">
-                    View Live Demo <span>→</span>
+            <!-- Card 2: Suvarna -->
+            <a href="Suvarna_Mockup.html" class="showcase-card">
+                <div class="card-thumb">
+                    <img src="assets/thumbnails/suvarna.png"
+                         alt="Suvarna Mockup – Logo-matched Gold and Ivory preview">
+                    <div class="selected-badge">Selected</div>
                 </div>
-            </div>
+                <div class="card-panel">
+                    <h2 class="panel-title">Suvarna: Sacred Gold and Ivory</h2>
 
-        </a>
+                    <div class="panel-body">
+                        <p>
+                            Suvarna — Sanskrit for golden — takes its palette directly from the
+                            AntarYog Foundation logo: the deep mahogany brown and brilliant
+                            golden yellow that appear on every communication.
+                        </p>
+                        <p>
+                            Warm ivory pages, saffron CTAs, and a dark-brown navigation bar recall
+                            the ritual lamp, the copper kalash, and the parchment manuscript. This
+                            is an app-depth mockup with twelve views — landing, dashboard, shibirs,
+                            discourses, AI chatbot, donations, and profile — making it the most
+                            complete design exploration in this series.
+                        </p>
+                    </div>
+
+                    <div class="color-swatches">
+                        <div class="swatch" style="background:#FBF7EE;" title="Ivory"></div>
+                        <div class="swatch" style="background:#FAD800;" title="Logo Gold"></div>
+                        <div class="swatch" style="background:#E8720C;" title="Saffron"></div>
+                        <div class="swatch" style="background:#3A1E0C;" title="Brown"></div>
+                        <span class="swatch-label">Palette</span>
+                    </div>
+
+                    <div class="panel-cta">
+                        View Live Demo <span>→</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
     </div>
 
     <!-- Alternative mockups -->
