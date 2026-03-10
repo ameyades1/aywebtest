@@ -224,9 +224,15 @@
         /* Pillar Cards */
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .pillar-card {
@@ -368,6 +374,7 @@
             }
 
             .pillars-grid {
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
