@@ -309,6 +309,20 @@
                     <div class="hidden lg:flex items-center space-x-6">
                         <a href="https://learn.antaryogfoundation.in/p/our-work-en" class="text-text hover:text-primary transition-colors font-medium text-sm">Our Work</a>
 
+                        <!-- About Us dropdown -->
+                        <div class="nav-dropdown">
+                            <button class="flex items-center gap-1 text-text hover:text-primary transition-colors font-medium text-sm">
+                                About Us
+                                <svg class="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="nav-dropdown-panel">
+                                <a href="vision-antaryog.html">Vision</a>
+                                <a href="mission-antaryog.html">Mission</a>
+                            </div>
+                        </div>
+
                         <!-- Programs dropdown -->
                         <div class="nav-dropdown">
                             <button class="flex items-center gap-1 text-text hover:text-primary transition-colors font-medium text-sm">
@@ -451,6 +465,20 @@
                         <!-- Navigation Links -->
                         <a href="https://learn.antaryogfoundation.in/p/our-work-en" class="block px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">Our Work</a>
 
+                        <!-- About Us accordion -->
+                        <div>
+                            <button onclick="toggleMobileAccordion('about')" class="w-full flex items-center justify-between px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">
+                                About Us
+                                <svg id="about-chevron" class="mobile-accordion-chevron w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div id="about-accordion" class="mobile-accordion-content">
+                                <a href="vision-antaryog.html" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Vision</a>
+                                <a href="mission-antaryog.html" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Mission</a>
+                            </div>
+                        </div>
+
                         <!-- Programs accordion -->
                         <div>
                             <button onclick="toggleMobileAccordion('programs')" class="w-full flex items-center justify-between px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">
@@ -522,8 +550,7 @@
                     </h1>
 
                     <p class="text-xl lg:text-2xl text-text-secondary leading-relaxed">
-                        Reviving the timeless knowledge of ancient scriptures under the guidance of Acharya Upendra Ji.
-                        Re-establishing Sanatan Dharma for Global Transformation
+                        Guided by the principle of "जनहिताय स्वयम् मोक्षाय च", we envision everyone achieving their own liberation while serving for the welfare of all.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4">

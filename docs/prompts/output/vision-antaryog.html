@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision - AntarYog Foundation</title>
+    <meta name="description" content="Our vision for restoring Bharat as a Vishwa Guru and transforming the world through spiritual wisdom.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#B87333',
+                        'secondary': '#E8B84B',
+                        'accent': '#5C3010',
+                        'background': '#F9F6F0',
+                        'section-alt': '#FDFBF8',
+                        'text': '#5C3010',
+                        'text-secondary': '#7A6858',
+                    },
+                    fontFamily: {
+                        'serif': ['Lora', 'Georgia', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #2b3636;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        /* Header - Fixed positioning for all devices */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            padding-top: 64px;
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        #mobile-menu-panel {
+            transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #mobile-menu-backdrop {
+            transition: opacity 300ms ease-in-out;
+        }
+
+        body.menu-open {
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            body {
+                min-height: -webkit-fill-available;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            #mobile-menu-panel a {
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 374px) {
+            header {
+                min-height: 60px;
+            }
+            body {
+                padding-top: 60px;
+            }
+            header img {
+                height: 2.5rem;
+            }
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+            min-width: 200px;
+            padding: 6px;
+            z-index: 100;
+            opacity: 0;
+            transform: translateX(-50%) translateY(-6px);
+            transition: opacity 150ms ease, transform 150ms ease;
+            pointer-events: none;
+            margin-top: -4px;
+            padding-top: 10px;
+        }
+        .nav-dropdown:hover .nav-dropdown-panel,
+        .nav-dropdown.open .nav-dropdown-panel {
+            display: block;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        .nav-dropdown-panel a {
+            display: block;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: #5C3010;
+            white-space: nowrap;
+            transition: background 150ms, color 150ms;
+        }
+        .nav-dropdown-panel a:hover {
+            background: #F9F6F0;
+            color: #B87333;
+        }
+
+        .mobile-accordion-content {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-accordion-content.open {
+            display: block;
+        }
+        .mobile-accordion-chevron {
+            transition: transform 200ms ease;
+        }
+        .mobile-accordion-chevron.open {
+            transform: rotate(180deg);
+        }
+
+        /* Vision Page Specific Styles */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .vision-hero {
+            position: relative;
+            background: linear-gradient(135deg, #F9F6F0 0%, #FDFBF8 100%);
+            overflow: hidden;
+            padding: 80px 2rem;
+        }
+
+        .mandala-bg {
+            position: absolute;
+            top: 50%;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        .vision-hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            color: #5C3010;
+            position: relative;
+            z-index: 10;
+            line-height: 1.1;
+        }
+
+        .vision-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .vision-block {
+            animation: fadeInUp 0.6s ease both;
+            border-left: 4px solid #B87333;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(92, 48, 16, 0.05);
+        }
+
+        .vision-block:nth-child(1) { animation-delay: 0.1s; }
+        .vision-block:nth-child(2) { animation-delay: 0.2s; }
+        .vision-block:nth-child(3) { animation-delay: 0.3s; }
+        .vision-block:nth-child(4) { animation-delay: 0.4s; }
+
+        .vision-block p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #5C3010;
+        }
+
+        .principle-block {
+            background: linear-gradient(135deg, #B87333 0%, #5C3010 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(184, 115, 51, 0.15);
+        }
+
+        .principle-block h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .principle-block p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .vision-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #B87333;
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid #E8B84B;
+        }
+
+        .closing-banner {
+            background: linear-gradient(135deg, #B87333 0%, #E8B84B 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .closing-banner h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .closing-banner p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .vision-hero {
+                padding: 60px 1.5rem;
+            }
+
+            .vision-block {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .mandala-bg {
+                width: 300px;
+                height: 300px;
+                right: -80px;
+                top: 20px;
+            }
+
+            .principle-block {
+                padding: 2rem 1.5rem;
+            }
+
+            .closing-banner {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .closing-banner h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased bg-white">
+
+    <!-- Navigation Header -->
+    <header class="bg-white border-b border-gray-200 shadow-sm">
+        <nav class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="frontend-branded-antaryog-v7.html" class="flex items-center">
+                        <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation Logo" class="h-14 w-auto">
+                    </a>
+                </div>
+
+                <!-- Right: Navigation, Actions, and Mobile Menu -->
+                <div class="flex items-center gap-4">
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <a href="https://learn.antaryogfoundation.in/p/our-work-en" class="text-text hover:text-primary transition-colors font-medium text-sm">Our Work</a>
+
+                        <!-- About Us dropdown -->
+                        <div class="nav-dropdown">
+                            <button class="flex items-center gap-1 text-text hover:text-primary transition-colors font-medium text-sm">
+                                About Us
+                                <svg class="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="nav-dropdown-panel">
+                                <a href="vision-antaryog.html">Vision</a>
+                                <a href="mission-antaryog.html">Mission</a>
+                            </div>
+                        </div>
+
+                        <!-- Programs dropdown -->
+                        <div class="nav-dropdown">
+                            <button class="flex items-center gap-1 text-text hover:text-primary transition-colors font-medium text-sm">
+                                Programs
+                                <svg class="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="nav-dropdown-panel">
+                                <a href="https://learn.antaryogfoundation.in/p/events">Upcoming Events</a>
+                                <a href="https://learn.antaryogfoundation.in/l/products?sortKey=recommended&sortDirection=asc&page=1">Discourses</a>
+                                <a href="https://learn.antaryogfoundation.in/p/naadi-jyotish">Naadi Jyotish</a>
+                                <a href="https://payment.antaryogfoundation.in/soh">Science of Healing</a>
+                                <a href="https://vasturupantaran.antaryogfoundation.in/">Vastu Rupantaran</a>
+                                <a href="https://nirjanvas.antaryogfoundation.in/">Nirjanwas</a>
+                            </div>
+                        </div>
+
+                        <!-- Shibir dropdown -->
+                        <div class="nav-dropdown">
+                            <button class="flex items-center gap-1 text-text hover:text-primary transition-colors font-medium text-sm">
+                                Shibir
+                                <svg class="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="nav-dropdown-panel">
+                                <a href="#">Durga Sapta Shati</a>
+                                <a href="#">Pitru Rin Mukti</a>
+                                <a href="#">Shree Vidya</a>
+                                <a href="#">Navagraha</a>
+                                <a href="#">Ganesh Vidya</a>
+                            </div>
+                        </div>
+
+                        <a href="https://payment.antaryogfoundation.in/donation?_gl=1*1bnbpg7*_gcl_au*MTE5OTEwNzg0MC4xNzcxNjcyMzg1" class="text-text hover:text-primary transition-colors font-medium text-sm">Donate</a>
+                        <a href="https://learn.antaryogfoundation.in/p/press" class="text-text hover:text-primary transition-colors font-medium text-sm">Newsroom</a>
+                        <a href="https://wellness.antaryogfoundation.in/" class="text-text hover:text-primary transition-colors font-medium text-sm">Store</a>
+                    </div>
+
+                    <!-- Separator -->
+                    <div class="hidden lg:block w-px h-6 bg-gray-300"></div>
+
+                    <!-- Desktop auth wrapper -->
+                    <div class="hidden lg:flex items-center gap-3">
+                        <div id="nav-logged-out" class="flex items-center gap-4">
+                            <a href="login-branded-antaryog.html" class="text-text hover:text-primary transition-colors font-medium">Login</a>
+                            <a href="signup-branded-antaryog.html" class="bg-primary hover:bg-accent text-white px-6 py-2.5 rounded-full font-medium transition-colors">Sign Up</a>
+                        </div>
+
+                        <div id="nav-logged-in" class="items-center gap-3 relative" style="display:none">
+                            <button id="user-menu-btn" class="flex items-center gap-2 bg-primary text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-accent transition-colors focus:outline-none">
+                                <span id="nav-first-name">User</span>
+                                <svg class="w-3.5 h-3.5 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            <div id="user-dropdown" class="hidden absolute right-0 top-full mt-2 w-44 bg-white rounded-xl shadow-lg border border-gray-100 py-1 z-50">
+                                <a href="profile-page-antaryog.html" class="flex items-center gap-2 px-4 py-2.5 text-sm text-text hover:bg-background hover:text-primary transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <div class="border-t border-gray-100 my-1"></div>
+                                <button onclick="handleLogout()" class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                                    </svg>
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="lg:hidden text-text hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+        <div id="mobile-menu-panel" class="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform translate-x-full">
+            <div class="flex flex-col h-full">
+                <!-- Menu Header -->
+                <div class="flex items-center justify-between p-4 border-b border-gray-200">
+                    <div class="flex items-center gap-2">
+                        <img src="../../../assets/logo-antaryog.png" alt="AntarYog" class="h-10">
+                    </div>
+                    <button id="mobile-menu-close" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Menu Content -->
+                <nav class="flex-1 overflow-y-auto p-4">
+                    <div class="space-y-1">
+                        <!-- Action Buttons - Mobile Logged Out -->
+                        <div id="mobile-nav-logged-out" class="pb-4 mb-4 border-b border-gray-200 space-y-2">
+                            <a href="signup-branded-antaryog.html" class="block w-full text-center bg-primary hover:bg-accent text-white px-6 py-3 rounded-full font-medium transition-colors">
+                                Sign Up
+                            </a>
+                            <a href="login-branded-antaryog.html" class="block w-full text-center border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-full font-medium transition-colors">
+                                Login
+                            </a>
+                        </div>
+
+                        <!-- Action Buttons - Mobile Logged In -->
+                        <div id="mobile-nav-logged-in" class="pb-4 mb-4 border-b border-gray-200" style="display:none">
+                            <p class="text-xs text-text-secondary uppercase tracking-wider mb-2 px-1">Signed in as</p>
+                            <p id="mobile-first-name" class="font-semibold text-text mb-3 px-1">User</p>
+                            <a href="profile-page-antaryog.html" class="block w-full text-center bg-primary hover:bg-accent text-white px-6 py-3 rounded-full font-medium transition-colors mb-2">View Profile</a>
+                            <button onclick="handleLogout()" class="w-full text-center border border-red-400 text-red-600 hover:bg-red-50 px-6 py-3 rounded-full text-sm font-medium transition-colors">Logout</button>
+                        </div>
+
+                        <!-- Navigation Links -->
+                        <a href="https://learn.antaryogfoundation.in/p/our-work-en" class="block px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">Our Work</a>
+
+                        <!-- About Us accordion -->
+                        <div>
+                            <button onclick="toggleMobileAccordion('about')" class="w-full flex items-center justify-between px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">
+                                About Us
+                                <svg id="about-chevron" class="mobile-accordion-chevron w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div id="about-accordion" class="mobile-accordion-content">
+                                <a href="vision-antaryog.html" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Vision</a>
+                                <a href="mission-antaryog.html" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Mission</a>
+                            </div>
+                        </div>
+
+                        <!-- Programs accordion -->
+                        <div>
+                            <button onclick="toggleMobileAccordion('programs')" class="w-full flex items-center justify-between px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">
+                                Programs
+                                <svg id="programs-chevron" class="mobile-accordion-chevron w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div id="programs-accordion" class="mobile-accordion-content">
+                                <a href="https://learn.antaryogfoundation.in/p/events" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Upcoming Events</a>
+                                <a href="https://learn.antaryogfoundation.in/l/products?sortKey=recommended&sortDirection=asc&page=1" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Discourses</a>
+                                <a href="https://learn.antaryogfoundation.in/p/naadi-jyotish" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Naadi Jyotish</a>
+                                <a href="https://payment.antaryogfoundation.in/soh" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Science of Healing</a>
+                                <a href="https://vasturupantaran.antaryogfoundation.in/" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Vastu Rupantaran</a>
+                                <a href="https://nirjanvas.antaryogfoundation.in/" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Nirjanwas</a>
+                            </div>
+                        </div>
+
+                        <!-- Shibir accordion -->
+                        <div>
+                            <button onclick="toggleMobileAccordion('shibir')" class="w-full flex items-center justify-between px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">
+                                Shibir
+                                <svg id="shibir-chevron" class="mobile-accordion-chevron w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div id="shibir-accordion" class="mobile-accordion-content">
+                                <a href="#" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Durga Sapta Shati</a>
+                                <a href="#" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Pitru Rin Mukti</a>
+                                <a href="#" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Shree Vidya</a>
+                                <a href="#" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Navagraha</a>
+                                <a href="#" class="block px-4 py-2.5 text-sm text-text-secondary hover:text-primary rounded-lg transition-colors">Ganesh Vidya</a>
+                            </div>
+                        </div>
+
+                        <a href="https://payment.antaryogfoundation.in/donation?_gl=1*1bnbpg7*_gcl_au*MTE5OTEwNzg0MC4xNzcxNjcyMzg1" class="block px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">Donate</a>
+                        <a href="https://learn.antaryogfoundation.in/p/press" class="block px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">Newsroom</a>
+                        <a href="https://wellness.antaryogfoundation.in/" class="block px-4 py-3 text-text hover:bg-background hover:text-primary rounded-lg transition-colors font-medium">Store</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="vision-hero">
+        <svg class="mandala-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#B87333" stroke-width="1"/>
+            <circle cx="100" cy="100" r="75" fill="none" stroke="#B87333" stroke-width="1"/>
+            <circle cx="100" cy="100" r="60" fill="none" stroke="#B87333" stroke-width="1"/>
+            <circle cx="100" cy="100" r="45" fill="none" stroke="#B87333" stroke-width="1"/>
+            <g transform="translate(100,100)">
+                <line x1="0" y1="-90" x2="0" y2="90" stroke="#B87333" stroke-width="1"/>
+                <line x1="-90" y1="0" x2="90" y2="0" stroke="#B87333" stroke-width="1"/>
+                <line x1="-63" y1="-63" x2="63" y2="63" stroke="#B87333" stroke-width="1"/>
+                <line x1="63" y1="-63" x2="-63" y2="63" stroke="#B87333" stroke-width="1"/>
+            </g>
+        </svg>
+
+        <div class="vision-content">
+            <h1>Vision</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="bg-white py-12">
+        <div class="vision-content px-4 md:px-8">
+            <!-- Principle -->
+            <div class="principle-block">
+                <h3>Jan Hitaya Swayam Mokshaya Cha</h3>
+                <p>Everyone achieving their own liberation while serving for the welfare of all</p>
+            </div>
+
+            <!-- Vision Blocks -->
+            <div class="space-y-4">
+                <div class="vision-block">
+                    <p>Under the leadership of Acharya Upendra Ji, Antar Yog Foundation aims to restore the identity of Bharat as a "Vishwa Guru": a healthy, wealthy and spiritual guide of the world. We see a world where every person: whether seeking health, wealth, relationships, or inner peace: finds their path back to their true self, living life not as a human searching for the divine, but a divine being joyfully experiencing the human journey. Antar Yog is a path that does not ask you to leave your world behind but transform it from inside out.</p>
+                </div>
+
+                <div class="vision-block">
+                    <p>Guided by the principle of "Jan Hitaya Swayam Mokshaya Cha", we envision everyone achieving their own liberation while serving for the welfare of all.</p>
+                </div>
+
+                <div class="vision-block">
+                    <p>To serve the world, every person needs power, wealth, wisdom, and leadership: all at once. This can only be learnt in the Gurukul: A world-renowned character-building education system where students are taught both spiritual and worldly knowledge.</p>
+                </div>
+
+                <div class="vision-block">
+                    <p>We see Bharat once again becoming the world's spiritual and intellectual leader, not through force, but through the irresistible power of the enlightened example. Under Bharat's leadership, the world transitions from a state of conflict to peace and harmony.</p>
+                </div>
+            </div>
+
+            <!-- Closing Banner -->
+            <div class="closing-banner">
+                <h2>Transform from Inside Out</h2>
+                <p>Join us in creating a world where every individual realizes their divine potential and contributes to the welfare of all.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-accent text-white py-12">
+        <div class="container mx-auto px-4 lg:px-8">
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <div class="mb-4">
+                        <img src="../../../assets/logo-antaryog.png" alt="AntarYog Foundation Logo" class="h-12 w-auto">
+                    </div>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Reviving timeless knowledge of ancient scriptures under the guidance of Jeevan Mukt Sadguru Acharya Upendra Ji.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://learn.antaryogfoundation.in/p/our-work-en" class="text-white/80 hover:text-primary transition-colors">Our Work</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Upcoming Events</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">About Acharya Upendra Ji</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Donate</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Newsroom</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Our Programs</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Discourses</a></li>
+                        <li><a href="https://learn.antaryogfoundation.in/p/naadi-jyotish" class="text-white/80 hover:text-primary transition-colors">Naadi Jyotish</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Vastu Rupantaran</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Gurukul</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Yoga Paths</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Healing Sciences</a></li>
+                    </ul>
+                </div>
+
+                <!-- Connect -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li><a href="login-branded-antaryog.html" class="text-white/80 hover:text-primary transition-colors">Login</a></li>
+                        <li><a href="signup-branded-antaryog.html" class="text-white/80 hover:text-primary transition-colors">Sign Up</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Volunteer</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-primary transition-colors">Join Daily Meditation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-white/60 text-sm">
+                        © 2026 AntarYog Foundation. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">Terms of Service</a>
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">Refund Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        // Desktop Dropdown Management
+        document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            const panel = dropdown.querySelector('.nav-dropdown-panel');
+
+            button.addEventListener('mouseenter', () => {
+                dropdown.classList.add('open');
+            });
+
+            panel.addEventListener('mouseenter', () => {
+                dropdown.classList.add('open');
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                dropdown.classList.remove('open');
+            });
+
+            const links = panel.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    dropdown.classList.remove('open');
+                });
+            });
+        });
+
+        // Mobile Accordion Toggle
+        window.toggleMobileAccordion = function(id) {
+            const content = document.getElementById(id + '-accordion');
+            const chevron = document.getElementById(id + '-chevron');
+            content.classList.toggle('open');
+            chevron.classList.toggle('open');
+        };
+
+        // Mobile Menu Toggle Functionality
+        (function() {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuPanel = document.getElementById('mobile-menu-panel');
+            const closeButton = document.getElementById('mobile-menu-close');
+            const backdrop = document.getElementById('mobile-menu-backdrop');
+
+            if (!menuButton || !mobileMenu || !menuPanel) {
+                console.warn('Mobile menu elements not found');
+                return;
+            }
+
+            function openMenu() {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    menuPanel.classList.remove('translate-x-full');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                menuPanel.classList.add('translate-x-full');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+
+            menuButton.addEventListener('click', openMenu);
+            closeButton.addEventListener('click', closeMenu);
+            backdrop.addEventListener('click', closeMenu);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024 && !mobileMenu.classList.contains('hidden')) {
+                    closeMenu();
+                }
+            });
+        })();
+
+        // Auth State Management
+        (function() {
+            function initAuthState() {
+                const firstName = localStorage.getItem('firstName');
+                const navOut = document.getElementById('nav-logged-out');
+                const navIn  = document.getElementById('nav-logged-in');
+
+                if (firstName) {
+                    navOut.style.display = 'none';
+                    navIn.style.display  = 'flex';
+                    document.getElementById('nav-first-name').textContent = firstName;
+
+                    document.getElementById('mobile-nav-logged-out').style.display = 'none';
+                    document.getElementById('mobile-nav-logged-in').style.display  = 'block';
+                    document.getElementById('mobile-first-name').textContent = firstName;
+                } else {
+                    navOut.style.display = 'flex';
+                    navIn.style.display  = 'none';
+                }
+            }
+
+            window.handleLogout = function() {
+                localStorage.removeItem('firstName');
+                localStorage.removeItem('userEmail');
+                localStorage.removeItem('userId');
+                window.location.reload();
+            };
+
+            const userMenuBtn = document.getElementById('user-menu-btn');
+            const userDropdown = document.getElementById('user-dropdown');
+
+            if (userMenuBtn && userDropdown) {
+                userMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle('hidden');
+                });
+
+                document.addEventListener('click', function() {
+                    userDropdown.classList.add('hidden');
+                });
+            }
+
+            initAuthState();
+        })();
+    </script>
+</body>
+</html>
