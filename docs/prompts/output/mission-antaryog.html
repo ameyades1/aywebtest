@@ -165,68 +165,46 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes wordReveal {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
         .mission-hero {
-            background: linear-gradient(135deg, #5C3010 0%, #3A1F0C 100%);
-            color: white;
-            padding: 100px 2rem;
+            background: linear-gradient(135deg, #F9F6F0 0%, #FDFBF8 100%);
+            padding: 1.75rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .mission-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(184, 115, 51, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
         .mission-hero h1 {
-            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 0.4rem;
             position: relative;
             z-index: 10;
+            color: #5C3010;
         }
 
         .mission-tagline {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 400;
             line-height: 1.4;
             position: relative;
             z-index: 10;
             max-width: 900px;
             margin: 0 auto;
+            color: #7A6858;
         }
-
-        .mission-tagline span {
-            display: inline-block;
-            animation: wordReveal 0.6s ease both;
-        }
-
-        .mission-tagline span:nth-child(1) { animation-delay: 0.1s; }
-        .mission-tagline span:nth-child(2) { animation-delay: 0.3s; }
-        .mission-tagline span:nth-child(3) { animation-delay: 0.5s; }
-        .mission-tagline span:nth-child(4) { animation-delay: 0.7s; }
 
         .mission-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 0.75rem 1.5rem;
         }
 
         /* Pillar Cards */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
+            gap: 0.6rem;
+            margin: 0.5rem 0;
         }
 
         @media (max-width: 768px) {
@@ -239,7 +217,7 @@
             background: white;
             border: 1px solid #E8B84B;
             border-radius: 12px;
-            padding: 2.5rem 2rem;
+            padding: 0.7rem 1rem;
             animation: fadeInUp 0.6s ease both;
             transition: all 200ms ease;
             position: relative;
@@ -259,27 +237,20 @@
 
         .pillar-number {
             position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 4rem;
+            top: 0.5rem;
+            right: 1rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #E8B84B;
             opacity: 0.3;
             font-family: 'Lora', Georgia, serif;
         }
 
-        .pillar-icon {
-            width: 56px;
-            height: 56px;
-            margin-bottom: 1.5rem;
-            flex-shrink: 0;
-        }
-
         .pillar-title {
-            font-size: 1.4rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #5C3010;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .pillar-list {
@@ -289,13 +260,12 @@
         }
 
         .pillar-list li {
-            padding: 0.75rem 0 0.75rem 0;
+            padding: 0.2rem 0 0.2rem 1.25rem;
             border-bottom: 1px solid #F9F6F0;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.8rem;
+            line-height: 1.4;
             color: #7A6858;
             position: relative;
-            padding-left: 1.5rem;
         }
 
         .pillar-list li:last-child {
@@ -313,10 +283,10 @@
         .guiding-principle {
             background: linear-gradient(135deg, #B87333 0%, #5C3010 100%);
             color: white;
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
             border-radius: 12px;
             text-align: center;
-            margin: 4rem 0;
+            margin: 2rem 0;
             box-shadow: 0 8px 32px rgba(184, 115, 51, 0.2);
         }
 
@@ -335,7 +305,7 @@
 
         .cta-section {
             text-align: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
         }
 
         .cta-button {
@@ -358,7 +328,7 @@
 
         @media (max-width: 768px) {
             .mission-hero {
-                padding: 60px 1.5rem;
+                padding: 1.25rem 1.5rem;
             }
 
             .mission-content {
@@ -366,7 +336,7 @@
             }
 
             .pillar-card {
-                padding: 2rem 1.5rem;
+                padding: 1rem 1.25rem;
             }
 
             .pillar-number {
@@ -375,7 +345,7 @@
 
             .pillars-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1rem;
             }
 
             .guiding-principle {
@@ -608,15 +578,7 @@
     <!-- Hero Section -->
     <section class="mission-hero">
         <h1>Our Mission</h1>
-        <p class="mission-tagline">
-            <span>Transforming</span>
-            <span>minds,</span>
-            <span>transforming</span>
-            <span>lives,</span>
-            <span>transforming</span>
-            <span>the</span>
-            <span>nation.</span>
-        </p>
+        <p class="mission-tagline">Transforming minds, transforming lives, transforming the nation.</p>
     </section>
 
     <!-- Main Content -->
@@ -627,68 +589,44 @@
                 <!-- Youth Leadership -->
                 <div class="pillar-card">
                     <div class="pillar-number">01</div>
-                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="#B87333" stroke-width="2">
-                        <path d="M12 2L15.09 8.26H22L17.27 12.53L19.36 18.78L12 14.5L4.64 18.78L6.73 12.53L2 8.26H8.91L12 2Z"/>
-                    </svg>
                     <h3 class="pillar-title">Youth Leadership</h3>
                     <ul class="pillar-list">
-                        <li>Revive the Gurukul system to develop legendary leaders with the Guru-Shishya tradition.</li>
-                        <li>Empower women through knowledge of Advaita Vedanta to create self-reliant, independent and compassionate leaders capable of transforming society.</li>
+                        <li><b>Revive the Gurukul system to develop legendary leaders with the Guru-Shishya tradition.</b></li>
+                        <li><b>Empower women through knowledge of Advaita Vedanta to create self-reliant, independent and compassionate leaders capable of transforming society.</b></li>
                     </ul>
                 </div>
 
                 <!-- Personal Growth -->
                 <div class="pillar-card">
                     <div class="pillar-number">02</div>
-                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="#B87333" stroke-width="2">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-7-8h14M12 5v14"/>
-                    </svg>
                     <h3 class="pillar-title">Personal Growth</h3>
                     <ul class="pillar-list">
-                        <li>Deliver "Now-and-Here" results for better health, wealth and relationships using ancient spiritual tools and Sadhanas.</li>
-                        <li>Create financially free seekers who pursue larger-than-life goals using ethical wealth creation methods.</li>
-                        <li>Spread ancient wisdom hidden in scriptures by decoding their profound symbolic meaning useful in everyday life.</li>
+                        <li><b>Deliver "Now-and-Here" results for better health, wealth and relationships using ancient spiritual tools and Sadhanas.</b></li>
+                        <li><b>Create financially free seekers who pursue larger-than-life goals using ethical wealth creation methods.</b></li>
+                        <li><b>Spread ancient wisdom hidden in scriptures by decoding their profound symbolic meaning useful in everyday life.</b></li>
                     </ul>
                 </div>
 
                 <!-- Healthy Society -->
                 <div class="pillar-card">
                     <div class="pillar-number">03</div>
-                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="#B87333" stroke-width="2">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
-                    </svg>
                     <h3 class="pillar-title">Healthy Society</h3>
                     <ul class="pillar-list">
-                        <li>Integrate modern science with ancient healing practices to reveal the true root cause of disease with spiritual knowledge.</li>
-                        <li>Promote Yogic farming to ensure disease-free citizens and prosperous farmers.</li>
+                        <li><b>Integrate modern science with ancient healing practices to reveal the true root cause of disease with spiritual knowledge.</b></li>
+                        <li><b>Promote Yogic farming to ensure disease-free citizens and prosperous farmers.</b></li>
                     </ul>
                 </div>
 
                 <!-- Societal Transformation -->
                 <div class="pillar-card">
                     <div class="pillar-number">04</div>
-                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="#B87333" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
                     <h3 class="pillar-title">Societal Transformation</h3>
                     <ul class="pillar-list">
-                        <li>Re-establish the ancient Varna system based on qualities and actions rather than birth to help citizens rise and eradicate the modern caste system.</li>
-                        <li>Unite spiritual movements and sects into one single powerful garland of Sanatan Dharma to strengthen our nation.</li>
-                        <li>Teach the righteous way of donation with unconditional love for humanitarian service to the needy.</li>
+                        <li><b>Re-establish the ancient Varna system based on qualities and actions rather than birth to help citizens rise and eradicate the modern caste system.</b></li>
+                        <li><b>Unite spiritual movements and sects into one single powerful garland of Sanatan Dharma to strengthen our nation.</b></li>
+                        <li><b>Teach the righteous way of donation with unconditional love for humanitarian service to the needy.</b></li>
                     </ul>
                 </div>
-            </div>
-
-            <!-- Guiding Principle -->
-            <div class="guiding-principle">
-                <h3>Guided by Ancient Wisdom</h3>
-                <p>Our mission is rooted in the timeless principles of Vedanta, empowering individuals to achieve personal liberation while contributing to the collective welfare of society.</p>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="cta-section">
-                <a href="signup-branded-antaryog.html" class="cta-button">Join the Movement</a>
             </div>
         </div>
     </main>

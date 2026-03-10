@@ -169,26 +169,28 @@
             position: relative;
             background: linear-gradient(135deg, #F9F6F0 0%, #FDFBF8 100%);
             overflow: hidden;
-            padding: 80px 2rem;
-        }
-
-        .mandala-bg {
-            position: absolute;
-            top: 50%;
-            right: -100px;
-            width: 500px;
-            height: 500px;
-            opacity: 0.08;
-            z-index: 0;
+            padding: 1.75rem 2rem;
+            text-align: center;
         }
 
         .vision-hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: 1.5rem;
             font-weight: 700;
             color: #5C3010;
             position: relative;
             z-index: 10;
-            line-height: 1.1;
+            line-height: 1.2;
+        }
+
+        .vision-tagline {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: #7A6858;
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .vision-content {
@@ -198,11 +200,11 @@
 
         .vision-block {
             animation: fadeInUp 0.6s ease both;
-            border-left: 4px solid #B87333;
-            padding: 2rem;
+            border-left: 3px solid #B87333;
+            padding: 1rem 1.5rem;
             background: white;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 0.5rem 0;
             box-shadow: 0 2px 8px rgba(92, 48, 16, 0.05);
         }
 
@@ -212,91 +214,19 @@
         .vision-block:nth-child(4) { animation-delay: 0.4s; }
 
         .vision-block p {
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 0.9rem;
+            line-height: 1.5;
             color: #5C3010;
-        }
-
-        .principle-block {
-            background: linear-gradient(135deg, #B87333 0%, #5C3010 100%);
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(184, 115, 51, 0.15);
-        }
-
-        .principle-block h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
-        }
-
-        .principle-block p {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .vision-quote {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #B87333;
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-            border-left: 3px solid #E8B84B;
-        }
-
-        .closing-banner {
-            background: linear-gradient(135deg, #B87333 0%, #E8B84B 100%);
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .closing-banner h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .closing-banner p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0.95;
         }
 
         @media (max-width: 768px) {
             .vision-hero {
-                padding: 60px 1.5rem;
+                padding: 1.25rem 1.5rem;
             }
 
             .vision-block {
-                padding: 1.5rem;
-                margin: 1.5rem 0;
-            }
-
-            .mandala-bg {
-                width: 300px;
-                height: 300px;
-                right: -80px;
-                top: 20px;
-            }
-
-            .principle-block {
-                padding: 2rem 1.5rem;
-            }
-
-            .closing-banner {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .closing-banner h2 {
-                font-size: 1.5rem;
+                padding: 0.75rem 1rem;
+                margin: 0.4rem 0;
             }
         }
     </style>
@@ -523,26 +453,12 @@
 
     <!-- Hero Section -->
     <section class="vision-hero">
-        <svg class="mandala-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="#B87333" stroke-width="1"/>
-            <circle cx="100" cy="100" r="75" fill="none" stroke="#B87333" stroke-width="1"/>
-            <circle cx="100" cy="100" r="60" fill="none" stroke="#B87333" stroke-width="1"/>
-            <circle cx="100" cy="100" r="45" fill="none" stroke="#B87333" stroke-width="1"/>
-            <g transform="translate(100,100)">
-                <line x1="0" y1="-90" x2="0" y2="90" stroke="#B87333" stroke-width="1"/>
-                <line x1="-90" y1="0" x2="90" y2="0" stroke="#B87333" stroke-width="1"/>
-                <line x1="-63" y1="-63" x2="63" y2="63" stroke="#B87333" stroke-width="1"/>
-                <line x1="63" y1="-63" x2="-63" y2="63" stroke="#B87333" stroke-width="1"/>
-            </g>
-        </svg>
-
-        <div class="vision-content">
-            <h1>Vision</h1>
-        </div>
+        <h1>Our Vision</h1>
+        <p class="vision-tagline">जनहिताय स्वयम् मोक्षाय च</p>
     </section>
 
     <!-- Main Content -->
-    <main class="bg-white py-12">
+    <main class="bg-white">
         <div class="vision-content px-4 md:px-8">
             <!-- Vision Blocks -->
             <div class="space-y-4">
