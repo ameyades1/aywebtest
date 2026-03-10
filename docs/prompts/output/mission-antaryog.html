@@ -235,17 +235,6 @@
             border-color: #B87333;
         }
 
-        .pillar-number {
-            position: absolute;
-            top: 0.5rem;
-            right: 1rem;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #E8B84B;
-            opacity: 0.3;
-            font-family: 'Lora', Georgia, serif;
-        }
-
         .pillar-title {
             font-size: 1rem;
             font-weight: 700;
@@ -337,10 +326,6 @@
 
             .pillar-card {
                 padding: 1rem 1.25rem;
-            }
-
-            .pillar-number {
-                font-size: 3rem;
             }
 
             .pillars-grid {
@@ -588,7 +573,6 @@
             <div class="pillars-grid">
                 <!-- Youth Leadership -->
                 <div class="pillar-card">
-                    <div class="pillar-number">01</div>
                     <h3 class="pillar-title">Youth Leadership</h3>
                     <ul class="pillar-list">
                         <li><b>Revive the Gurukul system to develop legendary leaders with the Guru-Shishya tradition.</b></li>
@@ -598,7 +582,6 @@
 
                 <!-- Personal Growth -->
                 <div class="pillar-card">
-                    <div class="pillar-number">02</div>
                     <h3 class="pillar-title">Personal Growth</h3>
                     <ul class="pillar-list">
                         <li><b>Deliver "Now-and-Here" results for better health, wealth and relationships using ancient spiritual tools and Sadhanas.</b></li>
@@ -609,7 +592,6 @@
 
                 <!-- Healthy Society -->
                 <div class="pillar-card">
-                    <div class="pillar-number">03</div>
                     <h3 class="pillar-title">Healthy Society</h3>
                     <ul class="pillar-list">
                         <li><b>Integrate modern science with ancient healing practices to reveal the true root cause of disease with spiritual knowledge.</b></li>
@@ -619,7 +601,6 @@
 
                 <!-- Societal Transformation -->
                 <div class="pillar-card">
-                    <div class="pillar-number">04</div>
                     <h3 class="pillar-title">Societal Transformation</h3>
                     <ul class="pillar-list">
                         <li><b>Re-establish the ancient Varna system based on qualities and actions rather than birth to help citizens rise and eradicate the modern caste system.</b></li>
@@ -702,10 +683,19 @@
 
     <!-- Mobile Menu JavaScript -->
     <script>
+        // Mobile Accordion Toggle — defined first so it's always available
+        window.toggleMobileAccordion = function(id) {
+            const content = document.getElementById(id + '-accordion');
+            const chevron = document.getElementById(id + '-chevron');
+            if (content) content.classList.toggle('open');
+            if (chevron) chevron.classList.toggle('open');
+        };
+
         // Desktop Dropdown Management
         document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
             const button = dropdown.querySelector('button');
             const panel = dropdown.querySelector('.nav-dropdown-panel');
+            if (!button || !panel) return;
 
             button.addEventListener('mouseenter', () => {
                 dropdown.classList.add('open');
@@ -726,14 +716,6 @@
                 });
             });
         });
-
-        // Mobile Accordion Toggle
-        window.toggleMobileAccordion = function(id) {
-            const content = document.getElementById(id + '-accordion');
-            const chevron = document.getElementById(id + '-chevron');
-            content.classList.toggle('open');
-            chevron.classList.toggle('open');
-        };
 
         // Mobile Menu Toggle Functionality
         (function() {

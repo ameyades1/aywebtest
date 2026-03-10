@@ -548,10 +548,19 @@
 
     <!-- Mobile Menu JavaScript -->
     <script>
+        // Mobile Accordion Toggle — defined first so it's always available
+        window.toggleMobileAccordion = function(id) {
+            const content = document.getElementById(id + '-accordion');
+            const chevron = document.getElementById(id + '-chevron');
+            if (content) content.classList.toggle('open');
+            if (chevron) chevron.classList.toggle('open');
+        };
+
         // Desktop Dropdown Management
         document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
             const button = dropdown.querySelector('button');
             const panel = dropdown.querySelector('.nav-dropdown-panel');
+            if (!button || !panel) return;
 
             button.addEventListener('mouseenter', () => {
                 dropdown.classList.add('open');
@@ -572,14 +581,6 @@
                 });
             });
         });
-
-        // Mobile Accordion Toggle
-        window.toggleMobileAccordion = function(id) {
-            const content = document.getElementById(id + '-accordion');
-            const chevron = document.getElementById(id + '-chevron');
-            content.classList.toggle('open');
-            chevron.classList.toggle('open');
-        };
 
         // Mobile Menu Toggle Functionality
         (function() {
