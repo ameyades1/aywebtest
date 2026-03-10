@@ -74,7 +74,7 @@ The background image at 30% opacity + personalized heading + two CTA buttons.
 
 **Tools & concepts introduced:**
 - **Inline style for dynamic values** — the background image overlay uses an opacity value that
-  can't be expressed purely in Tailwind: `<div style={{ backgroundImage: `url(${img})` }}>`.
+  can't be expressed purely in Tailwind: {% raw %}`<div style={{ backgroundImage: `url(${img})` }}>`{% endraw %}.
   Use `style=` only when the value is dynamic or can't be expressed with a utility class.
 - **`next/image` with `fill` prop** — for background-style images that stretch to fill their
   container, use `fill` instead of fixed width/height, with the container having `position: relative`.
