@@ -1,0 +1,38 @@
+body {
+    font-family: 'Inter', sans-serif;
+    color: #5C3010;
+    background-color: #F9F6F0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 0.5rem 0;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #B87333;
+    box-shadow: 0 2px 8px rgba(92, 48, 16, 0.05);
+}
+
+.text-muted {
+    color: #7A6858;
+}
+
+#footer {
+    margin-top: auto;
+}
