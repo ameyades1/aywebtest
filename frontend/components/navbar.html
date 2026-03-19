@@ -2,11 +2,30 @@
     <div class="container flex justify-between items-center h-20">
         <img src="/assets/logo.png" class="h-14 w-auto">
 
+<!--
         <nav class="space-x-6 text-sm font-medium">
             <a href="/index.html" class="nav-link">Home</a>
             <a href="/pages/vision.html" class="nav-link">Vision</a>
             <a href="/pages/mission.html" class="nav-link">Mission</a>
         </nav>
+-->
 
+       <nav class="space-x-6 text-sm font-medium flex items-center">
+        <a href="/index.html" class="nav-link">Home</a>
+
+        <div class="nav-dropdown">
+            <button class="nav-link flex items-center gap-1">
+                About Us
+                <svg class="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="nav-dropdown-panel">
+                <a href="/pages/vision.html">Vision</a>
+                <a href="/pages/mission.html">Mission</a>
+            </div>
+        </div>
+
+       </nav> 
     </div>
 </header>
