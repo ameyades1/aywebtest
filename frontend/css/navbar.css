@@ -1,0 +1,153 @@
+/* ═══════════════════════════════════════════
+   NAVBAR
+   ═══════════════════════════════════════════ */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+}
+
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    color: #5C3010;
+    transition: color 150ms;
+}
+
+.nav-link:hover {
+    color: #B87333;
+}
+
+/* Dropdown navigation */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    min-width: 160px;
+    padding: 6px;
+    padding-top: 8px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 150ms ease, transform 150ms ease;
+    pointer-events: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-panel,
+.nav-dropdown.open .nav-dropdown-panel {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.nav-dropdown-panel a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: #5C3010;
+    white-space: nowrap;
+    transition: background 150ms, color 150ms;
+}
+
+.nav-dropdown-panel a:hover {
+    background: #F9F6F0;
+    color: #B87333;
+}
+
+/* Mobile menu — drawer panel animation */
+#mobile-menu-panel {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu-backdrop {
+    transition: opacity 300ms ease-in-out;
+}
+
+/* Mobile nav flat links */
+.mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #5C3010;
+    border-radius: 8px;
+    transition: background 150ms, color 150ms;
+}
+
+.mobile-nav-link:hover {
+    background: #F9F6F0;
+    color: #B87333;
+}
+
+/* Accordion trigger button */
+.mobile-accordion-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #5C3010;
+    border-radius: 8px;
+    transition: background 150ms, color 150ms;
+}
+
+.mobile-accordion-btn:hover {
+    background: #F9F6F0;
+    color: #B87333;
+}
+
+/* Accordion panel (sub-links) */
+.mobile-accordion-content {
+    display: none;
+    padding-left: 1rem;
+}
+
+.mobile-accordion-content.open {
+    display: block;
+}
+
+/* Accordion sub-links */
+.mobile-sub-link {
+    display: block;
+    padding: 0.625rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #7A6858;
+    border-radius: 8px;
+    transition: background 150ms, color 150ms;
+}
+
+.mobile-sub-link:hover {
+    background: #F9F6F0;
+    color: #B87333;
+}
+
+/* Chevron icon */
+.mobile-accordion-chevron {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.6;
+    transition: transform 200ms ease;
+    flex-shrink: 0;
+}
+
+.mobile-accordion-chevron.open {
+    transform: rotate(180deg);
+}
