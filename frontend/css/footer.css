@@ -187,3 +187,19 @@
 .footer-back-top:hover {
     color: #B87333;
 }
+
+.footer-legal-sep {
+    color: rgba(249, 246, 240, 0.25);
+    margin: 0 0.3rem;
+}
+
+.footer-legal-link {
+    font-size: 0.75rem;
+    color: rgba(249, 246, 240, 0.45);
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+.footer-legal-link:hover {
+    color: #B87333;
+}
