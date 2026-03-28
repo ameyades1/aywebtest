@@ -3,6 +3,20 @@ async function loadComponent(id, file) {
     const html = await res.text();
     document.getElementById(id).innerHTML = html;
     if (id === 'navbar') {
+        // Rewrite relative hrefs and srcs to be correct from any directory depth
+        const container = document.getElementById('navbar');
+        container.querySelectorAll('a[href]').forEach(a => {
+            const href = a.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('/')) {
+                a.setAttribute('href', ROOT + href);
+            }
+        });
+        container.querySelectorAll('img[src]').forEach(img => {
+            const src = img.getAttribute('src');
+            if (src && !src.startsWith('http') && !src.startsWith('/') && !src.startsWith('data:')) {
+                img.setAttribute('src', ROOT + src);
+            }
+        });
         initDropdowns();      // existing desktop dropdown
         initMobileMenu();     // new mobile drawer
     }
