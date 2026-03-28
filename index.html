@@ -81,6 +81,26 @@
             border-radius: 2rem;
         }
 
+        .header-frontend-link {
+            margin-left: auto;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--copper);
+            text-decoration: none;
+            border: 1px solid var(--copper);
+            padding: 0.35rem 0.9rem;
+            border-radius: 2px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .header-frontend-link:hover {
+            background: var(--copper);
+            color: var(--white-warm);
+        }
+
         /* ── Hero text ─────────────────────────────── */
         .hero {
             max-width: 1400px;
@@ -646,6 +666,7 @@
                 <img src="assets/logo-antaryog.png" alt="AntarYog Foundation" style="height:44px;width:auto;">
             </a>
             <span class="header-tag">Design Mockups</span>
+            <a href="frontend/index.html" class="header-frontend-link">View Frontend →</a>
         </div>
     </header>
 
