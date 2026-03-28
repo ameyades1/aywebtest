@@ -1,0 +1,43 @@
+/* Hero Section Styles */
+
+/* Ensure Lora is used for headings within the hero */
+#hero h1,
+#hero h2,
+#hero h3 {
+    font-family: 'Lora', Georgia, serif;
+}
+
+/* Ensure Inter is used for body text */
+#hero p,
+#hero span,
+#hero div {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Vishwa Guru highlight — copper color, Lora font to match v7 */
+#hero .heading-highlight {
+    color: #B87333;
+    font-family: 'Lora', Georgia, serif;
+}
+
+/* Hero badge — pixel-identical to v7 pill */
+#hero .hero-badge {
+    background-color: rgba(184, 115, 51, 0.1); /* primary/10 */
+    color: #B87333;                             /* text-primary */
+    padding: 0.5rem 1rem;                       /* py-2 px-4 */
+    border-radius: 9999px;                      /* rounded-full */
+    font-size: 0.875rem;                        /* text-sm */
+    line-height: 1.25rem;
+    font-weight: 500;                           /* font-medium */
+    font-family: 'Inter', system-ui, sans-serif;
+    display: inline;
+}
+
+/* CTA Button Styling */
+#hero a.bg-primary {
+    background-color: #B87333;
+}
+
+#hero a.bg-primary:hover {
+    background-color: #5C3010;
+}

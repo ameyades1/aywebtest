@@ -75,4 +75,5 @@ function initMobileMenu() {
 }
 
 loadComponent("navbar", "components/navbar.html");
+loadComponent("hero", "components/hero.html");
 loadComponent("footer", "components/footer.html");
