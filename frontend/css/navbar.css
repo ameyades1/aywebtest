@@ -81,7 +81,7 @@ header {
     display: block;
     padding: 0.75rem 1rem;
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #5C3010;
     border-radius: 8px;
@@ -101,7 +101,7 @@ header {
     justify-content: space-between;
     padding: 0.75rem 1rem;
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #5C3010;
     border-radius: 8px;

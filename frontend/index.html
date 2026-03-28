@@ -2,17 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Antar Yog</title>
 
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#B87333',
+                        'secondary': '#E8B84B',
+                        'accent': '#5C3010',
+                        'background': '#F9F6F0',
+                        'section-alt': '#FDFBF8',
+                        'text': '#5C3010',
+                        'text-secondary': '#7A6858',
+                    },
+                    fontFamily: {
+                        'serif': ['Lora', 'Georgia', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/hero.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="navbar"></div>
+    <div id="hero"></div>
     <div id="footer"></div>
 
     <script src="js/main.js"></script>
