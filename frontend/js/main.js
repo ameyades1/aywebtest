@@ -74,6 +74,9 @@ function initMobileMenu() {
     });
 }
 
-loadComponent("navbar", "components/navbar.html");
-loadComponent("hero", "components/hero.html");
-loadComponent("footer", "components/footer.html");
+const ROOT = window.ROOT_PATH || '';
+loadComponent("navbar", ROOT + "components/navbar.html");
+if (document.getElementById('hero')) {
+    loadComponent("hero", ROOT + "components/hero.html");
+}
+loadComponent("footer", ROOT + "components/footer.html");
