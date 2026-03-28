@@ -128,52 +128,7 @@ h1, h2, h3 {
     padding: 0 1.5rem 2rem;
 }
 
-/* Mission Page — 4 Pillars Grid */
-.mission-pillars {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 800px;
-    margin: 1rem auto 2rem;
-}
-
-.mission-pillar {
-    background: #FDFBF8;
-    border-top: 3px solid #B87333;
-    border-left: none;
-    border-radius: 0 0 10px 10px;
-    padding: 1.5rem 1.5rem 1.75rem;
-    position: relative;
-    transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.mission-pillar:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(92, 48, 16, 0.09);
-}
-
-.mission-pillar-number {
-    display: block;
-    font-family: 'Lora', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #B87333;
-    opacity: 0.22;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    letter-spacing: -2px;
-    user-select: none;
-}
-
-.mission-pillar-title {
-    font-family: 'Lora', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #5C3010;
-    margin-bottom: 0.75rem;
-    margin-top: -0.25rem;
-    letter-spacing: 0.2px;
-}
-
+/* Mission Page — List Styles */
 .mission-pillar-list {
     list-style: none;
     padding: 0;
@@ -195,12 +150,6 @@ h1, h2, h3 {
     left: 0;
     color: #B87333;
     font-weight: 700;
-}
-
-@media (max-width: 640px) {
-    .mission-pillars {
-        grid-template-columns: 1fr;
-    }
 }
 
 .vision-card {
@@ -239,18 +188,6 @@ h1, h2, h3 {
     text-align: left;
     animation: fadeInUp 0.8s ease-out 0.8s both;
 }
-
-/* Mission page: scoped stagger animations */
-.mission-container .vision-content {
-    animation: none;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.mission-container .mission-pillar:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.2s both; }
-.mission-container .mission-pillar:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.35s both; }
-.mission-container .mission-pillar:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.5s both; }
-.mission-container .mission-pillar:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.65s both; }
 
 .vision-closing p {
     font-size: 1rem;
