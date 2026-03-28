@@ -77,6 +77,34 @@
     max-width: 240px;
 }
 
+.footer-social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.85rem;
+}
+
+.footer-social-link {
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(249, 246, 240, 0.7);
+    transition: background 150ms ease, color 150ms ease;
+}
+
+.footer-social-link:hover {
+    background: #B87333;
+    color: #F9F6F0;
+}
+
+.footer-social-icon {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
 .footer-col-heading {
     font-family: 'Lora', serif;
     font-size: 0.7rem;
