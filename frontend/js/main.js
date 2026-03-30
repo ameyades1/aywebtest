@@ -95,4 +95,7 @@ loadComponent("navbar", ROOT + "components/navbar.html");
 if (document.getElementById('hero')) {
     loadComponent("hero", ROOT + "components/hero.html");
 }
+if (document.getElementById('transformation-triptych')) {
+    loadComponent("transformation-triptych", ROOT + "components/transformation-triptych.html");
+}
 loadComponent("footer", ROOT + "components/footer.html");

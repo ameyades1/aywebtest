@@ -1,0 +1,240 @@
+/* Transformation Triptych Section */
+
+.transformation-triptych-section {
+    background: linear-gradient(135deg, #F9F6F0 0%, #FDFBF8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background elements */
+.transformation-triptych-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(184, 115, 51, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.transformation-triptych-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232, 184, 75, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Section Header */
+.triptych-header {
+    position: relative;
+    z-index: 2;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.triptych-header h2 {
+    font-family: 'Lora', serif;
+    color: #5C3010;
+    letter-spacing: -0.5px;
+}
+
+.triptych-header p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+/* Grid Layout */
+.triptych-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .triptych-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Individual Card */
+.triptych-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(92, 48, 16, 0.08);
+    border-top: 4px solid #B87333;
+    transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.triptych-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.triptych-card:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.triptych-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+/* Hover state: lift card, deepen shadow, brighten border */
+.triptych-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 48px rgba(92, 48, 16, 0.16);
+    border-top-color: #E8B84B;
+}
+
+/* Card Image Container */
+.triptych-card-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Overlay Gradient for Text Readability */
+.triptych-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(184, 115, 51, 0.4) 0%,
+        rgba(92, 48, 16, 0.65) 100%
+    );
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+/* Card Content */
+.triptych-card-content {
+    padding: 2.5rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Icon */
+.triptych-card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(184, 115, 51, 0.1);
+    border-radius: 50%;
+    transition: all 300ms ease-out;
+}
+
+.triptych-card:hover .triptych-card-icon {
+    background: rgba(184, 115, 51, 0.15);
+    transform: scale(1.1);
+}
+
+.triptych-card-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Card Title */
+.triptych-card-title {
+    font-family: 'Lora', serif;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: #5C3010;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+/* Card Text */
+.triptych-card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #7A6858;
+    flex-grow: 1;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive: Tablet and Small Screens */
+@media (max-width: 640px) {
+    .triptych-card-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .triptych-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .triptych-header p {
+        font-size: 1rem;
+    }
+
+    .transformation-triptych-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+/* Focus states for accessibility */
+.triptych-card:focus-within {
+    outline: 2px solid #B87333;
+    outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .triptych-card,
+    .triptych-card-icon,
+    .triptych-header {
+        animation: none;
+        transition: none;
+    }
+
+    .triptych-card:hover {
+        transform: none;
+    }
+
+    .triptych-card:hover .triptych-card-icon {
+        transform: none;
+    }
+}
