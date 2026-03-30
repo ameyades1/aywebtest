@@ -20,27 +20,41 @@
 }
 
 
-/* ─── Left: Image Pane ───────────────────────────────────────────────────── */
+/* ─── Left: Symbol Pane ──────────────────────────────────────────────────── */
 
-.dss-image-pane {
+.dss-symbol-pane {
     position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Fallback colour if image fails to load */
-    background-color: #2E0E02;
+    background-color: #150702;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* Gradient fades the image into the dark right panel */
-.dss-image-overlay {
+/* Radial glow behind the ॐ */
+.dss-symbol-glow {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(28, 10, 2, 0.15) 0%,
-        rgba(28, 10, 2, 0.55) 85%,
-        rgba(28, 10, 2, 0.85) 100%
-    );
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(232, 184, 75, 0.18) 0%, rgba(184, 115, 51, 0.06) 50%, transparent 75%);
+    pointer-events: none;
+}
+
+/* The ॐ glyph */
+.dss-om-symbol {
+    font-family: 'Lora', serif;
+    font-size: 18rem;
+    font-weight: 700;
+    color: #E8B84B;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    opacity: 0.82;
+    text-shadow: 0 0 80px rgba(232, 184, 75, 0.35), 0 0 160px rgba(184, 115, 51, 0.18);
+    animation: dssFadeUp 1s ease-out 0.1s both;
 }
 
 
@@ -202,13 +216,12 @@
         grid-template-columns: 1fr;
     }
 
-    .dss-image-pane {
-        height: 320px;
+    .dss-symbol-pane {
+        height: 280px;
     }
 
-    /* On mobile the right-to-left fade doesn't make sense — darken uniformly */
-    .dss-image-overlay {
-        background: rgba(28, 10, 2, 0.4);
+    .dss-om-symbol {
+        font-size: 10rem;
     }
 
     .dss-content-pane {
