@@ -125,7 +125,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     color: #FFFFFF;
-    background: #2E4A3A;
+    background: #5C3010;
     padding: 0.875rem 2rem;
     border-radius: 100px;
     text-decoration: none;
@@ -137,9 +137,9 @@
 }
 
 .dss-cta:hover {
-    background: #1A3028;
+    background: #3D1A08;
     transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(46, 74, 58, 0.28);
+    box-shadow: 0 10px 28px rgba(92, 48, 16, 0.28);
 }
 
 
