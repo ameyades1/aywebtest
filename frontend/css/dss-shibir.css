@@ -1,83 +1,45 @@
 /* ─── DSS Shibir Section ─────────────────────────────────────────────────── */
 
 .dss-section {
-    background-color: #1C0A02;
+    background-color: #F5EFE0;
+    background-image: url('../assets/dss_panel.png');
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
     position: relative;
+    min-height: 520px;
 }
 
-/* Gold thread divider that separates triptych (light) from this (dark) */
+/* Gold-copper divider at top */
 .dss-divider {
     height: 1px;
     background: linear-gradient(to right, transparent 0%, #E8B84B 40%, #B87333 60%, transparent 100%);
-    opacity: 0.5;
-}
-
-/* Two-column grid: 45% image / 55% content */
-.dss-grid {
-    display: grid;
-    grid-template-columns: 45fr 55fr;
-    min-height: 580px;
+    opacity: 0.6;
 }
 
 
-/* ─── Left: Symbol Pane ──────────────────────────────────────────────────── */
+/* ─── Content Container ──────────────────────────────────────────────────── */
 
-.dss-symbol-pane {
+.dss-container {
     position: relative;
-    background-color: #150702;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-/* Radial glow behind the ॐ */
-.dss-symbol-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(circle, rgba(232, 184, 75, 0.18) 0%, rgba(184, 115, 51, 0.06) 50%, transparent 75%);
-    pointer-events: none;
-}
-
-/* The ॐ glyph */
-.dss-om-symbol {
-    font-family: 'Lora', serif;
-    font-size: 18rem;
-    font-weight: 700;
-    color: #E8B84B;
-    line-height: 1;
-    position: relative;
-    z-index: 1;
-    opacity: 0.82;
-    text-shadow: 0 0 80px rgba(232, 184, 75, 0.35), 0 0 160px rgba(184, 115, 51, 0.18);
-    animation: dssFadeUp 1s ease-out 0.1s both;
-}
-
-
-/* ─── Right: Content Pane ────────────────────────────────────────────────── */
-
-.dss-content-pane {
-    position: relative;
-    padding: 4.5rem 4rem 4.5rem 3.5rem;
+    padding: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 520px;
+    max-width: 52%;
     overflow: hidden;
 }
 
-/* Subtle radial aura behind content — evokes Devi's divine light */
+/* Subtle radial glow behind content — teal/copper blend */
 .dss-glow {
     position: absolute;
     top: 50%;
-    left: -80px;
+    left: 10%;
     transform: translateY(-50%);
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(232, 184, 75, 0.07) 0%, transparent 65%);
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(184, 115, 51, 0.06) 0%, transparent 65%);
     pointer-events: none;
     z-index: 0;
 }
@@ -93,7 +55,7 @@
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #E8B84B;
+    color: #B87333;
     margin-bottom: 1.1rem;
     position: relative;
     z-index: 1;
@@ -103,11 +65,11 @@
 /* Main headline */
 .dss-headline {
     font-family: 'Lora', serif;
-    font-size: 2.9rem;
+    font-size: 2.6rem;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: #FFFFFF;
+    color: #2A1505;
     margin: 0 0 1.5rem 0;
     position: relative;
     z-index: 1;
@@ -152,7 +114,7 @@
 .dss-benefit:nth-child(4) { animation-delay: 0.65s; }
 
 .dss-diamond {
-    color: #E8B84B;
+    color: #B87333;
     font-size: 0.8rem;
     flex-shrink: 0;
     margin-top: 0.3em;
@@ -163,7 +125,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 0.925rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(44, 21, 5, 0.72);
 }
 
 
@@ -175,8 +137,8 @@
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #1C0A02;
-    background: #E8B84B;
+    color: #FFFFFF;
+    background: #2E4A3A;
     padding: 0.875rem 2rem;
     border-radius: 100px;
     text-decoration: none;
@@ -188,9 +150,9 @@
 }
 
 .dss-cta:hover {
-    background: #F5CC6A;
+    background: #1A3028;
     transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(232, 184, 75, 0.28);
+    box-shadow: 0 10px 28px rgba(46, 74, 58, 0.28);
 }
 
 
@@ -210,31 +172,41 @@
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 
-/* Tablet: stack vertically */
+/* Tablet: stack vertically, show full image as overlay */
 @media (max-width: 900px) {
-    .dss-grid {
-        grid-template-columns: 1fr;
+    .dss-section {
+        background-size: cover;
+        background-position: right top;
+        min-height: auto;
     }
 
-    .dss-symbol-pane {
-        height: 280px;
+    /* Overlay for readability */
+    .dss-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(245, 239, 224, 0.88);
+        z-index: 0;
     }
 
-    .dss-om-symbol {
-        font-size: 10rem;
-    }
-
-    .dss-content-pane {
+    .dss-container {
+        position: relative;
+        z-index: 1;
+        max-width: 100%;
         padding: 3rem 2.5rem;
     }
 
     .dss-headline {
         font-size: 2.25rem;
     }
+
+    .dss-glow {
+        opacity: 0.5;
+    }
 }
 
 @media (max-width: 640px) {
-    .dss-content-pane {
+    .dss-container {
         padding: 2.5rem 1.5rem;
     }
 
@@ -245,13 +217,17 @@
     .dss-benefit > span:last-child {
         font-size: 0.875rem;
     }
+
+    .dss-kicker {
+        margin-bottom: 0.8rem;
+    }
 }
 
 
 /* ─── Accessibility ──────────────────────────────────────────────────────── */
 
 .dss-cta:focus-visible {
-    outline: 2px solid #E8B84B;
+    outline: 2px solid #2E4A3A;
     outline-offset: 3px;
 }
 
