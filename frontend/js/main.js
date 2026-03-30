@@ -98,4 +98,7 @@ if (document.getElementById('hero')) {
 if (document.getElementById('transformation-triptych')) {
     loadComponent("transformation-triptych", ROOT + "components/transformation-triptych.html");
 }
+if (document.getElementById('dss-shibir')) {
+    loadComponent("dss-shibir", ROOT + "components/dss-shibir.html");
+}
 loadComponent("footer", ROOT + "components/footer.html");

@@ -1,0 +1,257 @@
+/* ─── DSS Shibir Section ─────────────────────────────────────────────────── */
+
+.dss-section {
+    background-color: #1C0A02;
+    position: relative;
+}
+
+/* Gold thread divider that separates triptych (light) from this (dark) */
+.dss-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent 0%, #E8B84B 40%, #B87333 60%, transparent 100%);
+    opacity: 0.5;
+}
+
+/* Two-column grid: 45% image / 55% content */
+.dss-grid {
+    display: grid;
+    grid-template-columns: 45fr 55fr;
+    min-height: 580px;
+}
+
+
+/* ─── Left: Image Pane ───────────────────────────────────────────────────── */
+
+.dss-image-pane {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Fallback colour if image fails to load */
+    background-color: #2E0E02;
+}
+
+/* Gradient fades the image into the dark right panel */
+.dss-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(28, 10, 2, 0.15) 0%,
+        rgba(28, 10, 2, 0.55) 85%,
+        rgba(28, 10, 2, 0.85) 100%
+    );
+}
+
+
+/* ─── Right: Content Pane ────────────────────────────────────────────────── */
+
+.dss-content-pane {
+    position: relative;
+    padding: 4.5rem 4rem 4.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Subtle radial aura behind content — evokes Devi's divine light */
+.dss-glow {
+    position: absolute;
+    top: 50%;
+    left: -80px;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(232, 184, 75, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+
+/* Small all-caps label above headline */
+.dss-kicker {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #E8B84B;
+    margin-bottom: 1.1rem;
+    position: relative;
+    z-index: 1;
+    animation: dssFadeUp 0.7s ease-out 0.1s both;
+}
+
+/* Main headline */
+.dss-headline {
+    font-family: 'Lora', serif;
+    font-size: 2.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    z-index: 1;
+    animation: dssFadeUp 0.7s ease-out 0.2s both;
+}
+
+/* Short gold-copper gradient rule beneath headline */
+.dss-rule {
+    width: 56px;
+    height: 2px;
+    background: linear-gradient(to right, #E8B84B, #B87333);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    animation: dssFadeUp 0.7s ease-out 0.3s both;
+}
+
+
+/* ─── Benefits List ──────────────────────────────────────────────────────── */
+
+.dss-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.dss-benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    animation: dssFadeUp 0.6s ease-out both;
+}
+
+.dss-benefit:nth-child(1) { animation-delay: 0.35s; }
+.dss-benefit:nth-child(2) { animation-delay: 0.45s; }
+.dss-benefit:nth-child(3) { animation-delay: 0.55s; }
+.dss-benefit:nth-child(4) { animation-delay: 0.65s; }
+
+.dss-diamond {
+    color: #E8B84B;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 0.3em;
+    line-height: 1;
+}
+
+.dss-benefit > span:last-child {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.925rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* ─── CTA Button ─────────────────────────────────────────────────────────── */
+
+.dss-cta {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1C0A02;
+    background: #E8B84B;
+    padding: 0.875rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    width: fit-content;
+    transition: background 280ms ease, transform 280ms ease, box-shadow 280ms ease;
+    position: relative;
+    z-index: 1;
+    animation: dssFadeUp 0.6s ease-out 0.75s both;
+}
+
+.dss-cta:hover {
+    background: #F5CC6A;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(232, 184, 75, 0.28);
+}
+
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+
+@keyframes dssFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+/* Tablet: stack vertically */
+@media (max-width: 900px) {
+    .dss-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dss-image-pane {
+        height: 320px;
+    }
+
+    /* On mobile the right-to-left fade doesn't make sense — darken uniformly */
+    .dss-image-overlay {
+        background: rgba(28, 10, 2, 0.4);
+    }
+
+    .dss-content-pane {
+        padding: 3rem 2.5rem;
+    }
+
+    .dss-headline {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .dss-content-pane {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .dss-headline {
+        font-size: 1.9rem;
+    }
+
+    .dss-benefit > span:last-child {
+        font-size: 0.875rem;
+    }
+}
+
+
+/* ─── Accessibility ──────────────────────────────────────────────────────── */
+
+.dss-cta:focus-visible {
+    outline: 2px solid #E8B84B;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dss-kicker,
+    .dss-headline,
+    .dss-rule,
+    .dss-benefit,
+    .dss-cta {
+        animation: none;
+    }
+
+    .dss-cta:hover {
+        transform: none;
+    }
+}
