@@ -22,7 +22,7 @@
     inset: 0;
     background-image: url('../../assets/images/founder/FDSiZ86LSa2bd9qXwo1I_Homepage+with+Guru+10.jpg');
     background-size: cover;
-    background-position: center right;
+    background-position: right;
     background-repeat: no-repeat;
     z-index: 1;
 }
@@ -98,14 +98,26 @@
 /* Body text — readable on overlay */
 .dss-body {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1.6rem;
+    line-height: 1.4;
     color: #E8D5C0;
     margin: 0 0 2.5rem 0;
     position: relative;
     z-index: 1;
     max-width: 90%;
     animation: dssFadeUp 0.8s ease-out 0.4s both;
+}
+
+/* Secondary body text — closer to CTA */
+.dss-body-secondary {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #E8D5C0;
+    margin: 0 0 1.2rem 0;
+    position: relative;
+    z-index: 1;
+    animation: dssFadeUp 0.8s ease-out 0.45s both;
 }
 
 /* ─── CTA Button ─────────────────────────────────────────────────────────── */
