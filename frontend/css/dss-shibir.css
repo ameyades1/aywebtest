@@ -128,8 +128,8 @@
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #FFFFFF;
-    background: linear-gradient(135deg, #D4A247, #B87333);
+    color: #4A2810;
+    background: #F9F6F0;
     padding: 1rem 2.2rem;
     border-radius: 100px;
     text-decoration: none;
@@ -138,13 +138,14 @@
     position: relative;
     z-index: 1;
     animation: dssFadeUp 0.8s ease-out 0.5s both;
-    box-shadow: 0 8px 24px rgba(212, 162, 71, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .dss-cta:hover {
-    background: linear-gradient(135deg, #E8B84B, #D4A247);
+    background: #E8B84B;
+    color: #4A2810;
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(212, 162, 71, 0.5);
+    box-shadow: 0 12px 32px rgba(232, 184, 75, 0.4);
 }
 
 .dss-cta:active {
