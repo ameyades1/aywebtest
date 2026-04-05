@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Antar Yog Foundation</title>
+
+    <script src="../js/tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <main class="min-h-screen py-12 lg:py-20 flex items-center justify-center bg-[#F9F6F0]">
+        <div class="w-full max-w-md px-4 md:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-10">
+
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <div class="inline-block mb-6">
+                        <img src="../assets/logo.png" alt="AntarYog Foundation" class="h-12 w-auto">
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-[#5C3010] mb-2">Welcome Back</h1>
+                </div>
+
+                <!-- ===== SCREEN 1: Method Selection ===== -->
+                <div id="methodScreen" class="screen active space-y-4">
+                    <p class="text-center text-[#7A6858] mb-6 text-sm font-medium">Login with your verified email address or phone number</p>
+
+                    <button type="button" onclick="showScreen('emailScreen')" class="method-btn w-full">
+                        <svg class="w-6 h-6 mx-auto mb-2 stroke-current" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Login with Email
+                    </button>
+
+                    <button type="button" onclick="showScreen('phoneScreen')" class="method-btn w-full">
+                        <svg class="w-6 h-6 mx-auto mb-2 stroke-current" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                        Login with Phone
+                    </button>
+
+                    <div class="text-center pt-6 border-t border-gray-200">
+                        <p class="text-[#7A6858] text-sm">
+                            New user?
+                            <a href="signup.html" class="text-[#B87333] hover:text-[#5C3010] font-semibold transition-colors">Create an account</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ===== SCREEN 2A: Email Login ===== -->
+                <div id="emailScreen" class="screen space-y-6">
+                    <div>
+                        <label for="loginEmail" class="block text-sm font-semibold text-[#5C3010] mb-2">Email Address</label>
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="you@example.com"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010] placeholder-gray-400"
+                        >
+                        <p class="mt-1 text-sm text-red-500 hidden" id="loginEmail-error"></p>
+                    </div>
+
+                    <button type="button" onclick="handleEmailLogin()"
+                        class="w-full bg-[#B87333] hover:bg-[#5C3010] text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-sans">
+                        Send OTP
+                    </button>
+
+                    <button type="button" onclick="showScreen('methodScreen')"
+                        class="w-full text-[#B87333] hover:text-[#5C3010] font-semibold py-3 px-6 rounded-full transition-all border-2 border-[#B87333] hover:bg-[#F9F6F0]">
+                        Back
+                    </button>
+                </div>
+
+                <!-- ===== SCREEN 2B: Phone Login ===== -->
+                <div id="phoneScreen" class="screen space-y-6">
+                    <div>
+                        <label for="loginPhone" class="block text-sm font-semibold text-[#5C3010] mb-2">Phone Number</label>
+                        <div class="flex gap-2">
+                            <select id="loginCountryCode"
+                                class="w-24 px-3 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010]">
+                                <option value="+91">+91</option>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                                <option value="+86">+86</option>
+                                <option value="+81">+81</option>
+                            </select>
+                            <input type="tel" id="loginPhone" placeholder="9876543210" pattern="[0-9]{10}"
+                                class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010] placeholder-gray-400">
+                        </div>
+                        <p class="mt-1 text-xs text-[#7A6858]">10-digit mobile number</p>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="loginPhone-error"></p>
+                    </div>
+
+                    <button type="button" onclick="handlePhoneLogin()"
+                        class="w-full bg-[#B87333] hover:bg-[#5C3010] text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        Send OTP
+                    </button>
+
+                    <button type="button" onclick="showScreen('methodScreen')"
+                        class="w-full text-[#B87333] hover:text-[#5C3010] font-semibold py-3 px-6 rounded-full transition-all border-2 border-[#B87333] hover:bg-[#F9F6F0]">
+                        Back
+                    </button>
+                </div>
+
+                <!-- ===== SCREEN 3: OTP Verification ===== -->
+                <div id="otpScreen" class="screen space-y-6">
+                    <div class="masked-identifier" id="maskedIdentifier"></div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-[#5C3010] mb-3 text-center">Enter 6-digit code</label>
+                        <div class="otp-container">
+                            <input type="text" class="otp-input" id="otp1" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp2" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp3" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp4" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp5" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp6" maxlength="1" inputmode="numeric">
+                        </div>
+                        <p class="mt-2 text-sm text-red-500 hidden text-center" id="otp-error"></p>
+                    </div>
+
+                    <button type="button" onclick="handleOTPVerification()"
+                        class="w-full bg-[#B87333] hover:bg-[#5C3010] text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        Verify & Login
+                    </button>
+
+                    <div class="text-center">
+                        <p class="text-sm text-[#7A6858] mb-3">Didn't receive the code?</p>
+                        <button type="button" id="resendBtn" onclick="handleResendOTP()" class="resend-btn">
+                            Resend OTP in <span id="resendTimer">60</span>s
+                        </button>
+                    </div>
+
+                    <button type="button" onclick="goToPreviousScreen()"
+                        class="w-full text-[#B87333] hover:text-[#5C3010] font-semibold py-3 px-6 rounded-full transition-all border-2 border-[#B87333] hover:bg-[#F9F6F0]">
+                        Try Different Method
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Footer Links -->
+            <div class="mt-8 text-center text-sm text-[#7A6858]">
+                <p>By logging in, you agree to our
+                    <a href="#" class="text-[#B87333] hover:text-[#5C3010] font-semibold">Terms & Conditions</a>
+                    and
+                    <a href="#" class="text-[#B87333] hover:text-[#5C3010] font-semibold">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>window.ROOT_PATH = '../';</script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        // ========== OTP Authentication State ==========
+        let authState = {
+            method: null,
+            identifier: null,
+            countryCode: '+91',
+            previousScreen: null
+        };
+
+        // ========== Screen Navigation ==========
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            if (screenId === 'otpScreen') {
+                document.getElementById('otp1').focus();
+                startResendTimer();
+            }
+        }
+
+        function goToPreviousScreen() {
+            if (authState.method === 'email') {
+                showScreen('emailScreen');
+                document.getElementById('loginEmail').focus();
+            } else if (authState.method === 'phone') {
+                showScreen('phoneScreen');
+                document.getElementById('loginPhone').focus();
+            }
+        }
+
+        // ========== Email Login ==========
+        function handleEmailLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const emailError = document.getElementById('loginEmail-error');
+            emailError.classList.add('hidden');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.classList.remove('hidden');
+                return;
+            }
+
+            authState.method = 'email';
+            authState.identifier = email;
+            authState.previousScreen = 'emailScreen';
+            document.getElementById('maskedIdentifier').textContent = `Verification code sent to ${maskEmail(email)}`;
+            resetOTPInputs();
+            showScreen('otpScreen');
+        }
+
+        // ========== Phone Login ==========
+        function handlePhoneLogin() {
+            const phone = document.getElementById('loginPhone').value.replace(/\D/g, '');
+            const countryCode = document.getElementById('loginCountryCode').value;
+            const phoneError = document.getElementById('loginPhone-error');
+            phoneError.classList.add('hidden');
+
+            if (phone.length !== 10) {
+                phoneError.textContent = 'Please enter a valid 10-digit phone number';
+                phoneError.classList.remove('hidden');
+                return;
+            }
+
+            authState.method = 'phone';
+            authState.identifier = phone;
+            authState.countryCode = countryCode;
+            authState.previousScreen = 'phoneScreen';
+            document.getElementById('maskedIdentifier').textContent = `Verification code sent to ${maskPhone(countryCode + phone)}`;
+            resetOTPInputs();
+            showScreen('otpScreen');
+        }
+
+        // ========== OTP Input Handling ==========
+        function setupOTPInputs() {
+            const otpInputs = document.querySelectorAll('.otp-input');
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', (e) => {
+                    const value = e.target.value;
+                    if (!/^\d$/.test(value) && value !== '') {
+                        e.target.value = '';
+                        return;
+                    }
+                    if (value) {
+                        input.classList.add('filled');
+                        input.classList.remove('error');
+                    } else {
+                        input.classList.remove('filled');
+                    }
+                    if (value && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace') {
+                        if (input.value) {
+                            input.value = '';
+                            input.classList.remove('filled');
+                        } else if (index > 0) {
+                            otpInputs[index - 1].focus();
+                            otpInputs[index - 1].value = '';
+                            otpInputs[index - 1].classList.remove('filled');
+                        }
+                    }
+                });
+
+                input.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    const digits = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
+                    if (digits.length === 6) {
+                        otpInputs.forEach((inp, i) => {
+                            inp.value = digits[i];
+                            inp.classList.add('filled');
+                        });
+                    }
+                });
+            });
+        }
+
+        function resetOTPInputs() {
+            document.querySelectorAll('.otp-input').forEach(input => {
+                input.value = '';
+                input.classList.remove('filled', 'error');
+            });
+            document.getElementById('otp-error').classList.add('hidden');
+        }
+
+        // ========== OTP Verification ==========
+        function handleOTPVerification() {
+            const otp = Array.from(document.querySelectorAll('.otp-input')).map(i => i.value).join('');
+            document.getElementById('otp-error').classList.add('hidden');
+
+            if (otp.length !== 6) {
+                showOTPError('Please enter all 6 digits');
+                return;
+            }
+            if (!/^\d{6}$/.test(otp)) {
+                showOTPError('Please enter valid digits only');
+                return;
+            }
+
+            // Mock: valid code is 123456
+            if (otp === '123456') {
+                const displayName = authState.method === 'email'
+                    ? authState.identifier.split('@')[0]
+                    : 'Sadhak';
+                localStorage.setItem('firstName', displayName);
+                localStorage.setItem('userEmail', authState.identifier);
+                window.location.href = '../index.html';
+            } else {
+                showOTPError('Invalid code. Please try again or request a new one.');
+            }
+        }
+
+        function showOTPError(message) {
+            const errorEl = document.getElementById('otp-error');
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
+            document.querySelectorAll('.otp-input').forEach(input => input.classList.add('error'));
+            setTimeout(() => {
+                resetOTPInputs();
+                document.getElementById('otp1').focus();
+            }, 600);
+        }
+
+        // ========== Resend OTP ==========
+        let resendTimerInterval;
+
+        function handleResendOTP() {
+            document.getElementById('resendBtn').disabled = true;
+            alert('OTP resent to ' + authState.identifier);
+            startResendTimer();
+        }
+
+        function startResendTimer() {
+            let secondsLeft = 60;
+            const resendBtn = document.getElementById('resendBtn');
+            const timerSpan = document.getElementById('resendTimer');
+            resendBtn.disabled = true;
+            timerSpan.textContent = secondsLeft;
+
+            if (resendTimerInterval) clearInterval(resendTimerInterval);
+
+            resendTimerInterval = setInterval(() => {
+                secondsLeft--;
+                timerSpan.textContent = secondsLeft;
+                if (secondsLeft === 0) {
+                    clearInterval(resendTimerInterval);
+                    resendBtn.disabled = false;
+                    resendBtn.innerHTML = 'Resend OTP';
+                }
+            }, 1000);
+        }
+
+        // ========== Helpers ==========
+        function maskEmail(email) {
+            const [localPart, domain] = email.split('@');
+            if (localPart.length <= 2) return email;
+            return localPart[0] + '*'.repeat(localPart.length - 2) + localPart[localPart.length - 1] + '@' + domain;
+        }
+
+        function maskPhone(fullPhone) {
+            const countryCode = fullPhone.slice(0, fullPhone.length - 10);
+            const lastDigits = fullPhone.slice(-3);
+            return `${countryCode} ****${lastDigits}`;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setupOTPInputs();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* ========== Auth Pages Shared CSS ========== */
+
+/* Screen State Machine */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+    animation: fadeIn 300ms ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Method Selection Buttons */
+.method-btn {
+    padding: 1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 0.75rem;
+    background-color: white;
+    cursor: pointer;
+    transition: all 300ms ease;
+    text-align: center;
+    font-weight: 600;
+    color: #5C3010;
+    font-family: 'Inter', sans-serif;
+}
+
+.method-btn:hover {
+    border-color: #B87333;
+    background-color: #FCF8F3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
+}
+
+.method-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 auto 0.5rem;
+}
+
+/* Form Inputs */
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+select {
+    transition: all 200ms ease;
+    font-family: 'Inter', sans-serif;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.1);
+}
+
+/* OTP Container and Inputs */
+.otp-container {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.otp-input {
+    width: 3rem;
+    height: 3.5rem;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    transition: all 200ms ease;
+    background-color: white;
+    color: #5C3010;
+    font-family: 'Inter', sans-serif;
+}
+
+.otp-input:focus {
+    outline: none;
+    border-color: #B87333;
+    box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.1);
+}
+
+.otp-input.filled {
+    border-color: #B87333;
+    background-color: #FCF8F3;
+}
+
+.otp-input.error {
+    border-color: #DC2626;
+    background-color: #FEE2E2;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+/* Masked Identifier (Email/Phone hint) */
+.masked-identifier {
+    font-size: 0.875rem;
+    color: #7A6858;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Resend Button */
+.resend-btn {
+    background: none;
+    border: none;
+    color: #B87333;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 200ms ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+}
+
+.resend-btn:hover:not(:disabled) {
+    color: #5C3010;
+}
+
+.resend-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: #7A6858;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: #B87333;
+}
+
+/* Error Text */
+.text-error {
+    color: #DC2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}

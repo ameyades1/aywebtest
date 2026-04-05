@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Antar Yog Foundation</title>
+
+    <script src="../js/tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <main class="min-h-screen py-12 lg:py-20 flex items-center justify-center bg-[#F9F6F0]">
+        <div class="w-full max-w-md px-4 md:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-10">
+
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <div class="inline-block mb-6">
+                        <img src="../assets/logo.png" alt="AntarYog Foundation" class="h-12 w-auto">
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-[#5C3010] mb-2">Create Your Account</h1>
+                </div>
+
+                <!-- ===== SCREEN 1: Method Selection ===== -->
+                <div id="methodScreen" class="screen active space-y-4">
+                    <p class="text-center text-[#7A6858] mb-6 text-sm font-medium">Choose your preferred signup method</p>
+
+                    <button type="button" onclick="showScreen('emailSignupScreen')" class="method-btn w-full">
+                        <svg class="w-6 h-6 mx-auto mb-2 stroke-current" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Sign Up with Email
+                    </button>
+
+                    <button type="button" onclick="showScreen('phoneSignupScreen')" class="method-btn w-full">
+                        <svg class="w-6 h-6 mx-auto mb-2 stroke-current" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                        Sign Up with Phone
+                    </button>
+
+                    <div class="text-center pt-6 border-t border-gray-200">
+                        <p class="text-[#7A6858] text-sm">
+                            Already have an account?
+                            <a href="login.html" class="text-[#B87333] hover:text-[#5C3010] font-semibold transition-colors">Login here</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ===== SCREEN 2A: Email Signup ===== -->
+                <div id="emailSignupScreen" class="screen space-y-5">
+                    <div>
+                        <label for="signupEmail" class="block text-sm font-semibold text-[#5C3010] mb-2">
+                            Email Address <span class="text-red-500">*</span>
+                        </label>
+                        <input type="email" id="signupEmail" placeholder="you@example.com"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010] placeholder-gray-400">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="signupEmail-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="signupName" class="block text-sm font-semibold text-[#5C3010] mb-2">
+                            Full Name <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="signupName" placeholder="Enter your full name"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010] placeholder-gray-400">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="signupName-error"></p>
+                    </div>
+
+                    <!-- Notification opt-in -->
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="emailNotifications" name="emailNotifications" checked
+                            class="mt-1 h-4 w-4 rounded cursor-pointer">
+                        <label for="emailNotifications" class="text-sm text-[#7A6858] cursor-pointer">
+                            I want to receive updates about events, programs, and spiritual guidance
+                        </label>
+                    </div>
+
+                    <!-- Terms agreement (required) -->
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="emailTerms" name="emailTerms" required
+                            class="mt-1 h-4 w-4 rounded cursor-pointer">
+                        <label for="emailTerms" class="text-sm text-[#5C3010] cursor-pointer">
+                            I agree to the
+                            <a href="#" class="text-[#B87333] hover:text-[#5C3010] font-semibold">Terms & Conditions</a>
+                            and
+                            <a href="#" class="text-[#B87333] hover:text-[#5C3010] font-semibold">Privacy Policy</a>
+                            <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    <p class="text-sm text-red-500 hidden" id="emailTerms-error"></p>
+
+                    <button type="button" onclick="handleEmailSignup()"
+                        class="w-full bg-[#B87333] hover:bg-[#5C3010] text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        Send OTP & Continue
+                    </button>
+
+                    <button type="button" onclick="showScreen('methodScreen')"
+                        class="w-full text-[#B87333] hover:text-[#5C3010] font-semibold py-3 px-6 rounded-full transition-all border-2 border-[#B87333] hover:bg-[#F9F6F0]">
+                        Back
+                    </button>
+                </div>
+
+                <!-- ===== SCREEN 2B: Phone Signup ===== -->
+                <div id="phoneSignupScreen" class="screen space-y-5">
+                    <div>
+                        <label for="signupPhone" class="block text-sm font-semibold text-[#5C3010] mb-2">
+                            Phone Number <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex gap-2">
+                            <select id="signupCountryCode"
+                                class="w-24 px-3 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010]">
+                                <option value="+91">+91</option>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                                <option value="+86">+86</option>
+                                <option value="+81">+81</option>
+                            </select>
+                            <input type="tel" id="signupPhone" placeholder="9876543210" pattern="[0-9]{10}"
+                                class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010] placeholder-gray-400">
+                        </div>
+                        <p class="mt-1 text-xs text-[#7A6858]">10-digit mobile number</p>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="signupPhone-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="phoneName" class="block text-sm font-semibold text-[#5C3010] mb-2">
+                            Full Name <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="phoneName" placeholder="Enter your full name"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-[#5C3010] placeholder-gray-400">
+                        <p class="mt-1 text-sm text-red-500 hidden" id="phoneName-error"></p>
+                    </div>
+
+                    <!-- Notification opt-in -->
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="phoneNotifications" name="phoneNotifications" checked
+                            class="mt-1 h-4 w-4 rounded cursor-pointer">
+                        <label for="phoneNotifications" class="text-sm text-[#7A6858] cursor-pointer">
+                            I want to receive updates about events, programs, and spiritual guidance
+                        </label>
+                    </div>
+
+                    <!-- Terms agreement (required) -->
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="phoneTerms" name="phoneTerms" required
+                            class="mt-1 h-4 w-4 rounded cursor-pointer">
+                        <label for="phoneTerms" class="text-sm text-[#5C3010] cursor-pointer">
+                            I agree to the
+                            <a href="#" class="text-[#B87333] hover:text-[#5C3010] font-semibold">Terms & Conditions</a>
+                            and
+                            <a href="#" class="text-[#B87333] hover:text-[#5C3010] font-semibold">Privacy Policy</a>
+                            <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    <p class="text-sm text-red-500 hidden" id="phoneTerms-error"></p>
+
+                    <button type="button" onclick="handlePhoneSignup()"
+                        class="w-full bg-[#B87333] hover:bg-[#5C3010] text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        Send OTP & Continue
+                    </button>
+
+                    <button type="button" onclick="showScreen('methodScreen')"
+                        class="w-full text-[#B87333] hover:text-[#5C3010] font-semibold py-3 px-6 rounded-full transition-all border-2 border-[#B87333] hover:bg-[#F9F6F0]">
+                        Back
+                    </button>
+                </div>
+
+                <!-- ===== SCREEN 3: OTP Verification ===== -->
+                <div id="otpScreen" class="screen space-y-6">
+                    <div class="masked-identifier" id="maskedIdentifier"></div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-[#5C3010] mb-3 text-center">Enter 6-digit code</label>
+                        <div class="otp-container">
+                            <input type="text" class="otp-input" id="otp1" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp2" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp3" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp4" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp5" maxlength="1" inputmode="numeric">
+                            <input type="text" class="otp-input" id="otp6" maxlength="1" inputmode="numeric">
+                        </div>
+                        <p class="mt-2 text-sm text-red-500 hidden text-center" id="otp-error"></p>
+                    </div>
+
+                    <button type="button" onclick="handleOTPVerification()"
+                        class="w-full bg-[#B87333] hover:bg-[#5C3010] text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        Verify & Create Account
+                    </button>
+
+                    <div class="text-center">
+                        <p class="text-sm text-[#7A6858] mb-3">Didn't receive the code?</p>
+                        <button type="button" id="resendBtn" onclick="handleResendOTP()" class="resend-btn">
+                            Resend OTP in <span id="resendTimer">60</span>s
+                        </button>
+                    </div>
+
+                    <button type="button" onclick="goToPreviousScreen()"
+                        class="w-full text-[#B87333] hover:text-[#5C3010] font-semibold py-3 px-6 rounded-full transition-all border-2 border-[#B87333] hover:bg-[#F9F6F0]">
+                        Edit Details
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Footer Links -->
+            <div class="mt-8 text-center text-xs text-[#7A6858] px-4">
+                <p>We respect your privacy. Your data will be used only to provide services and send relevant information based on your preferences.</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>window.ROOT_PATH = '../';</script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        // ========== Signup State ==========
+        let signupState = {
+            method: null,
+            identifier: null,
+            fullName: null,
+            countryCode: '+91',
+            notifications: true,
+            previousScreen: null
+        };
+
+        // ========== Screen Navigation ==========
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            if (screenId === 'otpScreen') {
+                document.getElementById('otp1').focus();
+                startResendTimer();
+            }
+        }
+
+        function goToPreviousScreen() {
+            if (signupState.method === 'email') {
+                showScreen('emailSignupScreen');
+                document.getElementById('signupName').focus();
+            } else if (signupState.method === 'phone') {
+                showScreen('phoneSignupScreen');
+                document.getElementById('phoneName').focus();
+            }
+        }
+
+        // ========== Email Signup ==========
+        function handleEmailSignup() {
+            const email = document.getElementById('signupEmail').value.trim();
+            const name = document.getElementById('signupName').value.trim();
+            const terms = document.getElementById('emailTerms').checked;
+
+            const emailError = document.getElementById('signupEmail-error');
+            const nameError = document.getElementById('signupName-error');
+            const termsError = document.getElementById('emailTerms-error');
+
+            emailError.classList.add('hidden');
+            nameError.classList.add('hidden');
+            termsError.classList.add('hidden');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.classList.remove('hidden');
+                return;
+            }
+
+            if (name.length < 2) {
+                nameError.textContent = 'Please enter at least 2 characters';
+                nameError.classList.remove('hidden');
+                return;
+            }
+
+            if (!terms) {
+                termsError.textContent = 'You must agree to the terms';
+                termsError.classList.remove('hidden');
+                return;
+            }
+
+            signupState.method = 'email';
+            signupState.identifier = email;
+            signupState.fullName = name;
+            signupState.notifications = document.getElementById('emailNotifications').checked;
+            signupState.previousScreen = 'emailSignupScreen';
+
+            document.getElementById('maskedIdentifier').textContent = `Verification code sent to ${maskEmail(email)}`;
+            resetOTPInputs();
+            showScreen('otpScreen');
+        }
+
+        // ========== Phone Signup ==========
+        function handlePhoneSignup() {
+            const phone = document.getElementById('signupPhone').value.replace(/\D/g, '');
+            const countryCode = document.getElementById('signupCountryCode').value;
+            const name = document.getElementById('phoneName').value.trim();
+            const terms = document.getElementById('phoneTerms').checked;
+
+            const phoneError = document.getElementById('signupPhone-error');
+            const nameError = document.getElementById('phoneName-error');
+            const termsError = document.getElementById('phoneTerms-error');
+
+            phoneError.classList.add('hidden');
+            nameError.classList.add('hidden');
+            termsError.classList.add('hidden');
+
+            if (phone.length !== 10) {
+                phoneError.textContent = 'Please enter a valid 10-digit phone number';
+                phoneError.classList.remove('hidden');
+                return;
+            }
+
+            if (name.length < 2) {
+                nameError.textContent = 'Please enter at least 2 characters';
+                nameError.classList.remove('hidden');
+                return;
+            }
+
+            if (!terms) {
+                termsError.textContent = 'You must agree to the terms';
+                termsError.classList.remove('hidden');
+                return;
+            }
+
+            signupState.method = 'phone';
+            signupState.identifier = phone;
+            signupState.fullName = name;
+            signupState.countryCode = countryCode;
+            signupState.notifications = document.getElementById('phoneNotifications').checked;
+            signupState.previousScreen = 'phoneSignupScreen';
+
+            document.getElementById('maskedIdentifier').textContent = `Verification code sent to ${maskPhone(countryCode + phone)}`;
+            resetOTPInputs();
+            showScreen('otpScreen');
+        }
+
+        // ========== OTP Input Handling ==========
+        function setupOTPInputs() {
+            const otpInputs = document.querySelectorAll('.otp-input');
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', (e) => {
+                    const value = e.target.value;
+                    if (!/^\d$/.test(value) && value !== '') {
+                        e.target.value = '';
+                        return;
+                    }
+                    if (value) {
+                        input.classList.add('filled');
+                        input.classList.remove('error');
+                    } else {
+                        input.classList.remove('filled');
+                    }
+                    if (value && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace') {
+                        if (input.value) {
+                            input.value = '';
+                            input.classList.remove('filled');
+                        } else if (index > 0) {
+                            otpInputs[index - 1].focus();
+                            otpInputs[index - 1].value = '';
+                            otpInputs[index - 1].classList.remove('filled');
+                        }
+                    }
+                });
+
+                input.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    const digits = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
+                    if (digits.length === 6) {
+                        otpInputs.forEach((inp, i) => {
+                            inp.value = digits[i];
+                            inp.classList.add('filled');
+                        });
+                    }
+                });
+            });
+        }
+
+        function resetOTPInputs() {
+            document.querySelectorAll('.otp-input').forEach(input => {
+                input.value = '';
+                input.classList.remove('filled', 'error');
+            });
+            document.getElementById('otp-error').classList.add('hidden');
+        }
+
+        // ========== OTP Verification ==========
+        function handleOTPVerification() {
+            const otp = Array.from(document.querySelectorAll('.otp-input')).map(i => i.value).join('');
+            document.getElementById('otp-error').classList.add('hidden');
+
+            if (otp.length !== 6) {
+                showOTPError('Please enter all 6 digits');
+                return;
+            }
+            if (!/^\d{6}$/.test(otp)) {
+                showOTPError('Please enter valid digits only');
+                return;
+            }
+
+            // Mock: valid code is 123456
+            if (otp === '123456') {
+                const firstName = signupState.fullName.split(' ')[0];
+                localStorage.setItem('firstName', firstName);
+                localStorage.setItem('userEmail', signupState.identifier);
+                window.location.href = '../index.html';
+            } else {
+                showOTPError('Invalid code. Please try again or request a new one.');
+            }
+        }
+
+        function showOTPError(message) {
+            const errorEl = document.getElementById('otp-error');
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
+            document.querySelectorAll('.otp-input').forEach(input => input.classList.add('error'));
+            setTimeout(() => {
+                resetOTPInputs();
+                document.getElementById('otp1').focus();
+            }, 600);
+        }
+
+        // ========== Resend OTP ==========
+        let resendTimerInterval;
+
+        function handleResendOTP() {
+            document.getElementById('resendBtn').disabled = true;
+            alert('OTP resent to ' + signupState.identifier);
+            startResendTimer();
+        }
+
+        function startResendTimer() {
+            let secondsLeft = 60;
+            const resendBtn = document.getElementById('resendBtn');
+            const timerSpan = document.getElementById('resendTimer');
+            resendBtn.disabled = true;
+            timerSpan.textContent = secondsLeft;
+
+            if (resendTimerInterval) clearInterval(resendTimerInterval);
+
+            resendTimerInterval = setInterval(() => {
+                secondsLeft--;
+                timerSpan.textContent = secondsLeft;
+                if (secondsLeft === 0) {
+                    clearInterval(resendTimerInterval);
+                    resendBtn.disabled = false;
+                    resendBtn.innerHTML = 'Resend OTP';
+                }
+            }, 1000);
+        }
+
+        // ========== Helpers ==========
+        function maskEmail(email) {
+            const [localPart, domain] = email.split('@');
+            if (localPart.length <= 2) return email;
+            return localPart[0] + '*'.repeat(localPart.length - 2) + localPart[localPart.length - 1] + '@' + domain;
+        }
+
+        function maskPhone(fullPhone) {
+            const countryCode = fullPhone.slice(0, fullPhone.length - 10);
+            const lastDigits = fullPhone.slice(-3);
+            return `${countryCode} ****${lastDigits}`;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setupOTPInputs();
+        });
+    </script>
+</body>
+</html>
