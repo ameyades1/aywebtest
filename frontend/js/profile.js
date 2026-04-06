@@ -321,6 +321,37 @@ const personalProfileData = {
 // Make globally accessible
 window.personalProfileData = personalProfileData;
 
+const volunteeringProfileData = {
+    occupation: 'Software Engineer',
+    yearsExperience: '6-10',
+    industry: 'Information Technology',
+    professionalSkills: 'Project management, mentoring junior developers, system design',
+    educationLevel: 'bachelor',
+    fieldOfStudy: 'Computer Science',
+    teachingExperience: '1-3',
+    volunteerExperience: 'Volunteered with local NGO for educational outreach',
+    spiritualBackground: 'Regular meditation practitioner, studying Vedantic philosophy',
+    volunteerInterests: ['Teaching & Instruction', 'Technology & Digital', 'Administrative Support'],
+    languages: ['English', 'Hindi'],
+    sanskritLevel: 'basic',
+    technicalSkills: ['Web Development', 'Social Media Management'],
+    creativeSkills: ['Writing'],
+    managementSkills: ['Project Management', 'Training & Mentoring'],
+    additionalSkills: 'Fluent in Python, Java; Experience with full-stack development',
+    hoursPerWeek: '6-10',
+    preferredDays: ['Saturday', 'Sunday'],
+    preferredTimeSlots: ['Morning', 'Afternoon'],
+    volunteeringFormat: 'Hybrid',
+    willingToTravel: 'within-state',
+    travelDistance: '150',
+    motivation: 'I am passionate about combining my technical expertise with spiritual service to help our community grow digitally',
+    goals: 'To contribute meaningfully to technology initiatives and mentor others in the spiritual journey',
+    specialProjects: 'Interested in website development, app development for spiritual learning, and online course creation',
+    profileCompleted: true
+};
+
+window.volunteeringProfileData = volunteeringProfileData;
+
 // ════════════════════════════════════════════════════════════════════════════════
 // SECTION SWITCHING
 // ════════════════════════════════════════════════════════════════════════════════
@@ -1100,6 +1131,7 @@ async function loadProfileSections() {
 
 function initProfilePage() {
     initPersonalProfile();
+    renderVolunteeringProfile(loadVolunteeringProfile());
     renderCenters(centersData);
     renderShibirs(shibirsData);
     renderNaadiBirthProfile(naadiUserProfile);
@@ -1139,8 +1171,275 @@ function initPersonalProfile() {
     }
 }
 
+// ════════════════════════════════════════════════════════════════════════════════
+// VOLUNTEERING PROFILE SECTION (Phase 5)
+// ════════════════════════════════════════════════════════════════════════════════
+
+window.openEditVolunteeringModal = function() {
+    window.openModal('editVolunteeringModal');
+    populateVolunteeringForm();
+};
+
+function populateVolunteeringForm() {
+    const profile = loadVolunteeringProfile();
+
+    // Text inputs and selects
+    document.getElementById('volOccupation').value = profile.occupation || '';
+    document.getElementById('volYearsExp').value = profile.yearsExperience || '';
+    document.getElementById('volIndustry').value = profile.industry || '';
+    document.getElementById('volProfSkills').value = profile.professionalSkills || '';
+    document.getElementById('volEducation').value = profile.educationLevel || '';
+    document.getElementById('volFieldOfStudy').value = profile.fieldOfStudy || '';
+    document.getElementById('volTeachingExp').value = profile.teachingExperience || '';
+    document.getElementById('volPrevExp').value = profile.volunteerExperience || '';
+    document.getElementById('volSpiritualBg').value = profile.spiritualBackground || '';
+    document.getElementById('volAdditionalSkills').value = profile.additionalSkills || '';
+    document.getElementById('volHours').value = profile.hoursPerWeek || '';
+    document.getElementById('volMotivation').value = profile.motivation || '';
+    document.getElementById('volGoals').value = profile.goals || '';
+    document.getElementById('volSpecialProjects').value = profile.specialProjects || '';
+    document.getElementById('travelDistance').value = profile.travelDistance || '';
+    document.getElementById('volSanskritLevel').value = profile.sanskritLevel || '';
+
+    // Reset all checkboxes first
+    document.querySelectorAll('#editVolunteeringModal input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+    });
+
+    // Volunteer interests
+    if (profile.volunteerInterests) {
+        profile.volunteerInterests.forEach(interest => {
+            const checkbox = Array.from(document.querySelectorAll('#volInt1, #volInt2, #volInt3, #volInt4, #volInt5, #volInt6, #volInt7, #volInt8, #volInt9, #volInt10'))
+                .find(cb => cb.value === interest);
+            if (checkbox) checkbox.checked = true;
+        });
+    }
+
+    // Languages
+    if (profile.languages) {
+        profile.languages.forEach(lang => {
+            const checkbox = Array.from(document.querySelectorAll('#volLang1, #volLang2, #volLang3, #volLang4'))
+                .find(cb => cb.value === lang);
+            if (checkbox) checkbox.checked = true;
+        });
+    }
+
+    // Technical skills
+    if (profile.technicalSkills) {
+        profile.technicalSkills.forEach(skill => {
+            const checkbox = Array.from(document.querySelectorAll('#volTech1, #volTech2, #volTech3, #volTech4, #volTech5, #volTech6'))
+                .find(cb => cb.value === skill);
+            if (checkbox) checkbox.checked = true;
+        });
+    }
+
+    // Creative skills
+    if (profile.creativeSkills) {
+        profile.creativeSkills.forEach(skill => {
+            const checkbox = Array.from(document.querySelectorAll('#volCreative1, #volCreative2, #volCreative3, #volCreative4, #volCreative5'))
+                .find(cb => cb.value === skill);
+            if (checkbox) checkbox.checked = true;
+        });
+    }
+
+    // Management skills
+    if (profile.managementSkills) {
+        profile.managementSkills.forEach(skill => {
+            const checkbox = Array.from(document.querySelectorAll('#volMgmt1, #volMgmt2, #volMgmt3, #volMgmt4, #volMgmt5, #volMgmt6'))
+                .find(cb => cb.value === skill);
+            if (checkbox) checkbox.checked = true;
+        });
+    }
+
+    // Preferred days
+    if (profile.preferredDays) {
+        profile.preferredDays.forEach(day => {
+            const checkbox = Array.from(document.querySelectorAll('#volDay1, #volDay2, #volDay3, #volDay4, #volDay5, #volDay6, #volDay7, #volDay8'))
+                .find(cb => cb.value === day);
+            if (checkbox) checkbox.checked = true;
+        });
+    }
+
+    // Preferred time slots
+    if (profile.preferredTimeSlots) {
+        profile.preferredTimeSlots.forEach(time => {
+            const checkbox = Array.from(document.querySelectorAll('#volTime1, #volTime2, #volTime3, #volTime4, #volTime5, #volTime6'))
+                .find(cb => cb.value === time);
+            if (checkbox) checkbox.checked = true;
+        });
+    }
+
+    // Radio buttons
+    if (profile.volunteeringFormat) {
+        const formatRadio = document.querySelector(`input[name="volFormat"][value="${profile.volunteeringFormat}"]`);
+        if (formatRadio) formatRadio.checked = true;
+    }
+
+    if (profile.willingToTravel) {
+        const travelRadio = document.querySelector(`input[name="volTravel"][value="${profile.willingToTravel}"]`);
+        if (travelRadio) travelRadio.checked = true;
+    }
+
+    // Update character counters
+    setupCharacterCounters();
+}
+
+window.saveVolunteeringProfile = function() {
+    const profile = {
+        // Professional Background
+        occupation: document.getElementById('volOccupation')?.value || '',
+        yearsExperience: document.getElementById('volYearsExp')?.value || '',
+        industry: document.getElementById('volIndustry')?.value || '',
+        professionalSkills: document.getElementById('volProfSkills')?.value || '',
+
+        // Educational Background
+        educationLevel: document.getElementById('volEducation')?.value || '',
+        fieldOfStudy: document.getElementById('volFieldOfStudy')?.value || '',
+        teachingExperience: document.getElementById('volTeachingExp')?.value || '',
+
+        // Volunteer & Spiritual Experience
+        volunteerExperience: document.getElementById('volPrevExp')?.value || '',
+        spiritualBackground: document.getElementById('volSpiritualBg')?.value || '',
+        volunteerInterests: Array.from(document.querySelectorAll('#volInt1, #volInt2, #volInt3, #volInt4, #volInt5, #volInt6, #volInt7, #volInt8, #volInt9, #volInt10'))
+            .filter(cb => cb.checked).map(cb => cb.value),
+
+        // Skills & Talents
+        languages: Array.from(document.querySelectorAll('#volLang1, #volLang2, #volLang3, #volLang4'))
+            .filter(cb => cb.checked).map(cb => cb.value),
+        sanskritLevel: document.getElementById('volLang4')?.checked ? document.getElementById('volSanskritLevel')?.value : '',
+        technicalSkills: Array.from(document.querySelectorAll('#volTech1, #volTech2, #volTech3, #volTech4, #volTech5, #volTech6'))
+            .filter(cb => cb.checked).map(cb => cb.value),
+        creativeSkills: Array.from(document.querySelectorAll('#volCreative1, #volCreative2, #volCreative3, #volCreative4, #volCreative5'))
+            .filter(cb => cb.checked).map(cb => cb.value),
+        managementSkills: Array.from(document.querySelectorAll('#volMgmt1, #volMgmt2, #volMgmt3, #volMgmt4, #volMgmt5, #volMgmt6'))
+            .filter(cb => cb.checked).map(cb => cb.value),
+        additionalSkills: document.getElementById('volAdditionalSkills')?.value || '',
+
+        // Availability & Commitment
+        hoursPerWeek: document.getElementById('volHours')?.value || '',
+        preferredDays: Array.from(document.querySelectorAll('#volDay1, #volDay2, #volDay3, #volDay4, #volDay5, #volDay6, #volDay7, #volDay8'))
+            .filter(cb => cb.checked).map(cb => cb.value),
+        preferredTimeSlots: Array.from(document.querySelectorAll('#volTime1, #volTime2, #volTime3, #volTime4, #volTime5, #volTime6'))
+            .filter(cb => cb.checked).map(cb => cb.value),
+        volunteeringFormat: document.querySelector('input[name="volFormat"]:checked')?.value || '',
+        willingToTravel: document.querySelector('input[name="volTravel"]:checked')?.value || '',
+        travelDistance: document.getElementById('travelDistance')?.value || '',
+
+        // Motivation & Goals
+        motivation: document.getElementById('volMotivation')?.value || '',
+        goals: document.getElementById('volGoals')?.value || '',
+        specialProjects: document.getElementById('volSpecialProjects')?.value || '',
+
+        // Metadata
+        profileCompleted: true
+    };
+
+    // Save to localStorage
+    localStorage.setItem('volunteeringProfile', JSON.stringify(profile));
+    window.volunteeringProfileData = profile;
+
+    // Close modal and update display
+    window.closeModal('editVolunteeringModal');
+    renderVolunteeringProfile(profile);
+
+    alert('Volunteering profile saved successfully!');
+};
+
+function loadVolunteeringProfile() {
+    const saved = localStorage.getItem('volunteeringProfile');
+    return saved ? JSON.parse(saved) : window.volunteeringProfileData;
+}
+
+function renderVolunteeringProfile(data) {
+    const container = document.getElementById('volunteeringContent');
+    if (!container) return;
+
+    // If profile has no data, show empty state
+    if (!data || (!data.occupation && !data.volunteerExperience && !data.motivation)) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <h3>Create Your Volunteering Profile</h3>
+                <p>Share your skills, experience, and interests to contribute meaningfully to our spiritual community</p>
+                <button class="btn-primary" onclick="openEditVolunteeringModal()">Get Started</button>
+            </div>
+        `;
+        return;
+    }
+
+    // Render profile summary
+    const interestsText = data.volunteerInterests?.join(', ') || 'Not specified';
+    const languagesText = data.languages?.join(', ') || 'Not specified';
+    const hoursText = data.hoursPerWeek || 'Not specified';
+    const daysText = data.preferredDays?.join(', ') || 'Not specified';
+
+    container.innerHTML = `
+        <div class="volunteering-summary-card">
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-label">Occupation</div>
+                    <div class="summary-value">${data.occupation || 'Not specified'}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Years of Experience</div>
+                    <div class="summary-value">${data.yearsExperience || 'Not specified'}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Industry</div>
+                    <div class="summary-value">${data.industry || 'Not specified'}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Languages</div>
+                    <div class="summary-value">${languagesText}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Volunteer Interests</div>
+                    <div class="summary-value">${interestsText}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Hours Per Week</div>
+                    <div class="summary-value">${hoursText}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Preferred Days</div>
+                    <div class="summary-value">${daysText}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Format Preference</div>
+                    <div class="summary-value">${data.volunteeringFormat || 'Not specified'}</div>
+                </div>
+            </div>
+            ${data.motivation ? `
+                <div class="summary-section" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
+                    <h4 style="font-weight: 700; color: var(--text); margin-bottom: 0.5rem;">Motivation</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">${data.motivation}</p>
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
 function setupCharacterCounters() {
-    // Populated in Phase 5
+    const textareas = [
+        'volProfSkills', 'volPrevExp', 'volSpiritualBg', 'volAdditionalSkills',
+        'volMotivation', 'volGoals', 'volSpecialProjects'
+    ];
+
+    textareas.forEach(id => {
+        const textarea = document.getElementById(id);
+        if (textarea) {
+            const counterId = id + 'Count';
+            const counter = document.getElementById(counterId);
+            if (counter) {
+                counter.textContent = textarea.value.length;
+            }
+
+            textarea.addEventListener('input', function() {
+                if (counter) {
+                    counter.textContent = this.value.length;
+                }
+            });
+        }
+    });
 }
 
 // ════════════════════════════════════════════════════════════════════════════════
