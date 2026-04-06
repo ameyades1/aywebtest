@@ -1933,6 +1933,52 @@ main {
     margin-top: 0.25rem;
 }
 
+/* Photo Upload Section Styling */
+.photo-upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(184, 115, 51, 0.05), rgba(232, 184, 75, 0.05));
+    border-radius: 0.75rem;
+}
+
+.photo-preview {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.photo-preview svg {
+    width: 100%;
+    height: 100%;
+}
+
+.photo-upload-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.photo-upload-controls .btn-secondary {
+    padding: 0.75rem 2rem;
+}
+
+.help-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
 .empty-state {
     text-align: center;
     padding: 3rem 1.5rem;

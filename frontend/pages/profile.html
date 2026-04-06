@@ -152,6 +152,41 @@
     <!-- MODALS -->
     <!-- ═══════════════════════════════════════════════════════════════════════════ -->
 
+    <!-- Upload Photo Modal -->
+    <div id="uploadPhotoModal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2>Upload Profile Photo</h2>
+                <button class="close-btn" onclick="closeModal('uploadPhotoModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="photo-upload-section">
+                    <!-- Photo Preview -->
+                    <div class="photo-preview">
+                        <svg id="photoPreview" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="100" fill="#F9F6F0"/>
+                            <circle cx="100" cy="75" r="30" fill="#B87333"/>
+                            <path d="M50 150 Q50 120 100 120 Q150 120 150 150" fill="#B87333"/>
+                        </svg>
+                    </div>
+
+                    <!-- Upload Controls -->
+                    <div class="photo-upload-controls">
+                        <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                        <button class="btn-secondary" onclick="document.getElementById('photoInput').click()">
+                            Choose Photo
+                        </button>
+                        <p class="help-text">JPG, PNG up to 5MB. Recommended: 400x400px</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('uploadPhotoModal')">Cancel</button>
+                <button class="btn-confirm" onclick="saveProfilePhoto()">Upload Photo</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Edit Profile Modal -->
     <div id="editProfileModal" class="modal">
         <div class="modal-content modal-content-large">

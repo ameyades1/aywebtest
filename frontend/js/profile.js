@@ -656,6 +656,80 @@ window.verifyAadhaarOTP = function() {
     alert('Aadhaar verification successful!');
 };
 
+// ════════════════════════════════════════════════════════════════════════════════
+// UPLOAD PHOTO MODAL (Phase 4)
+// ════════════════════════════════════════════════════════════════════════════════
+
+window.openUploadPhotoModal = function() {
+    window.openModal('uploadPhotoModal');
+
+    // Handle photo input change
+    const photoInput = document.getElementById('photoInput');
+    if (photoInput) {
+        photoInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const photoPreview = document.getElementById('photoPreview');
+                    if (photoPreview) {
+                        // Replace SVG with image
+                        const img = document.createElement('img');
+                        img.src = event.target.result;
+                        img.style.width = '100%';
+                        img.style.height = '100%';
+                        img.style.objectFit = 'cover';
+                        photoPreview.innerHTML = '';
+                        photoPreview.appendChild(img);
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+};
+
+window.saveProfilePhoto = function() {
+    const photoInput = document.getElementById('photoInput');
+
+    if (!photoInput || !photoInput.files || photoInput.files.length === 0) {
+        alert('Please select a photo first');
+        return;
+    }
+
+    const file = photoInput.files[0];
+
+    // Validate file size (5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        alert('File size must be less than 5MB');
+        return;
+    }
+
+    // Validate file type
+    if (!['image/jpeg', 'image/png', 'image/jpg'].includes(file.type)) {
+        alert('Please upload a JPG or PNG image');
+        return;
+    }
+
+    // In a real app, this would upload to a server
+    // For now, we'll just close the modal and show success
+    alert('Photo uploaded successfully!');
+    window.closeModal('uploadPhotoModal');
+
+    // Reset form for next upload
+    photoInput.value = '';
+    const photoPreview = document.getElementById('photoPreview');
+    if (photoPreview) {
+        photoPreview.innerHTML = `
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="100" fill="#F9F6F0"/>
+                <circle cx="100" cy="75" r="30" fill="#B87333"/>
+                <path d="M50 150 Q50 120 100 120 Q150 120 150 150" fill="#B87333"/>
+            </svg>
+        `;
+    }
+};
+
 window.contactSupport = function() {
     alert('Support ticket form would open here.\n\nEmail: support@antaryog.org\nPhone: +91 123 456 7890');
 };
