@@ -15,7 +15,10 @@ const centersData = [
         id: 1,
         name: 'Delhi Center',
         location: 'New Delhi',
+        state: 'delhi',
         address: 'Sector 12, Dwarka, New Delhi',
+        meetingDay: 'Saturday',
+        languages: ['en', 'hi'],
         enrolledDate: '2024-01-15',
         nextMeeting: '2026-04-12',
         meetingFreq: 'Every Saturday',
@@ -26,7 +29,10 @@ const centersData = [
         id: 2,
         name: 'Mumbai Center',
         location: 'Mumbai',
+        state: 'maharashtra',
         address: 'Bandra, Mumbai',
+        meetingDay: 'Sunday',
+        languages: ['en', 'mr', 'hi'],
         enrolledDate: '2024-02-20',
         nextMeeting: '2026-04-13',
         meetingFreq: 'Every Sunday',
@@ -37,7 +43,10 @@ const centersData = [
         id: 3,
         name: 'Bangalore Center',
         location: 'Bangalore',
+        state: 'karnataka',
         address: 'Whitefield, Bangalore',
+        meetingDay: 'Monday',
+        languages: ['en', 'hi'],
         enrolledDate: '2024-03-10',
         nextMeeting: '2026-04-14',
         meetingFreq: 'Every Monday',
@@ -48,7 +57,10 @@ const centersData = [
         id: 4,
         name: 'Pune Center',
         location: 'Pune',
+        state: 'maharashtra',
         address: 'Viman Nagar, Pune',
+        meetingDay: 'Tuesday',
+        languages: ['en', 'mr'],
         enrolledDate: '2024-01-05',
         nextMeeting: '2026-04-15',
         meetingFreq: 'Every Tuesday',
@@ -59,7 +71,10 @@ const centersData = [
         id: 5,
         name: 'Hyderabad Center',
         location: 'Hyderabad',
+        state: 'telangana',
         address: 'HITEC City, Hyderabad',
+        meetingDay: 'Wednesday',
+        languages: ['en', 'hi'],
         enrolledDate: '2024-02-01',
         nextMeeting: '2026-04-16',
         meetingFreq: 'Every Wednesday',
@@ -70,7 +85,10 @@ const centersData = [
         id: 6,
         name: 'Kolkata Center',
         location: 'Kolkata',
+        state: 'west-bengal',
         address: 'Salt Lake, Kolkata',
+        meetingDay: 'Thursday',
+        languages: ['en', 'hi'],
         enrolledDate: '2024-03-20',
         nextMeeting: '2026-04-17',
         meetingFreq: 'Every Thursday',
@@ -81,7 +99,10 @@ const centersData = [
         id: 7,
         name: 'Chennai Center',
         location: 'Chennai',
+        state: 'tamil-nadu',
         address: 'T. Nagar, Chennai',
+        meetingDay: 'Friday',
+        languages: ['en'],
         enrolledDate: '2024-02-15',
         nextMeeting: '2026-04-18',
         meetingFreq: 'Every Friday',
@@ -92,7 +113,10 @@ const centersData = [
         id: 8,
         name: 'Ahmedabad Center',
         location: 'Ahmedabad',
+        state: 'gujarat',
         address: 'Paldi, Ahmedabad',
+        meetingDay: 'Saturday',
+        languages: ['en', 'hi'],
         enrolledDate: '2024-01-20',
         nextMeeting: '2026-04-19',
         meetingFreq: 'Every Saturday',
@@ -103,7 +127,10 @@ const centersData = [
         id: 9,
         name: 'Jaipur Center',
         location: 'Jaipur',
+        state: 'rajasthan',
         address: 'C-Scheme, Jaipur',
+        meetingDay: 'Sunday',
+        languages: ['en', 'hi'],
         enrolledDate: '2024-04-01',
         nextMeeting: '2026-04-20',
         meetingFreq: 'Every Sunday',
@@ -114,7 +141,10 @@ const centersData = [
         id: 10,
         name: 'Lucknow Center',
         location: 'Lucknow',
+        state: 'uttar-pradesh',
         address: 'Gomti Nagar, Lucknow',
+        meetingDay: 'Monday',
+        languages: ['en', 'hi'],
         enrolledDate: '2024-03-15',
         nextMeeting: '2026-04-21',
         meetingFreq: 'Every Monday',
@@ -370,7 +400,8 @@ function renderCenters(centers) {
             center.name.toLowerCase().includes(searchTerm) ||
             center.location.toLowerCase().includes(searchTerm);
 
-        const matchLocation = !locationFilter || center.location.toLowerCase().includes(locationFilter);
+        // Match by state field for location filter
+        const matchLocation = !locationFilter || center.state === locationFilter;
         const matchLanguage = !languageFilter || (center.languages && center.languages.includes(languageFilter));
         const matchDay = !dayFilter || (
             (dayFilter === 'weekday' && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(center.meetingDay)) ||
@@ -426,8 +457,8 @@ function renderCenters(centers) {
             </div>
 
             <div class="center-card-actions">
-                <button class="btn-details" onclick="viewCenterDetails('${center.id}')">Details</button>
                 <button class="btn-join" onclick="joinCenter('${center.id}')">Join</button>
+                <button class="btn-details" onclick="viewCenterDetails('${center.id}')">Details</button>
             </div>
         `;
         grid.appendChild(card);
