@@ -19,10 +19,52 @@ async function loadComponent(id, file) {
     });
 
     if (id === 'navbar') {
+        initAuthState();      // check localStorage and toggle logged-in/out state
         initDropdowns();      // existing desktop dropdown
         initMobileMenu();     // new mobile drawer
     }
 }
+
+
+function initAuthState() {
+    const firstName = localStorage.getItem('firstName');
+    const navOut = document.getElementById('nav-logged-out');
+    const navIn  = document.getElementById('nav-logged-in');
+    if (!navOut || !navIn) return;
+
+    if (firstName) {
+        navOut.style.display = 'none';
+        navIn.style.display  = 'flex';
+        document.getElementById('nav-first-name').textContent = firstName;
+
+        document.getElementById('mobile-nav-logged-out').style.display = 'none';
+        document.getElementById('mobile-nav-logged-in').style.display  = 'block';
+        document.getElementById('mobile-first-name').textContent = firstName;
+    } else {
+        navOut.style.display = 'flex';
+        navIn.style.display  = 'none';
+    }
+
+    // Dropdown toggle
+    const userMenuBtn  = document.getElementById('user-menu-btn');
+    const userDropdown = document.getElementById('user-dropdown');
+    if (userMenuBtn && userDropdown) {
+        userMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            userDropdown.classList.toggle('hidden');
+        });
+        document.addEventListener('click', function() {
+            userDropdown.classList.add('hidden');
+        });
+    }
+}
+
+window.handleLogout = function() {
+    localStorage.removeItem('firstName');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userId');
+    window.location.reload();
+};
 
 
 function initDropdowns() {
