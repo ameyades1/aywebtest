@@ -53,8 +53,7 @@ main {
 
 @media (min-width: 1024px) {
     .left-sidebar {
-        display: flex;
-        flex-direction: column;
+        display: block;
         background-color: white;
         border-radius: 0.5rem;
         padding: 1.5rem 0;
@@ -66,6 +65,11 @@ main {
         flex-shrink: 0;
         box-sizing: border-box;
     }
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-item {
@@ -97,6 +101,19 @@ main {
     font-weight: 600;
 }
 
+.nav-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: currentColor;
+    flex-shrink: 0;
+}
+
+.nav-divider {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid var(--section-alt);
+}
+
 /* Mobile Profile Navigation Drawer */
 .profile-drawer {
     position: fixed;
@@ -119,6 +136,10 @@ main {
 
 @media (max-width: 1023px) {
     .profile-drawer {
+        display: block;
+    }
+
+    .profile-drawer .nav-menu {
         display: flex;
         flex-direction: column;
     }
