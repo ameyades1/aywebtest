@@ -689,6 +689,523 @@ main {
     background-color: var(--section-alt);
 }
 
+/* ═════════════════════════════════════════════════════════════════ */
+/* SHIBIR HISTORY STYLES */
+/* ═════════════════════════════════════════════════════════════════ */
+
+.shibir-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.shibir-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
+}
+
+.shibir-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.shibir-card-title h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    margin: 0;
+}
+
+.shibir-card-title p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.shibir-badge {
+    background: linear-gradient(135deg, rgba(184, 115, 51, 0.1), rgba(232, 184, 75, 0.1));
+    color: var(--primary);
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(184, 115, 51, 0.2);
+    white-space: nowrap;
+}
+
+.shibir-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.shibir-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text);
+}
+
+.shibir-info-item .icon-xs {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--primary);
+    margin-top: 0.125rem;
+}
+
+.shibir-info-label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.shibir-certificate {
+    background-color: rgba(184, 115, 51, 0.05);
+    border: 1px solid rgba(184, 115, 51, 0.15);
+    border-radius: 0.375rem;
+    padding: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.certificate-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-bottom: 0.25rem;
+}
+
+.certificate-id {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    font-family: 'Courier New', monospace;
+}
+
+.btn-download-cert {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-download-cert:hover {
+    background-color: var(--accent);
+}
+
+.btn-download-cert svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+@media (max-width: 768px) {
+    .shibir-card {
+        padding: 1rem;
+    }
+
+    .shibir-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shibir-badge {
+        align-self: flex-start;
+    }
+
+    .shibir-certificate {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-download-cert {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* NAADI JYOTISH & CONSULTATION STYLES */
+/* ═════════════════════════════════════════════════════════════════ */
+
+.naadi-birth-profile {
+    background: linear-gradient(135deg, rgba(184, 115, 51, 0.05), rgba(232, 184, 75, 0.05));
+    border: 2px solid var(--section-alt);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.naadi-profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.naadi-profile-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.naadi-profile-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--primary);
+}
+
+.naadi-profile-title h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.header-divider {
+    width: 1px;
+    height: 1.25rem;
+    background-color: rgba(184, 115, 51, 0.35);
+    align-self: center;
+    flex-shrink: 0;
+}
+
+.astrological-details {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.astro-badge {
+    background: linear-gradient(135deg, rgba(184, 115, 51, 0.1), rgba(232, 184, 75, 0.1));
+    color: var(--primary);
+    padding: 0.375rem 0.625rem;
+    border-radius: 1rem;
+    text-align: left;
+    border: 1px solid rgba(184, 115, 51, 0.2);
+}
+
+.astro-badge-label {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-bottom: 0.1rem;
+}
+
+.astro-badge-value {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.astro-symbol {
+    font-size: 1.1em;
+    margin-right: 0.2em;
+    vertical-align: middle;
+    opacity: 0.85;
+}
+
+.btn-download-patrika {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-download-patrika:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.2);
+}
+
+.btn-download-patrika svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.birth-details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .birth-details-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .birth-details-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.birth-detail-item {
+    padding: 0.625rem 0.75rem;
+    background-color: var(--section-alt);
+    border-radius: 0.375rem;
+}
+
+.birth-detail-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    font-weight: 600;
+}
+
+.birth-detail-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.consultations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .consultations-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .consultations-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.consultation-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.consultation-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
+    transform: translateY(-2px);
+}
+
+.consultation-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.consultation-type {
+    flex: 1;
+}
+
+.consultation-type h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    margin: 0;
+}
+
+.consultation-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.consultation-badge {
+    background: linear-gradient(135deg, rgba(184, 115, 51, 0.1), rgba(232, 184, 75, 0.1));
+    color: var(--primary);
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(184, 115, 51, 0.2);
+    white-space: nowrap;
+}
+
+.consultation-info {
+    margin-bottom: 1rem;
+}
+
+.consultation-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.875rem;
+}
+
+.consultation-info-item:last-child {
+    border-bottom: none;
+}
+
+.consultation-icon {
+    width: 1rem;
+    height: 1rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.consultation-info-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    flex: 0 0 auto;
+    min-width: 80px;
+}
+
+.consultation-info-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+}
+
+.consultation-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-download-materials {
+    flex: 1;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-download-materials:hover {
+    background-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(184, 115, 51, 0.2);
+}
+
+.btn-download-materials svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+.upcoming-consultation-card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #22c55e;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.upcoming-consultation-card:hover {
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+    transform: translateY(-2px);
+}
+
+.upcoming-badge {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    white-space: nowrap;
+}
+
+.btn-join-session {
+    flex: 1;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-join-session:hover {
+    background-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(184, 115, 51, 0.2);
+}
+
+.btn-join-session svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+.btn-cancel-reschedule {
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 2px solid #e5e7eb;
+    background: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.btn-cancel-reschedule:hover {
+    border-color: #ef4444;
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
 /* Content Card */
 .content-card {
     background-color: white;
