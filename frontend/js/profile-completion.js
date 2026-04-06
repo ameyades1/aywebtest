@@ -402,7 +402,7 @@ function completeSignup() {
     alert('Profile completed successfully! Welcome to AntarYog Foundation.');
 
     // Redirect to home or dashboard
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 }
 
 // Initialize validation after a slight delay to ensure all elements are ready
