@@ -157,69 +157,83 @@ const shibirsData = [
     {
         id: 1,
         name: 'Durga Sapta Shati Shibir',
-        dates: '2024-02-10 to 2024-02-12',
+        startDate: '2024-02-10',
+        endDate: '2024-02-12',
         location: 'Rishikesh',
+        instructor: 'Acharya Upendra',
         certificateId: 'DSS-2024-001',
         status: 'completed'
     },
     {
         id: 2,
         name: 'Pitru Rin Mukti Shibir',
-        dates: '2024-03-15 to 2024-03-17',
+        startDate: '2024-03-15',
+        endDate: '2024-03-17',
         location: 'Varanasi',
+        instructor: 'Acharya Meera',
         certificateId: 'PRM-2024-001',
         status: 'completed'
     },
     {
         id: 3,
         name: 'Shree Vidya Advanced',
-        dates: '2024-04-01 to 2024-04-05',
+        startDate: '2024-04-01',
+        endDate: '2024-04-05',
         location: 'Bangalore',
+        instructor: 'Acharya Vikram',
         certificateId: 'SV-2024-001',
         status: 'completed'
     },
     {
         id: 4,
         name: 'Navagraha Puja Intensive',
-        dates: '2024-05-10 to 2024-05-12',
+        startDate: '2024-05-10',
+        endDate: '2024-05-12',
         location: 'Delhi',
+        instructor: 'Acharya Rajesh',
         certificateId: 'NG-2024-001',
         status: 'completed'
     },
     {
         id: 5,
         name: 'Ganesh Vidya Workshop',
-        dates: '2024-06-01 to 2024-06-03',
+        startDate: '2024-06-01',
+        endDate: '2024-06-03',
         location: 'Mumbai',
+        instructor: 'Acharya Priya',
         certificateId: 'GV-2024-001',
         status: 'completed'
     },
     {
         id: 6,
         name: 'Vedic Mathematics Masterclass',
-        dates: '2024-07-15 to 2024-07-20',
+        startDate: '2024-07-15',
+        endDate: '2024-07-20',
         location: 'Pune',
+        instructor: 'Acharya Sanjay',
         certificateId: 'VM-2024-001',
         status: 'completed'
     },
     {
         id: 7,
         name: 'Mantra Chanting Retreat',
-        dates: '2024-08-10 to 2024-08-14',
+        startDate: '2024-08-10',
+        endDate: '2024-08-14',
         location: 'Rishikesh',
+        instructor: 'Acharya Deepa',
         certificateId: 'MC-2024-001',
         status: 'completed'
     }
 ];
 
 const naadiUserProfile = {
-    birthDate: '1995-07-15',
-    birthTime: '14:30',
-    birthPlace: 'Delhi',
-    nakshatra: 'Ashlesha',
-    nakshatra_symbol: '♌',
+    fullName: 'Vivek Kumar',
+    dateOfBirth: '1995-07-15',
+    timeOfBirth: '14:30',
+    placeOfBirth: 'Delhi',
+    patrikaId: 'NAD-1995-07-15-001',
+    nakshatra: 'Pushya',
     rashi: 'Cancer',
-    rashi_symbol: '♋',
     zodiacSign: 'Pushya Nakshatra',
     gotra: 'Kashyapa'
 };
@@ -227,51 +241,61 @@ const naadiUserProfile = {
 const naadiConsultations = [
     {
         id: 1,
+        consultationId: 'CONS-001',
         type: 'Nadi Reading',
         date: '2024-06-15',
-        consultant: 'Acharya Rajesh',
+        displayDate: 'June 15, 2024',
+        location: 'Bangalore',
+        guruji: 'Acharya Rajesh',
         duration: '60 mins',
-        certificateId: 'NR-2024-001',
-        materials: true
+        materials: ['patrika_reading.pdf', 'remedies_guide.pdf']
     },
     {
         id: 2,
+        consultationId: 'CONS-002',
         type: 'Life Path Consultation',
         date: '2024-07-20',
-        consultant: 'Acharya Meera',
+        displayDate: 'July 20, 2024',
+        location: 'Pune',
+        guruji: 'Acharya Meera',
         duration: '90 mins',
-        certificateId: 'LPC-2024-001',
-        materials: true
+        materials: ['life_path_analysis.pdf', 'career_guide.pdf', 'relationships_insights.pdf']
     },
     {
         id: 3,
+        consultationId: 'CONS-003',
         type: 'Remedies Assessment',
         date: '2024-08-10',
-        consultant: 'Acharya Vikram',
+        displayDate: 'August 10, 2024',
+        location: 'Mumbai',
+        guruji: 'Acharya Vikram',
         duration: '60 mins',
-        certificateId: 'RA-2024-001',
-        materials: true
+        materials: ['remedies_plan.pdf', 'mantra_guide.pdf']
     }
 ];
 
 const naadiUpcomingConsultations = [
     {
         id: 1,
+        consultationId: 'CONS-UPCOM-001',
         type: 'Yearly Forecast',
         date: '2026-04-20',
+        displayDate: 'April 20, 2026 at 10:00 AM',
         time: '10:00 AM',
-        consultant: 'Acharya Rajesh',
-        duration: '60 mins',
-        link: '#'
+        location: 'Online',
+        guruji: 'Acharya Rajesh',
+        duration: '60 mins'
     },
     {
         id: 2,
+        consultationId: 'CONS-UPCOM-002',
         type: 'Remedial Mantras',
         date: '2026-05-15',
+        displayDate: 'May 15, 2026 at 2:00 PM',
         time: '2:00 PM',
-        consultant: 'Acharya Meera',
-        duration: '90 mins',
-        link: '#'
+        location: 'Rishikesh',
+        guruji: 'Acharya Meera',
+        duration: '90 mins'
     }
 ];
 
@@ -484,19 +508,242 @@ window.loadMoreCenters = function() {
 };
 
 function renderShibirs(shibirs) {
-    // Populated in Phase 3
+    const container = document.getElementById('shibirHistoryContent');
+    if (!container) return;
+
+    if (!shibirs || shibirs.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                <h3>No Shibir History Yet</h3>
+                <p>You haven't attended any Shibir workshops yet. Explore upcoming programs to deepen your spiritual practice.</p>
+                <div class="empty-state-actions">
+                    <button class="btn-primary" onclick="alert('Shibir registration coming soon!')">Explore Shibirs</button>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    const grid = document.createElement('div');
+    grid.className = 'centers-grid';
+
+    shibirs.forEach(shibir => {
+        const card = document.createElement('div');
+        card.className = 'shibir-card';
+
+        const startDate = new Date(shibir.startDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const endDate = new Date(shibir.endDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const durationDays = Math.ceil((new Date(shibir.endDate) - new Date(shibir.startDate)) / (1000 * 60 * 60 * 24)) + 1;
+
+        card.innerHTML = `
+            <div class="shibir-card-header">
+                <div class="shibir-card-title">
+                    <h3>${shibir.name}</h3>
+                    <p>${startDate} - ${endDate}</p>
+                </div>
+                <span class="shibir-badge">${durationDays} Day${durationDays > 1 ? 's' : ''}</span>
+            </div>
+
+            <div class="shibir-card-info">
+                <div class="shibir-info-item">
+                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span><strong>${shibir.location}</strong></span>
+                </div>
+                <div class="shibir-info-item">
+                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span><span class="shibir-info-label">Instructor:</span> ${shibir.instructor}</span>
+                </div>
+            </div>
+
+            <div class="shibir-certificate">
+                <div>
+                    <div class="certificate-label">Certificate ID</div>
+                    <div class="certificate-id">${shibir.certificateId}</div>
+                </div>
+                <button class="btn-download-cert" onclick="downloadCertificate('${shibir.certificateId}')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 0.875rem; height: 0.875rem;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download
+                </button>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(grid);
 }
 
 function renderNaadiBirthProfile(profile) {
-    // Populated in Phase 3
+    const gridContainer = document.getElementById('birthDetailsGrid');
+    const rashiElement = document.getElementById('userRashi');
+    const nakshatraElement = document.getElementById('userNakshatra');
+
+    if (!profile) {
+        gridContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1 / -1;">Birth profile not available</p>';
+        return;
+    }
+
+    const birthDetails = [
+        { label: 'Full Name', value: profile.fullName },
+        { label: 'Date of Birth', value: new Date(profile.dateOfBirth).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) },
+        { label: 'Time of Birth', value: profile.timeOfBirth },
+        { label: 'Place of Birth', value: profile.placeOfBirth }
+    ];
+
+    gridContainer.innerHTML = birthDetails.map(detail => `
+        <div class="birth-detail-item">
+            <div class="birth-detail-label">${detail.label}</div>
+            <div class="birth-detail-value">${detail.value}</div>
+        </div>
+    `).join('');
+
+    rashiElement.textContent = profile.rashi;
+    nakshatraElement.textContent = profile.nakshatra;
 }
 
 function renderNaadiConsultations(consultations) {
-    // Populated in Phase 3
+    const container = document.getElementById('consultationsContent');
+
+    if (!consultations || consultations.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <h3>No Consultation History Yet</h3>
+                <p>You haven't had any Naadi Jyotish consultations yet. Book your first reading to unlock insights from the ancient palm leaves.</p>
+                <div class="empty-state-actions">
+                    <button class="btn-primary" onclick="alert('Booking feature coming soon!')">Book Consultation</button>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    const sortedConsultations = [...consultations].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const grid = document.createElement('div');
+    grid.className = 'consultations-grid';
+
+    sortedConsultations.forEach(consultation => {
+        const card = document.createElement('div');
+        card.className = 'consultation-card';
+
+        card.innerHTML = `
+            <div class="consultation-card-header">
+                <div class="consultation-type">
+                    <h3>${consultation.type}</h3>
+                    <div class="consultation-date">${consultation.displayDate}</div>
+                </div>
+                <div class="consultation-badge">${consultation.location}</div>
+            </div>
+            <div class="consultation-info">
+                <div class="consultation-info-item">
+                    <svg class="consultation-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span class="consultation-info-label">Guruji:</span>
+                    <span class="consultation-info-value">${consultation.guruji}</span>
+                </div>
+                <div class="consultation-info-item">
+                    <svg class="consultation-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span class="consultation-info-label">Materials:</span>
+                    <span class="consultation-info-value">${consultation.materials.length} files</span>
+                </div>
+            </div>
+            <div class="consultation-actions">
+                <button class="btn-download-materials" onclick="downloadConsultationMaterials('${consultation.consultationId}')">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Download Materials
+                </button>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(grid);
 }
 
 function renderNaadiUpcomingConsultations(consultations) {
-    // Populated in Phase 3
+    const container = document.getElementById('upcomingConsultationsContent');
+    if (!container) return;
+
+    if (!consultations || consultations.length === 0) {
+        container.innerHTML = `
+            <div style="text-align:center;padding:2rem;color:var(--text-secondary);background:var(--section-alt);border-radius:0.5rem;">
+                <p>No upcoming consultations scheduled.</p>
+                <button class="btn-primary" style="margin-top:1rem;" onclick="alert('Booking feature coming soon!')">Book a Consultation</button>
+            </div>`;
+        return;
+    }
+
+    const sorted = [...consultations].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const grid = document.createElement('div');
+    grid.className = 'consultations-grid';
+
+    sorted.forEach(consultation => {
+        const card = document.createElement('div');
+        card.className = 'upcoming-consultation-card';
+
+        card.innerHTML = `
+            <div class="consultation-card-header">
+                <div class="consultation-type">
+                    <h3>${consultation.type}</h3>
+                    <div class="consultation-date">${consultation.displayDate}</div>
+                </div>
+                <span class="upcoming-badge">Scheduled</span>
+            </div>
+            <div class="consultation-info">
+                <div class="consultation-info-item">
+                    <svg class="consultation-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span class="consultation-info-label">Guruji:</span>
+                    <span class="consultation-info-value">${consultation.guruji}</span>
+                </div>
+                <div class="consultation-info-item">
+                    <svg class="consultation-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="consultation-info-label">Location:</span>
+                    <span class="consultation-info-value">${consultation.location}</span>
+                </div>
+            </div>
+            <div class="consultation-actions">
+                <button class="btn-join-session" onclick="alert('Joining consultation on ${consultation.date}...')">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.646 7.23a2 2 0 01-1.789 1.106H7a2 2 0 01-2-2v-8a2 2 0 012-2h2.25a1 1 0 00.894-.553l1.342-2.683a1 1 0 00.894-.553H10m-4 8h8"></path>
+                    </svg>
+                    Join Session
+                </button>
+                <button class="btn-cancel-reschedule" onclick="alert('Reschedule feature coming soon!')">Reschedule</button>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(grid);
 }
 
 function renderVolunteeringProfile(data) {
@@ -582,6 +829,19 @@ window.downloadQRCode = function() {
 window.printMembershipCard = function() {
     // Stub for Phase 1
     window.print();
+};
+
+window.downloadCertificate = function(certificateId) {
+    alert(`Downloading certificate ${certificateId}...\n\nNote: This is a mockup. Backend will implement actual PDF download.`);
+};
+
+window.downloadPatrika = function() {
+    const patrikaId = naadiUserProfile.patrikaId;
+    alert(`Downloading your Patrika (ID: ${patrikaId})\n\nNote: This is a mockup. Backend will implement actual PDF generation and download.`);
+};
+
+window.downloadConsultationMaterials = function(consultationId) {
+    alert(`Downloading materials for consultation: ${consultationId}\n\nNote: This is a mockup. Backend will implement actual ZIP file download with all materials.`);
 };
 
 window.handleLogout = function() {
