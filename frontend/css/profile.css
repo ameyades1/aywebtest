@@ -27,6 +27,8 @@ main {
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem 1.5rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Main Container */
@@ -34,6 +36,8 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
@@ -58,6 +62,9 @@ main {
         position: sticky;
         top: 100px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        width: 260px;
+        flex-shrink: 0;
+        box-sizing: border-box;
     }
 }
 
@@ -170,12 +177,18 @@ main {
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .content-section {
     display: none;
     padding: 2rem;
     animation: fadeIn 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 400px;
 }
 
 .content-section.active {
@@ -325,6 +338,8 @@ main {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border: 1px solid #e5e7eb;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .content-card h2 {
