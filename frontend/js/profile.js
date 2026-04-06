@@ -1368,8 +1368,8 @@ function renderVolunteeringProfile(data) {
     const createBadgeGroup = (values) => {
         if (!values || values.length === 0) return `<p style="color: var(--text-secondary);">Not specified</p>`;
         return `
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                ${values.map(v => `<span class="badge">${v}</span>`).join('')}
+            <div class="badge-container">
+                ${values.map(v => `<span class="interest-badge">${v}</span>`).join('')}
             </div>
         `;
     };
