@@ -380,7 +380,15 @@ window.showSection = function(name, event) {
 
     // Add active class to clicked nav item
     if (event && event.target) {
-        event.target.classList.add('active');
+        // Check if clicked element is the button itself
+        let button = event.target;
+        // If clicked on a child element (img or span), find the parent button
+        if (!button.classList.contains('nav-item')) {
+            button = button.closest('.nav-item');
+        }
+        if (button) {
+            button.classList.add('active');
+        }
     } else {
         // If called without event, find and activate the button
         const buttons = document.querySelectorAll('.nav-item');
@@ -403,9 +411,6 @@ window.showSection = function(name, event) {
     }
 };
 
-window.showSectionMobile = function(name) {
-    window.showSection(name);
-};
 
 window.toggleProfileDrawer = function() {
     const drawer = document.getElementById('profile-drawer');
