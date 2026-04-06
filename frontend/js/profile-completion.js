@@ -43,7 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Setup form submission
-    document.getElementById('profileForm').addEventListener('submit', handleProfileSubmit);
+    const profileForm = document.getElementById('profileForm');
+    profileForm.addEventListener('submit', handleProfileSubmit);
+
+    // Add change listeners to all form inputs for validation
+    profileForm.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], select').forEach(input => {
+        input.addEventListener('change', validateForm);
+        input.addEventListener('input', validateForm);
+    });
 
     // Setup OTP form submission
     document.getElementById('secondaryOtpForm').addEventListener('submit', handleSecondaryOtpSubmit);
@@ -60,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 e.target.classList.remove('filled');
             }
+            validateForm();
         });
 
         input.addEventListener('keydown', (e) => {
@@ -151,10 +159,32 @@ window.validateForm = function() {
         }
     }
 
-    // Validate secondary contact if required
-    if (!document.getElementById('secondaryContactSection').classList.contains('hidden')) {
-        if (!validateSecondaryContact()) {
-            isValid = false;
+    // Validate secondary contact only if section is visible
+    const secondaryContactSection = document.getElementById('secondaryContactSection');
+    if (!secondaryContactSection.classList.contains('hidden')) {
+        const emailField = document.getElementById('emailFieldContainer');
+        const phoneField = document.getElementById('phoneFieldContainer');
+
+        // Only validate visible secondary contact fields
+        if (!emailField.classList.contains('hidden')) {
+            const email = document.getElementById('secondaryEmail').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('secondaryEmail-error').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('secondaryEmail-error').classList.add('hidden');
+            }
+        }
+
+        if (!phoneField.classList.contains('hidden')) {
+            const phone = document.getElementById('secondaryPhone').value.trim();
+            if (phone.length !== 10 || !/^\d{10}$/.test(phone)) {
+                document.getElementById('secondaryPhone-error').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('secondaryPhone-error').classList.add('hidden');
+            }
         }
     }
 
@@ -162,47 +192,17 @@ window.validateForm = function() {
     const submitBtn = document.getElementById('submit-btn');
     if (isValid) {
         submitBtn.disabled = false;
-        submitBtn.classList.remove('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
+        submitBtn.classList.remove('bg-gray-300', 'text-gray-500', 'cursor-not-allowed', 'hover:bg-gray-300');
         submitBtn.classList.add('bg-[#B87333]', 'text-white', 'hover:bg-[#5C3010]');
     } else {
         submitBtn.disabled = true;
-        submitBtn.classList.add('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
+        submitBtn.classList.add('bg-gray-300', 'text-gray-500', 'cursor-not-allowed', 'hover:bg-gray-300');
         submitBtn.classList.remove('bg-[#B87333]', 'text-white', 'hover:bg-[#5C3010]');
     }
 
     return isValid;
 };
 
-window.validateSecondaryContact = function() {
-    const emailField = document.getElementById('emailFieldContainer');
-    const phoneField = document.getElementById('phoneFieldContainer');
-    let isValid = true;
-
-    if (!emailField.classList.contains('hidden')) {
-        const email = document.getElementById('secondaryEmail').value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(email)) {
-            document.getElementById('secondaryEmail-error').classList.remove('hidden');
-            isValid = false;
-        } else {
-            document.getElementById('secondaryEmail-error').classList.add('hidden');
-        }
-    }
-
-    if (!phoneField.classList.contains('hidden')) {
-        const phone = document.getElementById('secondaryPhone').value.trim();
-
-        if (phone.length !== 10 || !/^\d{10}$/.test(phone)) {
-            document.getElementById('secondaryPhone-error').classList.remove('hidden');
-            isValid = false;
-        } else {
-            document.getElementById('secondaryPhone-error').classList.add('hidden');
-        }
-    }
-
-    return isValid;
-};
 
 // ════════════════════════════════════════════════════════════════════════════════
 // FORM HANDLERS
@@ -405,5 +405,9 @@ function completeSignup() {
     window.location.href = 'index.html';
 }
 
-// Initialize validation on form load
-window.addEventListener('load', validateForm);
+// Initialize validation after a slight delay to ensure all elements are ready
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        validateForm();
+    }, 100);
+});
