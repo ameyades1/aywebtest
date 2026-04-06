@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - AntarYog Foundation</title>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <!-- Profile-Specific Styles -->
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navigation (injected by main.js) -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="profile-main-container">
+
+            <!-- Desktop Sidebar Navigation -->
+            <aside class="left-sidebar">
+                <button class="nav-item active" onclick="showSection('personal', event)">My Profile</button>
+                <button class="nav-item" onclick="showSection('settings', event)">Account Settings</button>
+                <button class="nav-item" onclick="showSection('sadhak', event)">Sadhak ID & Membership</button>
+                <button class="nav-item" onclick="showSection('enrolled-center', event)">Enrolled Center</button>
+                <button class="nav-item" onclick="showSection('browse-centers', event)">Browse Centers</button>
+                <button class="nav-item" onclick="showSection('shibir-history', event)">Shibir History</button>
+                <button class="nav-item" onclick="showSection('volunteering', event)">Volunteering</button>
+                <button class="nav-item" onclick="showSection('naadi-jyotish', event)">Naadi Jyotish</button>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="main-content-area">
+                <div id="personal-section" class="content-section active"></div>
+                <div id="settings-section" class="content-section"></div>
+                <div id="sadhak-section" class="content-section"></div>
+                <div id="enrolled-center-section" class="content-section"></div>
+                <div id="browse-centers-section" class="content-section"></div>
+                <div id="shibir-history-section" class="content-section"></div>
+                <div id="volunteering-section" class="content-section"></div>
+                <div id="naadi-jyotish-section" class="content-section"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="profile-drawer-overlay" class="profile-drawer-overlay"></div>
+    <div id="profile-drawer" class="profile-drawer">
+        <button class="nav-item active" onclick="showSectionMobile('personal')">My Profile</button>
+        <button class="nav-item" onclick="showSectionMobile('settings')">Account Settings</button>
+        <button class="nav-item" onclick="showSectionMobile('sadhak')">Sadhak ID & Membership</button>
+        <button class="nav-item" onclick="showSectionMobile('enrolled-center')">Enrolled Center</button>
+        <button class="nav-item" onclick="showSectionMobile('browse-centers')">Browse Centers</button>
+        <button class="nav-item" onclick="showSectionMobile('shibir-history')">Shibir History</button>
+        <button class="nav-item" onclick="showSectionMobile('volunteering')">Volunteering</button>
+        <button class="nav-item" onclick="showSectionMobile('naadi-jyotish')">Naadi Jyotish</button>
+    </div>
+
+    <!-- Mobile Navigation FAB -->
+    <button class="profile-nav-fab" onclick="toggleProfileDrawer()">☰ Menu</button>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <!-- MODALS -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content modal-content-large">
+            <div class="modal-header">
+                <h2>Edit Profile</h2>
+                <button class="close-btn" onclick="closeModal('editProfileModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Content populated by personal.html component -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('editProfileModal')">Cancel</button>
+                <button class="btn-confirm" onclick="saveProfile()">Save Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aadhaar Verification Modal -->
+    <div id="aadhaarVerificationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Verify Aadhaar</h2>
+                <button class="close-btn" onclick="closeModal('aadhaarVerificationModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Content populated by personal.html component -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('aadhaarVerificationModal')">Cancel</button>
+                <button class="btn-confirm" onclick="verifyAadhaarOTP()">Verify OTP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generic Confirm Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="confirm-title">Confirm Action</h2>
+                <button class="close-btn" onclick="closeModal('confirmModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="confirm-message">Are you sure?</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('confirmModal')">Cancel</button>
+                <button class="btn-confirm" onclick="confirmAction()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Volunteering Modal -->
+    <div id="editVolunteeringModal" class="modal">
+        <div class="modal-content modal-content-large">
+            <div class="modal-header">
+                <h2>Share Your Volunteering Profile</h2>
+                <button class="close-btn" onclick="closeModal('editVolunteeringModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Content populated by volunteering.html component -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('editVolunteeringModal')">Cancel</button>
+                <button class="btn-confirm" onclick="saveVolunteeringProfile()">Save Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (injected by main.js) -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+        window.ROOT_PATH = '../';
+    </script>
+    <script src="../js/tailwind-config.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>
