@@ -101,10 +101,47 @@ main {
     font-weight: 600;
 }
 
+/* Navigation & Icon Sizing */
 .nav-icon {
     width: 1.25rem;
     height: 1.25rem;
     flex-shrink: 0;
+}
+
+.photo-upload-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+.govt-id-icon {
+    width: 2rem;
+    height: 2rem;
+    color: #10b981;
+    flex-shrink: 0;
+}
+
+.verification-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.lock-icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.aadhaar-input-group.verified .lock-icon {
+    color: #10b981;
+}
+
+.notice-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    color: #3b82f6;
 }
 
 /* SVG icon color styling */

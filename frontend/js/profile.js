@@ -630,9 +630,7 @@ window.verifyAadhaarOTP = function() {
     if (verificationStatus) {
         verificationStatus.classList.add('verified');
         verificationStatus.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 1rem; height: 1rem;">
-                <polyline points="20 6 9 17 4 12"/>
-            </svg>
+            <img src="../assets/icons/check-verified.svg" alt="" class="verification-icon">
             Verified
         `;
     }
