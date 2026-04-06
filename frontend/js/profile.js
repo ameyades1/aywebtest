@@ -720,13 +720,7 @@ window.saveProfilePhoto = function() {
     photoInput.value = '';
     const photoPreview = document.getElementById('photoPreview');
     if (photoPreview) {
-        photoPreview.innerHTML = `
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="100" fill="#F9F6F0"/>
-                <circle cx="100" cy="75" r="30" fill="#B87333"/>
-                <path d="M50 150 Q50 120 100 120 Q150 120 150 150" fill="#B87333"/>
-            </svg>
-        `;
+        photoPreview.innerHTML = '<img src="./assets/icons/photo-placeholder.svg" alt="Profile photo placeholder">';
     }
 };
 
