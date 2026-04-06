@@ -76,6 +76,50 @@ const centersData = [
         meetingFreq: 'Every Thursday',
         members: 28,
         status: 'active'
+    },
+    {
+        id: 7,
+        name: 'Chennai Center',
+        location: 'Chennai',
+        address: 'T. Nagar, Chennai',
+        enrolledDate: '2024-02-15',
+        nextMeeting: '2026-04-18',
+        meetingFreq: 'Every Friday',
+        members: 32,
+        status: 'active'
+    },
+    {
+        id: 8,
+        name: 'Ahmedabad Center',
+        location: 'Ahmedabad',
+        address: 'Paldi, Ahmedabad',
+        enrolledDate: '2024-01-20',
+        nextMeeting: '2026-04-19',
+        meetingFreq: 'Every Saturday',
+        members: 26,
+        status: 'active'
+    },
+    {
+        id: 9,
+        name: 'Jaipur Center',
+        location: 'Jaipur',
+        address: 'C-Scheme, Jaipur',
+        enrolledDate: '2024-04-01',
+        nextMeeting: '2026-04-20',
+        meetingFreq: 'Every Sunday',
+        members: 31,
+        status: 'active'
+    },
+    {
+        id: 10,
+        name: 'Lucknow Center',
+        location: 'Lucknow',
+        address: 'Gomti Nagar, Lucknow',
+        enrolledDate: '2024-03-15',
+        nextMeeting: '2026-04-21',
+        meetingFreq: 'Every Monday',
+        members: 24,
+        status: 'active'
     }
 ];
 
@@ -307,20 +351,105 @@ window.confirmAction = function() {
 // RENDER FUNCTIONS (Stubs for Phase 1+)
 // ════════════════════════════════════════════════════════════════════════════════
 
+// Track loaded center count for "Load More"
+window.centerLoadCount = 6;
+
 function renderCenters(centers) {
-    // Populated in Phase 2
+    const grid = document.getElementById('centersGrid');
+    if (!grid) return;
+
+    // Apply filters
+    const searchTerm = document.getElementById('centerSearch')?.value?.toLowerCase() || '';
+    const locationFilter = document.getElementById('locationFilter')?.value || '';
+    const languageFilter = document.getElementById('languageFilter')?.value || '';
+    const dayFilter = document.getElementById('dayFilter')?.value || '';
+
+    // Filter centers based on criteria
+    let filtered = centers.filter(center => {
+        const matchSearch = !searchTerm ||
+            center.name.toLowerCase().includes(searchTerm) ||
+            center.location.toLowerCase().includes(searchTerm);
+
+        const matchLocation = !locationFilter || center.location.toLowerCase().includes(locationFilter);
+        const matchLanguage = !languageFilter || (center.languages && center.languages.includes(languageFilter));
+        const matchDay = !dayFilter || (
+            (dayFilter === 'weekday' && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(center.meetingDay)) ||
+            (dayFilter === 'weekend' && ['Saturday', 'Sunday'].includes(center.meetingDay))
+        );
+
+        return matchSearch && matchLocation && matchLanguage && matchDay;
+    });
+
+    // Limit to loaded count
+    const displayed = filtered.slice(0, window.centerLoadCount);
+
+    // Clear grid
+    grid.innerHTML = '';
+
+    if (displayed.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1.5rem;">
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">No centers found matching your filters.</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Render center cards
+    displayed.forEach(center => {
+        const card = document.createElement('div');
+        card.className = 'center-card';
+        card.innerHTML = `
+            <div class="center-card-header">
+                <div class="center-card-name">
+                    <h3>${center.name}</h3>
+                    <p>${center.location}</p>
+                </div>
+                <span class="center-badge">${center.status || 'Active'}</span>
+            </div>
+
+            <div class="center-card-info">
+                <div class="center-card-info-item">
+                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>${center.meetingFreq}</span>
+                </div>
+                <div class="center-card-info-item">
+                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>${center.members} members</span>
+                </div>
+            </div>
+
+            <div class="center-card-actions">
+                <button class="btn-details" onclick="viewCenterDetails('${center.id}')">Details</button>
+                <button class="btn-join" onclick="joinCenter('${center.id}')">Join</button>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
 }
 
 window.filterCenters = function() {
-    // Populated in Phase 2
+    renderCenters(centersData);
 };
 
 window.resetFilters = function() {
-    // Populated in Phase 2
+    document.getElementById('centerSearch').value = '';
+    document.getElementById('locationFilter').value = '';
+    document.getElementById('languageFilter').value = '';
+    document.getElementById('dayFilter').value = '';
+    window.centerLoadCount = 6;
+    renderCenters(centersData);
 };
 
 window.loadMoreCenters = function() {
-    // Populated in Phase 2
+    window.centerLoadCount += 4;
+    renderCenters(centersData);
 };
 
 function renderShibirs(shibirs) {
@@ -356,12 +485,37 @@ window.saveProfile = function() {
     // Populated in Phase 4
 };
 
+window.viewCenterDetails = function(id) {
+    alert(`View details for center ${id} (Mockup - backend will show full details)`);
+};
+
+window.openDirections = function() {
+    alert('Opening directions in Google Maps... (Mockup - backend will open actual directions)');
+};
+
 window.joinCenter = function(id) {
-    // Populated in Phase 2
+    const center = centersData.find(c => c.id == id);
+    if (center) {
+        window.openConfirmModal(
+            'Join Center',
+            `Are you sure you want to join ${center.name}?`,
+            function() {
+                alert(`You have successfully joined ${center.name}!`);
+                // In real app, this would call backend API
+            }
+        );
+    }
 };
 
 window.leaveCenter = function() {
-    // Populated in Phase 2
+    window.openConfirmModal(
+        'Leave Center',
+        'Are you sure you want to leave this center? You can rejoin later.',
+        function() {
+            alert('You have left the center. You can rejoin anytime.');
+            // In real app, this would call backend API
+        }
+    );
 };
 
 window.openAadhaarVerification = function() {

@@ -1,0 +1,48 @@
+<div class="section-header">
+    <h1 class="section-title">Browse Centers Near You</h1>
+</div>
+
+<!-- Search and Filters Section -->
+<div class="search-filters">
+    <input
+        type="search"
+        class="search-input"
+        id="centerSearch"
+        placeholder="Search by city, state, or center name..."
+        onkeyup="filterCenters()">
+
+    <div class="filters-row">
+        <select class="filter-select" id="locationFilter" onchange="filterCenters()">
+            <option value="">All Locations</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="delhi">Delhi NCR</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="tamil-nadu">Tamil Nadu</option>
+        </select>
+
+        <select class="filter-select" id="languageFilter" onchange="filterCenters()">
+            <option value="">All Languages</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="mr">Marathi</option>
+        </select>
+
+        <select class="filter-select" id="dayFilter" onchange="filterCenters()">
+            <option value="">Any Day</option>
+            <option value="weekday">Weekdays</option>
+            <option value="weekend">Weekends</option>
+        </select>
+
+        <button class="btn-reset" onclick="resetFilters()">Reset Filters</button>
+    </div>
+</div>
+
+<!-- Centers Grid (populated by renderCenters) -->
+<div class="centers-grid" id="centersGrid">
+    <!-- Center cards will be rendered here -->
+</div>
+
+<!-- Load More Section -->
+<div class="load-more-section">
+    <button class="btn-load-more" onclick="loadMoreCenters()">Load More Centers</button>
+</div>
