@@ -1005,9 +1005,7 @@ function renderNaadiUpcomingConsultations(consultations) {
     container.appendChild(grid);
 }
 
-function renderVolunteeringProfile(data) {
-    // Populated in Phase 5
-}
+// Placeholder - actual implementation at line 1353
 
 // ════════════════════════════════════════════════════════════════════════════════
 // ACTION HANDLERS (Stubs for Phases 1-5)
@@ -1366,52 +1364,170 @@ function renderVolunteeringProfile(data) {
         return;
     }
 
-    // Render profile summary
-    const interestsText = data.volunteerInterests?.join(', ') || 'Not specified';
-    const languagesText = data.languages?.join(', ') || 'Not specified';
-    const hoursText = data.hoursPerWeek || 'Not specified';
-    const daysText = data.preferredDays?.join(', ') || 'Not specified';
+    // Helper function to create badge containers for array fields
+    const createBadgeGroup = (values) => {
+        if (!values || values.length === 0) return `<p style="color: var(--text-secondary);">Not specified</p>`;
+        return `
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                ${values.map(v => `<span class="badge">${v}</span>`).join('')}
+            </div>
+        `;
+    };
 
+    // Render 6 content cards matching v7 structure
     container.innerHTML = `
-        <div class="volunteering-summary-card">
-            <div class="summary-grid">
-                <div class="summary-item">
-                    <div class="summary-label">Occupation</div>
-                    <div class="summary-value">${data.occupation || 'Not specified'}</div>
+        <!-- Card 1: Professional Background -->
+        <div class="content-card">
+            <div class="field-group-header">Professional Background</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Current Occupation</label>
+                    <input type="text" value="${data.occupation || ''}" disabled>
                 </div>
-                <div class="summary-item">
-                    <div class="summary-label">Years of Experience</div>
-                    <div class="summary-value">${data.yearsExperience || 'Not specified'}</div>
+                <div class="form-group">
+                    <label>Years of Professional Experience</label>
+                    <input type="text" value="${data.yearsExperience || ''}" disabled>
                 </div>
-                <div class="summary-item">
-                    <div class="summary-label">Industry</div>
-                    <div class="summary-value">${data.industry || 'Not specified'}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Languages</div>
-                    <div class="summary-value">${languagesText}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Volunteer Interests</div>
-                    <div class="summary-value">${interestsText}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Hours Per Week</div>
-                    <div class="summary-value">${hoursText}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Preferred Days</div>
-                    <div class="summary-value">${daysText}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Format Preference</div>
-                    <div class="summary-value">${data.volunteeringFormat || 'Not specified'}</div>
+                <div class="form-group">
+                    <label>Industry/Field of Expertise</label>
+                    <input type="text" value="${data.industry || ''}" disabled>
                 </div>
             </div>
+            ${data.professionalSkills ? `
+                <div style="margin-top: 1rem;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Key Professional Skills</label>
+                    <p style="color: var(--text-secondary); white-space: pre-wrap;">${data.professionalSkills}</p>
+                </div>
+            ` : ''}
+        </div>
+
+        <!-- Card 2: Educational Background -->
+        <div class="content-card">
+            <div class="field-group-header">Educational Background</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Highest Level of Education</label>
+                    <input type="text" value="${data.educationLevel || ''}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Field of Study/Specialization</label>
+                    <input type="text" value="${data.fieldOfStudy || ''}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Teaching/Training Experience</label>
+                    <input type="text" value="${data.teachingExperience || ''}" disabled>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Volunteer & Spiritual Experience -->
+        <div class="content-card">
+            <div class="field-group-header">Volunteer & Spiritual Experience</div>
+            ${data.volunteerExperience ? `
+                <div class="form-group">
+                    <label>Previous Volunteering Experience</label>
+                    <textarea disabled style="min-height: 100px;">${data.volunteerExperience}</textarea>
+                </div>
+            ` : ''}
+            ${data.spiritualBackground ? `
+                <div class="form-group">
+                    <label>Spiritual Practice Background</label>
+                    <textarea disabled style="min-height: 80px;">${data.spiritualBackground}</textarea>
+                </div>
+            ` : ''}
+            ${data.volunteerInterests && data.volunteerInterests.length > 0 ? `
+                <div class="form-group">
+                    <label>Areas of Volunteer Interest</label>
+                    ${createBadgeGroup(data.volunteerInterests)}
+                </div>
+            ` : ''}
+        </div>
+
+        <!-- Card 4: Skills & Talents -->
+        <div class="content-card">
+            <div class="field-group-header">Skills & Talents</div>
+            ${data.languages && data.languages.length > 0 ? `
+                <div class="form-group">
+                    <label>Languages Spoken</label>
+                    ${createBadgeGroup(data.languages)}
+                </div>
+            ` : ''}
+            ${data.technicalSkills && data.technicalSkills.length > 0 ? `
+                <div class="form-group">
+                    <label>Technical Skills</label>
+                    ${createBadgeGroup(data.technicalSkills)}
+                </div>
+            ` : ''}
+            ${data.creativeSkills && data.creativeSkills.length > 0 ? `
+                <div class="form-group">
+                    <label>Creative & Artistic Talents</label>
+                    ${createBadgeGroup(data.creativeSkills)}
+                </div>
+            ` : ''}
+            ${data.managementSkills && data.managementSkills.length > 0 ? `
+                <div class="form-group">
+                    <label>Management & Organizational Skills</label>
+                    ${createBadgeGroup(data.managementSkills)}
+                </div>
+            ` : ''}
+            ${data.additionalSkills ? `
+                <div class="form-group">
+                    <label>Additional Skills, Hobbies, or Unique Talents</label>
+                    <p style="color: var(--text-secondary); white-space: pre-wrap;">${data.additionalSkills}</p>
+                </div>
+            ` : ''}
+        </div>
+
+        <!-- Card 5: Availability & Commitment -->
+        <div class="content-card">
+            <div class="field-group-header">Availability & Commitment</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Hours Available Per Week</label>
+                    <input type="text" value="${data.hoursPerWeek || ''}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Volunteering Format Preference</label>
+                    <input type="text" value="${data.volunteeringFormat || ''}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Willing to Travel</label>
+                    <input type="text" value="${data.willingToTravel || ''}" disabled>
+                </div>
+            </div>
+            ${data.preferredDays && data.preferredDays.length > 0 ? `
+                <div class="form-group">
+                    <label>Preferred Volunteering Days</label>
+                    ${createBadgeGroup(data.preferredDays)}
+                </div>
+            ` : ''}
+            ${data.preferredTimeSlots && data.preferredTimeSlots.length > 0 ? `
+                <div class="form-group">
+                    <label>Preferred Time Slots</label>
+                    ${createBadgeGroup(data.preferredTimeSlots)}
+                </div>
+            ` : ''}
+        </div>
+
+        <!-- Card 6: Motivation & Goals -->
+        <div class="content-card">
+            <div class="field-group-header">Motivation & Goals</div>
             ${data.motivation ? `
-                <div class="summary-section" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
-                    <h4 style="font-weight: 700; color: var(--text); margin-bottom: 0.5rem;">Motivation</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">${data.motivation}</p>
+                <div class="form-group">
+                    <label>Motivation for Volunteering</label>
+                    <textarea disabled style="min-height: 80px;">${data.motivation}</textarea>
+                </div>
+            ` : ''}
+            ${data.goals ? `
+                <div class="form-group">
+                    <label>Goals & Aspirations</label>
+                    <textarea disabled style="min-height: 80px;">${data.goals}</textarea>
+                </div>
+            ` : ''}
+            ${data.specialProjects ? `
+                <div class="form-group">
+                    <label>Special Projects or Initiatives Interest</label>
+                    <textarea disabled style="min-height: 80px;">${data.specialProjects}</textarea>
                 </div>
             ` : ''}
         </div>
