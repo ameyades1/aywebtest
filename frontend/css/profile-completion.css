@@ -1,0 +1,80 @@
+/* Profile Completion Page Styles */
+
+:root {
+    --primary: #B87333;
+    --accent: #5C3010;
+    --secondary: #E8B84B;
+    --background: #F9F6F0;
+    --text: #5C3010;
+    --text-secondary: #7A6858;
+}
+
+/* Language Button Styles */
+.language-btn {
+    transition: all 0.3s ease;
+}
+
+.language-btn.selected {
+    border-color: var(--primary) !important;
+    background-color: rgba(184, 115, 51, 0.1) !important;
+}
+
+/* Input Styles */
+input, select {
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+/* Trust Box */
+.trust-box {
+    background-color: #dbeafe;
+    border-color: #93c5fd;
+}
+
+/* Secondary OTP Input Styles */
+.secondary-otp-input {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.secondary-otp-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.1);
+}
+
+.secondary-otp-input.filled {
+    border-color: var(--primary);
+    background-color: rgba(184, 115, 51, 0.05);
+}
+
+.secondary-otp-input.error {
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.05);
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .secondary-otp-input {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}

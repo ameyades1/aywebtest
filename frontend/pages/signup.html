@@ -411,8 +411,18 @@
             if (otp === '123456') {
                 const firstName = signupState.fullName.split(' ')[0];
                 localStorage.setItem('firstName', firstName);
-                localStorage.setItem('userEmail', signupState.identifier);
-                window.location.href = '../index.html';
+
+                // Store signup data for profile completion
+                if (signupState.method === 'email') {
+                    localStorage.setItem('signupEmail', signupState.identifier);
+                } else {
+                    localStorage.setItem('signupPhone', signupState.countryCode + signupState.identifier);
+                }
+                localStorage.setItem('signupMethod', signupState.method);
+                localStorage.setItem('signupFullName', signupState.fullName);
+
+                // Redirect to profile completion page
+                window.location.href = 'profile-completion.html';
             } else {
                 showOTPError('Invalid code. Please try again or request a new one.');
             }
