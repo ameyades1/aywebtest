@@ -1,0 +1,157 @@
+<div class="section-header">
+    <h1 class="section-title">My Profile</h1>
+    <button class="btn-primary" onclick="openEditProfileModal()">Edit Profile</button>
+</div>
+
+<!-- Profile Summary Card -->
+<div class="profile-summary-card">
+    <div class="profile-grid">
+        <!-- Photo Section -->
+        <div class="profile-photo-section">
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="100" fill="#F9F6F0"/>
+                        <circle cx="100" cy="75" r="30" fill="#B87333"/>
+                        <path d="M50 150 Q50 120 100 120 Q150 120 150 150" fill="#B87333"/>
+                    </svg>
+                </div>
+            </div>
+            <button class="photo-upload-btn" onclick="openEditProfileModal()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 0.875rem; height: 0.875rem;">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                </svg>
+                Upload Photo
+            </button>
+        </div>
+
+        <!-- Name & Details Section -->
+        <div class="profile-details-section">
+            <h3 class="profile-name">Vivek Kumar</h3>
+            <p class="profile-meta">Member since February 2024</p>
+            <p class="profile-location">Mumbai, Maharashtra, India</p>
+        </div>
+    </div>
+</div>
+
+<!-- Personal Information Form -->
+<div class="content-card">
+    <!-- Personal Details Group -->
+    <div class="field-group-header">Personal Details</div>
+    <div class="form-grid">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="firstName" value="Vivek" disabled>
+        </div>
+        <div class="form-group">
+            <label>Middle Name</label>
+            <input type="text" id="middleName" value="" disabled>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lastName" value="Kumar" disabled>
+        </div>
+        <div class="form-group">
+            <label>Email Address <span class="verified-badge">✓</span></label>
+            <input type="email" id="email" value="vivek.kumar@example.com" disabled>
+        </div>
+        <div class="form-group">
+            <label>Phone Number <span class="verified-badge">✓</span></label>
+            <input type="tel" id="phone" value="+91 9876543210" disabled>
+        </div>
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" id="dob" value="1990-05-15" disabled>
+        </div>
+    </div>
+
+    <!-- Location & Preferences Group -->
+    <div class="field-group-header" style="margin-top: 1.5rem;">Location & Preferences</div>
+    <div class="form-grid">
+        <div class="form-group">
+            <label>Country</label>
+            <input type="text" id="country" value="India" disabled>
+        </div>
+        <div class="form-group">
+            <label>State/Province</label>
+            <input type="text" id="state" value="Maharashtra" disabled>
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" id="city" value="Mumbai" disabled>
+        </div>
+        <div class="form-group">
+            <label>Postal Code</label>
+            <input type="text" id="postalCode" value="400053" disabled>
+        </div>
+        <div class="form-group">
+            <label>Preferred Language</label>
+            <select id="language" disabled>
+                <option selected>English</option>
+                <option>Hindi</option>
+                <option>Marathi</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Section Separator -->
+    <hr class="section-separator">
+
+    <!-- Government Verified ID Card -->
+    <div class="govt-id-card">
+        <div class="govt-id-header">
+            <div class="govt-id-title">
+                <svg class="govt-id-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                    <path d="M7 8h10M7 12h10M7 16h6"/>
+                    <circle cx="12" cy="10" r="2"/>
+                </svg>
+                <h3>Government Verified ID</h3>
+            </div>
+            <span class="verification-status verified" id="verificationStatus">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 1rem; height: 1rem;">
+                    <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Verified
+            </span>
+        </div>
+
+        <div class="aadhaar-field-container">
+            <div class="aadhaar-field">
+                <label>Aadhaar Number</label>
+                <div class="aadhaar-input-group verified" id="aadhaarDisplay">
+                    <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    <span class="aadhaar-number" id="aadhaarNumber">XXXX XXXX 1234</span>
+                </div>
+            </div>
+            <button class="btn-verify-aadhaar" id="verifyBtn" onclick="openAadhaarVerification()" style="display: none;">
+                Verify Aadhaar
+            </button>
+        </div>
+
+        <!-- Verification Notice (shown only when verified) -->
+        <div class="verification-notice" id="verificationNotice">
+            <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <div>
+                <p><strong>Your Aadhaar is verified and locked for security.</strong></p>
+                <p>This field cannot be edited directly. If you need to update your Aadhaar details due to errors or changes, please contact AntarYog Foundation support.</p>
+                <div class="support-contact">
+                    <div class="support-contact-title">Contact Support:</div>
+                    <div class="support-contact-methods">
+                        <span>📧 Email: <a href="mailto:support@antaryog.org" class="support-link">support@antaryog.org</a></span>
+                        <span>📞 Phone: <a href="tel:+911234567890" class="support-link">+91 123 456 7890</a></span>
+                        <span>🎫 Submit ticket: <a href="#" onclick="contactSupport(); return false;" class="support-link">Open Support Ticket</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

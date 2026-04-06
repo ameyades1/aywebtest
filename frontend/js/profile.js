@@ -299,6 +299,28 @@ const naadiUpcomingConsultations = [
     }
 ];
 
+const personalProfileData = {
+    firstName: localStorage.getItem('firstName') || 'Vivek',
+    lastName: localStorage.getItem('lastName') || 'Kumar',
+    middleName: '',
+    email: localStorage.getItem('email') || 'vivek.kumar@example.com',
+    phone: '+91 9876543210',
+    dateOfBirth: '1990-05-15',
+    country: 'India',
+    state: 'Maharashtra',
+    city: 'Mumbai',
+    postalCode: '400053',
+    preferredLanguage: 'English',
+    aadhaarNumber: 'XXXX XXXX 1234',
+    aadhaarMasked: 'XXXX XXXX 1234',
+    aadhaarVerified: true,
+    memberSince: 'February 2024',
+    membershipId: 'AYF-2024-001234'
+};
+
+// Make globally accessible
+window.personalProfileData = personalProfileData;
+
 // ════════════════════════════════════════════════════════════════════════════════
 // SECTION SWITCHING
 // ════════════════════════════════════════════════════════════════════════════════
@@ -399,6 +421,212 @@ window.confirmAction = function() {
     if (window.confirmCallback && typeof window.confirmCallback === 'function') {
         window.confirmCallback();
     }
+};
+
+// ════════════════════════════════════════════════════════════════════════════════
+// PERSONAL PROFILE SECTION (Phase 4)
+// ════════════════════════════════════════════════════════════════════════════════
+
+window.openEditProfileModal = function() {
+    const modal = document.getElementById('editProfileModal');
+    const modalBody = modal?.querySelector('.modal-body');
+
+    if (modalBody) {
+        modalBody.innerHTML = `
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" id="editFirstName" value="${personalProfileData.firstName}">
+                </div>
+                <div class="form-group">
+                    <label>Middle Name</label>
+                    <input type="text" id="editMiddleName" value="${personalProfileData.middleName}">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" id="editLastName" value="${personalProfileData.lastName}">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="editEmail" value="${personalProfileData.email}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="editPhone" value="${personalProfileData.phone}">
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" id="editDob" value="${personalProfileData.dateOfBirth}">
+                </div>
+                <div style="border-top: 1px solid #e5e7eb; margin: 1.5rem 0; padding-top: 1.5rem;">
+                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Location & Preferences</h4>
+                    <div class="form-group">
+                        <label>Country</label>
+                        <input type="text" id="editCountry" value="${personalProfileData.country}">
+                    </div>
+                    <div class="form-group">
+                        <label>State/Province</label>
+                        <input type="text" id="editState" value="${personalProfileData.state}">
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="editCity" value="${personalProfileData.city}">
+                    </div>
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" id="editPostalCode" value="${personalProfileData.postalCode}">
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Language</label>
+                        <select id="editLanguage">
+                            <option ${personalProfileData.preferredLanguage === 'English' ? 'selected' : ''}>English</option>
+                            <option ${personalProfileData.preferredLanguage === 'Hindi' ? 'selected' : ''}>Hindi</option>
+                            <option ${personalProfileData.preferredLanguage === 'Marathi' ? 'selected' : ''}>Marathi</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        `;
+    }
+
+    window.openModal('editProfileModal');
+};
+
+window.saveProfile = function() {
+    const firstName = document.getElementById('editFirstName')?.value || '';
+    const lastName = document.getElementById('editLastName')?.value || '';
+    const middleName = document.getElementById('editMiddleName')?.value || '';
+    const phone = document.getElementById('editPhone')?.value || '';
+    const dob = document.getElementById('editDob')?.value || '';
+    const country = document.getElementById('editCountry')?.value || '';
+    const state = document.getElementById('editState')?.value || '';
+    const city = document.getElementById('editCity')?.value || '';
+    const postalCode = document.getElementById('editPostalCode')?.value || '';
+    const language = document.getElementById('editLanguage')?.value || '';
+
+    // Update mock data
+    personalProfileData.firstName = firstName;
+    personalProfileData.lastName = lastName;
+    personalProfileData.middleName = middleName;
+    personalProfileData.phone = phone;
+    personalProfileData.dateOfBirth = dob;
+    personalProfileData.country = country;
+    personalProfileData.state = state;
+    personalProfileData.city = city;
+    personalProfileData.postalCode = postalCode;
+    personalProfileData.preferredLanguage = language;
+
+    // Update localStorage
+    localStorage.setItem('firstName', firstName);
+    localStorage.setItem('lastName', lastName);
+
+    // Update display fields
+    if (document.getElementById('firstName')) document.getElementById('firstName').value = firstName;
+    if (document.getElementById('lastName')) document.getElementById('lastName').value = lastName;
+    if (document.getElementById('middleName')) document.getElementById('middleName').value = middleName;
+    if (document.getElementById('phone')) document.getElementById('phone').value = phone;
+    if (document.getElementById('dob')) document.getElementById('dob').value = dob;
+    if (document.getElementById('country')) document.getElementById('country').value = country;
+    if (document.getElementById('state')) document.getElementById('state').value = state;
+    if (document.getElementById('city')) document.getElementById('city').value = city;
+    if (document.getElementById('postalCode')) document.getElementById('postalCode').value = postalCode;
+    if (document.getElementById('language')) document.getElementById('language').value = language;
+
+    window.closeModal('editProfileModal');
+};
+
+window.openAadhaarVerification = function() {
+    const modal = document.getElementById('aadhaarVerificationModal');
+    const modalBody = modal?.querySelector('.modal-body');
+
+    if (modalBody) {
+        modalBody.innerHTML = `
+            <div style="padding: 1rem 0;">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Enter your 12-digit Aadhaar number to verify your identity.</p>
+                <div class="form-group">
+                    <label>Aadhaar Number</label>
+                    <input type="text" id="aadhaarInput" placeholder="XXXX XXXX XXXX" maxlength="14" style="font-family: monospace; letter-spacing: 0.2em;">
+                </div>
+                <div id="otpStage" style="display: none;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; margin-top: 1.5rem;">A 6-digit OTP has been sent to your registered email.</p>
+                    <div class="form-group">
+                        <label>Enter OTP</label>
+                        <input type="text" id="aadhaarOTP" placeholder="000000" maxlength="6" style="font-family: monospace; letter-spacing: 0.2em; font-size: 1.25rem;">
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">Valid OTP: 123456</p>
+                </div>
+            </div>
+        `;
+    }
+
+    window.openModal('aadhaarVerificationModal');
+
+    // Handle Aadhaar input
+    const aadhaarInput = document.getElementById('aadhaarInput');
+    if (aadhaarInput) {
+        aadhaarInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            if (value.length === 12) {
+                // Show OTP stage
+                const otpStage = document.getElementById('otpStage');
+                if (otpStage) otpStage.style.display = 'block';
+            }
+        });
+    }
+};
+
+window.verifyAadhaarOTP = function() {
+    const aadhaarInput = document.getElementById('aadhaarInput')?.value?.replace(/\s/g, '') || '';
+    const otp = document.getElementById('aadhaarOTP')?.value || '';
+
+    if (aadhaarInput.length !== 12) {
+        alert('Please enter a valid 12-digit Aadhaar number');
+        return;
+    }
+
+    if (otp !== '123456') {
+        alert('Invalid OTP. Please try again. (Valid OTP: 123456)');
+        return;
+    }
+
+    // Mark as verified
+    personalProfileData.aadhaarVerified = true;
+    personalProfileData.aadhaarNumber = aadhaarInput.slice(-4);
+    personalProfileData.aadhaarMasked = 'XXXX XXXX ' + aadhaarInput.slice(-4);
+
+    // Update display
+    const verificationStatus = document.getElementById('verificationStatus');
+    if (verificationStatus) {
+        verificationStatus.classList.add('verified');
+        verificationStatus.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 1rem; height: 1rem;">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Verified
+        `;
+    }
+
+    const aadhaarNumber = document.getElementById('aadhaarNumber');
+    if (aadhaarNumber) {
+        aadhaarNumber.textContent = personalProfileData.aadhaarMasked;
+    }
+
+    const verifyBtn = document.getElementById('verifyBtn');
+    if (verifyBtn) {
+        verifyBtn.style.display = 'none';
+    }
+
+    const verificationNotice = document.getElementById('verificationNotice');
+    if (verificationNotice) {
+        verificationNotice.style.display = 'block';
+    }
+
+    window.closeModal('aadhaarVerificationModal');
+    alert('Aadhaar verification successful!');
+};
+
+window.contactSupport = function() {
+    alert('Support ticket form would open here.\n\nEmail: support@antaryog.org\nPhone: +91 123 456 7890');
 };
 
 // ════════════════════════════════════════════════════════════════════════════════
@@ -754,15 +982,6 @@ function renderVolunteeringProfile(data) {
 // ACTION HANDLERS (Stubs for Phases 1-5)
 // ════════════════════════════════════════════════════════════════════════════════
 
-window.openEditProfileModal = function() {
-    // Populated in Phase 4
-    window.openModal('editProfileModal');
-};
-
-window.saveProfile = function() {
-    // Populated in Phase 4
-};
-
 window.viewCenterDetails = function(id) {
     alert(`View details for center ${id} (Mockup - backend will show full details)`);
 };
@@ -796,14 +1015,6 @@ window.leaveCenter = function() {
     );
 };
 
-window.openAadhaarVerification = function() {
-    // Populated in Phase 4
-    window.openModal('aadhaarVerificationModal');
-};
-
-window.verifyAadhaarOTP = function() {
-    // Populated in Phase 4
-};
 
 window.copyReferralLink = function() {
     const referralInput = document.getElementById('referralLink');
@@ -888,12 +1099,44 @@ async function loadProfileSections() {
 }
 
 function initProfilePage() {
+    initPersonalProfile();
     renderCenters(centersData);
     renderShibirs(shibirsData);
     renderNaadiBirthProfile(naadiUserProfile);
     renderNaadiConsultations(naadiConsultations);
     renderNaadiUpcomingConsultations(naadiUpcomingConsultations);
     setupCharacterCounters();
+}
+
+function initPersonalProfile() {
+    // Populate personal profile display fields
+    if (document.getElementById('firstName')) document.getElementById('firstName').value = personalProfileData.firstName;
+    if (document.getElementById('lastName')) document.getElementById('lastName').value = personalProfileData.lastName;
+    if (document.getElementById('middleName')) document.getElementById('middleName').value = personalProfileData.middleName;
+    if (document.getElementById('email')) document.getElementById('email').value = personalProfileData.email;
+    if (document.getElementById('phone')) document.getElementById('phone').value = personalProfileData.phone;
+    if (document.getElementById('dob')) document.getElementById('dob').value = personalProfileData.dateOfBirth;
+    if (document.getElementById('country')) document.getElementById('country').value = personalProfileData.country;
+    if (document.getElementById('state')) document.getElementById('state').value = personalProfileData.state;
+    if (document.getElementById('city')) document.getElementById('city').value = personalProfileData.city;
+    if (document.getElementById('postalCode')) document.getElementById('postalCode').value = personalProfileData.postalCode;
+    if (document.getElementById('language')) document.getElementById('language').value = personalProfileData.preferredLanguage;
+    if (document.getElementById('aadhaarNumber')) document.getElementById('aadhaarNumber').textContent = personalProfileData.aadhaarMasked;
+
+    // Set Aadhaar verification status
+    const verificationStatus = document.getElementById('verificationStatus');
+    const verifyBtn = document.getElementById('verifyBtn');
+    const verificationNotice = document.getElementById('verificationNotice');
+
+    if (personalProfileData.aadhaarVerified) {
+        if (verificationStatus) verificationStatus.classList.add('verified');
+        if (verifyBtn) verifyBtn.style.display = 'none';
+        if (verificationNotice) verificationNotice.style.display = 'block';
+    } else {
+        if (verificationStatus) verificationStatus.classList.remove('verified');
+        if (verifyBtn) verifyBtn.style.display = 'block';
+        if (verificationNotice) verificationNotice.style.display = 'none';
+    }
 }
 
 function setupCharacterCounters() {
