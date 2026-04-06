@@ -374,7 +374,29 @@ window.verifyAadhaarOTP = function() {
 };
 
 window.copyReferralLink = function() {
-    // Populated in Phase 1
+    const referralInput = document.getElementById('referralLink');
+    if (referralInput) {
+        referralInput.select();
+        document.execCommand('copy');
+
+        // Visual feedback
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    }
+};
+
+window.downloadQRCode = function() {
+    // Stub for Phase 1
+    alert('QR Code download functionality coming soon');
+};
+
+window.printMembershipCard = function() {
+    // Stub for Phase 1
+    window.print();
 };
 
 window.handleLogout = function() {
