@@ -15,7 +15,7 @@ const DISCOURSE_GROUPS = {
   all: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 52, 53, 54, 55, 56],
 };
 
-const CAROUSEL_IDS = [1, 2, 3, 5, 6, 7]; // Featured discourses for carousel
+const CAROUSEL_IDS = [1, 3, 5, 6, 7, 10]; // Featured discourses for carousel
 
 let carousel = {
   currentIndex: 0,
@@ -122,14 +122,20 @@ function setActiveSlide(index) {
     const isActive = i === carousel.currentIndex;
     slide.classList.toggle('active', isActive);
 
-    // For inactive slides, prevent default link behavior and navigate carousel instead
-    if (!isActive) {
-      slide.addEventListener('click', (e) => {
-        e.preventDefault();
-        setActiveSlide(i);
-        stopAutoplay();
-        startAutoplay();
-      }, { once: true });
+    // Remove any existing click listeners by cloning (removes all listeners)
+    if (slide.parentNode) {
+      const newSlide = slide.cloneNode(true);
+      slide.parentNode.replaceChild(newSlide, slide);
+
+      // For inactive slides, prevent default link behavior and navigate carousel instead
+      if (!isActive) {
+        newSlide.addEventListener('click', (e) => {
+          e.preventDefault();
+          setActiveSlide(i);
+          stopAutoplay();
+          startAutoplay();
+        });
+      }
     }
   });
 
@@ -173,7 +179,7 @@ function startAutoplay() {
   stopAutoplay(); // Clear existing
   carousel.autoplayInterval = setInterval(() => {
     setActiveSlide(carousel.currentIndex + 1);
-  }, 5000);
+  }, 3000);
 }
 
 function stopAutoplay() {
