@@ -7,21 +7,15 @@ const ROOT_PATH = window.ROOT_PATH || '../';
 // Product grouping logic
 const DISCOURSE_GROUPS = {
   all: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 52, 53, 54, 55, 56],
-  life: [10, 11, 12, 13, 14, 16, 17, 18, 19, 20],
+  life: [10, 11, 12, 13, 17, 20],
+  'wealth-leadership': [1, 2, 5, 8, 16, 18],
   gita: [3, 4, 5, 6, 7, 8, 9, 15, 21],
-  navagraha: [22, 23, 24, 25, 26],
+  navagraha: [14, 22, 23, 24, 25, 26],
   'mool-mantra': [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 50, 51, 47, 49, 48],
+  chants: [19, 20, 52, 53, 54, 55, 56],
 };
 
 const CAROUSEL_IDS = [1, 2, 3, 5, 6, 7]; // Featured discourses for carousel
-
-const PLANET_NAMES = {
-  22: { symbol: '☉', name: 'Surya', english: 'Sun' },
-  23: { symbol: '☽', name: 'Chandra', english: 'Moon' },
-  24: { symbol: '♂', name: 'Mangal', english: 'Mars' },
-  25: { symbol: '☿', name: 'Budh', english: 'Mercury' },
-  26: { symbol: '♃', name: 'Guru', english: 'Jupiter' },
-};
 
 let carousel = {
   currentIndex: 0,
@@ -234,9 +228,7 @@ function renderContent(tabName, products) {
   // Clear classes
   container.className = '';
 
-  if (tabName === 'navagraha') {
-    renderNavagrahaContent(container, products);
-  } else if (tabName === 'mool-mantra') {
+  if (tabName === 'mool-mantra') {
     renderMoolMantraContent(container, products);
   } else {
     renderDiscourseContent(container, tabName, products);
@@ -262,34 +254,6 @@ function renderDiscourseContent(container, tabName, products) {
       </div>
     </a>
   `).join('');
-
-  container.innerHTML = '';
-  container.appendChild(grid);
-}
-
-// =========================================
-// NAVAGRAHA
-// =========================================
-
-function renderNavagrahaContent(container, products) {
-  container.className = '';
-
-  const planetsGroup = products.filter(p => p.id >= 22 && p.id <= 26);
-
-  const grid = document.createElement('div');
-  grid.className = 'planet-grid';
-  grid.innerHTML = planetsGroup.map(p => {
-    const planet = PLANET_NAMES[p.id] || { symbol: '☆', name: 'Unknown', english: '' };
-    return `
-      <a href="${p.url}" target="_blank" rel="noopener" class="planet-card">
-        <img src="${p.thumbnail_url}" alt="${planet.name}" loading="lazy">
-        <div class="card-body">
-          <h3>${planet.name}</h3>
-          <p>${planet.english}</p>
-        </div>
-      </a>
-    `;
-  }).join('');
 
   container.innerHTML = '';
   container.appendChild(grid);
