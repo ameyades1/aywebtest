@@ -1,0 +1,561 @@
+/* =========================================
+   DISCOURSES PAGE — DISCOURSES.CSS
+   ========================================= */
+
+:root {
+  --primary: #B87333;
+  --secondary: #E8B84B;
+  --accent: #5C3010;
+  --background: #F9F6F0;
+  --section-alt: #FDFBF8;
+  --text: #5C3010;
+  --text-secondary: #7A6858;
+  --dark-cosmic: #2A1A0A;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', Georgia, serif;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+#teachings-hero {
+  padding: 40px;
+  background: var(--background);
+  text-align: center;
+}
+
+#teachings-hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #teachings-hero {
+    padding: 32px 24px;
+  }
+  #teachings-hero h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========================================
+   FEATURED CAROUSEL
+   ========================================= */
+
+#featured-carousel {
+  padding: 32px 40px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.carousel-spotlight {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carousel-split {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  align-items: center;
+  background: var(--background);
+  border-radius: 8px;
+  height: 100%;
+}
+
+.carousel-text {
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--background);
+}
+
+.carousel-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(184, 115, 51, 0.15);
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  width: fit-content;
+}
+
+.carousel-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.carousel-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.carousel-explore {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 100ms;
+  width: fit-content;
+  margin-top: 6px;
+}
+
+.carousel-explore:hover {
+  transform: translateX(3px);
+}
+
+.carousel-image {
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-arrow {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--primary);
+  transition: all 200ms;
+  font-weight: bold;
+}
+
+.carousel-arrow:hover {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-arrow.prev {
+  left: -20px;
+}
+
+.carousel-arrow.next {
+  right: -20px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 200ms;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: #9ca3af;
+}
+
+.carousel-dot.active {
+  width: 20px;
+  border-radius: 4px;
+  background: var(--primary);
+}
+
+@media (max-width: 768px) {
+  #featured-carousel {
+    padding: 20px 24px;
+  }
+  .carousel-spotlight {
+    min-height: auto;
+  }
+  .carousel-split {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .carousel-image {
+    order: -1;
+    border-radius: 8px 8px 0 0;
+    min-height: 200px;
+  }
+  .carousel-text {
+    padding: 20px 16px;
+    border-radius: 0 0 8px 8px;
+  }
+  .carousel-title {
+    font-size: 1.2rem;
+  }
+  .carousel-desc {
+    display: none;
+  }
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .carousel-arrow.prev {
+    left: -8px;
+  }
+  .carousel-arrow.next {
+    right: -8px;
+  }
+}
+
+/* =========================================
+   TAB NAVIGATION
+   ========================================= */
+
+#teachings-tabs {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+  position: sticky;
+  top: 64px;
+  z-index: 30;
+  overflow-x: auto;
+}
+
+#teachings-tabs button {
+  padding: 16px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 3px solid transparent;
+  transition: all 200ms;
+  white-space: nowrap;
+}
+
+#teachings-tabs button:hover {
+  color: var(--text);
+}
+
+#teachings-tabs button.active {
+  color: var(--text);
+  border-bottom-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  #teachings-tabs {
+    padding: 0 24px;
+    gap: 20px;
+  }
+  #teachings-tabs button {
+    padding: 12px 0;
+    font-size: 0.875rem;
+  }
+}
+
+/* =========================================
+   CONTENT AREA
+   ========================================= */
+
+#content-area {
+  padding: 48px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Regular discourse cards grid */
+.discourse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.teaching-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 200ms, box-shadow 200ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.teaching-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(184, 115, 51, 0.15);
+}
+
+.teaching-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.teaching-card .card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.teaching-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.teaching-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #content-area {
+    padding: 32px 24px;
+  }
+  .discourse-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .teaching-card h3 {
+    font-size: 0.9rem;
+  }
+  .teaching-card p {
+    display: none;
+  }
+}
+
+/* =========================================
+   NAVAGRAHA & MOOL MANTRA (Same as discourse cards)
+   ========================================= */
+
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.planet-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 200ms, box-shadow 200ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.planet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(184, 115, 51, 0.15);
+}
+
+.planet-symbol {
+  display: none;
+}
+
+.planet-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.planet-card .card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.planet-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.planet-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .planet-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .planet-card h3 {
+    font-size: 0.9rem;
+  }
+  .planet-card p {
+    display: none;
+  }
+}
+
+/* =========================================
+   MOOL MANTRA CARDS (Same as discourse cards)
+   ========================================= */
+
+.mool-mantra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.compact-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 200ms, box-shadow 200ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.compact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(184, 115, 51, 0.15);
+}
+
+.compact-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.compact-card .compact-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.compact-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .mool-mantra-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .compact-card h4 {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================
+   UTILITIES
+   ========================================= */
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
