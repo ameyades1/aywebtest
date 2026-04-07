@@ -202,9 +202,6 @@ function setupTabSwitching() {
 
       // Render content for this tab
       renderContent(tabName, catalog.products);
-
-      // Smooth scroll to content area
-      document.getElementById('content-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 }
