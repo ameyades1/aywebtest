@@ -1789,7 +1789,7 @@ main {
 
 .support-link {
     color: #3b82f6;
-    text-decoration: underline;
+    text-decoration: none;
     cursor: pointer;
     transition: color 0.3s;
 }
