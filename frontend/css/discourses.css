@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6 {
 .carousel-slide.active {
   opacity: 1;
   box-shadow: 0 0 0 2px var(--primary);
-  cursor: default;
+  cursor: pointer;
   pointer-events: auto;
 }
 
