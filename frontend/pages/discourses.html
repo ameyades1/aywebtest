@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discourses — AntarYog Foundation</title>
+    <meta name="description" content="Explore spiritual discourses, teachings, and practices from the AntarYog Foundation.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/discourses.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/tailwind-config.js"></script>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section id="teachings-hero">
+            <h1>Discourses</h1>
+        </section>
+
+        <!-- ===== FEATURED CAROUSEL ===== -->
+        <section id="featured-carousel">
+            <!-- Carousel rendered by discourses.js -->
+        </section>
+
+        <!-- ===== TAB NAVIGATION ===== -->
+        <nav id="teachings-tabs">
+            <button data-tab="life-lessons" class="active">Life Lessons</button>
+            <button data-tab="wealth-leadership">Wealth & Leadership</button>
+            <button data-tab="gita">Gita Series</button>
+            <button data-tab="navagraha">Navagraha</button>
+            <button data-tab="mool-mantra">Moolmantra Chants</button>
+            <button data-tab="other-chants">Other Chants</button>
+            <button data-tab="all">All Discourses</button>
+        </nav>
+
+        <!-- ===== SINGLE CONTENT AREA ===== -->
+        <section id="content-area">
+            <!-- Cards rendered by discourses.js based on selected tab -->
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        window.ROOT_PATH = '../';
+    </script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/discourses.js"></script>
+</body>
+</html>
