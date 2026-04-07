@@ -6,13 +6,13 @@ const ROOT_PATH = window.ROOT_PATH || '../';
 
 // Product grouping logic
 const DISCOURSE_GROUPS = {
-  all: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 52, 53, 54, 55, 56],
-  life: [10, 11, 12, 13, 17, 20],
+  'life-lessons': [10, 11, 12, 13, 17, 20],
   'wealth-leadership': [1, 2, 5, 8, 16, 18],
   gita: [3, 4, 5, 6, 7, 8, 9, 15, 21],
   navagraha: [14, 22, 23, 24, 25, 26],
-  'mool-mantra': [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 50, 51, 47, 49, 48],
-  chants: [19, 20, 52, 53, 54, 55, 56],
+  'mool-mantra': [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51],
+  'other-chants': [19, 20, 52, 53, 54, 55, 56],
+  all: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 52, 53, 54, 55, 56],
 };
 
 const CAROUSEL_IDS = [1, 2, 3, 5, 6, 7]; // Featured discourses for carousel
@@ -24,7 +24,7 @@ let carousel = {
 };
 
 let catalog = null;
-let currentTab = 'all';
+let currentTab = 'life-lessons';
 
 // =========================================
 // INIT
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCarousel(catalog.products);
 
   // Render initial content
-  renderContent('all', catalog.products);
+  renderContent('life-lessons', catalog.products);
 
   // Setup tab switching
   setupTabSwitching();
@@ -59,7 +59,7 @@ async function loadCatalog() {
 }
 
 // =========================================
-// CAROUSEL
+// TAB SWITCHING & CONTENT RENDERING
 // =========================================
 
 function initCarousel(products) {
@@ -183,18 +183,6 @@ function stopAutoplay() {
   }
 }
 
-function getBadgeText(product) {
-  if ([3, 4, 5, 6, 7, 8, 9].includes(product.id)) {
-    return 'Gita Series';
-  }
-  if ([15, 21].includes(product.id)) {
-    return 'Upanishads';
-  }
-  if ([16, 17, 18, 19].includes(product.id)) {
-    return 'Advanced';
-  }
-  return 'Discourse';
-}
 
 // =========================================
 // TAB SWITCHING & CONTENT RENDERING
@@ -264,7 +252,8 @@ function renderDiscourseContent(container, tabName, products) {
 // =========================================
 
 function renderMoolMantraContent(container, products) {
-  const moolMantraGroup = products.filter(p => p.id >= 27 && p.id <= 51);
+  const moolMantraIds = DISCOURSE_GROUPS['mool-mantra'];
+  const moolMantraGroup = products.filter(p => moolMantraIds.includes(p.id));
 
   const grid = document.createElement('div');
   grid.className = 'mool-mantra-grid';
