@@ -81,34 +81,23 @@ function initCarousel(products) {
   const inner = document.createElement('div');
   inner.className = 'carousel-inner';
 
-  // Spotlight
-  const spotlight = document.createElement('div');
-  spotlight.className = 'carousel-spotlight';
-  spotlight.id = 'carousel-spotlight';
-  inner.appendChild(spotlight);
+  // Build track with all slides
+  const track = document.createElement('div');
+  track.className = 'carousel-track';
+  track.id = 'carousel-track';
 
+  carousel.products.forEach((p) => {
+    const slide = document.createElement('a');
+    slide.className = 'carousel-slide';
+    slide.href = p.url;
+    slide.target = '_blank';
+    slide.rel = 'noopener';
+    slide.innerHTML = `<img src="${p.thumbnail_url}" alt="${p.name}" loading="lazy">`;
+    track.appendChild(slide);
+  });
+
+  inner.appendChild(track);
   carouselContainer.appendChild(inner);
-
-  // Arrow buttons
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'carousel-arrow prev';
-  prevBtn.innerHTML = '&#10094;';
-  prevBtn.addEventListener('click', () => {
-    setActiveSlide(carousel.currentIndex - 1);
-    stopAutoplay();
-    startAutoplay();
-  });
-  carouselContainer.appendChild(prevBtn);
-
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'carousel-arrow next';
-  nextBtn.innerHTML = '&#10095;';
-  nextBtn.addEventListener('click', () => {
-    setActiveSlide(carousel.currentIndex + 1);
-    stopAutoplay();
-    startAutoplay();
-  });
-  carouselContainer.appendChild(nextBtn);
 
   // Dots
   const dotsDiv = document.createElement('div');
@@ -130,34 +119,47 @@ function initCarousel(products) {
 }
 
 function setActiveSlide(index) {
-  carousel.currentIndex = index % carousel.products.length;
-  const products = carousel.products;
+  const total = carousel.products.length;
+  carousel.currentIndex = ((index % total) + total) % total;
 
-  // Update spotlight
-  const spotlight = document.getElementById('carousel-spotlight');
-  if (spotlight) {
-    const product = products[carousel.currentIndex];
-    spotlight.innerHTML = `
-      <div class="carousel-split">
-        <div class="carousel-text">
-          <span class="carousel-badge">${getBadgeText(product)}</span>
-          <h2 class="carousel-title">${product.name}</h2>
-          <p class="carousel-desc">${product.description || ''}</p>
-          <a href="${product.url}" target="_blank" rel="noopener" class="carousel-explore">
-            Explore this teaching →
-          </a>
-        </div>
-        <div class="carousel-image">
-          <img src="${product.thumbnail_url}" alt="${product.name}" loading="lazy">
-        </div>
-      </div>
-    `;
+  // Update slides active state
+  const slides = document.querySelectorAll('.carousel-slide');
+  slides.forEach((slide, i) => {
+    const isActive = i === carousel.currentIndex;
+    slide.classList.toggle('active', isActive);
+
+    // For inactive slides, prevent default link behavior and navigate carousel instead
+    if (!isActive) {
+      slide.addEventListener('click', (e) => {
+        e.preventDefault();
+        setActiveSlide(i);
+        stopAutoplay();
+        startAutoplay();
+      }, { once: true });
+    }
+  });
+
+  // Shift track to center active slide
+  const track = document.getElementById('carousel-track');
+  if (track) {
+    // Each slide is 75% + 16px gap
+    // To center active slide: offset = -(currentIndex * (75% + 16px)) + container center compensation
+    const slideWidth = 75; // percent
+    const slideGap = 16; // pixels
+    const containerWidth = track.parentElement.offsetWidth;
+
+    // Calculate offset: position active slide to center of container
+    const slideWidthPx = (slideWidth / 100) * containerWidth;
+    const totalSlideWithGap = slideWidthPx + slideGap;
+    const offset = -(carousel.currentIndex * totalSlideWithGap) + (containerWidth / 2) - (slideWidthPx / 2);
+
+    track.style.transform = `translateX(${offset}px)`;
   }
 
   // Update dots
   const dots = document.getElementById('carousel-dots');
   if (dots) {
-    dots.innerHTML = products.map((_, i) => {
+    dots.innerHTML = carousel.products.map((_, i) => {
       const isActive = i === carousel.currentIndex ? 'active' : '';
       return `<button class="carousel-dot ${isActive}" data-index="${i}"></button>`;
     }).join('');
