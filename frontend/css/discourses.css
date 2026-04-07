@@ -1,6 +1,8 @@
 /* =========================================
-   DISCOURSES PAGE — DISCOURSES.CSS
+   DISCOURSES PAGE — REFINED MYSTICAL EDITORIAL
    ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
   --primary: #B87333;
@@ -11,16 +13,20 @@
   --text: #5C3010;
   --text-secondary: #7A6858;
   --dark-cosmic: #2A1A0A;
+  --gold-accent: #D4A574;
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   color: var(--text);
   background-color: var(--background);
+  letter-spacing: 0.3px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 /* =========================================
@@ -28,24 +34,41 @@ h1, h2, h3, h4, h5, h6 {
    ========================================= */
 
 #teachings-hero {
-  padding: 40px;
-  background: var(--background);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--background) 0%, #FBF8F2 100%);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#teachings-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 #teachings-hero h1 {
-  font-size: 2rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: var(--text);
   margin: 0;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1.5px;
 }
 
 @media (max-width: 768px) {
   #teachings-hero {
-    padding: 32px 24px;
+    padding: 40px 24px;
   }
   #teachings-hero h1 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -54,9 +77,20 @@ h1, h2, h3, h4, h5, h6 {
    ========================================= */
 
 #featured-carousel {
-  padding: 32px 40px;
+  padding: 40px 40px;
   background: white;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 2px solid var(--secondary);
+  position: relative;
+}
+
+#featured-carousel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
 }
 
 .carousel-container {
@@ -67,29 +101,31 @@ h1, h2, h3, h4, h5, h6 {
 
 .carousel-inner {
   position: relative;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
   background: white;
+  box-shadow: 0 8px 24px rgba(92, 48, 16, 0.12);
 }
 
 .carousel-track {
   display: flex;
   gap: 16px;
-  transition: transform 400ms ease;
+  transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
   padding: 12px;
 }
 
 .carousel-slide {
   flex: 0 0 75%;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: pointer;
-  transition: opacity 300ms, box-shadow 300ms;
+  transition: opacity 300ms, filter 300ms;
   aspect-ratio: 16/9;
   display: block;
   text-decoration: none;
   color: inherit;
+  position: relative;
 }
 
 .carousel-slide img {
@@ -100,52 +136,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .carousel-slide:hover {
-  opacity: 0.8;
+  opacity: 0.7;
+  filter: brightness(1.05);
 }
 
 .carousel-slide.active {
   opacity: 1;
-  box-shadow: 0 0 0 2px var(--primary);
+  box-shadow: inset 0 0 0 2px var(--primary);
   cursor: default;
   pointer-events: auto;
+}
+
+.carousel-slide.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent var(--secondary) transparent transparent;
+  z-index: 10;
 }
 
 .carousel-slide.active:hover {
   opacity: 1;
 }
 
-
 .carousel-dots {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  margin-top: 16px;
+  gap: 8px;
+  margin-top: 20px;
 }
 
 .carousel-dot {
-  width: 8px;
-  height: 8px;
-  border: none;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--gold-accent);
   border-radius: 50%;
-  background: #d1d5db;
+  background: transparent;
   cursor: pointer;
-  transition: all 200ms;
+  transition: all 300ms;
   padding: 0;
 }
 
 .carousel-dot:hover {
-  background: #9ca3af;
+  background: var(--gold-accent);
+  transform: scale(1.2);
 }
 
 .carousel-dot.active {
-  width: 20px;
-  border-radius: 4px;
+  width: 24px;
+  border-radius: 2px;
   background: var(--primary);
+  border-color: var(--primary);
 }
 
 @media (max-width: 768px) {
   #featured-carousel {
-    padding: 20px 24px;
+    padding: 24px 24px;
   }
   .carousel-slide {
     flex: 0 0 88%;
@@ -153,53 +204,81 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================
-   TAB NAVIGATION
+   TAB NAVIGATION — REFINED PILLS
    ========================================= */
 
 #teachings-tabs {
   display: flex;
-  gap: 32px;
+  gap: 12px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 32px 40px;
   background: white;
   position: sticky;
   top: 64px;
   z-index: 30;
   overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid rgba(92, 48, 16, 0.08);
+}
+
+#teachings-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 #teachings-tabs button {
-  padding: 16px 0;
-  border: none;
-  background: none;
+  padding: 12px 24px;
+  border: 2px solid var(--gold-accent);
+  background: transparent;
   cursor: pointer;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-secondary);
-  border-bottom: 3px solid transparent;
-  transition: all 200ms;
+  border-radius: 24px;
+  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+#teachings-tabs button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--gold-accent) 100%);
+  opacity: 0;
+  transition: opacity 300ms;
+  z-index: -1;
+  border-radius: 24px;
 }
 
 #teachings-tabs button:hover {
   color: var(--text);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
 }
 
 #teachings-tabs button.active {
-  color: var(--text);
-  border-bottom-color: var(--primary);
+  color: white;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(184, 115, 51, 0.25);
 }
 
 @media (max-width: 768px) {
   #teachings-tabs {
-    padding: 0 24px;
-    gap: 20px;
+    padding: 20px 24px;
+    gap: 10px;
   }
   #teachings-tabs button {
-    padding: 12px 0;
-    font-size: 0.875rem;
+    padding: 10px 18px;
+    font-size: 0.85rem;
   }
 }
 
@@ -211,103 +290,262 @@ h1, h2, h3, h4, h5, h6 {
   padding: 48px 40px;
   max-width: 1200px;
   margin: 0 auto;
+  animation: fadeIn 600ms ease-out;
 }
 
-/* Cards grid */
-.discourse-grid,
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   MASONRY CARD GRIDS
+   ========================================= */
+
+.discourse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  grid-auto-rows: masonry;
+}
+
 .mool-mantra-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 28px;
 }
 
-/* Base card styles */
-.teaching-card,
-.compact-card {
+/* =========================================
+   CARD STYLES — EDITORIAL DESIGN
+   ========================================= */
+
+.teaching-card {
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
   background: white;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  transition: transform 200ms, box-shadow 200ms;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 16px rgba(92, 48, 16, 0.08);
   height: 100%;
+  position: relative;
+  border: 1px solid rgba(212, 165, 116, 0.2);
 }
 
-.teaching-card:hover,
+.teaching-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  z-index: 2;
+}
+
+.teaching-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid var(--gold-accent);
+  border-left: 2px solid var(--gold-accent);
+  border-radius: 2px 0 0 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  z-index: 2;
+}
+
+.teaching-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(184, 115, 51, 0.2);
+}
+
+.teaching-card:hover::after {
+  opacity: 1;
+}
+
+.teaching-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  transition: transform 500ms ease;
+}
+
+.teaching-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  position: relative;
+  z-index: 1;
+}
+
+.teaching-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.teaching-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-family: 'Lora', serif;
+}
+
+/* Compact cards for mool-mantra */
+.compact-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(92, 48, 16, 0.08);
+  height: 100%;
+  position: relative;
+  border: 1px solid rgba(212, 165, 116, 0.15);
+}
+
+.compact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--secondary);
+  z-index: 2;
+}
+
 .compact-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(184, 115, 51, 0.15);
+  box-shadow: 0 12px 28px rgba(184, 115, 51, 0.15);
 }
 
-.teaching-card img,
 .compact-card img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  display: block;
+  transition: filter 300ms;
 }
 
-.card-body,
+.compact-card:hover img {
+  filter: brightness(1.1);
+}
+
 .compact-body {
   padding: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.teaching-card h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.teaching-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  justify-content: center;
 }
 
 .compact-card h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+/* Staggered animations on load */
+.teaching-card,
+.compact-card {
+  animation: cardSlideIn 600ms ease-out backwards;
+}
+
+.discourse-grid .teaching-card:nth-child(1) { animation-delay: 100ms; }
+.discourse-grid .teaching-card:nth-child(2) { animation-delay: 150ms; }
+.discourse-grid .teaching-card:nth-child(3) { animation-delay: 200ms; }
+.discourse-grid .teaching-card:nth-child(4) { animation-delay: 250ms; }
+.discourse-grid .teaching-card:nth-child(5) { animation-delay: 300ms; }
+.discourse-grid .teaching-card:nth-child(6) { animation-delay: 350ms; }
+.discourse-grid .teaching-card:nth-child(n+7) { animation-delay: 400ms; }
+
+.mool-mantra-grid .compact-card:nth-child(1) { animation-delay: 100ms; }
+.mool-mantra-grid .compact-card:nth-child(2) { animation-delay: 150ms; }
+.mool-mantra-grid .compact-card:nth-child(3) { animation-delay: 200ms; }
+.mool-mantra-grid .compact-card:nth-child(4) { animation-delay: 250ms; }
+.mool-mantra-grid .compact-card:nth-child(n+5) { animation-delay: 300ms; }
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   #content-area {
     padding: 32px 24px;
   }
-  .discourse-grid,
-  .mool-mantra-grid {
+  .discourse-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 20px;
   }
+  .mool-mantra-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+  }
   .teaching-card h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .teaching-card p {
     display: none;
   }
+  .card-body {
+    padding: 16px;
+  }
   .compact-card h4 {
     font-size: 0.9rem;
+  }
+  .compact-body {
+    padding: 14px;
   }
 }
 
@@ -318,8 +556,9 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: var(--primary);
   text-decoration: none;
+  transition: color 200ms;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--secondary);
 }
