@@ -193,39 +193,13 @@
   font-size: 0.95rem;
   color: #5C3010;
   line-height: 1.65;
-  margin: 0 0 16px;
+  margin: 0;
   flex: 1;
-  /* Clamp to 4 lines */
+  /* Clamp to 5 lines — more room without attribution/CTA */
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-/* ── Attribution line ── */
-.tcard-attribution {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: #9E8877;
-  margin: 0 0 18px;
-  letter-spacing: 0.02em;
-}
-
-/* ── Watch CTA ── */
-.tcard-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #B87333;
-  transition: gap 200ms;
-}
-
-.tcard:hover .tcard-cta {
-  gap: 10px;
 }
 
 /* ── Prev / Next arrows ── */
