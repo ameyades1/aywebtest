@@ -97,12 +97,42 @@ function initCarousel(products) {
   const dotsDiv = document.createElement('div');
   dotsDiv.className = 'carousel-dots';
   dotsDiv.id = 'carousel-dots';
+  dotsDiv.innerHTML = carousel.products.map((_, i) => {
+    const isActive = i === 0 ? 'active' : '';
+    return `<button class="carousel-dot ${isActive}" data-index="${i}"></button>`;
+  }).join('');
   carouselContainer.appendChild(dotsDiv);
 
   container.appendChild(carouselContainer);
 
+  // Setup dot click handlers
+  dotsDiv.querySelectorAll('.carousel-dot').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.index);
+      setActiveSlide(idx);
+      stopAutoplay();
+      startAutoplay();
+    });
+  });
+
+  // Setup inactive slide click handlers
+  const slides = track.querySelectorAll('.carousel-slide');
+  slides.forEach((slide, i) => {
+    slide.addEventListener('click', (e) => {
+      if (i !== carousel.currentIndex) {
+        e.preventDefault();
+        setActiveSlide(i);
+        stopAutoplay();
+        startAutoplay();
+      }
+    });
+  });
+
   // Initial render
   setActiveSlide(0);
+
+  // Attach swipe observer for snap detection
+  attachSwipeObserver();
 
   // Start autoplay
   startAutoplay();
@@ -112,67 +142,59 @@ function initCarousel(products) {
   container.addEventListener('mouseleave', startAutoplay);
 }
 
+function attachSwipeObserver() {
+  const inner = document.querySelector('.carousel-inner');
+  const slides = document.querySelectorAll('.carousel-slide');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+        const index = Array.from(slides).indexOf(entry.target);
+        if (index !== carousel.currentIndex) {
+          carousel.currentIndex = index;
+          slides.forEach((s, i) => s.classList.toggle('active', i === index));
+          updateDots(index);
+        }
+      }
+    });
+  }, { root: inner, threshold: 0.6 });
+
+  slides.forEach(s => observer.observe(s));
+}
+
+function updateDots(index) {
+  const dotsContainer = document.getElementById('carousel-dots');
+  if (!dotsContainer) return;
+  dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
 function setActiveSlide(index) {
   const total = carousel.products.length;
   carousel.currentIndex = ((index % total) + total) % total;
 
-  // Update slides active state
-  const slides = document.querySelectorAll('.carousel-slide');
-  slides.forEach((slide, i) => {
-    const isActive = i === carousel.currentIndex;
-    slide.classList.toggle('active', isActive);
-
-    // Remove any existing click listeners by cloning (removes all listeners)
-    if (slide.parentNode) {
-      const newSlide = slide.cloneNode(true);
-      slide.parentNode.replaceChild(newSlide, slide);
-
-      // For inactive slides, prevent default link behavior and navigate carousel instead
-      if (!isActive) {
-        newSlide.addEventListener('click', (e) => {
-          e.preventDefault();
-          setActiveSlide(i);
-          stopAutoplay();
-          startAutoplay();
-        });
-      }
-    }
-  });
-
-  // Shift track to center active slide
   const track = document.getElementById('carousel-track');
-  if (track) {
-    // Each slide is 75% + 16px gap
-    // To center active slide: offset = -(currentIndex * (75% + 16px)) + container center compensation
-    const slideWidth = 75; // percent
-    const slideGap = 16; // pixels
-    const containerWidth = track.parentElement.offsetWidth;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const inner = track?.parentElement;
 
-    // Calculate offset: position active slide to center of container
-    const slideWidthPx = (slideWidth / 100) * containerWidth;
-    const totalSlideWithGap = slideWidthPx + slideGap;
-    const offset = -(carousel.currentIndex * totalSlideWithGap) + (containerWidth / 2) - (slideWidthPx / 2);
+  // Update active class
+  slides.forEach((s, i) => s.classList.toggle('active', i === carousel.currentIndex));
 
-    track.style.transform = `translateX(${offset}px)`;
+  // Scroll to center active slide using scroll-snap
+  if (inner && track) {
+    const slide = slides[carousel.currentIndex];
+    const slideLeft = slide.offsetLeft;
+    const slideWidth = slide.offsetWidth;
+    const innerWidth = inner.offsetWidth;
+    inner.scrollTo({
+      left: slideLeft - (innerWidth / 2) + (slideWidth / 2),
+      behavior: 'smooth'
+    });
   }
 
   // Update dots
-  const dots = document.getElementById('carousel-dots');
-  if (dots) {
-    dots.innerHTML = carousel.products.map((_, i) => {
-      const isActive = i === carousel.currentIndex ? 'active' : '';
-      return `<button class="carousel-dot ${isActive}" data-index="${i}"></button>`;
-    }).join('');
-
-    dots.querySelectorAll('.carousel-dot').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const idx = parseInt(btn.dataset.index);
-        setActiveSlide(idx);
-        stopAutoplay();
-        startAutoplay();
-      });
-    });
-  }
+  updateDots(carousel.currentIndex);
 }
 
 function startAutoplay() {

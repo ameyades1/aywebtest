@@ -66,24 +66,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .carousel-inner {
-  position: relative;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   border-radius: 8px;
-  overflow: hidden;
   background: white;
+}
+
+.carousel-inner::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-track {
   display: flex;
   gap: 16px;
-  transition: transform 400ms ease;
-  padding: 12px;
+  padding: 0 12.5%;
+  box-sizing: content-box;
 }
 
 .carousel-slide {
   flex: 0 0 75%;
+  scroll-snap-align: center;
   border-radius: 8px;
   overflow: hidden;
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: pointer;
   transition: opacity 300ms, box-shadow 300ms;
   aspect-ratio: 16/9;
@@ -100,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .carousel-slide:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .carousel-slide.active {
@@ -148,7 +155,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px 24px;
   }
   .carousel-slide {
-    flex: 0 0 88%;
+    flex: 0 0 85%;
+  }
+  .carousel-track {
+    padding: 0 7.5%;
+    gap: 12px;
   }
 }
 
