@@ -6,13 +6,12 @@ const ROOT_PATH = window.ROOT_PATH || '../';
 
 // Product grouping logic
 const DISCOURSE_GROUPS = {
-  'life-lessons': [10, 11, 12, 13, 17, 20],
+  'life-lessons': [10, 11, 12, 13, 17, 20, 56],
   'wealth-leadership': [1, 2, 5, 8, 16, 18],
-  gita: [3, 4, 5, 6, 7, 8, 9, 15, 21],
+  gita: [3, 4, 5, 6, 7, 8, 9],
+  upanishad: [21, 15],
   navagraha: [14, 22, 23, 24, 25, 26],
-  'mool-mantra': [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51],
-  'other-chants': [19, 20, 52, 53, 54, 55, 56],
-  all: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 52, 53, 54, 55, 56],
+  'mool-mantra': [19, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
 };
 
 const CAROUSEL_IDS = [1, 3, 5, 6, 7, 10]; // Featured discourses for carousel
