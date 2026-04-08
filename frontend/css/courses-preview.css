@@ -5,7 +5,7 @@
 
 #courses-preview-section {
   padding: 80px 40px;
-  background: #2A1A0A;  /* Dark warm espresso — deliberate contrast from the rest */
+  background: #EDE4D0;  /* Warm amber sand — easy on the eyes, visual rhythm */
 }
 
 /* ── Header ── */
@@ -21,7 +21,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #E8B84B;
+  color: #B87333;
   margin: 0 0 14px;
 }
 
@@ -29,7 +29,7 @@
   font-family: 'Lora', Georgia, serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #FBF5EA;
+  color: #5C3010;
   line-height: 1.25;
   margin: 0 0 14px;
 }
@@ -37,7 +37,7 @@
 .cp-subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: #B89E84;
+  color: #7A6858;
   margin: 0;
   line-height: 1.6;
 }
@@ -55,26 +55,27 @@
 .cp-card {
   display: flex;
   flex-direction: column;
-  background: #1A0F05;
+  background: #FFFFFF;
   border-radius: 10px;
+  border: 1px solid #e5e7eb;
   border-top: 3px solid #B87333;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: transform 240ms ease, box-shadow 240ms ease, border-top-color 240ms ease;
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
 }
 
 .cp-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-  border-top-color: #E8B84B;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
+  border-color: #B87333;
 }
 
 /* ── Thumbnail ── */
 .cp-card-thumb {
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #0F0805;
+  background: #EDE0CC;
 }
 
 .cp-card-thumb img {
@@ -83,7 +84,7 @@
   object-fit: cover;
   display: block;
   transition: transform 400ms ease, opacity 300ms ease;
-  opacity: 0.88;
+  opacity: 1;
 }
 
 .cp-card:hover .cp-card-thumb img {
@@ -104,7 +105,7 @@
   font-family: 'Lora', Georgia, serif;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #F5ECD8;
+  color: #5C3010;
   line-height: 1.4;
   margin: 0;
   display: -webkit-box;
@@ -115,13 +116,13 @@
 }
 
 .cp-card:hover .cp-card-title {
-  color: #E8B84B;
+  color: #B87333;
 }
 
 .cp-card-desc {
   font-family: 'Inter', sans-serif;
   font-size: 0.82rem;
-  color: #8C7A66;
+  color: #7A6858;
   line-height: 1.5;
   margin: 0;
   display: -webkit-box;
@@ -143,8 +144,8 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #E8B84B;
-  border: 1.5px solid #E8B84B;
+  color: #B87333;
+  border: 1.5px solid #B87333;
   padding: 13px 30px;
   border-radius: 8px;
   text-decoration: none;
@@ -152,8 +153,8 @@
 }
 
 .cp-all-cta:hover {
-  background: #E8B84B;
-  color: #2A1A0A;
+  background: #B87333;
+  color: #FFFFFF;
   gap: 14px;
 }
 
