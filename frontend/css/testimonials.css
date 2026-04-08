@@ -1,0 +1,365 @@
+/* =====================================================
+   TESTIMONIALS SECTION
+   Warm Testimony Scroll — horizontal snap carousel
+   ===================================================== */
+
+/* ── Section shell ── */
+#testimonials-section {
+  padding: 80px 0 60px;
+  background: linear-gradient(180deg, #FDFBF7 0%, #F9F6F0 100%);
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.testimonials-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+
+.testimonials-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B87333;
+  margin: 0 0 14px;
+}
+
+.testimonials-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5C3010;
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+
+.testimonials-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #7A6858;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Carousel wrapper (positions arrows) ── */
+.testimonials-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Scroll track ── */
+.testimonials-track-outer {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex: 1;
+  /* Side padding creates "peek" effect on first/last card */
+  padding: 12px 0 24px;
+}
+
+.testimonials-track-outer::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 20px;
+  /* padding-inline creates left/right peek and centres start */
+  padding-inline: calc((100vw - 320px) / 2);
+  width: max-content;
+}
+
+/* ── Individual card ── */
+.tcard {
+  flex: 0 0 320px;
+  scroll-snap-align: center;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border-top: 3px solid #B87333;
+  box-shadow: 0 2px 12px rgba(92, 48, 16, 0.08);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+  cursor: pointer;
+}
+
+.tcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(184, 115, 51, 0.18);
+  border-top-color: #E8B84B;
+}
+
+/* ── Thumbnail ── */
+.tcard-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #e8e0d5;
+}
+
+.tcard-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
+}
+
+.tcard:hover .tcard-thumb img {
+  transform: scale(1.04);
+}
+
+.tcard-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44, 20, 4, 0.32);
+  opacity: 0;
+  transition: opacity 240ms;
+  color: #fff;
+}
+
+.tcard-play svg {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+}
+
+.tcard:hover .tcard-play {
+  opacity: 1;
+}
+
+/* ── Card body ── */
+.tcard-body {
+  padding: 22px 22px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── Category badge ── */
+.tcard-category {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.tcard-category--jobs         { background: #FFF3E0; color: #C65D00; }
+.tcard-category--health       { background: #E8F5E9; color: #2E7D32; }
+.tcard-category--relationships { background: #FCE4EC; color: #C2185B; }
+.tcard-category--prosperity   { background: #FFFDE7; color: #F57F17; }
+.tcard-category--spiritual    { background: #EDE7F6; color: #6A1B9A; }
+
+/* ── Decorative large quote mark ── */
+.tcard-quote-mark {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 6rem;
+  line-height: 0.7;
+  color: #B87333;
+  opacity: 0.12;
+  position: absolute;
+  top: 48px;
+  right: 16px;
+  pointer-events: none;
+  user-select: none;
+  font-style: normal;
+}
+
+/* ── Quote text ── */
+.tcard-quote {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #5C3010;
+  line-height: 1.65;
+  margin: 0 0 16px;
+  flex: 1;
+  /* Clamp to 4 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Attribution line ── */
+.tcard-attribution {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #9E8877;
+  margin: 0 0 18px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Watch CTA ── */
+.tcard-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #B87333;
+  transition: gap 200ms;
+}
+
+.tcard:hover .tcard-cta {
+  gap: 10px;
+}
+
+/* ── Prev / Next arrows ── */
+.tcard-arrow {
+  display: none; /* hidden on mobile */
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #E8B84B;
+  background: #FFFFFF;
+  color: #B87333;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 200ms, border-color 200ms, transform 200ms;
+  z-index: 2;
+}
+
+.tcard-arrow:hover {
+  background: #B87333;
+  border-color: #B87333;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.tcard-arrow--prev { margin-left: 24px; }
+.tcard-arrow--next { margin-right: 24px; }
+
+/* ── Dots ── */
+.testimonials-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.tdot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background: #d1c4b5;
+  cursor: pointer;
+  padding: 0;
+  transition: all 220ms ease;
+}
+
+.tdot:hover {
+  background: #B87333;
+  opacity: 0.6;
+}
+
+.tdot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #B87333;
+}
+
+/* ── Footer CTA ── */
+.testimonials-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 0 24px;
+}
+
+.testimonials-all-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #B87333;
+  border: 1.5px solid #B87333;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 220ms, color 220ms, gap 220ms;
+}
+
+.testimonials-all-cta:hover {
+  background: #B87333;
+  color: #fff;
+  gap: 14px;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (min-width: 768px) {
+  .tcard-arrow {
+    display: flex;
+  }
+
+  .testimonials-track {
+    /* On larger screens, peek-padding shrinks as viewport grows */
+    padding-inline: max(40px, calc((100vw - 1100px) / 2));
+  }
+
+  .tcard {
+    flex: 0 0 340px;
+  }
+
+  .testimonials-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .testimonials-track {
+    padding-inline: calc((100vw - 1100px) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  #testimonials-section {
+    padding: 60px 0 48px;
+  }
+
+  .tcard {
+    flex: 0 0 calc(100vw - 48px);
+  }
+
+  .testimonials-track {
+    padding-inline: 24px;
+    gap: 16px;
+  }
+
+  .testimonials-title {
+    font-size: 1.6rem;
+  }
+
+  .tcard-quote {
+    font-size: 0.9rem;
+  }
+}
