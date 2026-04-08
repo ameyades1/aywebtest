@@ -14,31 +14,59 @@
     font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* Vishwa Guru highlight — copper color, Lora font to match v7 */
-#hero .heading-highlight {
+/* Vishwa Guru highlight — copper color, Lora font */
+#hero h1 .text-primary {
     color: #B87333;
     font-family: 'Lora', Georgia, serif;
 }
 
-/* Hero badge — pixel-identical to v7 pill */
-#hero .hero-badge {
-    background-color: rgba(184, 115, 51, 0.1); /* primary/10 */
-    color: #B87333;                             /* text-primary */
-    padding: 0.5rem 1rem;                       /* py-2 px-4 */
-    border-radius: 9999px;                      /* rounded-full */
-    font-size: 0.875rem;                        /* text-sm */
-    line-height: 1.25rem;
-    font-weight: 500;                           /* font-medium */
+/* Hero badge — copper border pill */
+#hero .inline-flex {
+    border-color: #B87333;
+    color: #B87333;
+}
+
+/* Hero placeholder — dashed border boxes for future content */
+.hero-placeholder {
+    border: 2px dashed #B87333;
+    border-radius: 8px;
+    padding: 24px 20px;
+    color: #7A6858;
+    font-style: italic;
+    background-color: #F9F6F0;
+    opacity: 0.75;
+    font-size: 16px;
+    line-height: 1.5;
     font-family: 'Inter', system-ui, sans-serif;
-    display: inline-block;
-    white-space: nowrap;
 }
 
 /* CTA Button Styling */
-#hero a.bg-primary {
+#hero button.bg-primary {
     background-color: #B87333;
+    transition: all 0.3s ease;
 }
 
-#hero a.bg-primary:hover {
+#hero button.bg-primary:hover {
     background-color: #5C3010;
+    box-shadow: 0 10px 25px rgba(92, 48, 16, 0.2);
+}
+
+#hero button.border-primary {
+    border-color: #B87333;
+    color: #B87333;
+    transition: all 0.3s ease;
+}
+
+#hero button.border-primary:hover {
+    background-color: #B87333;
+    color: white;
+    box-shadow: 0 10px 25px rgba(184, 115, 51, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .hero-placeholder {
+        padding: 16px 12px;
+        font-size: 14px;
+    }
 }

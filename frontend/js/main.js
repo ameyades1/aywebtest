@@ -134,6 +134,7 @@ function initMobileMenu() {
 
 const ROOT = window.ROOT_PATH || '';
 loadComponent("navbar", ROOT + "components/navbar.html");
+loadComponent("hero", ROOT + "components/hero.html");
 if (document.getElementById('courses-preview')) {
     loadComponent("courses-preview", ROOT + "components/courses-preview.html");
 }
