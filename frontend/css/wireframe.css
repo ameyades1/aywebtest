@@ -1,0 +1,493 @@
+/* Wireframe Styles for 9-Section Homepage Structure */
+
+:root {
+    --primary: #B87333;
+    --secondary: #E8B84B;
+    --accent: #5C3010;
+    --background: #F9F6F0;
+    --text-primary: #2D2D2D;
+    --text-secondary: #6B6B6B;
+    --sage: #2D5F4F;
+    --before-bg: #ffe8e8;
+    --before-border: #ffcccc;
+    --after-bg: #e8f5e8;
+    --after-border: #ccf0cc;
+}
+
+/* Container */
+.wireframe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Base Section Styling */
+.wireframe-section {
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.wireframe-section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+.wireframe-section-title {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--secondary);
+    display: inline-block;
+}
+
+.wireframe-section-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Hero Section */
+.wireframe-hero {
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.wireframe-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.wireframe-placeholder {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    padding: 40px;
+    border-radius: 4px;
+    color: #999;
+    font-size: 14px;
+}
+
+.wireframe-headline {
+    padding: 30px;
+    font-size: 18px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.wireframe-subheadline {
+    padding: 20px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.wireframe-stats {
+    padding: 40px;
+}
+
+/* Button Styling */
+.wireframe-button {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    padding: 15px 30px;
+    border-radius: 4px;
+    color: #999;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.wireframe-button:hover {
+    background-color: #e8e8e8;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.wireframe-button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Grid Styles */
+.wireframe-grid {
+    display: grid;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.wireframe-grid-2x2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.wireframe-grid-3col {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wireframe-grid-courses {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.wireframe-grid-testimonials {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.wireframe-grid-item {
+    background-color: var(--background);
+    border: 2px dashed var(--secondary);
+    padding: 30px;
+    border-radius: 4px;
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.wireframe-grid-item strong {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.wireframe-grid-item small {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.wireframe-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Before/After Styling */
+.wireframe-before {
+    background-color: var(--before-bg);
+    border-color: var(--before-border);
+}
+
+.wireframe-before small:first-of-type {
+    color: #c00;
+}
+
+.wireframe-after {
+    background-color: var(--after-bg);
+    border-color: var(--after-border);
+}
+
+.wireframe-after small:first-of-type {
+    color: #060;
+}
+
+/* Course Cards */
+.wireframe-course-card {
+    background-color: var(--background);
+    border: 2px dashed var(--secondary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.wireframe-course-image {
+    background-color: #e8e8e8;
+    border-bottom: 2px dashed var(--secondary);
+    padding: 60px 20px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wireframe-course-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.wireframe-course-title {
+    color: var(--text-primary);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.wireframe-course-meta {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+.wireframe-course-cta {
+    background-color: #f0f0f0;
+    border: 1px dashed #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #999;
+    font-size: 11px;
+    display: inline-block;
+}
+
+/* Timeline / How It Works */
+.wireframe-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.wireframe-step {
+    flex: 1;
+    text-align: center;
+}
+
+.wireframe-step-number {
+    background-color: var(--primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.wireframe-step-content {
+    background-color: var(--background);
+    border: 2px dashed var(--secondary);
+    padding: 20px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wireframe-step-content strong {
+    color: var(--text-primary);
+}
+
+.wireframe-timeline-connector {
+    flex-grow: 1;
+    height: 2px;
+    background-color: var(--secondary);
+    margin: 0 -10px;
+}
+
+/* Testimonials */
+.wireframe-testimonial-card {
+    background-color: var(--background);
+    border: 2px dashed var(--secondary);
+    padding: 25px;
+    border-radius: 4px;
+    text-align: center;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wireframe-testimonial-quote {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.wireframe-testimonial-author {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Guru Section */
+.wireframe-guru-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.wireframe-guru-image {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    padding: 100px 40px;
+    text-align: center;
+    border-radius: 4px;
+    color: #999;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.wireframe-guru-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.wireframe-guru-bio {
+    background-color: var(--background);
+    border: 2px dashed var(--secondary);
+    padding: 20px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wireframe-guru-bio strong {
+    color: var(--text-primary);
+}
+
+/* Final CTA Section */
+.wireframe-final-cta {
+    text-align: center;
+    background: linear-gradient(135deg, var(--background) 0%, #ffffff 100%);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .wireframe-container {
+        padding: 15px;
+    }
+
+    .wireframe-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .wireframe-section-title {
+        font-size: 18px;
+    }
+
+    .wireframe-section-number {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .wireframe-grid-2x2,
+    .wireframe-grid-3col,
+    .wireframe-grid-courses,
+    .wireframe-grid-testimonials {
+        grid-template-columns: 1fr;
+    }
+
+    .wireframe-button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .wireframe-button {
+        width: 100%;
+    }
+
+    .wireframe-hero {
+        padding: 40px 20px;
+    }
+
+    .wireframe-placeholder {
+        padding: 30px;
+    }
+
+    .wireframe-headline {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .wireframe-subheadline {
+        font-size: 13px;
+        max-width: 100%;
+    }
+
+    .wireframe-timeline {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .wireframe-timeline-connector {
+        display: none;
+    }
+
+    .wireframe-guru-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .wireframe-guru-image {
+        min-height: 250px;
+        padding: 50px 20px;
+    }
+
+    .wireframe-step-number {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .wireframe-step-content {
+        font-size: 12px;
+        padding: 15px;
+    }
+
+    .wireframe-grid-item {
+        min-height: 120px;
+        padding: 20px;
+    }
+
+    .wireframe-course-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wireframe-course-image {
+        min-height: 100px;
+        padding: 40px 20px;
+    }
+
+    .wireframe-testimonial-card {
+        min-height: 120px;
+        padding: 20px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .wireframe-section {
+        page-break-inside: avoid;
+    }
+}

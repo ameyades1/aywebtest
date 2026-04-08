@@ -134,13 +134,4 @@ function initMobileMenu() {
 
 const ROOT = window.ROOT_PATH || '';
 loadComponent("navbar", ROOT + "components/navbar.html");
-if (document.getElementById('hero')) {
-    loadComponent("hero", ROOT + "components/hero.html");
-}
-if (document.getElementById('transformation-triptych')) {
-    loadComponent("transformation-triptych", ROOT + "components/transformation-triptych.html");
-}
-if (document.getElementById('dss-shibir')) {
-    loadComponent("dss-shibir", ROOT + "components/dss-shibir.html");
-}
 loadComponent("footer", ROOT + "components/footer.html");
