@@ -1,0 +1,124 @@
+We need to redesign the homepage of frontend/index.html to make it more appealing.
+It needs to be cleaner, and more spaced out. I will list out improvements needed.
+You need to give me plan to change the frontend design, including but not limited to frontend elements, any additions, color scheme changes, menu redesigns, etc. We need to keep the design simple yet elegant. 
+
+Look at all the available data, links on the current frontend/index.html page.
+
+You need to draft a detailed plan of action. 
+
+Suggested improvements:
+1. Core Problem: Message is not sharp enough
+
+Right now the site feels:
+
+Philosophically strong
+But unclear for a new visitor
+
+A first-time user should instantly understand:
+👉 “What is this?” + “Why should I care?” + “What should I do next?”
+
+2. Hero Section
+Current issue
+Feels generic/spiritual
+Doesn’t differentiate from hundreds of similar sites
+No strong call-to-action
+
+Need a Strong CTA
+
+3. Messaging Strategy
+
+Right now messaging is concept-heavy, not problem-solution oriented.
+
+Add a “Pain → Solution” section
+Example:
+
+Are you facing these challenges?
+
+Lack of clarity in life decisions
+Stress, anxiety, or emotional instability
+Struggles in career, relationships, or purpose
+
+Antar Yog helps you:
+
+Gain clarity through Vedic wisdom
+Build mental strength and emotional balance
+Align your life with Dharma for lasting success
+
+4. Structure Improvements
+Your homepage should follow this flow:
+
+Ideal Homepage Structure
+Hero (Clear promise + CTA)
+Problems users face
+Your solution (Antar Yog approach)
+“Transforming Lives” (social proof)
+Courses / offerings (from your catalog )
+About Guru / lineage
+How it works (simple 3 steps)
+Testimonials
+Final CTA
+
+5. Courses Section (Huge Opportunity)
+
+You already have strong content (56 products!)
+But homepage doesn’t leverage it well.
+
+6. “Transforming Lives” Section (Make it powerful)
+
+You mentioned linking this → good idea.
+
+Improve it:
+
+Instead of generic text, use:
+
+Before / After storytelling
+“Before: Confused, stressed corporate employee”
+“After: Clarity, discipline, purpose”
+Add:
+Real testimonials (name + city)
+Short 1–2 line impact
+
+7. Visual Design Improvements
+Current issues
+Too text-heavy
+Low visual hierarchy
+Weak contrast in sections
+Fixes
+1. Typography hierarchy
+H1: bold, large (clear impact)
+H2: section headers
+Body: short paragraphs
+2. Add whitespace
+
+👉 Right now sections feel cramped
+
+3. Use icons
+Problems → icons
+Benefits → icons
+Steps → icons
+4. Color system
+(Example)
+Primary: saffron/gold (spiritual identity)
+Secondary: white + dark text
+Accent: deep blue
+
+8. Mobile Experience (Critical)
+
+Most users will come from mobile.
+
+Check:
+
+Button size (thumb friendly)
+Text not too dense
+Sections scroll smoothly
+
+Final Summary (Priority Fix Order)
+Do these first:
+Fix Hero section (headline + CTA)
+Add problem-solution section
+Add course categories preview
+Improve “Transforming Lives” with real stories
+Then:
+Improve design (spacing, typography)
+Add testimonials + trust signals
+Improve navigation
