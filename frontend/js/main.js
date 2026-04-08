@@ -135,6 +135,10 @@ function initMobileMenu() {
 const ROOT = window.ROOT_PATH || '';
 loadComponent("navbar", ROOT + "components/navbar.html");
 if (document.getElementById('testimonials')) {
-    loadComponent("testimonials", ROOT + "components/testimonials.html");
+    loadComponent("testimonials", ROOT + "components/testimonials.html").then(() => {
+        if (typeof initTestimonialsCarousel === 'function') {
+            initTestimonialsCarousel();
+        }
+    });
 }
 loadComponent("footer", ROOT + "components/footer.html");
