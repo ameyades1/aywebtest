@@ -104,6 +104,13 @@
   box-shadow: 0 8px 28px rgba(184, 115, 51, 0.15);
 }
 
+/* ── Card header: date + title on same line ── */
+.up-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 /* Featured card (In-Person events) — slightly warmer tint */
 .up-card--featured {
   border-top-color: #E8B84B;
