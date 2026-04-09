@@ -75,6 +75,10 @@
     flex-direction: row;
     gap: 16px;
   }
+
+  .cta-btn {
+    width: auto;
+  }
 }
 
 .cta-btn {
@@ -126,6 +130,12 @@
   }
 }
 
+@media (max-width: 640px) {
+  .cta-btn {
+    width: 100%;
+  }
+}
+
 @media (max-width: 480px) {
   #final-cta-section {
     padding: 60px 0 48px;
@@ -146,6 +156,5 @@
   .cta-btn {
     font-size: 0.9rem;
     padding: 12px 28px;
-    width: 100%;
   }
 }

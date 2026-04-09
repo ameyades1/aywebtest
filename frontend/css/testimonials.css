@@ -310,11 +310,7 @@
   }
 }
 
-@media (max-width: 480px) {
-  #testimonials-section {
-    padding: 60px 0 48px;
-  }
-
+@media (max-width: 640px) {
   .tcard {
     flex: 0 0 calc(100vw - 48px);
   }
@@ -322,6 +318,12 @@
   .testimonials-track {
     padding-inline: 24px;
     gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #testimonials-section {
+    padding: 60px 0 48px;
   }
 
   .testimonials-title {

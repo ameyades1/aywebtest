@@ -128,7 +128,7 @@ function initMobileMenu() {
 
     // Auto-close if user resizes to desktop width
     window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024 && !mobileMenu.classList.contains('hidden')) closeMenu();
+        if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) closeMenu();
     });
 }
 

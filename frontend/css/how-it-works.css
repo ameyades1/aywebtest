@@ -147,11 +147,15 @@
   }
 
   .hiw-background {
-    background-position: right top;
+    background-position: center top;
   }
 
   .hiw-content {
     padding: 56px 24px;
+  }
+
+  .hiw-body {
+    font-size: 1.1rem;
   }
 }
 

@@ -19,6 +19,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    overflow-x: hidden;
 }
 
 /* Base Section Styling */
@@ -382,6 +383,7 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .wireframe-container {
+        max-width: 100%;
         padding: 15px;
     }
 
@@ -482,6 +484,23 @@
     .wireframe-testimonial-card {
         min-height: 120px;
         padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wireframe-grid-item {
+        min-height: 100px;
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .wireframe-section {
+        padding: 15px;
+    }
+
+    .wireframe-course-image {
+        min-height: 80px;
+        padding: 30px 15px;
     }
 }
 

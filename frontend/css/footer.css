@@ -35,6 +35,15 @@
         grid-template-columns: 1fr;
         gap: 1.75rem;
     }
+
+    .footer-bottom-inner {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .footer-copyright {
+        font-size: 0.8rem;
+    }
 }
 
 .footer-logo {
