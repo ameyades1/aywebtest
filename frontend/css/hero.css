@@ -63,6 +63,28 @@
     box-shadow: 0 10px 25px rgba(184, 115, 51, 0.2);
 }
 
+/* Hero CTA buttons — match "Watch More Stories" style */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #B87333;
+  border: 1.5px solid #B87333;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 220ms, color 220ms, gap 220ms;
+}
+
+.hero-cta:hover {
+  background: #B87333;
+  color: #fff;
+  gap: 14px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 640px) {
     .hero-placeholder {
