@@ -145,6 +145,9 @@ if (document.getElementById('testimonials')) {
         }
     });
 }
+if (document.getElementById('guru')) {
+    loadComponent("guru", ROOT + "components/guru.html");
+}
 if (document.getElementById('final-cta')) {
     loadComponent("final-cta", ROOT + "components/final-cta.html");
 }
