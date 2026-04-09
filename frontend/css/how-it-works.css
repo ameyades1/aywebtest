@@ -24,25 +24,11 @@
   z-index: 0;
 }
 
-/* ── Vignette: left-side depth for legibility over burgundy ornate panel ── */
+/* ── Vignette: disabled — light panel breathes naturally ── */
 .hiw-vignette {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to right,
-      rgba(40, 4, 12, 0.65) 0%,
-      rgba(40, 4, 12, 0.30) 40%,
-      rgba(40, 4, 12, 0.05) 65%,
-      transparent 100%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(30, 3, 8, 0.40) 0%,
-      transparent 20%,
-      transparent 80%,
-      rgba(30, 3, 8, 0.40) 100%
-    );
+  background: none;
   z-index: 1;
   pointer-events: none;
 }
@@ -84,7 +70,7 @@
   font-family: 'Lora', Georgia, serif;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 700;
-  color: #FBF6EE;
+  color: #5C3010;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
@@ -95,7 +81,7 @@
   font-family: 'Lora', Georgia, serif;
   font-size: 1.25rem;
   font-weight: 500;
-  color: #E8B84B;
+  color: #B87333;
   margin-bottom: 20px;
   font-style: italic;
 }
@@ -104,31 +90,31 @@
 .hiw-body {
   font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
-  color: rgba(251, 246, 238, 0.82);
+  color: rgba(92, 48, 16, 0.75);
   line-height: 1.7;
   margin-bottom: 32px;
 }
 
-/* ── CTA button: gold fill with dark text ── */
+/* ── CTA button: copper fill with white text ── */
 .hiw-cta {
   display: inline-flex;
   align-items: center;
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #3A1E0C;
-  background: #E8B84B;
+  color: #FFFFFF;
+  background: #B87333;
   padding: 14px 32px;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(232, 184, 75, 0.35);
+  box-shadow: 0 4px 20px rgba(184, 115, 51, 0.30);
 }
 
 .hiw-cta:hover {
-  background: #F5D07A;
+  background: #C98B4A;
   transform: translateY(-3px);
-  box-shadow: 0 10px 32px rgba(232, 184, 75, 0.45);
+  box-shadow: 0 10px 32px rgba(184, 115, 51, 0.40);
 }
 
 /* ── Entry animation ── */
