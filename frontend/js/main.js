@@ -145,4 +145,7 @@ if (document.getElementById('testimonials')) {
         }
     });
 }
+if (document.getElementById('final-cta')) {
+    loadComponent("final-cta", ROOT + "components/final-cta.html");
+}
 loadComponent("footer", ROOT + "components/footer.html");
