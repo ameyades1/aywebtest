@@ -132,7 +132,7 @@
 
 @media (max-width: 640px) {
   .cta-btn {
-    width: 100%;
+    width: auto;
   }
 }
 
