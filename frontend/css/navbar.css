@@ -34,13 +34,12 @@ header {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-    min-width: 160px;
-    padding: 6px;
-    padding-top: 8px;
+    box-shadow: 0 10px 32px rgba(92, 48, 16, 0.12);
+    min-width: 280px;
+    padding: 16px 0;
     z-index: 100;
     opacity: 0;
-    transition: opacity 150ms ease, transform 150ms ease;
+    transition: opacity 200ms ease, transform 200ms ease;
     pointer-events: none;
 }
 
@@ -54,17 +53,20 @@ header {
 
 .nav-dropdown-panel a {
     display: block;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-size: 0.875rem;
+    padding: 12px 16px;
+    font-size: 0.9375rem;
     color: #5C3010;
     white-space: nowrap;
-    transition: background 150ms, color 150ms;
+    transition: all 150ms ease;
+    border-left: 3px solid transparent;
+    position: relative;
+    left: 0;
 }
 
 .nav-dropdown-panel a:hover {
-    background: #F9F6F0;
+    background: #FBF8F3;
     color: #B87333;
+    border-left-color: #B87333;
 }
 
 /* Mobile menu — drawer panel animation */
