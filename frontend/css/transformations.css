@@ -1,0 +1,200 @@
+/* Transformations Section Styles */
+
+/* Section Container */
+.transformations-section {
+    background: linear-gradient(135deg, rgba(249, 246, 240, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background elements */
+.transformations-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(184, 115, 51, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.transformations-section::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(232, 184, 75, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    color: #2C2018;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #8A7560;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Transformations Grid */
+.transformations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Transformation Card */
+.transformation-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(92, 48, 16, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.transformation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(184, 115, 51, 0.15);
+}
+
+/* Accent Bar — Extends on Hover */
+.card-accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0%;
+    background: linear-gradient(180deg, #B87333 0%, #E8B84B 100%);
+    transition: height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 0 4px 4px 0;
+}
+
+.transformation-card:hover .card-accent-bar {
+    height: 100%;
+}
+
+/* Card Title */
+.card-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #2C2018;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+/* Card Subtitle (Transformation tagline) */
+.card-subtitle {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #B87333;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Card Description */
+.card-description {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #6B5A47;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+}
+
+/* Card CTA Link */
+.card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #B87333;
+    text-decoration: none;
+    border: 1.5px solid #B87333;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    width: fit-content;
+    margin-top: auto;
+}
+
+.card-cta:hover {
+    background: #B87333;
+    color: white;
+    transform: translateX(4px);
+}
+
+.card-cta svg {
+    transition: transform 0.3s ease;
+}
+
+.card-cta:hover svg {
+    transform: translateX(4px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .transformations-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .transformation-card {
+        padding: 1.5rem;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .transformations-section::before,
+    .transformations-section::after {
+        display: none;
+    }
+
+    .card-description {
+        margin-bottom: 1rem;
+    }
+}
