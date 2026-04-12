@@ -165,7 +165,7 @@ if (document.getElementById('final-cta')) {
 }
 loadComponent("footer", ROOT + "components/footer.html");
 
-// Load wisdom videos from JSON
+// Load wisdom videos from JSON — YouTube thumbnail card style
 async function loadWisdomVideos() {
     try {
         const response = await fetch('/docs/Youtube_knowledge/wisdom_videos.json');
@@ -176,19 +176,25 @@ async function loadWisdomVideos() {
             return;
         }
 
-        grid.innerHTML = videos.map(video => `
-            <div class="wisdom-card">
-                <div class="wisdom-card-header">
-                    <span class="wisdom-category">${video.category}</span>
-                </div>
-                <h3 class="wisdom-video-title">${video.title}</h3>
-                <p class="wisdom-video-description">${video.description}</p>
-                <a href="${video.url}" target="_blank" class="wisdom-cta">
-                    Watch on YouTube
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        grid.innerHTML = videos.map(video => {
+            // Extract video ID from YouTube URL: https://www.youtube.com/watch?v=VIDEOID
+            const videoId = new URL(video.url).searchParams.get('v');
+            const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+            return `
+                <a href="${video.url}" target="_blank" rel="noopener" class="wisdom-card">
+                    <div class="wisdom-thumb">
+                        <img src="${thumbnailUrl}" alt="${video.description}" loading="lazy">
+                        <div class="wisdom-play">
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="0">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="wisdom-description">${video.description}</p>
                 </a>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     } catch (error) {
         console.error('Failed to load wisdom videos:', error);
     }

@@ -60,123 +60,96 @@
 /* Wisdom Grid */
 .wisdom-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     position: relative;
     z-index: 10;
 }
 
-/* Wisdom Card */
+/* Wisdom Card — YouTube Thumbnail Style */
 .wisdom-card {
+    display: block;
+    text-decoration: none;
     background: white;
     border-radius: 10px;
-    padding: 1.75rem;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(92, 48, 16, 0.08);
-    border-left: 4px solid #B87333;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .wisdom-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(184, 115, 51, 0.15);
-    border-left-color: #E8B84B;
 }
 
-/* Category Badge */
-.wisdom-card-header {
+/* Thumbnail Container */
+.wisdom-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #000;
+}
+
+.wisdom-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wisdom-card:hover .wisdom-thumb img {
+    transform: scale(1.04);
+}
+
+/* Play Icon Overlay */
+.wisdom-play {
+    position: absolute;
+    inset: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    justify-content: center;
+    background: rgba(44, 20, 4, 0.32);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-.wisdom-category {
-    display: inline-block;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #B87333;
-    background: rgba(184, 115, 51, 0.08);
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+.wisdom-card:hover .wisdom-play {
+    opacity: 1;
 }
 
-/* Video Title */
-.wisdom-video-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: #2C2018;
-    margin: 0 0 0.8rem;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
+.wisdom-play svg {
+    width: 56px;
+    height: 56px;
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-/* Video Description */
-.wisdom-video-description {
+/* Description — Only Element Below Thumbnail */
+.wisdom-description {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
     color: #6B5A47;
-    margin: 0 0 1.5rem;
-    flex-grow: 1;
-}
-
-/* CTA Link */
-.wisdom-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #B87333;
-    text-decoration: none;
-    border: 1.5px solid #B87333;
-    padding: 0.7rem 1.2rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    width: fit-content;
-    margin-top: auto;
-}
-
-.wisdom-cta:hover {
-    background: #B87333;
-    color: white;
-    transform: translateX(3px);
-}
-
-.wisdom-cta svg {
-    transition: transform 0.3s ease;
-}
-
-.wisdom-cta:hover svg {
-    transform: translateX(3px);
+    margin: 0;
+    padding: 1rem 1.25rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .wisdom-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
     }
 
     .wisdom-header {
         margin-bottom: 2.5rem;
     }
 
-    .wisdom-card {
-        padding: 1.5rem;
-    }
-
-    .wisdom-video-title {
-        font-size: 1.15rem;
+    .wisdom-description {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -186,11 +159,12 @@
         display: none;
     }
 
-    .wisdom-card {
-        padding: 1.25rem;
+    .wisdom-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
-    .wisdom-video-description {
-        margin-bottom: 1.25rem;
+    .wisdom-description {
+        padding: 0.75rem 1rem;
     }
 }
