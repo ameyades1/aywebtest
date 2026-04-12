@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Understanding Vedantic Philosophy | Acharya Upendra Ji",
+    "url": "https://www.youtube.com/watch?v=PLACEHOLDER1",
+    "category": "vedanta",
+    "description": "Deep dive into Vedantic wisdom and ancient scriptures"
+  },
+  {
+    "id": 2,
+    "title": "The Science of Meditation | Transform Your Mind",
+    "url": "https://www.youtube.com/watch?v=PLACEHOLDER2",
+    "category": "meditation",
+    "description": "Learn the scientific benefits of daily meditation practice"
+  },
+  {
+    "id": 3,
+    "title": "Tantra Vidya Revealed | Unlocking Divine Energy",
+    "url": "https://www.youtube.com/watch?v=PLACEHOLDER3",
+    "category": "tantra",
+    "description": "Introduction to sacred tantric practices and their benefits"
+  },
+  {
+    "id": 4,
+    "title": "Dharma in Modern Life | Living with Purpose",
+    "url": "https://www.youtube.com/watch?v=PLACEHOLDER4",
+    "category": "dharma",
+    "description": "How to align your life with dharmic principles"
+  },
+  {
+    "id": 5,
+    "title": "The Power of Mantras | Decoding Sacred Sounds",
+    "url": "https://www.youtube.com/watch?v=PLACEHOLDER5",
+    "category": "mantras",
+    "description": "Understanding the vibration and power of sacred mantras"
+  },
+  {
+    "id": 6,
+    "title": "Building a Better Bharat | National Transformation",
+    "url": "https://www.youtube.com/watch?v=PLACEHOLDER6",
+    "category": "vision",
+    "description": "Vision for spiritual and national awakening"
+  }
+]

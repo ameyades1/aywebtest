@@ -155,7 +155,41 @@ if (document.getElementById('upcoming-programs')) {
 if (document.getElementById('guru')) {
     loadComponent("guru", ROOT + "components/guru.html");
 }
+if (document.getElementById('wisdom-section')) {
+    loadComponent("wisdom-section", ROOT + "components/wisdom-section.html").then(() => {
+        loadWisdomVideos();
+    });
+}
 if (document.getElementById('final-cta')) {
     loadComponent("final-cta", ROOT + "components/final-cta.html");
 }
 loadComponent("footer", ROOT + "components/footer.html");
+
+// Load wisdom videos from JSON
+async function loadWisdomVideos() {
+    try {
+        const response = await fetch('/docs/Youtube_knowledge/wisdom_videos.json');
+        const videos = await response.json();
+        const grid = document.getElementById('wisdom-grid');
+
+        if (!grid) {
+            return;
+        }
+
+        grid.innerHTML = videos.map(video => `
+            <div class="wisdom-card">
+                <div class="wisdom-card-header">
+                    <span class="wisdom-category">${video.category}</span>
+                </div>
+                <h3 class="wisdom-video-title">${video.title}</h3>
+                <p class="wisdom-video-description">${video.description}</p>
+                <a href="${video.url}" target="_blank" class="wisdom-cta">
+                    Watch on YouTube
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error('Failed to load wisdom videos:', error);
+    }
+}
