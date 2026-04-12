@@ -146,6 +146,11 @@ if (document.getElementById('testimonials')) {
         }
     });
 }
+if (document.getElementById('programs')) {
+    loadComponent("programs", ROOT + "components/programs.html").then(() => {
+        initProgramsCarousel();
+    });
+}
 if (document.getElementById('how-it-works')) {
     loadComponent("how-it-works", ROOT + "components/how-it-works.html");
 }
@@ -210,6 +215,50 @@ function initWisdomCarousel() {
     const dots    = document.querySelectorAll('.wdot');
     const btnPrev = document.getElementById('wisdom-prev');
     const btnNext = document.getElementById('wisdom-next');
+
+    if (!outer || !cards.length || !btnPrev || !btnNext) return;
+
+    let current = 0;
+    const gap = 20;
+
+    function getCardWidth() {
+        return cards[0].offsetWidth;
+    }
+
+    function scrollToCard(index) {
+        current = Math.max(0, Math.min(index, cards.length - 1));
+        outer.scrollTo({ left: current * (getCardWidth() + gap), behavior: 'smooth' });
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => scrollToCard(+dot.dataset.index));
+    });
+
+    btnPrev.addEventListener('click', () => scrollToCard(current - 1));
+    btnNext.addEventListener('click', () => scrollToCard(current + 1));
+
+    let scrollTimer;
+    outer.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            current = Math.round(outer.scrollLeft / (getCardWidth() + gap));
+            current = Math.max(0, Math.min(current, cards.length - 1));
+            updateDots();
+        }, 80);
+    });
+}
+
+function initProgramsCarousel() {
+    const outer   = document.getElementById('prog-track-outer');
+    const cards   = document.querySelectorAll('.prog-card');
+    const dots    = document.querySelectorAll('.pdot');
+    const btnPrev = document.getElementById('prog-prev');
+    const btnNext = document.getElementById('prog-next');
 
     if (!outer || !cards.length || !btnPrev || !btnNext) return;
 

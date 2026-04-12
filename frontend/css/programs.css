@@ -1,0 +1,226 @@
+/* =====================================================
+   PROGRAMS FOR EVERYONE — Carousel Section
+   ===================================================== */
+
+/* Section shell */
+#programs-section {
+  padding: 80px 0 60px;
+  background: linear-gradient(180deg, #FDFBF7 0%, #F9F6F0 100%);
+  overflow: hidden;
+}
+
+/* Section header */
+.prog-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+
+.prog-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5C3010;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* ── Carousel wrapper (positions arrows) ── */
+.prog-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Scroll track ── */
+.prog-track-outer {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex: 1;
+  padding: 12px 0 24px;
+}
+
+.prog-track-outer::-webkit-scrollbar {
+  display: none;
+}
+
+.prog-track {
+  display: flex;
+  gap: 20px;
+  padding-left: 24px;
+  padding-right: 40px;
+  width: max-content;
+}
+
+/* Program Card */
+.prog-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  border-top: 3px solid #B87333;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(92, 48, 16, 0.07);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+  cursor: pointer;
+}
+
+.prog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(184, 115, 51, 0.15);
+}
+
+/* Card image placeholder */
+.prog-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #F2ECE3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B87333;
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(184, 115, 51, 0.1);
+}
+
+/* Card body */
+.prog-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Card title */
+.prog-card-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5C3010;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Card description */
+.prog-card-desc {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(44, 32, 24, 0.65);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Prev / Next arrows ── */
+.prog-arrow {
+  display: none; /* hidden on mobile */
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #E8B84B;
+  background: #FFFFFF;
+  color: #B87333;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 200ms, border-color 200ms, transform 200ms;
+  z-index: 2;
+}
+
+.prog-arrow:hover {
+  background: #B87333;
+  border-color: #B87333;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.prog-arrow--prev { margin-left: 24px; }
+.prog-arrow--next { margin-right: 24px; }
+
+/* ── Dots ── */
+.prog-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.pdot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background: #d1c4b5;
+  cursor: pointer;
+  padding: 0;
+  transition: all 220ms ease;
+}
+
+.pdot:hover {
+  background: #B87333;
+  opacity: 0.6;
+}
+
+.pdot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #B87333;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (min-width: 768px) {
+  .prog-title {
+    font-size: 2.25rem;
+  }
+
+  .prog-arrow {
+    display: flex;
+  }
+
+  .prog-track {
+    padding-left: 40px;
+    padding-right: 60px;
+  }
+
+  .prog-card {
+    flex: 0 0 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .prog-card {
+    flex: 0 0 calc(100vw - 48px);
+  }
+
+  .prog-track {
+    padding-inline: 24px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #programs-section {
+    padding: 60px 0 48px;
+  }
+
+  .prog-title {
+    font-size: 1.6rem;
+  }
+}
