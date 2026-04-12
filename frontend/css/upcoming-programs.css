@@ -111,10 +111,9 @@
   gap: 14px;
 }
 
-/* Featured card (In-Person events) — slightly warmer tint */
+/* Featured card */
 .up-card--featured {
-  border-top-color: #E8B84B;
-  background: linear-gradient(160deg, #FFFEF9 0%, #FFFFFF 100%);
+  background: #FFFFFF;
 }
 
 /* ── Date badge ── */
@@ -125,15 +124,11 @@
   justify-content: center;
   width: 48px;
   height: 52px;
-  background: linear-gradient(135deg, #B87333 0%, #C98B4A 100%);
+  background: #B87333;
   border-radius: 8px;
   color: #FFFFFF;
   line-height: 1;
   flex-shrink: 0;
-}
-
-.up-card--featured .up-card-date {
-  background: linear-gradient(135deg, #C9953A 0%, #E8B84B 100%);
 }
 
 .up-card-day {
@@ -234,15 +229,6 @@
   gap: 10px;
 }
 
-.up-card--featured .up-card-cta {
-  border-color: #C9953A;
-  color: #C9953A;
-}
-
-.up-card--featured .up-card-cta:hover {
-  background: #C9953A;
-  color: #fff;
-}
 
 /* ── Footer CTA ── */
 .up-footer {
