@@ -1,32 +1,492 @@
 [
   {
     "id": 1,
-    "url": "https://www.youtube.com/watch?v=14RWGh4zZWE",
-    "description": "The Ultimate Source to Learn About Every Religion | Sanatan Dharma"
+    "url": "https://www.youtube.com/watch?v=2pqFFJAtSRY",
+    "description": "What is the Difference Between Ved and Vedant?"
   },
   {
     "id": 2,
-    "url": "https://www.youtube.com/watch?v=mkEiZQ64u1Q",
-    "description": "Navigate Life's Unexpected Twists and Turns | Vedantic Wisdom"
+    "url": "https://www.youtube.com/watch?v=8LoNGJLVvs4",
+    "description": "The Future of our Country Bharat You Must Know"
   },
   {
     "id": 3,
-    "url": "https://www.youtube.com/watch?v=2BrV_nv_H5E",
-    "description": "Learn to Live Happy and Peaceful Life | Vedantic Knowledge"
+    "url": "https://www.youtube.com/watch?v=JdU1pQGyam4",
+    "description": "Why Do You Need A Jeevit Guru In Life?"
   },
   {
     "id": 4,
-    "url": "https://www.youtube.com/watch?v=RoAI_KCVW_Y",
-    "description": "The End of My Spiritual Quest | Life-Changing Story"
+    "url": "https://www.youtube.com/watch?v=PTZo4sPbBgg",
+    "description": "Your Journey as a Seeker"
   },
   {
     "id": 5,
-    "url": "https://www.youtube.com/watch?v=7UGxeLq3jTk",
-    "description": "Beyond Religion Teachings of Acharya Upendra Ji"
+    "url": "https://www.youtube.com/watch?v=V_Mxy5bZpOc",
+    "description": "Know What Kind of Student / Shishya You Are"
   },
   {
     "id": 6,
-    "url": "https://www.youtube.com/watch?v=9_Olb-bBLgA",
-    "description": "Every Moment With an Enlightened Master Is a New Birth"
+    "url": "https://www.youtube.com/watch?v=bQkA0_WxDp0",
+    "description": "This Knowledge Will Transform Your Life Forever"
+  },
+  {
+    "id": 7,
+    "url": "https://www.youtube.com/watch?v=tIhv44VSkqg",
+    "description": "What Decides Your Destiny- Your Karma or Something Else?"
+  },
+  {
+    "id": 8,
+    "url": "https://www.youtube.com/watch?v=v7qix63fi6o",
+    "description": "Revealed When and How Kalki Avatar Will Come"
+  },
+  {
+    "id": 9,
+    "url": "https://www.youtube.com/watch?v=agTrn2OrT3I",
+    "description": "शंखनाद - उठो, जागो! युग परिवर्तन का समय आया है | It Is Time for You to Awaken"
+  },
+  {
+    "id": 10,
+    "url": "https://www.youtube.com/watch?v=Hi2yo3WNWNg",
+    "description": "Unveiling the Truth: Is Karma Yog the Ultimate Goal or Just the Beginning?"
+  },
+  {
+    "id": 11,
+    "url": "https://www.youtube.com/watch?v=WAHlUMxRjLM",
+    "description": "DO NOT WAIT Until Retirement to Transform Your Life | सबसे पहले यह कर्म करें"
+  },
+  {
+    "id": 12,
+    "url": "https://www.youtube.com/watch?v=lzy0iom4NM0",
+    "description": "Why Are You Still Struggling Despite Trying Your Best? | Awakening Session by Acharya Upendra Ji"
+  },
+  {
+    "id": 13,
+    "url": "https://www.youtube.com/watch?v=u4rEtz0EDT4",
+    "description": "Unlock Divine Energy: Master the Durga Saptashati Beej Mantra Sadhana with Acharya Upendra Ji!"
+  },
+  {
+    "id": 14,
+    "url": "https://www.youtube.com/watch?v=2J9rmfsbeSQ",
+    "description": "Married or Not: Must-Watch Insights from Acharya Upendra Ji!"
+  },
+  {
+    "id": 15,
+    "url": "https://www.youtube.com/watch?v=x0tGU8YmWDQ",
+    "description": "The Power of Healing is Within You | आत्मविश्वास की शक्ति | Antar Yog Science of Healing"
+  },
+  {
+    "id": 16,
+    "url": "https://www.youtube.com/watch?v=oTh4Q5cWWNQ",
+    "description": "Punya vs Paap | The Real Difference That Will Change Your Life Forever"
+  },
+  {
+    "id": 17,
+    "url": "https://www.youtube.com/watch?v=4ZGq4KwZdOg",
+    "description": "Discover the Power of Deities in Your Life"
+  },
+  {
+    "id": 18,
+    "url": "https://www.youtube.com/watch?v=pSgr-IzLZmA",
+    "description": "Are You Manifesting Your Goals Correctly? – Watch Before It Is Too Late!"
+  },
+  {
+    "id": 19,
+    "url": "https://www.youtube.com/watch?v=YxeuWagekhw",
+    "description": "The Untold Stories of Goddess Lakshmi and Lord Vishnu"
+  },
+  {
+    "id": 20,
+    "url": "https://www.youtube.com/watch?v=337o_M4hQlc",
+    "description": "Acharya Upendra Ji EXPOSES Hidden Truth About Rudra and Rudraksha"
+  },
+  {
+    "id": 21,
+    "url": "https://www.youtube.com/watch?v=8TQP05l8T8o",
+    "description": "Why Durva and Red Flowers for Lord Ganesh? | Worship the Right Way"
+  },
+  {
+    "id": 22,
+    "url": "https://www.youtube.com/watch?v=pY4goiPddYM",
+    "description": "How to Attain Divine Qualities? | Antar Yog Foundation | Empower Your Spiritual Journey"
+  },
+  {
+    "id": 23,
+    "url": "https://www.youtube.com/watch?v=Twmk2ibbD8o",
+    "description": "The Power of Collectivity"
+  },
+  {
+    "id": 24,
+    "url": "https://www.youtube.com/watch?v=CE4lUMtfOKw",
+    "description": "Discover the Hidden Power of Positivity | (A Must Watch!)"
+  },
+  {
+    "id": 25,
+    "url": "https://www.youtube.com/watch?v=3vpUtI7qrO0",
+    "description": "Know Your God | A Transformative Path to 2025"
+  },
+  {
+    "id": 26,
+    "url": "https://www.youtube.com/watch?v=6v0N16_t-Bo",
+    "description": "The Secrets to Mastering Your Mind | A Must Learn Technique in 2025"
+  },
+  {
+    "id": 27,
+    "url": "https://www.youtube.com/watch?v=m2IU0GRbYW8",
+    "description": "Overcome the Struggles of Life | Awakening Video by Acharya Upendra Ji"
+  },
+  {
+    "id": 28,
+    "url": "https://www.youtube.com/watch?v=xXkJCnkCJh4",
+    "description": "The Power of Surrendering to the Guru"
+  },
+  {
+    "id": 29,
+    "url": "https://www.youtube.com/watch?v=Jjev58uqjlk",
+    "description": "Top Expert Acharya Upendra Ji Shares the Secret to Making Knowledge Work for You"
+  },
+  {
+    "id": 30,
+    "url": "https://www.youtube.com/watch?v=3isyY5JDCes",
+    "description": "Do This One Thing to Achieve Successful Life | सफलता का रहस्य"
+  },
+  {
+    "id": 31,
+    "url": "https://www.youtube.com/watch?v=fbSCA8hutgs",
+    "description": "Know The True Meaning of Love | Valentine's Day Special"
+  },
+  {
+    "id": 32,
+    "url": "https://www.youtube.com/watch?v=MV8HZe_1Czg",
+    "description": "Do You Truly Desire or Is It Infatuation? An Eye-Opening Video by Acharya Upendra Ji"
+  },
+  {
+    "id": 33,
+    "url": "https://www.youtube.com/watch?v=jnlSGQ1NeuU",
+    "description": "Are You Loving in the Right Way? | Valentine's Day Special"
+  },
+  {
+    "id": 34,
+    "url": "https://www.youtube.com/watch?v=3D4bZOwfWIc",
+    "description": "It Is Too Bad to Be Too Good | Profound Insights by Acharya Upendra Ji | Valentine's Day Special"
+  },
+  {
+    "id": 35,
+    "url": "https://www.youtube.com/watch?v=o1TG0gTf1rI",
+    "description": "Radha Krishna - A Divine Secret You Never Knew!"
+  },
+  {
+    "id": 36,
+    "url": "https://www.youtube.com/watch?v=h5RrdwSpFsg",
+    "description": "Twin Flames, Soulmates and Karmic Bonds | Insights by Acharya Upendra Ji"
+  },
+  {
+    "id": 37,
+    "url": "https://www.youtube.com/watch?v=H2TJ9HG0F9I",
+    "description": "Why Blind Love is Dangerous | Insights by Acharya Upendra Ji"
+  },
+  {
+    "id": 38,
+    "url": "https://www.youtube.com/watch?v=fTnWUxV-cUI",
+    "description": "Love, Respect and Friendship – The Hidden Connection! Acharya Upendra Ji"
+  },
+  {
+    "id": 39,
+    "url": "https://www.youtube.com/watch?v=qOlSD2XtlQ4",
+    "description": "Only a Competent Guru Can Activate Your Chakras"
+  },
+  {
+    "id": 40,
+    "url": "https://www.youtube.com/watch?v=rzvDKGED45s",
+    "description": "Guru and Disciple: The Highest Form of Love"
+  },
+  {
+    "id": 41,
+    "url": "https://www.youtube.com/watch?v=iJKo4l8Wk1w",
+    "description": "Without a Guru, Scriptures Can Mislead You!"
+  },
+  {
+    "id": 42,
+    "url": "https://www.youtube.com/watch?v=4UYYhdxw4RQ",
+    "description": "Unlock Your Full Potential in Life | Awakening Video by Acharya Upendra Ji | Antar Yog Foundation"
+  },
+  {
+    "id": 43,
+    "url": "https://www.youtube.com/watch?v=FHJt2VprFWs",
+    "description": "Take a Pause! Know Your First Duty in Life"
+  },
+  {
+    "id": 44,
+    "url": "https://www.youtube.com/watch?v=dsCYM0o3enk",
+    "description": "The Divine Power Every Woman Holds"
+  },
+  {
+    "id": 45,
+    "url": "https://www.youtube.com/watch?v=Aze4oMZWvlo",
+    "description": "The True Power of Scriptures | Decoded by Acharya Upendra Ji | Antar Yog Foundation"
+  },
+  {
+    "id": 46,
+    "url": "https://www.youtube.com/watch?v=T_do140cMxM",
+    "description": "Are You Trapped in Illusory Happiness? | Eye-Opening Insights by Acharya Upendra Ji"
+  },
+  {
+    "id": 47,
+    "url": "https://www.youtube.com/watch?v=q1lSaFpLhAA",
+    "description": "Is Your Diet Hindering Your Success?"
+  },
+  {
+    "id": 48,
+    "url": "https://www.youtube.com/watch?v=BeSI4EHmtmE",
+    "description": "Eat to Heal, Not to Harm – A Spiritual Awakening by Acharya Upendra Ji"
+  },
+  {
+    "id": 49,
+    "url": "https://www.youtube.com/watch?v=9R8rCQWnNmg",
+    "description": "Why You Need Both Saturn & Mars to Succeed"
+  },
+  {
+    "id": 50,
+    "url": "https://www.youtube.com/watch?v=NrWomOQaEeI",
+    "description": "Ghee – More Than Just Food! Ancient Insights by Acharya Upendra Ji"
+  },
+  {
+    "id": 51,
+    "url": "https://www.youtube.com/watch?v=COOfNtQO9p8",
+    "description": "Water Is Your First Medicine | Eye-Opening Talk by Acharya Upendra Ji"
+  },
+  {
+    "id": 52,
+    "url": "https://www.youtube.com/watch?v=I8XxEUhOuRY",
+    "description": "What You Eat Shapes How You Think"
+  },
+  {
+    "id": 53,
+    "url": "https://www.youtube.com/watch?v=l5IMXQm6_Os",
+    "description": "Awaken Your Inner Shiv & Shakti | Enlightening Discourse by Acharya Upendra Ji | Maha Shivratri 2025"
+  },
+  {
+    "id": 54,
+    "url": "https://www.youtube.com/watch?v=3H6JBMMDsPY",
+    "description": "A Hardcore Non-Vegetarian? Try This — If You Truly Dare | Awakening Message by Acharya Upendra Ji"
+  },
+  {
+    "id": 55,
+    "url": "https://www.youtube.com/watch?v=yMTf0fB0O7I",
+    "description": "Non-Veg Food Remains in the Body for Years – Startling Truths by Acharya Upendra Ji | #NonVeg #Diet"
+  },
+  {
+    "id": 56,
+    "url": "https://www.youtube.com/watch?v=bHiqwjZfjdQ",
+    "description": "How Should an Ideal King Lead a Sanatan Rashtra? | Exclusive Interview with Acharya Upendra Ji"
+  },
+  {
+    "id": 57,
+    "url": "https://www.youtube.com/watch?v=D1gVmT4mOxM",
+    "description": "Acharya Upendra Ji on Why Society Remains Divided | Exclusive Interview at Sanatan Rashtra Mahotsav"
+  },
+  {
+    "id": 58,
+    "url": "https://www.youtube.com/watch?v=CT4y8LiHBU4",
+    "description": "The Guru: Bridging Science and Spirituality"
+  },
+  {
+    "id": 59,
+    "url": "https://www.youtube.com/watch?v=uCpV4GP4tZE",
+    "description": "What Is More Powerful? Mind or Body"
+  },
+  {
+    "id": 60,
+    "url": "https://www.youtube.com/watch?v=vYa0-yyFT9I",
+    "description": "Sattva, Rajas, Tamas: The Path to Balance, Success and Liberation"
+  },
+  {
+    "id": 61,
+    "url": "https://www.youtube.com/watch?v=IRT9HMMAN1I",
+    "description": "The Future Lies in Your Hands – Acharya Upendra Ji's Powerful Message to Women"
+  },
+  {
+    "id": 62,
+    "url": "https://www.youtube.com/watch?v=JN2rLNTRmkg",
+    "description": "Acharya Upendra Ji at Gyan Sarovar, Mount Abu | Inspiring Address to 500 Influential Women"
+  },
+  {
+    "id": 63,
+    "url": "https://www.youtube.com/watch?v=nl9WwWI4OZU",
+    "description": "The Evolution of Dharma – Fascinating Insights into Sanatan Dharma"
+  },
+  {
+    "id": 64,
+    "url": "https://www.youtube.com/watch?v=--fzGWGYwj8",
+    "description": "Unlocking the Hidden Meaning of Spiritual Symbols | Profound Insights from Acharya Upendra Ji"
+  },
+  {
+    "id": 65,
+    "url": "https://www.youtube.com/watch?v=GmsR2kEJyok",
+    "description": "How to Become a Billionaire Using Ancient Indian Wisdom | Shree Vidya Secrets by Acharya Upendra Ji"
+  },
+  {
+    "id": 66,
+    "url": "https://www.youtube.com/watch?v=ryX-m980D3M",
+    "description": "Why Physical and Mental Strength Are Vital on the Spiritual Path"
+  },
+  {
+    "id": 67,
+    "url": "https://www.youtube.com/watch?v=ov5VfQaTt80",
+    "description": "How Every Human Is Inherently Spiritual – A Rare Insight by Acharya Upendra Ji #SpiritualAwakening"
+  },
+  {
+    "id": 68,
+    "url": "https://www.youtube.com/watch?v=nhdgssseYpQ",
+    "description": "Do What You Like or Do What Is Right? | Shreya vs Preya – Vedantic Wisdom by Acharya Upendra Ji"
+  },
+  {
+    "id": 69,
+    "url": "https://www.youtube.com/watch?v=N23HvqfmdZQ",
+    "description": "Know Your Lord Before You Worship | Awakening Message by Acharya Upendra Ji"
+  },
+  {
+    "id": 70,
+    "url": "https://www.youtube.com/watch?v=UETeOQlt8wQ",
+    "description": "The Spiritual Science of OM: Discover the Power of \"A-U-M\""
+  },
+  {
+    "id": 71,
+    "url": "https://www.youtube.com/watch?v=4xYklVbL04A",
+    "description": "The Company You Keep Shapes Your Destiny | Eye-Opening Wisdom by Acharya Upendra Ji"
+  },
+  {
+    "id": 72,
+    "url": "https://www.youtube.com/watch?v=qKeSO8HjLgk",
+    "description": "Marriage Is About Giving, Not Taking | Brutal Truths on Relationships by Acharya Upendra Ji"
+  },
+  {
+    "id": 73,
+    "url": "https://www.youtube.com/watch?v=JzoOLxtJbDs",
+    "description": "Chanting OM at the Final Breath: The Hidden Truth of Liberation"
+  },
+  {
+    "id": 74,
+    "url": "https://www.youtube.com/watch?v=ekKEpnvRlDo",
+    "description": "Struggling with Laziness or Lack of Drive? The Spiritual Solution"
+  },
+  {
+    "id": 75,
+    "url": "https://www.youtube.com/watch?v=78JhEGWoiFU",
+    "description": "How to Control Your Mind Before It Controls YOU | Insights by Acharya Upendra Ji"
+  },
+  {
+    "id": 76,
+    "url": "https://www.youtube.com/watch?v=Of8N4Jl6tvo",
+    "description": "The Truth About Lord Ganesh That No One Told You"
+  },
+  {
+    "id": 77,
+    "url": "https://www.youtube.com/watch?v=9K7jnPjftng",
+    "description": "Revealing the Three Types of Obstacle Removers (Harta) — Which One Are You?"
+  },
+  {
+    "id": 78,
+    "url": "https://www.youtube.com/watch?v=JyaRQhS1FLU",
+    "description": "Stop Your Mind from Controlling You — Unlock the Secret to True Focus"
+  },
+  {
+    "id": 79,
+    "url": "https://www.youtube.com/watch?v=LTlS3QAFHV0",
+    "description": "Your Destiny Awaits – But THIS One Obstacle Stands in the Way"
+  },
+  {
+    "id": 80,
+    "url": "https://www.youtube.com/watch?v=n_vbFgF9h4Q",
+    "description": "Rigid Mind vs Flexible Mind: The Hidden Shift That Can Rewrite Your Destiny"
+  },
+  {
+    "id": 81,
+    "url": "https://www.youtube.com/watch?v=XQF7970d0Rw",
+    "description": "Awaken the Divine Shakti Within You | Decoding Goddess Kali, Lakshmi, Saraswati"
+  },
+  {
+    "id": 82,
+    "url": "https://www.youtube.com/watch?v=F2ed2I00dQA",
+    "description": "Are YOU a True Disciple? This Idea Will Change YOUR Life"
+  },
+  {
+    "id": 83,
+    "url": "https://www.youtube.com/watch?v=IZr0L44iccY",
+    "description": "Stop Tolerating Toxic Love"
+  },
+  {
+    "id": 84,
+    "url": "https://www.youtube.com/watch?v=laHKtOVpJcc",
+    "description": "Is YOUR Love Becoming a Burden for Your Child? | Parenting Tips"
+  },
+  {
+    "id": 85,
+    "url": "https://www.youtube.com/watch?v=4pc2zrIOdXE",
+    "description": "Illuminate Your Path with Wisdom & Abundance | Sacred Guru (Jupiter) Chanting by Acharya Upendra Ji"
+  },
+  {
+    "id": 86,
+    "url": "https://www.youtube.com/watch?v=xvFF9MbWP30",
+    "description": "This Is Why Satsang Does Not  Change YOUR Life! -  Acharya Upendra Ji"
+  },
+  {
+    "id": 87,
+    "url": "https://www.youtube.com/watch?v=lCzbwxk3pqA",
+    "description": "Stop Asking God to Fix Your Life — Understand THIS First! Powerful Video by Acharya Upendra Ji"
+  },
+  {
+    "id": 88,
+    "url": "https://www.youtube.com/watch?v=-MdwHudA9q0",
+    "description": "Who Really Creates Your Life? The Two Causes You Must Know"
+  },
+  {
+    "id": 89,
+    "url": "https://www.youtube.com/watch?v=RUNDzhc9cUI",
+    "description": "Burn Your Karma Before It Burns You! Awakening Video by Acharya Upendra Ji"
+  },
+  {
+    "id": 90,
+    "url": "https://www.youtube.com/watch?v=XrizjvAqptQ",
+    "description": "How Your Joy Can Turn Into Sorrow – And Your Sorrow Into Joy | Revealed by Acharya Upendra Ji"
+  },
+  {
+    "id": 91,
+    "url": "https://www.youtube.com/watch?v=eYm2lJLozys",
+    "description": "Unique Gau Seva at Antar Yog – Your Path to Purity, Prosperity and Liberation"
+  },
+  {
+    "id": 92,
+    "url": "https://www.youtube.com/watch?v=NcBGjacSy-s",
+    "description": "Powerful Shukra Graha Chanting—Attract Wealth, Strengthen Your Relationships and Heal Your Emotions"
+  },
+  {
+    "id": 93,
+    "url": "https://www.youtube.com/watch?v=CVK2Zo0veDI",
+    "description": "Antar Yog Mahadaan - Transform Your Life by Serving the Deserving With Unconditional Love & Oneness"
+  },
+  {
+    "id": 94,
+    "url": "https://www.youtube.com/watch?v=iQcVpvkuV5A",
+    "description": "The Secret Blueprint to Make Bharat Vishwa Guru"
+  },
+  {
+    "id": 95,
+    "url": "https://www.youtube.com/watch?v=cv1TsfZGQNs",
+    "description": "Stop Following Satyug Rules in Kaliyug: God Has Given YOU a Different Path"
+  },
+  {
+    "id": 96,
+    "url": "https://www.youtube.com/watch?v=ksBOItw84g0",
+    "description": "4 Hidden Levels of Spiritual Power — 99% Never Cross the First | Brahmarshi Acharya Upendra Ji"
+  },
+  {
+    "id": 97,
+    "url": "https://www.youtube.com/watch?v=_HeobSgNv_w",
+    "description": "This Missing Step Is Blocking Your Spiritual Success | Brahmarshi Acharya Upendra Ji"
+  },
+  {
+    "id": 98,
+    "url": "https://www.youtube.com/watch?v=GNHT_imyrIg",
+    "description": "The Real Role of Maha Kali Revealed by Brahmarshi Acharya Upendra Ji (MUST WATCH)"
   }
 ]
