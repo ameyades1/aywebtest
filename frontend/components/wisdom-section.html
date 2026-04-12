@@ -1,17 +1,50 @@
 <!-- Wisdom on the Web Section -->
 <section class="wisdom-section">
-    <div class="container px-4 lg:px-8 py-16 lg:py-24">
+    <div class="container px-4 lg:px-8">
         <!-- Section Header -->
         <div class="wisdom-header">
             <h2 class="wisdom-title">Wisdom on the Web</h2>
-            <p class="wisdom-subtitle">
-                Explore profound teachings and spiritual insights from Acharya Upendra Ji
-            </p>
         </div>
 
-        <!-- YouTube Video Cards Grid -->
-        <div class="wisdom-grid" id="wisdom-grid">
-            <!-- Thumbnail cards will be loaded here via JavaScript -->
+        <!-- Carousel -->
+        <div class="wisdom-carousel-wrapper">
+
+            <!-- Prev arrow -->
+            <button class="wcard-arrow wcard-arrow--prev" id="wisdom-prev" aria-label="Previous video">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <!-- Scrollable track -->
+            <div class="wisdom-track-outer" id="wisdom-track-outer">
+                <div class="wisdom-track" id="wisdom-track">
+                    <!-- Cards loaded via loadWisdomVideos() in main.js -->
+                </div>
+            </div>
+
+            <!-- Next arrow -->
+            <button class="wcard-arrow wcard-arrow--next" id="wisdom-next" aria-label="Next video">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
         </div>
+
+        <!-- Dots -->
+        <div class="wisdom-dots" id="wisdom-dots">
+            <button class="wdot active" data-index="0" aria-label="Video 1"></button>
+            <button class="wdot" data-index="1" aria-label="Video 2"></button>
+            <button class="wdot" data-index="2" aria-label="Video 3"></button>
+            <button class="wdot" data-index="3" aria-label="Video 4"></button>
+            <button class="wdot" data-index="4" aria-label="Video 5"></button>
+            <button class="wdot" data-index="5" aria-label="Video 6"></button>
+        </div>
+
+        <!-- Footer CTA -->
+        <div class="wisdom-footer">
+            <a href="https://www.youtube.com/playlist?list=PLoxEoCRHRTmz5tMqJQ6Ka7uWcfC_iH7Fx" target="_blank" rel="noopener" class="wisdom-all-cta">
+                More Wisdom
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+
     </div>
 </section>

@@ -41,12 +41,12 @@
 }
 
 .section-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 400;
-    color: #2C2018;
-    margin: 0 0 1rem;
-    letter-spacing: -0.02em;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #5C3010;
+    line-height: 1.25;
+    margin: 0 0 14px;
 }
 
 .section-subtitle {

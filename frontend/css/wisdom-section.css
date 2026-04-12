@@ -4,6 +4,7 @@
     background: linear-gradient(135deg, rgba(249, 246, 240, 0.3) 0%, rgba(255, 255, 255, 0.5) 100%);
     position: relative;
     overflow: hidden;
+    padding: 80px 0 60px;
 }
 
 /* Decorative background elements */
@@ -34,52 +35,80 @@
 /* Section Header */
 .wisdom-header {
     text-align: center;
-    margin-bottom: 3.5rem;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
     position: relative;
     z-index: 10;
 }
 
 .wisdom-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 400;
-    color: #2C2018;
-    margin: 0 0 1rem;
-    letter-spacing: -0.02em;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #5C3010;
+    line-height: 1.25;
+    margin: 0 0 14px;
 }
 
 .wisdom-subtitle {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: clamp(0.95rem, 2vw, 1.1rem);
     color: #8A7560;
-    max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
 }
 
-/* Wisdom Grid */
-.wisdom-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+/* ── Carousel wrapper (positions arrows) ── */
+.wisdom-carousel-wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
     z-index: 10;
 }
 
-/* Wisdom Card — YouTube Thumbnail Style */
+/* ── Scroll track ── */
+.wisdom-track-outer {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex: 1;
+    padding: 12px 0 24px;
+}
+
+.wisdom-track-outer::-webkit-scrollbar {
+    display: none;
+}
+
+.wisdom-track {
+    display: flex;
+    gap: 20px;
+    padding-left: 24px;
+    padding-right: 40px;
+    width: max-content;
+}
+
+/* Wisdom Card */
 .wisdom-card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
     display: block;
     text-decoration: none;
     background: white;
     border-radius: 10px;
+    border-top: 3px solid #B87333;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(92, 48, 16, 0.08);
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 12px rgba(92, 48, 16, 0.08);
+    transition: transform 240ms ease, box-shadow 240ms ease;
+    cursor: pointer;
 }
 
 .wisdom-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(184, 115, 51, 0.15);
+    box-shadow: 0 8px 28px rgba(184, 115, 51, 0.18);
+    border-top-color: #E8B84B;
 }
 
 /* Thumbnail Container */
@@ -88,7 +117,7 @@
     width: 100%;
     aspect-ratio: 16/9;
     overflow: hidden;
-    background: #000;
+    background: #e8e0d5;
 }
 
 .wisdom-thumb img {
@@ -112,7 +141,8 @@
     justify-content: center;
     background: rgba(44, 20, 4, 0.32);
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 240ms;
+    color: #fff;
 }
 
 .wisdom-card:hover .wisdom-play {
@@ -120,36 +150,134 @@
 }
 
 .wisdom-play svg {
-    width: 56px;
-    height: 56px;
-    color: white;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
 }
 
-/* Description — Only Element Below Thumbnail */
+/* Description */
 .wisdom-description {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #6B5A47;
     margin: 0;
     padding: 1rem 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .wisdom-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.25rem;
+/* ── Prev / Next arrows ── */
+.wcard-arrow {
+    display: none; /* hidden on mobile */
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid #E8B84B;
+    background: #FFFFFF;
+    color: #B87333;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 200ms, border-color 200ms, transform 200ms;
+    z-index: 2;
+}
+
+.wcard-arrow:hover {
+    background: #B87333;
+    border-color: #B87333;
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.wcard-arrow--prev { margin-left: 24px; }
+.wcard-arrow--next { margin-right: 24px; }
+
+/* ── Dots ── */
+.wisdom-dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 8px;
+    position: relative;
+    z-index: 10;
+}
+
+.wdot {
+    width: 8px;
+    height: 8px;
+    border: none;
+    border-radius: 50%;
+    background: #d1c4b5;
+    cursor: pointer;
+    padding: 0;
+    transition: all 220ms ease;
+}
+
+.wdot:hover {
+    background: #B87333;
+    opacity: 0.6;
+}
+
+.wdot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: #B87333;
+}
+
+/* ── Footer CTA ── */
+.wisdom-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 10;
+}
+
+.wisdom-all-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #B87333;
+    border: 1.5px solid #B87333;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 220ms, color 220ms, gap 220ms;
+}
+
+.wisdom-all-cta:hover {
+    background: #B87333;
+    color: #fff;
+    gap: 14px;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (min-width: 768px) {
+    .wisdom-title {
+        font-size: 2.25rem;
     }
 
-    .wisdom-header {
-        margin-bottom: 2.5rem;
+    .wcard-arrow {
+        display: flex;
     }
 
-    .wisdom-description {
-        padding: 0.875rem 1rem;
-        font-size: 0.9rem;
+    .wisdom-track {
+        padding-left: 40px;
+        padding-right: 60px;
+    }
+
+    .wisdom-card {
+        flex: 0 0 340px;
     }
 }
 
@@ -159,12 +287,31 @@
         display: none;
     }
 
-    .wisdom-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .wisdom-card {
+        flex: 0 0 calc(100vw - 48px);
+    }
+
+    .wisdom-track {
+        padding-inline: 24px;
+        gap: 16px;
+    }
+
+    .wisdom-header {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wisdom-section {
+        padding: 60px 0 48px;
+    }
+
+    .wisdom-title {
+        font-size: 1.6rem;
     }
 
     .wisdom-description {
-        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        padding: 0.875rem 1rem;
     }
 }
