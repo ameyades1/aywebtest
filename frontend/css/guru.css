@@ -64,19 +64,6 @@
   filter: saturate(1.05) brightness(1.02);
 }
 
-.guru-portrait-caption {
-  position: relative;
-  z-index: 2;
-  margin-top: 14px;
-  text-align: center;
-  font-family: 'Lora', Georgia, serif;
-  font-style: italic;
-  font-size: 0.82rem;
-  color: #B87333;
-  letter-spacing: 0.04em;
-  opacity: 0.85;
-}
-
 /* =====================================================
    CONTENT COLUMN
    ===================================================== */
@@ -109,59 +96,6 @@
   letter-spacing: -0.5px;
 }
 
-/* Title ornament line */
-.guru-title-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 28px;
-}
-
-.guru-title-dot {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #E8B84B;
-  flex-shrink: 0;
-}
-
-.guru-title-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem;
-  color: #7A6858;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-/* Sanskrit Shloka block */
-.guru-shloka {
-  background: linear-gradient(135deg, rgba(184,115,51,0.07) 0%, rgba(232,184,75,0.04) 100%);
-  border-left: 3px solid #E8B84B;
-  border-radius: 0 12px 12px 0;
-  padding: 18px 20px;
-  margin: 0 0 24px;
-}
-
-.guru-shloka-devanagari {
-  font-family: 'Lora', Georgia, serif;
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: #B87333;
-  line-height: 1.8;
-  margin: 0 0 10px;
-}
-
-.guru-shloka-translation {
-  font-family: 'Lora', Georgia, serif;
-  font-style: italic;
-  font-size: 0.88rem;
-  color: #7A6858;
-  line-height: 1.6;
-  margin: 0;
-}
-
 /* Bio */
 .guru-bio {
   font-family: 'Inter', sans-serif;
@@ -171,27 +105,6 @@
   margin: 0 0 24px;
   opacity: 0.85;
   text-align: justify;
-}
-
-/* Credential chips */
-.guru-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 32px;
-}
-
-.guru-chip {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.73rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #B87333;
-  background: rgba(184, 115, 51, 0.09);
-  border: 1px solid rgba(184, 115, 51, 0.22);
-  border-radius: 20px;
-  padding: 5px 12px;
 }
 
 /* CTA button */

@@ -49,15 +49,6 @@
     margin: 0 0 14px;
 }
 
-.section-subtitle {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: clamp(0.95rem, 2vw, 1.15rem);
-    color: #8A7560;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-
 /* Transformations Grid */
 .transformations-grid {
     display: grid;
@@ -114,17 +105,6 @@
     letter-spacing: -0.01em;
 }
 
-/* Card Subtitle (Transformation tagline) */
-.card-subtitle {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #B87333;
-    margin: 0 0 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
 /* Card Description */
 .card-description {
     font-family: 'Inter', system-ui, sans-serif;
@@ -148,10 +128,6 @@
 
     .transformation-card {
         padding: 1.5rem;
-    }
-
-    .card-icon {
-        font-size: 2.5rem;
     }
 
     .card-title {

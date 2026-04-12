@@ -37,20 +37,6 @@
     color: #B87333;
 }
 
-/* Hero placeholder — dashed border boxes for future content */
-.hero-placeholder {
-    border: 2px dashed #B87333;
-    border-radius: 8px;
-    padding: 24px 20px;
-    color: #7A6858;
-    font-style: italic;
-    background-color: #F9F6F0;
-    opacity: 0.75;
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: 'Inter', system-ui, sans-serif;
-}
-
 /* CTA Button Styling */
 #hero button.bg-primary {
     background-color: #B87333;
@@ -97,10 +83,3 @@
   gap: 14px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
-    .hero-placeholder {
-        padding: 16px 12px;
-        font-size: 14px;
-    }
-}
