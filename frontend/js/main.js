@@ -173,7 +173,7 @@ loadComponent("footer", ROOT + "components/footer.html");
 // Load wisdom videos from JSON — YouTube thumbnail carousel (6 videos, 3 visible)
 async function loadWisdomVideos() {
     try {
-        const response = await fetch('/docs/Youtube_knowledge/wisdom_videos.json');
+        const response = await fetch('../docs/Youtube_knowledge/wisdom_videos.json');
         const videos = await response.json();
         const track = document.getElementById('wisdom-track');
 
