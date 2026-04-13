@@ -230,32 +230,39 @@
 
 /* ── Footer CTA ── */
 .wisdom-footer {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 40px;
     padding: 0 24px;
     position: relative;
     z-index: 10;
 }
 
-.wisdom-all-cta {
-    display: inline-flex;
+/* Social Icons */
+.wisdom-social-icons {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #B87333;
-    border: 1.5px solid #B87333;
-    padding: 12px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 220ms, color 220ms, gap 220ms;
+    gap: 2rem;
 }
 
-.wisdom-all-cta:hover {
-    background: #B87333;
-    color: #fff;
-    gap: 14px;
+.wisdom-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B87333;
+    text-decoration: none;
+    transition: color 220ms, transform 200ms;
+}
+
+.wisdom-social-link:hover {
+    color: #5C3010;
+    transform: scale(1.2);
+}
+
+.wisdom-social-link svg {
+    width: 48px;
+    height: 48px;
 }
 
 /* =====================================================

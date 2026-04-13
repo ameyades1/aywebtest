@@ -88,7 +88,7 @@
 /* Card Title */
 .card-title {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: inherit;
     margin: 0 0 0.5rem;
@@ -98,7 +98,7 @@
 /* Card Description */
 .card-description {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     line-height: 1.55;
     color: inherit;
     margin: 0;
