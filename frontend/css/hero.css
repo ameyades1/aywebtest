@@ -11,6 +11,14 @@
     letter-spacing: 0.3px;
 }
 
+/* Mobile tagline size — readable on small screens */
+@media (max-width: 639px) {
+    .tagline-elegant {
+        font-size: 1.1rem;
+        letter-spacing: 0.2px;
+    }
+}
+
 /* Ensure Lora is used for headings within the hero */
 #hero h1,
 #hero h2,

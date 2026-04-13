@@ -52,65 +52,54 @@
 /* Transformations Grid */
 .transformations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     position: relative;
     z-index: 10;
 }
 
-/* Transformation Card */
+/* Transformation Card — Button Style */
 .transformation-card {
-    display: block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
     background: white;
-    border-radius: 12px;
-    padding: 2rem;
-    position: relative;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 4px 15px rgba(92, 48, 16, 0.08);
-    border: 1px solid rgba(184, 115, 51, 0.15);
-    overflow: hidden;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    border: 1.5px solid #B87333;
     text-decoration: none;
-    color: inherit;
+    color: #B87333;
     cursor: pointer;
+    transition: all 220ms ease;
 }
 
 .transformation-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 40px rgba(184, 115, 51, 0.15);
+    background: #B87333;
+    color: white;
 }
 
-/* Accent Bar — Extends on Hover */
+/* Accent Bar — hidden */
 .card-accent-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0%;
-    background: linear-gradient(180deg, #B87333 0%, #E8B84B 100%);
-    transition: height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    border-radius: 0 4px 4px 0;
-}
-
-.transformation-card:hover .card-accent-bar {
-    height: 100%;
+    display: none;
 }
 
 /* Card Title */
 .card-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.6rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
     font-weight: 600;
-    color: #2C2018;
-    margin: 0 0 0.75rem;
-    letter-spacing: -0.01em;
+    color: inherit;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0;
 }
 
 /* Card Description */
 .card-description {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(44, 32, 24, 0.65);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: inherit;
     margin: 0;
 }
 
@@ -127,11 +116,11 @@
     }
 
     .transformation-card {
-        padding: 1.5rem;
+        padding: 1rem 1.25rem;
     }
 
     .card-title {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 }
 
