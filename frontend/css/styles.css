@@ -136,6 +136,116 @@ h1, h2, h3 {
     color: #B87333;
 }
 
+/* ── Vision & Mission Merged Page ── */
+
+.vision-sanskrit {
+    font-size: 1.15rem;
+    color: #B87333;
+    margin-top: 0.5rem;
+    font-family: 'Lora', serif;
+    letter-spacing: 0.5px;
+}
+
+.vision-subtitle {
+    font-size: 0.9rem;
+    color: #7A6858;
+    font-style: italic;
+    margin-top: 0.25rem;
+}
+
+.vm-section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B87333;
+    margin-bottom: 1.25rem;
+}
+
+.vm-pull-quote {
+    margin: 2rem 0 0.5rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid #B87333;
+    background: rgba(184, 115, 51, 0.05);
+    border-radius: 0 8px 8px 0;
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #5C3010;
+    line-height: 1.6;
+}
+
+/* Divider between Vision and Mission */
+.vm-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0;
+}
+
+.vm-divider::before,
+.vm-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(184, 115, 51, 0.4), transparent);
+}
+
+.vm-divider-label {
+    font-family: 'Lora', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #5C3010;
+    white-space: nowrap;
+    padding: 0 0.5rem;
+}
+
+/* Mission Pillars Grid */
+.vm-pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+    .vm-pillars-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.vm-pillar-card {
+    background: white;
+    border: 1.5px solid rgba(184, 115, 51, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+    transition: box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.vm-pillar-card:hover {
+    border-color: rgba(184, 115, 51, 0.5);
+    box-shadow: 0 4px 16px rgba(184, 115, 51, 0.1);
+}
+
+.vm-pillar-number {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(184, 115, 51, 0.2);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.vm-pillar-title {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #5C3010;
+    margin-bottom: 0.75rem;
+}
+
 @keyframes fadeInDown {
     from {
         opacity: 0;
