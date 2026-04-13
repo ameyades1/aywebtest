@@ -58,26 +58,48 @@
     z-index: 10;
 }
 
-/* Transformation Card — Button Style */
+/* Transformation Card — Image + Overlay Style */
 .transformation-card {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     width: 100%;
-    background: white;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-color: #5C3010;
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
-    border: 1.5px solid #B87333;
+    border: none;
     text-decoration: none;
-    color: #B87333;
+    color: white;
     cursor: pointer;
     transition: all 220ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.transformation-card.placeholder-card {
+    background: linear-gradient(135deg, rgba(92, 48, 16, 0.8) 0%, rgba(184, 115, 51, 0.6) 100%);
 }
 
 .transformation-card:hover {
-    background: #B87333;
-    color: white;
+    transform: scale(1.02);
+}
+
+/* Card Overlay */
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    transition: background-color 220ms ease;
+    z-index: 1;
+}
+
+.transformation-card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.35);
 }
 
 /* Accent Bar — hidden */
@@ -88,20 +110,24 @@
 /* Card Title */
 .card-title {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: inherit;
+    color: white;
     margin: 0 0 0.5rem;
     letter-spacing: 0;
+    position: relative;
+    z-index: 2;
 }
 
 /* Card Description */
 .card-description {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: inherit;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
+    position: relative;
+    z-index: 2;
 }
 
 
