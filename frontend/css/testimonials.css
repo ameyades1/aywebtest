@@ -135,7 +135,7 @@
 .tcard-play img {
   width: 44px;
   height: 44px;
-  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
 
 .tcard:hover .tcard-play {
