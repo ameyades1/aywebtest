@@ -224,7 +224,7 @@
   }
 
   .text-tcard {
-    flex: 0 0 90vw;
+    flex: 0 0 calc(90vw - 32px);
     padding: 20px;
   }
 
@@ -255,7 +255,7 @@
   }
 
   .text-tcard {
-    flex: 0 0 100vw;
+    flex: 0 0 calc(100vw - 24px);
     padding: 18px;
   }
 
