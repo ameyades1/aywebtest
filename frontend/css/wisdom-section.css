@@ -343,6 +343,19 @@
     .wisdom-header {
         margin-bottom: 2.5rem;
     }
+
+    .wisdom-social-icons {
+        gap: 1.2rem;
+    }
+
+    .wisdom-social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .wisdom-social-label {
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -357,5 +370,18 @@
     .wisdom-description {
         font-size: 0.875rem;
         padding: 0.875rem 1rem;
+    }
+
+    .wisdom-social-icons {
+        gap: 1rem;
+    }
+
+    .wisdom-social-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .wisdom-social-label {
+        font-size: 0.7rem;
     }
 }
