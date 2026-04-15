@@ -90,5 +90,13 @@ function initializeTestimonials() {
     scrollToCard(targetIndex);
   });
 
+  // Update dots when user scrolls naturally (swipe on mobile)
+  trackOuter.addEventListener('scroll', () => {
+    const currentScroll = trackOuter.scrollLeft;
+    const cardWidth = track.children[0].offsetWidth + 20;
+    const currentIndex = Math.round(currentScroll / cardWidth);
+    updateDots(currentIndex);
+  });
+
   renderCards();
 }
