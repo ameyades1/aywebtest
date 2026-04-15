@@ -1,0 +1,291 @@
+/* =====================================================
+   TEXT TESTIMONIALS SCROLL — Simple Clean Carousel
+   ===================================================== */
+
+.text-testimonials-section {
+  padding: 60px 0 50px;
+  background: linear-gradient(180deg, #FDFBF7 0%, #F9F6F0 100%);
+  overflow: hidden;
+}
+
+.text-testimonials-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+}
+
+.text-testimonials-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #5C3010;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.text-testimonials-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #7A6858;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Carousel wrapper ── */
+.text-testimonials-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Scroll track ── */
+.text-testimonials-track-outer {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex: 1;
+  padding: 8px 0 16px;
+}
+
+.text-testimonials-track-outer::-webkit-scrollbar {
+  display: none;
+}
+
+.text-testimonials-track {
+  display: flex;
+  gap: 18px;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: max-content;
+}
+
+/* ── Individual card ── */
+.text-tcard {
+  flex: 0 0 380px;
+  scroll-snap-align: start;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border-top: 3px solid #B87333;
+  box-shadow: 0 2px 12px rgba(92, 48, 16, 0.08);
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+  cursor: default;
+}
+
+.text-tcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(184, 115, 51, 0.18);
+  border-top-color: #E8B84B;
+}
+
+/* ── Quote mark ── */
+.text-tcard-mark {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 3rem;
+  color: #E8B84B;
+  opacity: 0.4;
+  line-height: 0.5;
+  margin: 0 0 12px;
+}
+
+/* ── Quote text ── */
+.text-tcard-quote {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #2C1810;
+  margin: 0 0 18px;
+  flex: 1;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  font-style: italic;
+}
+
+/* ── Footer (speaker info) ── */
+.text-tcard-footer {
+  border-top: 1px solid #E8D4C0;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.text-tcard-speaker {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5C3010;
+  margin: 0;
+}
+
+.text-tcard-category {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #B87333;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ── Navigation arrows ── */
+.text-tcard-arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #D4C4B0;
+  background: #FFFFFF;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #5C3010;
+  transition: all 200ms ease;
+  box-shadow: 0 2px 8px rgba(92, 48, 16, 0.06);
+}
+
+.text-tcard-arrow:hover {
+  background: #B87333;
+  color: #FFFFFF;
+  border-color: #B87333;
+  box-shadow: 0 4px 12px rgba(92, 48, 16, 0.12);
+}
+
+.text-tcard-arrow:active {
+  transform: scale(0.95);
+}
+
+.text-tcard-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.5;
+}
+
+/* ── Dots ── */
+.text-testimonials-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.text-tdot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #B87333;
+  background: transparent;
+  cursor: pointer;
+  transition: all 300ms ease;
+  padding: 0;
+}
+
+.text-tdot:hover {
+  transform: scale(1.2);
+}
+
+.text-tdot.active {
+  background: #B87333;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .text-testimonials-section {
+    padding: 48px 0 40px;
+  }
+
+  .text-testimonials-header {
+    margin: 0 auto 32px;
+  }
+
+  .text-testimonials-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .text-testimonials-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .text-tcard {
+    flex: 0 0 90vw;
+    padding: 20px;
+  }
+
+  .text-tcard-quote {
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
+
+  .text-tcard-mark {
+    font-size: 2.5rem;
+  }
+
+  .text-tcard-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .text-tcard-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-testimonials-wrapper {
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .text-tcard {
+    flex: 0 0 100vw;
+    padding: 18px;
+  }
+
+  .text-tcard-quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .text-tcard-mark {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+  }
+
+  .text-tcard-footer {
+    padding-top: 10px;
+  }
+
+  .text-tcard-speaker {
+    font-size: 0.95rem;
+  }
+
+  .text-tcard-category {
+    font-size: 0.75rem;
+  }
+
+  .text-tcard-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .text-tcard-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+}

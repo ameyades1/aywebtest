@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/wisdom-section.css">
     <link rel="stylesheet" href="css/final-cta.css">
     <link rel="stylesheet" href="css/upcoming-programs.css">
+    <link rel="stylesheet" href="css/testimonials-scroll.css">
 </head>
 
 <body>
@@ -52,26 +53,8 @@
         <!-- Section 6: Upcoming Programs (real component) -->
         <div id="upcoming-programs"></div>
 
-        <!-- Section 7: Text-only Testimonials (placeholder for future use) -->
-        <section class="wireframe-section">
-            <div class="wireframe-section-number">7</div>
-            <h2 class="wireframe-section-title">Text Testimonials</h2>
-            <p class="wireframe-section-description">Short text-only quotes — 3 cards side by side on desktop, 1-col on mobile</p>
-            <div class="wireframe-grid wireframe-grid-testimonials">
-                <div class="wireframe-testimonial-card">
-                    <div class="wireframe-testimonial-quote">"Quote placeholder text goes here..."</div>
-                    <div class="wireframe-testimonial-author">— Name, City</div>
-                </div>
-                <div class="wireframe-testimonial-card">
-                    <div class="wireframe-testimonial-quote">"Quote placeholder text goes here..."</div>
-                    <div class="wireframe-testimonial-author">— Name, City</div>
-                </div>
-                <div class="wireframe-testimonial-card">
-                    <div class="wireframe-testimonial-quote">"Quote placeholder text goes here..."</div>
-                    <div class="wireframe-testimonial-author">— Name, City</div>
-                </div>
-            </div>
-        </section>
+        <!-- Section 7: Text Testimonials - Scrollable Carousel -->
+        <div id="text-testimonials"></div>
 
         <!-- Section 8: Guru / Lineage (real component) -->
         <div id="guru"></div>
@@ -89,8 +72,9 @@
 
     <script src="js/main.js?v=2"></script>
     <script src="js/testimonials.js"></script>
+    <script src="js/testimonials-scroll.js"></script>
     <script>
-        // Ensure transformations component loads
+        // Load transformations component
         if (document.getElementById('transformations') && !document.querySelector('.transformations-section')) {
             fetch('components/transformations.html')
                 .then(res => res.text())
@@ -98,6 +82,20 @@
                     document.getElementById('transformations').innerHTML = html;
                 })
                 .catch(err => console.error('Failed to load transformations:', err));
+        }
+
+        // Load text testimonials scrollable component
+        if (document.getElementById('text-testimonials')) {
+            fetch('components/testimonials-scroll.html')
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById('text-testimonials').innerHTML = html;
+                    // Call initialization after component loads
+                    if (typeof initializeTestimonials === 'function') {
+                        initializeTestimonials();
+                    }
+                })
+                .catch(err => console.error('Failed to load testimonials scroll:', err));
         }
     </script>
 </body>
