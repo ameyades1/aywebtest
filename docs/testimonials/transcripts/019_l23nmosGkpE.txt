@@ -1,0 +1,7 @@
+Video ID: 19
+Title: मेरे आनंदमय जीवन का रहस्य | The Secret to My Blissful Living | Testimonial of a Youth | Antar Yog
+URL: https://www.youtube.com/watch?v=l23nmosGkpE
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 35
+Title: I Have Mastered the Art of Making Correct Decisions | Inspiring Testimonial #lifeadvice #lifechoices
+URL: https://www.youtube.com/watch?v=AwqA57NNJVU
+Category: personal-transformation
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 82
+Title: Antar Yog Brought Light into Our Lives: A Baby After 12 Years | Powerful Testimonial
+URL: https://www.youtube.com/watch?v=7O43OJyXXdE
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

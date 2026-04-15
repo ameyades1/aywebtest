@@ -1,0 +1,7 @@
+Video ID: 38
+Title: How My Health, Wealth and Relationships Transformed Completely After Joining Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=z_XHAqg1lvE
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

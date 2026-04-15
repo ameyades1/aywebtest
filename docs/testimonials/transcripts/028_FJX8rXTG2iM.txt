@@ -1,0 +1,7 @@
+Video ID: 28
+Title: Want To Know Who Saved His #Singing Career? 'आवाज़ कैसे लौटी?' | Classical Music | Antar Yog
+URL: https://www.youtube.com/watch?v=FJX8rXTG2iM
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

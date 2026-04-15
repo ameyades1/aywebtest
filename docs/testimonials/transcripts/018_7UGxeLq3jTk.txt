@@ -1,0 +1,7 @@
+Video ID: 18
+Title: BEYOND RELIGION Teachings of Acharya Upendra Ji: Transforming Experience of Mark Kenneth | Antar Yog
+URL: https://www.youtube.com/watch?v=7UGxeLq3jTk
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 30
+Title: It Is a Miracle || How I Got Instant Relief From #BlackMagic || काले जादूसे छुटकारा || यह चमत्कार है
+URL: https://www.youtube.com/watch?v=uKyO5fKI_58
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

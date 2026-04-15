@@ -1,0 +1,7 @@
+Video ID: 63
+Title: Sai Rumde | Antar Yog Maha Shivratri 2025
+URL: https://www.youtube.com/watch?v=MLF7iwhoeQs
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

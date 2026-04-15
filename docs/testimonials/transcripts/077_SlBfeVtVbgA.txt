@@ -1,0 +1,7 @@
+Video ID: 77
+Title: Guru Sannidhya - Residential Course | A Life-Changing Journey #Testimonial
+URL: https://www.youtube.com/watch?v=SlBfeVtVbgA
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

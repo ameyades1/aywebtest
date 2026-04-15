@@ -1,0 +1,7 @@
+Video ID: 73
+Title: From Mental Exhaustion to Inner Peace | The Power of Acharya Upendra Ji's Guidance
+URL: https://www.youtube.com/watch?v=zrwzM_KbsU4
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 10
+Title: Miraculous Healing Experiences of Antar Yog Sadhaks | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=2TbHRrTpP7Q
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

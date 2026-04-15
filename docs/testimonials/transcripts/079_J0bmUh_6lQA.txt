@@ -1,0 +1,7 @@
+Video ID: 79
+Title: How the Power of Antar Yog Shree Vidya Drove 3X Business Growth | Success Story #Testimonial
+URL: https://www.youtube.com/watch?v=J0bmUh_6lQA
+Category: prosperity
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

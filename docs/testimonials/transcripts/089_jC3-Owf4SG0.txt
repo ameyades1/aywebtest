@@ -1,0 +1,7 @@
+Video ID: 89
+Title: Can a Doctor's Daily Routine Really Lead to COMPLETE TRANSFORMATION in Just 30 Days?
+URL: https://www.youtube.com/watch?v=jC3-Owf4SG0
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

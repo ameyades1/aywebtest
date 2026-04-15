@@ -1,0 +1,7 @@
+Video ID: 66
+Title: Acharya Upendra Ji Helped Me Realise My True Potential | Testimonial | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=Lubc956noPY
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

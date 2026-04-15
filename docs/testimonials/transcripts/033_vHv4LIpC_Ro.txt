@@ -1,0 +1,7 @@
+Video ID: 33
+Title: आचार्य उपेंद्र जी की शिक्षाओं से वास्तुकला में सफलता | Achieved Excellence in Architecture Studies
+URL: https://www.youtube.com/watch?v=vHv4LIpC_Ro
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

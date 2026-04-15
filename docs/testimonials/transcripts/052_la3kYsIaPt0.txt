@@ -1,0 +1,7 @@
+Video ID: 52
+Title: Years of Health Struggle Healed by This Powerful Sadhana! | Antar Yog Science of Healing
+URL: https://www.youtube.com/watch?v=la3kYsIaPt0
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

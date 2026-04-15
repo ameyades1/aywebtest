@@ -1,0 +1,7 @@
+Video ID: 41
+Title: The Spiritual Shift Every Young Person Needs! | Awakening Experience | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=JnvhvjlSkpg
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

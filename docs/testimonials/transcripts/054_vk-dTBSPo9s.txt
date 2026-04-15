@@ -1,0 +1,7 @@
+Video ID: 54
+Title: Acharya Upendra Ji's Grace Helped Me Find a Permanent Solution to Cure My Tuberculosis | Testimonial
+URL: https://www.youtube.com/watch?v=vk-dTBSPo9s
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

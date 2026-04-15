@@ -1,0 +1,7 @@
+Video ID: 91
+Title: Decades of Pain Ended in One Shibir - Mother-Daughter Relationship Healed Instantly | Testimonial
+URL: https://www.youtube.com/watch?v=m8FX6KixHVQ
+Category: relationships
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

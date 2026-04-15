@@ -1,0 +1,7 @@
+Video ID: 45
+Title: Breaking Free from Years of Health Issues | Powerful Healing Testimonial | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=xrCd7CsLk7s
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

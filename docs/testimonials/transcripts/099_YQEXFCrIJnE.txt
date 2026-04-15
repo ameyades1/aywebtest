@@ -1,0 +1,7 @@
+Video ID: 99
+Title: Health, Mental Peace and Financial Relief—All Through the Grace of Acharya Upendra Ji | Testimonial
+URL: https://www.youtube.com/watch?v=YQEXFCrIJnE
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

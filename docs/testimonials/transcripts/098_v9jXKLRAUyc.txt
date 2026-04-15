@@ -1,0 +1,7 @@
+Video ID: 98
+Title: From Struggle to Healing: How Antar Yog Sadhana Changed My Health and My Bond with My Son
+URL: https://www.youtube.com/watch?v=v9jXKLRAUyc
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

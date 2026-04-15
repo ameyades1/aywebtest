@@ -1,0 +1,7 @@
+Video ID: 48
+Title: The Only Place Where Ancient Scriptures Are Taught Accurately | Testimonial | Antar Yog
+URL: https://www.youtube.com/watch?v=iFCpTO5jaOY
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

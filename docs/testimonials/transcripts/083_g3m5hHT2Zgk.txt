@@ -1,0 +1,7 @@
+Video ID: 83
+Title: Joint Pain Gone in Just 2 Days! Discover the Healing Power of Antar Yog Artho Oil | Testimonial
+URL: https://www.youtube.com/watch?v=g3m5hHT2Zgk
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

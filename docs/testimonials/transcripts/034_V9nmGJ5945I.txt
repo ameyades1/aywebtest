@@ -1,0 +1,7 @@
+Video ID: 34
+Title: Thriving in Difficult Times: Launched New Business in the Pandemic | Power of Antar Yog Shree Vidya
+URL: https://www.youtube.com/watch?v=V9nmGJ5945I
+Category: prosperity
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

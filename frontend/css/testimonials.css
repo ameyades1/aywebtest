@@ -132,10 +132,10 @@
   color: #fff;
 }
 
-.tcard-play svg {
+.tcard-play img {
   width: 44px;
   height: 44px;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
 
 .tcard:hover .tcard-play {
@@ -212,7 +212,6 @@
   border-radius: 50%;
   border: 1.5px solid #E8B84B;
   background: #FFFFFF;
-  color: #B87333;
   cursor: pointer;
   flex-shrink: 0;
   transition: background 200ms, border-color 200ms, transform 200ms;
@@ -222,8 +221,17 @@
 .tcard-arrow:hover {
   background: #B87333;
   border-color: #B87333;
-  color: #fff;
   transform: scale(1.08);
+}
+
+.tcard-arrow img {
+  width: 20px;
+  height: 20px;
+  filter: invert(50%) sepia(98%) saturate(400%) hue-rotate(349deg) brightness(88%) contrast(90%);
+}
+
+.tcard-arrow:hover img {
+  filter: brightness(0) invert(1);
 }
 
 .tcard-arrow--prev { margin-left: 24px; }
@@ -273,7 +281,6 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #B87333;
   border: 1.5px solid #B87333;
   padding: 12px 28px;
   border-radius: 8px;
@@ -281,10 +288,24 @@
   transition: background 220ms, color 220ms, gap 220ms;
 }
 
+.testimonials-all-cta {
+  color: #B87333;
+}
+
+.testimonials-all-cta img {
+  width: 16px;
+  height: 16px;
+  filter: invert(50%) sepia(98%) saturate(400%) hue-rotate(349deg) brightness(88%) contrast(90%);
+}
+
 .testimonials-all-cta:hover {
   background: #B87333;
   color: #fff;
   gap: 14px;
+}
+
+.testimonials-all-cta:hover img {
+  filter: brightness(0) invert(1);
 }
 
 /* =====================================================

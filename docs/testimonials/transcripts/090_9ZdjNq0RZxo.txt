@@ -1,0 +1,7 @@
+Video ID: 90
+Title: How the Grace of Acharya Upendra Ji Transformed My Life | My Spiritual Awakening with Antar Yog
+URL: https://www.youtube.com/watch?v=9ZdjNq0RZxo
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

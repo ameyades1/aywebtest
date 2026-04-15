@@ -1,0 +1,7 @@
+Video ID: 71
+Title: Only Acharya Upendra Ji Can Save This World | Powerful Testimonial of a Seeker
+URL: https://www.youtube.com/watch?v=9_8vISlZ4eI
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

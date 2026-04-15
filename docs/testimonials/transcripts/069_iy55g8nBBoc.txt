@@ -1,0 +1,7 @@
+Video ID: 69
+Title: From Self-Doubt to Success: My Complete Transformation | Grateful to Acharya Upendra Ji
+URL: https://www.youtube.com/watch?v=iy55g8nBBoc
+Category: personal-transformation
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

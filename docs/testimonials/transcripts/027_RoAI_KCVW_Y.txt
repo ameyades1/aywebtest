@@ -1,0 +1,7 @@
+Video ID: 27
+Title: The End Of My Spiritual Quest | A Must Watch Life Changing Story | ऐसे गुरु और कहीं नहीं | Antar Yog
+URL: https://www.youtube.com/watch?v=RoAI_KCVW_Y
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

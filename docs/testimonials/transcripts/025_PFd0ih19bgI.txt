@@ -1,0 +1,7 @@
+Video ID: 25
+Title: How I Scored 98.8% In Class 10 Exam | Power Of Daily Sadhana | साधना की शक्ति | Acharya Upendra Ji
+URL: https://www.youtube.com/watch?v=PFd0ih19bgI
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

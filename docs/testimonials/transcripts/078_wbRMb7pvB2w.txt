@@ -1,0 +1,7 @@
+Video ID: 78
+Title: Struggled for 2 Years for a Job - Received a Job Offer During Antar Yog Pitru Rin Mukti Shibir
+URL: https://www.youtube.com/watch?v=wbRMb7pvB2w
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

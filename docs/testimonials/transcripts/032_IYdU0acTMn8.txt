@@ -1,0 +1,7 @@
+Video ID: 32
+Title: Acharya Upendra Ji's Guidance HELPED ME Overcome Life's Biggest Obstacles | #Challenges | Antar Yog
+URL: https://www.youtube.com/watch?v=IYdU0acTMn8
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

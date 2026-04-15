@@ -1,0 +1,7 @@
+Video ID: 37
+Title: Transformative Power of Sadhana in Injury Recovery | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=i8Rnz57t-2M
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

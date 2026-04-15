@@ -1,0 +1,7 @@
+Video ID: 42
+Title: The Impact of Antar Yog Foundation on Personal Success
+URL: https://www.youtube.com/watch?v=R75CfA9rMOE
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

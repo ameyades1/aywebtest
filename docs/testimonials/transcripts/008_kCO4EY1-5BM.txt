@@ -1,0 +1,7 @@
+Video ID: 8
+Title: Every Disease is Curable at Antar Yog | Testimonials of Powerful Healing | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=kCO4EY1-5BM
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

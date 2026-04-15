@@ -1,0 +1,7 @@
+Video ID: 59
+Title: How Antar Yog Foundation Transformed My Mindset | Powerful Testimonial
+URL: https://www.youtube.com/watch?v=dCLH4lIlgSA
+Category: personal-transformation
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 43
+Title: The Power of Antar Yog Ganesh Vidya Shibir (My Success Story) | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=66TJVe9QpwE
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

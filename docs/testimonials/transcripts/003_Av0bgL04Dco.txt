@@ -1,0 +1,7 @@
+Video ID: 3
+Title: My Relationships Have Improved and Strengthened | Inspiring Testimonial | Antar Yog
+URL: https://www.youtube.com/watch?v=Av0bgL04Dco
+Category: relationships
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

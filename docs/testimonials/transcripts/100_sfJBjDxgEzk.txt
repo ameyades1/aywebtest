@@ -1,0 +1,7 @@
+Video ID: 100
+Title: Journey of a Sadhak | Discovering a New Way of Living Through Antar Yog | Testimonial
+URL: https://www.youtube.com/watch?v=sfJBjDxgEzk
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

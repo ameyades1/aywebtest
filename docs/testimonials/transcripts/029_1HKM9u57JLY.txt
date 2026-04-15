@@ -1,0 +1,7 @@
+Video ID: 29
+Title: कैसे मैंने Stock Market में नियमित सफलता पाई | शेयर बाजार की पूरी जानकारी | #stockmarket | Antar Yog
+URL: https://www.youtube.com/watch?v=1HKM9u57JLY
+Category: prosperity
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

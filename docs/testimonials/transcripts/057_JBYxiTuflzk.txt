@@ -1,0 +1,7 @@
+Video ID: 57
+Title: Antar Yog Science of Healing Workshop Changed Everything for Me | My Journey to Health and Happiness
+URL: https://www.youtube.com/watch?v=JBYxiTuflzk
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

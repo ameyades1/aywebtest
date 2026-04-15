@@ -1,0 +1,7 @@
+Video ID: 93
+Title: Antar Yog Mahalaya Shraddha - Life-Changing Testimonial of a Seeker | Powerful Remedy for Pitru Dosh
+URL: https://www.youtube.com/watch?v=B93fVAZWcIU
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

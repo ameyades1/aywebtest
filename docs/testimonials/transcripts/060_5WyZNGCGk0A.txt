@@ -1,0 +1,7 @@
+Video ID: 60
+Title: My Healing Miracles After Attending the Antar Yog Science of Healing Workshop #HolisticHealing
+URL: https://www.youtube.com/watch?v=5WyZNGCGk0A
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

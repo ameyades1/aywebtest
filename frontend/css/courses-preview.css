@@ -152,10 +152,20 @@
   transition: background 220ms, color 220ms, gap 220ms;
 }
 
+.cp-all-cta img {
+  width: 16px;
+  height: 16px;
+  filter: invert(50%) sepia(98%) saturate(400%) hue-rotate(349deg) brightness(88%) contrast(90%);
+}
+
 .cp-all-cta:hover {
   background: #B87333;
   color: #FFFFFF;
   gap: 14px;
+}
+
+.cp-all-cta:hover img {
+  filter: brightness(0) invert(1);
 }
 
 /* =====================================================

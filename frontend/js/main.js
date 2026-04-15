@@ -193,9 +193,7 @@ async function loadWisdomVideos() {
                     <div class="wisdom-thumb">
                         <img src="${thumbnailUrl}" alt="${video.description}" loading="lazy">
                         <div class="wisdom-play">
-                            <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
+                            <img src="assets/icons/play.svg" alt="" width="44" height="44">
                         </div>
                     </div>
                     <p class="wisdom-description">${video.description}</p>

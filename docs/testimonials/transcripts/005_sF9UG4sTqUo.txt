@@ -1,0 +1,7 @@
+Video ID: 5
+Title: 100% Growth In Turnover In Just 6 Months | Miraculous Stories of Success & Prosperity | Antar Yog
+URL: https://www.youtube.com/watch?v=sF9UG4sTqUo
+Category: prosperity
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

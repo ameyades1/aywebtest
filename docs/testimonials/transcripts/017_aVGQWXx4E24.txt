@@ -1,0 +1,7 @@
+Video ID: 17
+Title: Balancing Career, Family and Spirituality Gracefully | Testimonial | Antar Yog
+URL: https://www.youtube.com/watch?v=aVGQWXx4E24
+Category: personal-transformation
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

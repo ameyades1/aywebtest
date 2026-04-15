@@ -1,0 +1,7 @@
+Video ID: 46
+Title: Shantanu Jamble's Inspiring Transformation Journey | Guided by Acharya Upendra Ji
+URL: https://www.youtube.com/watch?v=wopVUQsRQS8
+Category: personal-transformation
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

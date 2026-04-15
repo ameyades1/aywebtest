@@ -1,0 +1,7 @@
+Video ID: 75
+Title: How Acharya Upendra Ji's Teachings Transformed My Financial Success | Antar Yog Testimonial
+URL: https://www.youtube.com/watch?v=4xpSw51oCCs
+Category: prosperity
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 95
+Title: How Spiritual Practice by Acharya Upendra Ji Helped a Student Overcome Anger & Stress | Testimonial
+URL: https://www.youtube.com/watch?v=YJJrpAXoV-o
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

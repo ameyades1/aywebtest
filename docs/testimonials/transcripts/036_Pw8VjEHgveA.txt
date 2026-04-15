@@ -1,0 +1,7 @@
+Video ID: 36
+Title: How Did Acharya Ji Contribute to Healing During the Pandemic?
+URL: https://www.youtube.com/watch?v=Pw8VjEHgveA
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

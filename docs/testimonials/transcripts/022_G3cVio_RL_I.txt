@@ -1,0 +1,7 @@
+Video ID: 22
+Title: अंतर योग गुरुकुल की दिव्य शक्ति का अनुभव |Experience True Divinity at Antar Yog Gurukul #GurukulLife
+URL: https://www.youtube.com/watch?v=G3cVio_RL_I
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

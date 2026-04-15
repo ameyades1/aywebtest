@@ -1,0 +1,7 @@
+Video ID: 74
+Title: How Antar Yog Helped Me Discover My True Self | A Transformational Testimonial #Transformation
+URL: https://www.youtube.com/watch?v=OfCsHwJrfEM
+Category: personal-transformation
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

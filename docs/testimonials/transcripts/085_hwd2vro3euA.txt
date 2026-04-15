@@ -1,0 +1,7 @@
+Video ID: 85
+Title: Decades of Negative Energies in My Home Cleared in Just One Pitru Rin Mukti Shibir! #Testimonial
+URL: https://www.youtube.com/watch?v=hwd2vro3euA
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 72
+Title: 25 Years of Struggle Solved Instantly After Surya Sadhana | Navagraha Chanting Movement #Testimonial
+URL: https://www.youtube.com/watch?v=GJKgYkAVPJE
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

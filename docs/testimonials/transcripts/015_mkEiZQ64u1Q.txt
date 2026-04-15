@@ -1,0 +1,7 @@
+Video ID: 15
+Title: I Followed This One Secret to Navigate Life's Unexpected Twists and Turns | Testimonial | Antar Yog
+URL: https://www.youtube.com/watch?v=mkEiZQ64u1Q
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

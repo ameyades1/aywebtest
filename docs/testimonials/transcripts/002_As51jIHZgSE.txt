@@ -1,0 +1,7 @@
+Video ID: 2
+Title: I Followed This to Attract the Right Life Partner | Life Changing Testimonial | Antar Yog
+URL: https://www.youtube.com/watch?v=As51jIHZgSE
+Category: relationships
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

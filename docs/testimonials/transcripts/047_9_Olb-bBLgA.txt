@@ -1,0 +1,7 @@
+Video ID: 47
+Title: जीवित सद्गुरु के साथ हर क्षण एक नया जन्म है | Every Moment With an Enlightened Master Is a New Birth
+URL: https://www.youtube.com/watch?v=9_Olb-bBLgA
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

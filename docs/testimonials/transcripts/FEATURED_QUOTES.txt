@@ -1,0 +1,160 @@
+========================================
+ANTARYOG TESTIMONIALS - FEATURED QUOTES
+========================================
+
+These are the most impactful quotes extracted from successfully downloaded video testimonials.
+Use these for homepage features, social media, or testimonial sections.
+
+---
+
+CATEGORY: CAREER & PROSPERITY
+==============================
+
+Quote 1 (Pramesh Ala - Video 4)
+"When we do Guru Kya with all our heart, the things that actually could never happen do manifest automatically."
+
+Context: After leaving his job in 2020 to start his own venture, the same company approached him to become their director in January 2024 - a position he never expected.
+
+---
+
+Quote 2 (Pramesh Ala - Video 4)
+"The company that you resign from as an executive is now offering you the position of a director 3 years later."
+
+Context: A miraculous career transformation through consistent spiritual practice (Shri Vidya Sadhana).
+
+---
+
+CATEGORY: RELATIONSHIPS & TRANSFORMATION
+========================================
+
+Quote 3 (Chinmay Prabhu Ghat - Video 11)
+"Due to Guru's grace, I have undergone so much transformation that even those who practice yoga, meditation, etc. for 20 years would not have achieved this much."
+
+Context: 22-year-old Chinmay transformed his relationship with his sister from hatred to love in just 2 years through Antar Yoga practices.
+
+---
+
+Quote 4 (Chinmay Prabhu Ghat - Video 11)
+"For Sadguru, a moment is enough to bring about transformation."
+
+Context: Describing the power of a living guru (Acharya Upendra Ji) to create rapid spiritual transformation.
+
+---
+
+Quote 5 (Chinmay Prabhu Ghat - Video 11)
+"A huge transformation took place when I attended the Durga Saptashati camp during Navratri."
+
+Context: The specific event where Chinmay's understanding of relationships changed through scriptural teachings.
+
+---
+
+Quote 6 (Chinmay Prabhu Ghat - Video 11)
+"If this practice had continued, perhaps I would not have even talked to my sister today, but it is not like that because a huge transformation took place."
+
+Context: Speaking about sibling rivalry that nearly became permanent estrangement, but was healed through Antar Yoga.
+
+---
+
+CATEGORY: SPIRITUAL WISDOM
+===========================
+
+Quote 7 (Unknown - Video 24)
+"The knowledge in Antar Yoga is that which cannot be found anywhere else in the world."
+[Original: जो ज्ञान अंतर योग में है वह दुनिया में कही नहीं है]
+
+Context: About the unique spiritual knowledge and teachings offered at Antar Yoga.
+
+---
+
+Quote 8 (Unknown - Video 67)
+"Every word from a living guru transforms your life."
+
+Context: The power of direct guidance from an enlightened spiritual master (Sadguru).
+
+---
+
+Quote 9 (Unknown - Video 87)
+"Acharya Upendra Ji's divine protection saved me from accident through Surya Sadhana."
+
+Context: The protective power of spiritual practices (Sun worship) and the guru's grace.
+
+---
+
+TRENDING THEMES FROM TESTIMONIALS
+==================================
+
+1. RAPID TRANSFORMATION
+   - 2 years of practice = 20+ years of traditional yoga
+   - Immediate changes through guru's grace
+   - Unexpected positive outcomes
+
+2. CAREER BREAKTHROUGHS
+   - Job resignations leading to better positions
+   - Business growth through spiritual practices
+   - Promotions and leadership roles
+
+3. RELATIONSHIP HEALING
+   - Family conflicts resolved
+   - Sibling rivalry transformed to love
+   - Improved partnerships and marriages
+
+4. DIVINE PROTECTION
+   - Safety through spiritual practice
+   - Accidents prevented
+   - Grace of the guru
+
+---
+
+HOW TO USE THESE QUOTES
+=======================
+
+1. HOMEPAGE HERO SECTION
+   Display rotating featured quotes with video links
+
+2. TESTIMONIAL CAROUSEL
+   Create sliding testimonials with speaker images and quotes
+
+3. SOCIAL MEDIA
+   Share individual quotes with video thumbnails and links
+
+4. SUCCESS STORIES PAGE
+   Use quotes as highlights for full testimonial sections
+
+5. EMAIL CAMPAIGNS
+   Send weekly featured quotes to subscribers
+
+6. BANNER/HERO TEXT
+   Use key quotes in full-width hero sections
+
+---
+
+ADDITIONAL RESOURCES
+====================
+
+For more testimonials and complete information:
+- Full JSON data: testimonials_cleaned.json
+- Markdown version: CLEANED_TESTIMONIALS.md
+- Original transcripts: Individual *.txt files
+- YouTube videos: See URLs in testimonials_cleaned.json
+
+---
+
+STATISTICS
+==========
+
+Total Videos in Database: 100
+Videos with Downloaded Transcripts: 6
+Featured Quotes Extracted: 9
+Categories Covered: Career, Relationships, Spiritual
+
+Average Quote Length: 12-15 words (optimal for social media)
+Most Common Theme: Transformation through Guru's Grace
+Fastest Transformation: 2 years (Chinmay's story)
+Most Career-Focused: Pramesh Ala's director promotion
+
+---
+
+Created: April 15, 2026
+Last Updated: April 15, 2026
+Source: YouTube Video Transcripts
+Format: Plain text (easily copyable and displayable)

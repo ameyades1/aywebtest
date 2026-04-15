@@ -1,0 +1,7 @@
+Video ID: 9
+Title: Know The Secret Formula for Success | Inspiring Testimonials You Must Watch! | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=99Wgq9JGg5k
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

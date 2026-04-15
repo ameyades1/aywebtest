@@ -1,0 +1,7 @@
+Video ID: 58
+Title: Walking Freely After Years of Struggle | The Antar Yog Science of Healing Experience
+URL: https://www.youtube.com/watch?v=pindY79HxYY
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

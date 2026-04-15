@@ -1,0 +1,7 @@
+Video ID: 96
+Title: A Soul-Stirring Experience at Antar Yog Mahalay Shraddha | Ancestral Healing and Blessing
+URL: https://www.youtube.com/watch?v=YnBORZTO0ig
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

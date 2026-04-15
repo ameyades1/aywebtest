@@ -1,0 +1,7 @@
+Video ID: 21
+Title: कर्तव्यनिष्ठ भारतीय सैनिक की प्रेरणादायक आध्यात्मिक यात्रा | Testimonial of an Indian Soldier
+URL: https://www.youtube.com/watch?v=Q9oEe6byc-c
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

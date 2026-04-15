@@ -1,0 +1,7 @@
+Video ID: 50
+Title: स्वयं में परिवर्तन लाना है तो इस महादान का अनुभव अवश्य ले | Testimonial | Antar Yog Mahadaan Project
+URL: https://www.youtube.com/watch?v=H-IDwHSFHL8
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

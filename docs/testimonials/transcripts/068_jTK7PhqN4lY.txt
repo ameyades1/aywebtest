@@ -1,0 +1,7 @@
+Video ID: 68
+Title: Seva at Antar Yog Foundation Helped Me Discover My True Self | #Testimonial #GuruBhakti
+URL: https://www.youtube.com/watch?v=jTK7PhqN4lY
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 12
+Title: परीक्षा में अव्वल आना है तो यह वीडियो अवश्य देखें | Achieve Academic Excellence | Antar Yog
+URL: https://www.youtube.com/watch?v=BDVuumqweU0
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

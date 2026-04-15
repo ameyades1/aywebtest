@@ -1,0 +1,7 @@
+Video ID: 20
+Title: The DIVINE POWER | How Rohini Realised The POWER Of Antar Yog Durga Saptashati Sadhana | दिव्य शक्ति
+URL: https://www.youtube.com/watch?v=oVYDsJYeRaU
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

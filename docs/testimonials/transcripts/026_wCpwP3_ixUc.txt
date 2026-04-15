@@ -1,0 +1,7 @@
+Video ID: 26
+Title: Antar Yog Naadi Jyotish Changed Our Life | नाड़ी ज्योतिषसे बदला जीवन | #Success In Marriage & Career
+URL: https://www.youtube.com/watch?v=wCpwP3_ixUc
+Category: astrology
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

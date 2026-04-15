@@ -1,0 +1,7 @@
+Video ID: 40
+Title: How I Became Free from Pitru Dosh (Powerful Testimonial) | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=XJyK55Q_K40
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

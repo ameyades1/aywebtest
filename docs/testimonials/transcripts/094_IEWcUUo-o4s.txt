@@ -1,0 +1,7 @@
+Video ID: 94
+Title: Antar Yog Shibirs (Pitru Rin Mukti) Lifted My Lifetime Burden | A Life-Transforming Experience
+URL: https://www.youtube.com/watch?v=IEWcUUo-o4s
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

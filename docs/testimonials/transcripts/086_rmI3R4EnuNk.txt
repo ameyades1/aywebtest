@@ -1,0 +1,7 @@
+Video ID: 86
+Title: My IIT Success and Career Breakthrough Through Acharya Upendra Ji's Blessings | Testimonial
+URL: https://www.youtube.com/watch?v=rmI3R4EnuNk
+Category: jobs
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

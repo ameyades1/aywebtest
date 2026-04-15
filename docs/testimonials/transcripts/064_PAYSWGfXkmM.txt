@@ -1,0 +1,7 @@
+Video ID: 64
+Title: My Life Transformed Through the Wisdom of Acharya Upendra Ji | Antar Yog Foundation
+URL: https://www.youtube.com/watch?v=PAYSWGfXkmM
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

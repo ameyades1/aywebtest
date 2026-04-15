@@ -1,0 +1,7 @@
+Video ID: 81
+Title: True Stories of Financial Success and Prosperity | Antar Yog Shree Vidya (Business, Career and Life)
+URL: https://www.youtube.com/watch?v=DGq2wtk_SxU
+Category: prosperity
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

@@ -1,0 +1,7 @@
+Video ID: 70
+Title: Transformation Through Service to the Guru at Antar Yog Foundation | Grateful to Acharya Upendra Ji
+URL: https://www.youtube.com/watch?v=Nb97-qy0j7g
+Category: spiritual
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

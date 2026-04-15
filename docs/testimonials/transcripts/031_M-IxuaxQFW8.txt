@@ -1,0 +1,7 @@
+Video ID: 31
+Title: How Antar Yog Naadi Astrology Helped Manali Realise Her Dream of Motherhood | स्वस्थ गर्भावस्था
+URL: https://www.youtube.com/watch?v=M-IxuaxQFW8
+Category: health
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'

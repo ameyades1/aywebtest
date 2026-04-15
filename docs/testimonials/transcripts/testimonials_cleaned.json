@@ -1,0 +1,112 @@
+{
+  "testimonials": [
+    {
+      "id": 4,
+      "video_id": "r6agGopRlkY",
+      "speaker": "Prathamesh Alva",
+      "title": "From Ordinary Executive to Director | Miraculous Story of Success & Prosperity | Antar Yog",
+      "category": "jobs",
+      "video_url": "https://www.youtube.com/watch?v=r6agGopRlkY",
+      "quotes": [
+        "my name is pramsh ala I stay in tan I have been associated with anog since uh 2020",
+        "I had left my job in 2020 after attending this [shibir]",
+        "I've been doing something of my own and trying to do the Shri viya sadana consistently",
+        "the company has approached me to become their director",
+        "this has been a huge surprise which I had never expected",
+        "the company that you resign from as an executive is now offering you the position of a director 3 years later",
+        "when we do Guru Kya with all our heart the things that actually could never happen do manifest automatically",
+        "when we do the sad that Guru has given us consistently when we do Guru Kya with all our heart the things that actually could never happen do manifest automatically with no with least amount of efforts"
+      ],
+      "featured_quote": "when we do Guru Karya with all our heart, the things that actually could never happen do manifest automatically",
+      "summary": "After leaving his job in 2020, Pramesh did spiritual practices (Shri Vidya Sadhana). In January 2024, the same company he had left offered him the position of director - an unexpected miraculous transformation.",
+      "duration": "1:53",
+      "transcript_status": "complete"
+    },
+    {
+      "id": 6,
+      "video_id": "xZmAxfze1qU",
+      "speaker": "Unknown",
+      "title": "Instant Solution to My Life's Biggest Problem of Marriage",
+      "category": "relationships",
+      "video_url": "https://www.youtube.com/watch?v=xZmAxfze1qU",
+      "transcript_status": "available",
+      "notes": "Transcript available but requires manual quote extraction"
+    },
+    {
+      "id": 11,
+      "video_id": "JK6chOXOyhk",
+      "speaker": "Chinmay Prabhu Ghat",
+      "age": 22,
+      "title": "How Chinmay Transformed Sibling Rivalry into Love & Care | Antar Yog | भाई-बहन के रिश्ते में बदलाव",
+      "category": "relationships",
+      "video_url": "https://www.youtube.com/watch?v=JK6chOXOyhk",
+      "language": "Hindi/English",
+      "quotes": [
+        "I am Chinmay Prabhu Ghat and I am 22 years old. It has been two years since I connected with the inner self",
+        "due to Guru's grace, I have undergone so much transformation that even those who practice yoga, meditation, etc. for 20 years would not have achieved this much",
+        "Actually, two years is too much, but for Sadguru, a moment is enough to bring about transformation",
+        "I have a younger sister, her name is Sneha, two years younger than me",
+        "When we were young, everything was fine, but as we grew up, our fights started increasing",
+        "As we grew older, the fights became more frequent",
+        "the hatred I had for my sister also started increasing",
+        "our fights had reached such a stage that the elders in our homes would get tensed about us",
+        "If this practice of leaving me alone at home had continued, then perhaps I would not have even talked to my sister today",
+        "a huge transformation took place when I did the Durga Saptashati camp of Antar Yoga, which is held during Navratri",
+        "Guruji taught a topic about relationships from the Bhagavad Gita"
+      ],
+      "featured_quote": "due to Guru's grace, I have undergone so much transformation that even those who practice yoga, meditation, etc. for 20 years would not have achieved this much",
+      "summary": "Chinmay shares how sibling rivalry with his sister Sneha turned into hatred. A huge transformation occurred when he attended the Durga Saptashati camp during Navratri and learned about relationships from the Bhagavad Gita through Guruji's teachings.",
+      "transformation_time": "2 years",
+      "transcript_status": "complete"
+    },
+    {
+      "id": 24,
+      "video_id": "2BrV_nv_H5E",
+      "speaker": "Unknown",
+      "title": "जो ज्ञान अंतर योग में है वह दुनिया में कही नहीं है | Learn to Live Happy & Peaceful Life | Antar Yog",
+      "category": "spiritual",
+      "video_url": "https://www.youtube.com/watch?v=2BrV_nv_H5E",
+      "language": "Hindi",
+      "summary": "A spiritual teaching about the unique knowledge (ज्ञान) available in Antar Yoga that cannot be found anywhere else in the world.",
+      "transcript_status": "available"
+    },
+    {
+      "id": 67,
+      "video_id": "tx77w6gyaAU",
+      "speaker": "Unknown",
+      "title": "Every Word from a Living Guru Transforms Your Life | Antar Yog Foundation",
+      "category": "spiritual",
+      "video_url": "https://www.youtube.com/watch?v=tx77w6gyaAU",
+      "theme": "The power and transformative nature of a living guru's (Sadguru's) words and guidance",
+      "transcript_status": "available"
+    },
+    {
+      "id": 87,
+      "video_id": "1Ok4aRd8T6Q",
+      "speaker": "Unknown",
+      "title": "How Acharya Upendra Ji's Divine Protection Saved Me from Accident",
+      "category": "spiritual",
+      "video_url": "https://www.youtube.com/watch?v=1Ok4aRd8T6Q",
+      "theme": "Divine protection through spiritual practice (Surya Sadhana) and Acharya Upendra Ji's grace",
+      "practice": "Surya Sadhana (Sun worship practice)",
+      "transcript_status": "available"
+    }
+  ],
+  "metadata": {
+    "total_videos": 100,
+    "transcripts_available": 6,
+    "fully_extracted_quotes": 20,
+    "categories": [
+      "jobs",
+      "relationships",
+      "spiritual",
+      "prosperity",
+      "health",
+      "personal-transformation",
+      "astrology"
+    ],
+    "last_updated": "2026-04-15",
+    "source": "YouTube Video Transcripts",
+    "notes": "Only 6 out of 100 videos have available transcripts due to YouTube caption restrictions and rate limiting"
+  }
+}

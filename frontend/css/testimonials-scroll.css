@@ -151,14 +151,12 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #5C3010;
   transition: all 200ms ease;
   box-shadow: 0 2px 8px rgba(92, 48, 16, 0.06);
 }
 
 .text-tcard-arrow:hover {
   background: #B87333;
-  color: #FFFFFF;
   border-color: #B87333;
   box-shadow: 0 4px 12px rgba(92, 48, 16, 0.12);
 }
@@ -167,10 +165,14 @@
   transform: scale(0.95);
 }
 
-.text-tcard-arrow svg {
+.text-tcard-arrow img {
   width: 18px;
   height: 18px;
-  stroke-width: 2.5;
+  filter: invert(50%) sepia(98%) saturate(400%) hue-rotate(349deg) brightness(88%) contrast(90%);
+}
+
+.text-tcard-arrow:hover img {
+  filter: brightness(0) invert(1);
 }
 
 /* ── Dots ── */

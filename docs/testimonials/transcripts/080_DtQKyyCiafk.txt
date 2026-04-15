@@ -1,0 +1,7 @@
+Video ID: 80
+Title: Transform Your Destiny with Antar Yog Naadi Jyotish | Accurate Predictions and Remedies #Testimonial
+URL: https://www.youtube.com/watch?v=DtQKyyCiafk
+Category: astrology
+================================================================================
+
+[ERROR] Could not fetch transcript: type object 'YouTubeTranscriptApi' has no attribute 'get_transcript'
