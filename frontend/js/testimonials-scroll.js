@@ -5,29 +5,29 @@
 function initializeTestimonials() {
   const testimonials = [
     {
-      quote: "When we do Guru Karya with all our heart, the things that actually could never happen do manifest automatically.",
+      quote: "When we do Guru Karya with all our heart, the things that could never happen, manifest automatically.",
       speaker: "Pramesh Alva"
     },
     {
-      quote: "Due to Guru's grace, I have undergone so much transformation that even those who practice yoga, meditation, etc. for 20 years would not have achieved this much.",
+      quote: "A huge transformation took place when I attended the Navratri Durga Saptashati Shibir and learned about relationships from the Bhagavad Gita through Guruji's teachings.",
       speaker: "Chinmay Prabhu Ghat"
+    },
+    {
+      quote: "Every word from a living guru transforms your life.",
+      speaker: "Saadhak"
     },
     {
       quote: "For Sadguru, a moment is enough to bring about transformation.",
       speaker: "Chinmay Prabhu Ghat"
     },
     {
-      quote: "A huge transformation took place when I attended the Durga Saptashati camp during Navratri and learned about relationships from the Bhagavad Gita through Guruji's teachings.",
+      quote: "The knowledge in Antar Yoga is that which cannot be found anywhere else in the world.",
+      speaker: "Saadhak"
+    },
+    {
+      quote: "Due to Guru's grace, I have undergone so much transformation that even those who practice yoga, meditation, etc. for 20 years would not have achieved this much.",
       speaker: "Chinmay Prabhu Ghat"
     },
-    {
-      quote: "The knowledge in Antar Yoga is that which cannot be found anywhere else in the world.",
-      speaker: "Seeker"
-    },
-    {
-      quote: "Every word from a living guru transforms your life.",
-      speaker: "Devotee"
-    }
   ];
 
   const track = document.getElementById('text-testimonials-track');
