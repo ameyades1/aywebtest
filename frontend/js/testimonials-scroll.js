@@ -5,8 +5,8 @@
 function initializeTestimonials() {
   const testimonials = [
     {
-      quote: "When we do Guru Kya with all our heart, the things that actually could never happen do manifest automatically.",
-      speaker: "Pramesh Ala"
+      quote: "When we do Guru Karya with all our heart, the things that actually could never happen do manifest automatically.",
+      speaker: "Pramesh Alva"
     },
     {
       quote: "Due to Guru's grace, I have undergone so much transformation that even those who practice yoga, meditation, etc. for 20 years would not have achieved this much.",
