@@ -1,179 +1,385 @@
-/* ── Hero ── */
-.acharya-hero {
-    padding: 2.5rem 1.5rem 2rem;
-    background: linear-gradient(to bottom, rgba(184,115,51,0.06) 0%, transparent 100%);
+/* ── BIO SECTION LAYOUT ── */
+.bio-section {
+    padding: 5rem 1.5rem;
+    position: relative;
 }
-.acharya-hero-grid {
+
+.bio-section--cream {
+    background: linear-gradient(135deg, #FBF7EE 0%, rgba(249,246,240,0.8) 50%, rgba(232,184,75,0.02) 100%);
+}
+
+.bio-section--white {
+    background: #FFFFFF;
+}
+
+.bio-section__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 5rem;
     align-items: center;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
+
+.bio-section--content-left .bio-section__image {
+    order: 2;
+}
+
+.bio-section--content-left .bio-section__content {
+    order: 1;
+}
+
 @media (max-width: 767px) {
-    .acharya-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .bio-section {
+        padding: 3rem 1.25rem;
     }
-    .acharya-portrait-col {
+
+    .bio-section__grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .bio-section__image {
         order: -1;
     }
 }
+
 .acharya-title {
     font-family: 'Lora', serif;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #5C3010;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
 }
+
 .acharya-honorific {
     display: inline-block;
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #B87333;
-    background: rgba(184,115,51,0.1);
-    border: 1px solid rgba(184,115,51,0.25);
-    border-radius: 20px;
-    padding: 0.25rem 0.85rem;
-    margin-bottom: 1rem;
-}
-.acharya-tagline {
-    font-size: 1.05rem;
-    color: #7A6858;
-    font-style: italic;
-    margin-top: 0.75rem;
-    line-height: 1.55;
-}
-.acharya-divider {
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(to right, #B87333, #E8B84B);
-    border-radius: 2px;
-    margin: 1rem 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 1.25rem;
+    opacity: 0.9;
 }
 
-/* ── Portrait ── */
+.acharya-tagline {
+    font-size: 1.15rem;
+    color: #6B5244;
+    font-style: italic;
+    margin-top: 1.5rem;
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 85%;
+}
+
+.acharya-divider {
+    width: 60px;
+    height: 2px;
+    background: #B87333;
+    border-radius: 1px;
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+/* ── IMAGE & PORTRAIT COLUMN ── */
+.bio-section__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bio-portrait-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+}
+
+.bio-portrait-wrapper img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(92,48,16,0.16);
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.bio-portrait-bg {
+    position: absolute;
+    inset: -20px -20px 20px 20px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(184,115,51,0.1) 0%, rgba(232,184,75,0.05) 100%);
+    z-index: 1;
+    border: 1px solid rgba(184,115,51,0.08);
+}
+
+/* Legacy class names (kept for compatibility) */
 .acharya-portrait-col {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+
 .acharya-portrait-wrapper {
     position: relative;
     width: 100%;
-    max-width: 320px;
+    max-width: 360px;
 }
+
 .acharya-portrait-wrapper img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(92,48,16,0.18);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(92,48,16,0.16);
     display: block;
+    position: relative;
+    z-index: 2;
 }
+
 .acharya-portrait-bg {
     position: absolute;
-    inset: -10px -10px 10px 10px;
+    inset: -20px -20px 20px 20px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(184,115,51,0.1) 0%, rgba(232,184,75,0.05) 100%);
+    z-index: 1;
+    border: 1px solid rgba(184,115,51,0.08);
+}
+
+/* ── DECORATIVE PANELS ── */
+.bio-panel {
+    position: relative;
     border-radius: 20px;
-    background: linear-gradient(135deg, rgba(184,115,51,0.12), rgba(232,184,75,0.08));
-    z-index: -1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 380px;
+    text-align: center;
+}
+
+.bio-panel--dark {
+    background: linear-gradient(135deg, #5C3010 0%, #6B3E2E 100%);
+    color: #FBF7EE;
+}
+
+.bio-panel--light {
+    background: #FBF7EE;
+    border: 1.5px solid rgba(184,115,51,0.3);
+}
+
+.bio-stat-number {
+    font-family: 'Lora', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #E8B84B;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.bio-stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(251,247,238,0.7);
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.bio-panel--dark .bio-stat-label {
+    color: rgba(251,247,238,0.7);
+}
+
+.bio-panel--light .bio-stat-label {
+    color: #B87333;
+}
+
+.bio-programs-list {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 2;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(232,184,75,0.2);
+}
+
+.bio-programs-list li {
+    list-style: none;
+}
+
+.bio-programs-list li::before {
+    content: '▪ ';
+    color: #E8B84B;
+    margin-right: 0.5rem;
+}
+
+.bio-ornament-text {
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    color: #B87333;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0.3px;
+}
+
+.bio-ornament-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid rgba(184,115,51,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.bio-ornament-circle::before {
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,115,51,0.15);
+}
+
+.bio-ornament-circle::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,115,51,0.1);
 }
 
 /* ── Sanskrit quote ── */
 .sanskrit-block {
-    background: linear-gradient(135deg, rgba(184,115,51,0.06) 0%, rgba(232,184,75,0.04) 100%);
-    border-left: 3px solid #E8B84B;
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.25rem;
-    margin: 1.5rem 0;
+    background: transparent;
+    border-left: 2px solid #B87333;
+    border-radius: 0;
+    padding: 1.5rem 0 1.5rem 1.75rem;
+    margin: 2rem 0;
 }
+
 .sanskrit-text {
     font-family: 'Lora', serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #B87333;
     font-weight: 600;
+    letter-spacing: 0.3px;
 }
+
 .sanskrit-translation {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #7A6858;
     font-style: italic;
-    margin-top: 0.35rem;
+    margin-top: 0.5rem;
+    font-weight: 300;
 }
 
-/* ── Pillars ── */
-.pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto;
+/* ── CONTENT COLUMN ── */
+.bio-section__content {
+    display: flex;
+    flex-direction: column;
 }
-@media (max-width: 640px) {
-    .pillars-grid { grid-template-columns: 1fr; }
+
+.chapter-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B87333;
+    margin-bottom: 1rem;
+    margin-top: 0;
 }
-.pillar-card {
-    background: white;
-    border-radius: 12px;
-    border-top: 3px solid #B87333;
-    padding: 1.25rem;
-    box-shadow: 0 2px 8px rgba(92,48,16,0.06);
-    text-align: center;
-}
-.pillar-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-}
-.pillar-title {
+
+.chapter-title {
     font-family: 'Lora', serif;
-    font-size: 0.95rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #5C3010;
-    margin-bottom: 0.4rem;
-}
-.pillar-desc {
-    font-size: 0.83rem;
-    color: #7A6858;
-    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.3px;
 }
 
-/* ── Gallery ── */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
+.bio-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #5A4A40;
+    margin-bottom: 1.5rem;
 }
-@media (max-width: 640px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-.gallery-img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(92,48,16,0.1);
-    transition: transform 300ms ease, box-shadow 300ms ease;
-}
-.gallery-img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 24px rgba(92,48,16,0.18);
+
+.bio-paragraph:last-child {
+    margin-bottom: 0;
 }
 
 /* ── Section headers ── */
 .section-heading {
     font-family: 'Lora', serif;
-    font-size: 1.4rem;
+    font-size: 1.65rem;
     font-weight: 700;
     color: #5C3010;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.3px;
+    position: relative;
+    display: inline-block;
 }
 
-/* Animations */
-.fade-in {
-    animation: fadeInUp 0.7s ease-out both;
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0;
+    width: 56px;
+    height: 2px;
+    background: linear-gradient(to right, #B87333, #E8B84B);
+    border-radius: 1px;
 }
-.fade-in-2 { animation-delay: 0.15s; }
-.fade-in-3 { animation-delay: 0.3s; }
+
+/* Legacy biography card styles (kept for backward compatibility) */
+.vision-card {
+    max-width: 850px;
+    margin: 0 auto 3.5rem auto;
+    border: none;
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 16px rgba(92,48,16,0.06);
+}
+
+.vision-container {
+    max-width: 1000px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.vision-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #5A4A40;
+    margin-bottom: 1.5rem;
+}
+
+.vision-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Animations ── */
+.fade-in {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.fade-in-2 {
+    animation-delay: 0.2s;
+}
+
+.fade-in-3 {
+    animation-delay: 0.4s;
+}
