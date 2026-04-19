@@ -502,62 +502,91 @@
     }
 }
 
-/* ── DISCOURSE COLLAGE ── */
-.discourse-collage {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-    max-width: 500px;
-    margin: 0 auto;
+/* ── DISCOURSE CAROUSEL ── */
+.discourse-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #B87333 rgba(184,115,51,0.1);
 }
 
-.discourse-tile {
+.discourse-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.discourse-carousel::-webkit-scrollbar-track {
+    background: rgba(184,115,51,0.08);
+    border-radius: 10px;
+}
+
+.discourse-carousel::-webkit-scrollbar-thumb {
+    background: #B87333;
+    border-radius: 10px;
+    transition: background 200ms ease;
+}
+
+.discourse-carousel::-webkit-scrollbar-thumb:hover {
+    background: #A0632A;
+}
+
+.discourse-card {
     position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 12px;
+    min-width: 280px;
+    max-width: 280px;
+    aspect-ratio: 3/4;
+    scroll-snap-align: start;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(92,48,16,0.15);
     cursor: pointer;
     transition: transform 300ms ease, box-shadow 300ms ease;
+    flex-shrink: 0;
 }
 
-.discourse-tile:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(92,48,16,0.22);
+.discourse-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(92,48,16,0.22);
 }
 
-.discourse-tile img {
+.discourse-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.discourse-overlay {
+.discourse-label {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 80%);
-    display: flex;
-    align-items: flex-end;
-    padding: 1rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 60%);
+    padding: 1.25rem 1rem;
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #FBF7EE;
     line-height: 1.4;
     text-align: center;
-    opacity: 0;
-    transition: opacity 300ms ease;
-}
-
-.discourse-tile:hover .discourse-overlay {
-    opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .discourse-collage {
-        max-width: 100%;
+    .discourse-carousel {
         gap: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .discourse-card {
+        min-width: 240px;
+        max-width: 240px;
+    }
+
+    .discourse-label {
+        font-size: 0.8rem;
+        padding: 1rem;
     }
 }
