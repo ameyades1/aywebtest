@@ -41,6 +41,10 @@
     }
 
     .acharya-title {
+        order: -3;
+    }
+
+    .acharya-honorific {
         order: -2;
     }
 
@@ -81,6 +85,7 @@
     padding: 0;
     margin-bottom: 1.25rem;
     opacity: 0.9;
+    grid-column: 1 / -1;
 }
 
 .acharya-tagline {
@@ -506,6 +511,14 @@
         grid-template-columns: 1fr;
         padding: 3.5rem 1.25rem;
         gap: 2.5rem;
+    }
+
+    .entrepreneur-content {
+        order: 0;
+    }
+
+    .entrepreneur-image-wrapper {
+        order: 1;
     }
 
     .entrepreneur-title {
