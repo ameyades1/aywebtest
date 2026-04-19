@@ -35,12 +35,21 @@
     }
 
     .bio-section__grid {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
 
+    .chapter-title {
+        order: -2;
+    }
+
     .bio-section__image {
         order: -1;
+    }
+
+    .bio-section__content {
+        order: 0;
     }
 }
 
@@ -309,6 +318,7 @@
     color: #5C3010;
     margin: 0 0 1.5rem 0;
     letter-spacing: -0.3px;
+    grid-column: 1 / -1;
 }
 
 .bio-paragraph {
