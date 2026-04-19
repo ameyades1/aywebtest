@@ -208,6 +208,7 @@
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(232,184,75,0.2);
+    text-align: left;
 }
 
 .bio-programs-list li {
@@ -311,7 +312,7 @@
 }
 
 .bio-paragraph {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     color: #5A4A40;
     margin-bottom: 1.5rem;
