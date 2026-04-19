@@ -383,3 +383,155 @@
 .fade-in-3 {
     animation-delay: 0.4s;
 }
+
+/* ── ENTREPRENEUR SECTION ── */
+.entrepreneur-hero {
+    background: linear-gradient(135deg, #5C3010 0%, #6B3E2E 50%, #5C3010 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.entrepreneur-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(232,184,75,0.03) 2px, rgba(232,184,75,0.03) 4px),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(232,184,75,0.02) 2px, rgba(232,184,75,0.02) 4px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.entrepreneur-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.entrepreneur-content {
+    color: #FBF7EE;
+}
+
+.entrepreneur-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E8B84B;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.95;
+}
+
+.entrepreneur-title {
+    font-family: 'Lora', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    color: #E8B84B;
+    margin-bottom: 1.5rem;
+}
+
+.entrepreneur-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(251,247,238,0.9);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+.entrepreneur-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(251,247,238,0.85);
+    margin-bottom: 2rem;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.expertise-item {
+    background: rgba(232,184,75,0.08);
+    border-left: 2px solid #E8B84B;
+    padding: 1.2rem 1.5rem;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+}
+
+.expertise-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #E8B84B;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.expertise-text {
+    font-size: 0.95rem;
+    color: rgba(251,247,238,0.8);
+    line-height: 1.5;
+}
+
+.entrepreneur-image-wrapper {
+    position: relative;
+    z-index: 3;
+}
+
+.entrepreneur-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(232,184,75,0.2);
+    display: block;
+    position: relative;
+}
+
+.entrepreneur-frame {
+    position: relative;
+}
+
+.entrepreneur-frame::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border: 2px solid rgba(232,184,75,0.3);
+    border-radius: 12px;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(232,184,75,0.1) 0%, rgba(184,115,51,0.05) 100%);
+}
+
+@media (max-width: 968px) {
+    .entrepreneur-container {
+        grid-template-columns: 1fr;
+        padding: 3.5rem 1.25rem;
+        gap: 2.5rem;
+    }
+
+    .entrepreneur-title {
+        font-size: 2.2rem;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+}
