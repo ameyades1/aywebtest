@@ -1,6 +1,6 @@
 /* ── BIO SECTION LAYOUT ── */
 .bio-section {
-    padding: 5rem 1.5rem;
+    padding: 3.5rem 1.5rem;
     position: relative;
 }
 
@@ -15,7 +15,7 @@
 .bio-section__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 3rem;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
