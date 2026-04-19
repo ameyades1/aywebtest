@@ -507,11 +507,14 @@
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 1rem;
     scrollbar-width: thin;
     scrollbar-color: #B87333 rgba(184,115,51,0.1);
+    width: 100%;
+    min-height: 380px;
 }
 
 .discourse-carousel::-webkit-scrollbar {
@@ -535,8 +538,8 @@
 
 .discourse-card {
     position: relative;
-    min-width: 280px;
-    max-width: 280px;
+    min-width: 220px;
+    width: 220px;
     aspect-ratio: 3/4;
     scroll-snap-align: start;
     border-radius: 16px;
@@ -578,11 +581,12 @@
     .discourse-carousel {
         gap: 1rem;
         padding-bottom: 0.75rem;
+        min-height: 320px;
     }
 
     .discourse-card {
-        min-width: 240px;
-        max-width: 240px;
+        min-width: 180px;
+        width: 180px;
     }
 
     .discourse-label {
