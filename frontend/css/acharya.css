@@ -91,6 +91,12 @@
     text-align: justify;
 }
 
+.acharya-tagline strong {
+    font-weight: 700;
+    font-style: normal;
+    color: #5C3010;
+}
+
 .acharya-divider {
     width: 60px;
     height: 2px;
