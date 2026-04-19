@@ -31,13 +31,13 @@
 
 @media (max-width: 767px) {
     .bio-section {
-        padding: 3rem 1.25rem;
+        padding: 2.5rem 1.25rem;
     }
 
     .bio-section__grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 1.5rem;
     }
 
     .chapter-title {
