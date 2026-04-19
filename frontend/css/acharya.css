@@ -15,7 +15,8 @@
 .bio-section__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    column-gap: 5rem;
+    row-gap: 1.5rem;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -37,7 +38,8 @@
     .bio-section__grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        column-gap: 1.5rem;
+        row-gap: 1.25rem;
     }
 
     .chapter-title {
@@ -163,12 +165,12 @@
 .bio-panel {
     position: relative;
     border-radius: 20px;
-    padding: 3rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 380px;
+    min-height: 300px;
     text-align: center;
 }
 
@@ -198,7 +200,7 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(251,247,238,0.7);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     display: block;
 }
 
@@ -213,9 +215,9 @@
 .bio-programs-list {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    line-height: 2;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
+    line-height: 1.8;
+    margin-top: 1rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(232,184,75,0.2);
     text-align: left;
 }
@@ -322,7 +324,7 @@
 }
 
 .bio-paragraph {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.8;
     color: #5A4A40;
     margin-bottom: 1.5rem;
@@ -400,7 +402,7 @@
 
 /* ── ENTREPRENEUR SECTION ── */
 .entrepreneur-hero {
-    background: linear-gradient(135deg, #FBF7EE 0%, rgba(249,246,240,0.8) 50%, rgba(232,184,75,0.02) 100%);
+    background: #FFFFFF;
     position: relative;
     overflow: hidden;
 }
