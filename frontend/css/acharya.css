@@ -386,28 +386,13 @@
 
 /* ── ENTREPRENEUR SECTION ── */
 .entrepreneur-hero {
-    background: linear-gradient(135deg, #5C3010 0%, #6B3E2E 50%, #5C3010 100%);
+    background: linear-gradient(135deg, #FBF7EE 0%, rgba(249,246,240,0.8) 50%, rgba(232,184,75,0.02) 100%);
     position: relative;
     overflow: hidden;
 }
 
-.entrepreneur-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(232,184,75,0.03) 2px, rgba(232,184,75,0.03) 4px),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(232,184,75,0.02) 2px, rgba(232,184,75,0.02) 4px);
-    pointer-events: none;
-    z-index: 1;
-}
-
 .entrepreneur-container {
     position: relative;
-    z-index: 2;
     max-width: 1300px;
     margin: 0 auto;
     padding: 5rem 1.5rem;
@@ -418,7 +403,7 @@
 }
 
 .entrepreneur-content {
-    color: #FBF7EE;
+    color: #5C3010;
 }
 
 .entrepreneur-label {
@@ -427,10 +412,10 @@
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #E8B84B;
+    color: #B87333;
     margin-bottom: 1rem;
     display: block;
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 .entrepreneur-title {
@@ -439,14 +424,14 @@
     font-weight: 700;
     letter-spacing: -0.5px;
     line-height: 1.15;
-    color: #E8B84B;
+    color: #5C3010;
     margin-bottom: 1.5rem;
 }
 
 .entrepreneur-subtitle {
     font-size: 1.1rem;
     font-weight: 300;
-    color: rgba(251,247,238,0.9);
+    color: #6B5244;
     margin-bottom: 2rem;
     line-height: 1.7;
     max-width: 480px;
@@ -455,7 +440,7 @@
 .entrepreneur-desc {
     font-size: 1rem;
     line-height: 1.8;
-    color: rgba(251,247,238,0.85);
+    color: #5A4A40;
     margin-bottom: 2rem;
 }
 
@@ -467,11 +452,10 @@
 }
 
 .expertise-item {
-    background: rgba(232,184,75,0.08);
-    border-left: 2px solid #E8B84B;
+    background: rgba(184,115,51,0.06);
+    border-left: 2px solid #B87333;
     padding: 1.2rem 1.5rem;
     border-radius: 4px;
-    backdrop-filter: blur(10px);
 }
 
 .expertise-label {
@@ -480,28 +464,25 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #E8B84B;
+    color: #B87333;
     margin-bottom: 0.5rem;
     display: block;
 }
 
 .expertise-text {
     font-size: 0.95rem;
-    color: rgba(251,247,238,0.8);
+    color: #5A4A40;
     line-height: 1.5;
 }
 
 .entrepreneur-image-wrapper {
     position: relative;
-    z-index: 3;
 }
 
 .entrepreneur-image {
     width: 100%;
-    border-radius: 8px;
-    box-shadow:
-        0 30px 80px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(232,184,75,0.2);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(92,48,16,0.12);
     display: block;
     position: relative;
 }
@@ -513,11 +494,11 @@
 .entrepreneur-frame::before {
     content: '';
     position: absolute;
-    inset: -12px;
-    border: 2px solid rgba(232,184,75,0.3);
-    border-radius: 12px;
-    z-index: -1;
-    background: linear-gradient(135deg, rgba(232,184,75,0.1) 0%, rgba(184,115,51,0.05) 100%);
+    inset: -20px -20px 20px 20px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(184,115,51,0.1) 0%, rgba(232,184,75,0.05) 100%);
+    z-index: 1;
+    border: 1px solid rgba(184,115,51,0.08);
 }
 
 @media (max-width: 968px) {
