@@ -40,24 +40,16 @@
         gap: 2.5rem;
     }
 
-    .acharya-title {
-        order: -2;
-    }
-
-    .acharya-honorific {
-        order: -1;
-    }
-
     .chapter-title {
-        order: -1;
-    }
-
-    .bio-section__content {
         order: 0;
     }
 
-    .bio-section__image {
+    .bio-section__content {
         order: 1;
+    }
+
+    .bio-section__image {
+        order: 2;
     }
 }
 
