@@ -35,8 +35,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Initialize carousel
   initCarousel(catalog.products);
 
+  // Use URL hash as initial tab if valid, otherwise default to life-lessons
+  const hashTab = window.location.hash.replace('#', '');
+  const initialTab = DISCOURSE_GROUPS[hashTab] ? hashTab : 'life-lessons';
+  currentTab = initialTab;
+
   // Render initial content
-  renderContent('life-lessons', catalog.products);
+  renderContent(initialTab, catalog.products);
 
   // Setup tab switching
   setupTabSwitching();
@@ -217,6 +222,11 @@ function stopAutoplay() {
 
 function setupTabSwitching() {
   const tabButtons = document.querySelectorAll('[data-tab]');
+
+  // Set active button to match initial tab
+  tabButtons.forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === currentTab);
+  });
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
