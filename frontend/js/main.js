@@ -80,7 +80,8 @@ function initDropdowns() {
             panel.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => dropdown.classList.remove('open'));
             });
-        });
+        }
+    });
 }
 
 // Accordion toggle — called inline via onclick="toggleMobileAccordion('about')"
