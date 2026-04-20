@@ -70,13 +70,14 @@ window.handleLogout = function() {
 function initDropdowns() {
     document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
         const button = dropdown.querySelector('button');
-        const panel  = dropdown.querySelector('.nav-dropdown-panel');
-        
+        const panel  = dropdown.querySelector('.nav-dropdown-panel') || dropdown.querySelector('.nav-megamenu-panel');
+
         button.addEventListener('mouseenter', () => dropdown.classList.add('open'));
-        panel.addEventListener('mouseenter', () => dropdown.classList.add('open'));
-        
+        if (panel) panel.addEventListener('mouseenter', () => dropdown.classList.add('open'));
+
         dropdown.addEventListener('mouseleave', () => dropdown.classList.remove('open'));
-        panel.querySelectorAll('a').forEach(link => {
+        if (panel) {
+            panel.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => dropdown.classList.remove('open'));
             });
         });

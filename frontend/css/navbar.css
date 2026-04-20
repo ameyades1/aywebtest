@@ -177,6 +177,10 @@ header {
     pointer-events: none;
 }
 
+.nav-megamenu-panel a {
+    border-left: 3px solid transparent;
+}
+
 .nav-megamenu:hover .nav-megamenu-panel,
 .nav-megamenu.open .nav-megamenu-panel {
     display: block;
