@@ -1,0 +1,390 @@
+/* =====================================================
+   SOLUTION PAGES — Shared styles
+   "Find Solutions For" six-page series
+   ===================================================== */
+
+/* ── Hero base ── */
+.sol-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sol-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.sol-hero__decor {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.12;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sol-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  padding: 80px 64px;
+  animation: solFadeUp 0.9s ease-out 0.1s both;
+}
+
+.sol-hero__eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sol-hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.sol-hero__headline {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.sol-hero__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 520px;
+  opacity: 0.82;
+  margin-bottom: 36px;
+}
+
+.sol-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* ── Theme: Relationships (rose/amber) ── */
+.sol-hero--relationships {
+  background: linear-gradient(135deg, #3D1020 0%, #7A2840 45%, #B85C35 100%);
+}
+.sol-hero--relationships .sol-hero__eyebrow { color: #F5C4A0; }
+.sol-hero--relationships .sol-hero__headline { color: #FFFFFF; }
+.sol-hero--relationships .sol-hero__sub { color: rgba(255,220,195,0.85); }
+.sol-hero--relationships .sol-hero__cta {
+  background: #B87333;
+  color: white;
+  box-shadow: 0 4px 20px rgba(184,115,51,0.4);
+}
+.sol-hero--relationships .sol-hero__cta:hover {
+  background: #CE8C46;
+  transform: translateY(-3px);
+}
+
+/* ── Theme: Inner Peace (midnight → dawn) ── */
+.sol-hero--inner-peace {
+  background: linear-gradient(160deg, #0D1A3A 0%, #1C3060 55%, #6B3F15 100%);
+}
+.sol-hero--inner-peace .sol-hero__eyebrow { color: #E8B84B; }
+.sol-hero--inner-peace .sol-hero__headline { color: #FFFFFF; }
+.sol-hero--inner-peace .sol-hero__sub { color: rgba(220,200,170,0.85); }
+.sol-hero--inner-peace .sol-hero__cta {
+  background: rgba(232,184,75,0.15);
+  color: #E8B84B;
+  border: 1px solid rgba(232,184,75,0.4);
+}
+.sol-hero--inner-peace .sol-hero__cta:hover {
+  background: #E8B84B;
+  color: #0D1A3A;
+  transform: translateY(-3px);
+}
+
+/* ── Theme: Success & Prosperity (forest → gold) ── */
+.sol-hero--success {
+  background: linear-gradient(135deg, #132810 0%, #1E4A18 50%, #7A5800 100%);
+}
+.sol-hero--success .sol-hero__eyebrow { color: #E8B84B; }
+.sol-hero--success .sol-hero__headline { color: #FFFFFF; }
+.sol-hero--success .sol-hero__sub { color: rgba(220,210,170,0.85); }
+.sol-hero--success .sol-hero__cta {
+  background: #E8B84B;
+  color: #132810;
+}
+.sol-hero--success .sol-hero__cta:hover {
+  background: #F5CA60;
+  transform: translateY(-3px);
+}
+
+/* ── Theme: Life Purpose (cosmic indigo) ── */
+.sol-hero--life-purpose {
+  background: linear-gradient(160deg, #080820 0%, #160A30 50%, #2E0A2A 100%);
+}
+.sol-hero--life-purpose .sol-hero__eyebrow { color: #C4A0E8; }
+.sol-hero--life-purpose .sol-hero__headline { color: #FFFFFF; }
+.sol-hero--life-purpose .sol-hero__sub { color: rgba(200,185,225,0.85); }
+.sol-hero--life-purpose .sol-hero__cta {
+  background: rgba(196,160,232,0.15);
+  color: #C4A0E8;
+  border: 1px solid rgba(196,160,232,0.35);
+}
+.sol-hero--life-purpose .sol-hero__cta:hover {
+  background: #C4A0E8;
+  color: #160A30;
+  transform: translateY(-3px);
+}
+
+/* ── Theme: Parenting (sage green / warm earth) ── */
+.sol-hero--parenting {
+  background: linear-gradient(135deg, #162A14 0%, #2A4E24 50%, #6B4E1A 100%);
+}
+.sol-hero--parenting .sol-hero__eyebrow { color: #A8D8A0; }
+.sol-hero--parenting .sol-hero__headline { color: #FFFFFF; }
+.sol-hero--parenting .sol-hero__sub { color: rgba(200,230,195,0.85); }
+.sol-hero--parenting .sol-hero__cta {
+  background: rgba(168,216,160,0.15);
+  color: #A8D8A0;
+  border: 1px solid rgba(168,216,160,0.35);
+}
+.sol-hero--parenting .sol-hero__cta:hover {
+  background: #A8D8A0;
+  color: #162A14;
+  transform: translateY(-3px);
+}
+
+/* ── Theme: Health & Wellness (light ivory / botanical) ── */
+.sol-hero--health {
+  background: linear-gradient(135deg, #F5F0E6 0%, #EAE0CA 50%, #D4C8A4 100%);
+}
+.sol-hero--health .sol-hero__eyebrow { color: #7A6840; }
+.sol-hero--health .sol-hero__headline { color: #3A2008; }
+.sol-hero--health .sol-hero__sub { color: rgba(92,60,20,0.78); }
+.sol-hero--health .sol-hero__decor { opacity: 0.18; }
+.sol-hero--health .sol-hero__cta {
+  background: #B87333;
+  color: white;
+  box-shadow: 0 4px 20px rgba(184,115,51,0.3);
+}
+.sol-hero--health .sol-hero__cta:hover {
+  background: #CE8C46;
+  transform: translateY(-3px);
+}
+
+/* ── Insight section (video + product) ── */
+.sol-insight {
+  background: #FDFBF8;
+  padding: 72px 0;
+}
+
+.sol-insight__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sol-insight__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #B87333;
+  margin-bottom: 10px;
+}
+
+.sol-insight__title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: #5C3010;
+  line-height: 1.3;
+}
+
+.sol-insight__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Video embed ── */
+.sol-video__wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(92,48,16,0.14);
+}
+
+.sol-video__wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.sol-video__caption {
+  margin-top: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #7A6858;
+  line-height: 1.5;
+}
+
+/* ── Product card ── */
+.sol-product {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(184,115,51,0.15);
+  box-shadow: 0 4px 16px rgba(92,48,16,0.07);
+  padding: 32px;
+  border-top: 3px solid #B87333;
+}
+
+.sol-product__tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B87333;
+  background: rgba(184,115,51,0.08);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.sol-product__name {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #5C3010;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.sol-product__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #7A6858;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.sol-product__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sol-product__price {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #5C3010;
+}
+
+.sol-product__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  background: #B87333;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.sol-product__cta:hover {
+  background: #C98B4A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(184,115,51,0.3);
+}
+
+/* ── Entry animation ── */
+@keyframes solFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sol-insight__grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sol-hero__content {
+    padding: 60px 24px;
+  }
+
+  .sol-hero__decor {
+    display: none;
+  }
+
+  .sol-insight {
+    padding: 48px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sol-hero__content {
+    padding: 48px 20px;
+  }
+
+  .sol-hero__headline {
+    font-size: 1.75rem;
+  }
+
+  .sol-product__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sol-product__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sol-hero__content { animation: none; }
+  .sol-hero__cta:hover,
+  .sol-product__cta:hover { transform: none; }
+}
