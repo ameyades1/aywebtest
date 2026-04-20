@@ -187,6 +187,7 @@ header {
 .nav-submenu-trigger img {
     margin-left: 8px;
     transition: transform 150ms ease;
+    transform: rotate(-90deg);
 }
 
 .nav-submenu-panel {
