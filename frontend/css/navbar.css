@@ -26,6 +26,15 @@ header {
     position: relative;
 }
 
+.nav-dropdown-panel::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 8px;
+}
+
 .nav-dropdown-panel {
     display: none;
     position: absolute;
