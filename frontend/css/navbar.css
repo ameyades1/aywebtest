@@ -153,3 +153,120 @@ header {
 .mobile-accordion-chevron.open {
     transform: rotate(180deg);
 }
+
+/* ═══════════════════════════════════════════
+   MEGA MENU (Programs)
+   ═══════════════════════════════════════════ */
+
+.nav-megamenu-panel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 560px;
+    max-width: 90vw;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 10px 32px rgba(92, 48, 16, 0.12);
+    padding: 20px;
+    z-index: 100;
+    display: none;
+    opacity: 0;
+    transition: opacity 200ms ease, transform 200ms ease;
+    pointer-events: none;
+}
+
+.nav-megamenu:hover .nav-megamenu-panel,
+.nav-megamenu.open .nav-megamenu-panel {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.megamenu-columns {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 14px;
+}
+
+.megamenu-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.megamenu-heading {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #B87333;
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+.megamenu-col a {
+    font-size: 13px;
+    color: #5C3010;
+    padding: 4px 6px;
+    border-radius: 6px;
+    transition: background 150ms ease, color 150ms ease;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+}
+
+.megamenu-col a:hover {
+    background: #F9F6F0;
+    color: #B87333;
+}
+
+.megamenu-divider {
+    border-top: 1px solid #e5e7eb;
+    margin: 14px 0;
+}
+
+.megamenu-flat {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.megamenu-flat a {
+    font-size: 13px;
+    color: #5C3010;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(184, 115, 51, 0.25);
+    transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+}
+
+.megamenu-flat a:hover {
+    background: #B87333;
+    color: white;
+    border-color: #B87333;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE CATEGORY LABELS
+   ═══════════════════════════════════════════ */
+
+.mobile-category-label {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #B87333;
+    padding: 8px 12px 2px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 6px;
+}
+
+.mobile-sub-link--indented {
+    padding-left: 20px;
+}
