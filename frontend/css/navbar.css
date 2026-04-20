@@ -193,8 +193,7 @@ header {
     display: none;
     position: absolute;
     top: 0;
-    left: 100%;
-    margin-left: 6px;
+    left: calc(100% - 4px);
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
@@ -204,7 +203,12 @@ header {
     z-index: 101;
 }
 
-.nav-submenu-item:hover .nav-submenu-panel {
+.nav-submenu-item:hover > .nav-submenu-panel {
+    display: block;
+}
+
+.nav-submenu-trigger:hover + .nav-submenu-panel,
+.nav-submenu-panel:hover {
     display: block;
 }
 
