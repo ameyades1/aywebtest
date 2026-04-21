@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naadi Jyotish — AntarYog Foundation</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../js/tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <style>
+        :root {
+            --copper-primary: #B87333;
+            --copper-light: #E8B84B;
+            --brown-dark: #5C3010;
+            --brown-darker: #3A1A04;
+            --bg-light: #F9F6F0;
+            --text-primary: #2C1810;
+            --text-secondary: #7A6858;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        .section {
+            padding: 80px 40px;
+            border-bottom: 1px solid rgba(184, 115, 51, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Wireframe placeholder styles */
+        .wireframe-box {
+            background: rgba(184, 115, 51, 0.08);
+            border: 2px dashed var(--copper-primary);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        .cta-button {
+            background: var(--copper-primary);
+            color: white;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--brown-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="navbar"></div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="section" style="background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-darker) 100%); color: white; padding: 120px 40px;">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h1 style="color: white; font-size: 3rem; margin-bottom: 20px;">Unlock Your Life's Blueprint</h1>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9;">Ancient wisdom meets modern clarity — Naadi Jyotish reveals your lifetime path through your thumb impression</p>
+                    <button class="cta-button" style="background: var(--copper-light); color: var(--brown-dark);">Discover Your Reading</button>
+                </div>
+                <div class="wireframe-box" style="background: rgba(255,255,255,0.1); border-color: var(--copper-light); min-height: 300px;">
+                    [Hero Image / Spiritual Visual]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. THE PROBLEM SECTION -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why People Seek Naadi Jyotish</h2>
+            <div class="grid-3">
+                <div class="wireframe-box">[Icon] Recurring Life Patterns<br>You sense you've been here before</div>
+                <div class="wireframe-box">[Icon] Uncertainty About Future<br>What path should I take?</div>
+                <div class="wireframe-box">[Icon] Lack of Direction<br>Feeling stuck without clarity</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. HOW IT WORKS SECTION -->
+    <section class="section" style="background: rgba(184, 115, 51, 0.04);">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="grid-4">
+                <div style="text-align: center;">
+                    <div class="wireframe-box">[Icon: Thumb]</div>
+                    <p style="font-weight: 600; margin-top: 16px;">Step 1: Thumb Impression</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Your unique cosmic signature</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="wireframe-box">[Icon: Calculate]</div>
+                    <p style="font-weight: 600; margin-top: 16px;">Step 2: Ancient Calculation</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Using Agastya Maharshi's system</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="wireframe-box">[Icon: Read]</div>
+                    <p style="font-weight: 600; margin-top: 16px;">Step 3: Lifetime Reading</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Past, present, and future revealed</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="wireframe-box">[Icon: Transform]</div>
+                    <p style="font-weight: 600; margin-top: 16px;">Step 4: Transformation</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Guidance & remedies for growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WHAT YOU GET SECTION -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What You Get</h2>
+            <div class="grid-2" style="gap: 80px;">
+                <div>
+                    <div class="wireframe-box" style="min-height: 200px;">[Illustration: The Three Chapters]</div>
+                </div>
+                <div>
+                    <div style="margin-bottom: 32px;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">📖 General Life Chapter</h3>
+                        <p style="color: var(--text-secondary);">Complete overview of your lifetime path, career, relationships, health, and spiritual growth.</p>
+                    </div>
+                    <div style="margin-bottom: 32px;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">🔄 Past Life Chapter</h3>
+                        <p style="color: var(--text-secondary);">Understand past-life mistakes causing current patterns and how to resolve them.</p>
+                    </div>
+                    <div style="margin-bottom: 32px;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">✨ Prashna Chapter (Optional)</h3>
+                        <p style="color: var(--text-secondary);">Specific guidance for important life decisions and upcoming challenges.</p>
+                    </div>
+                    <div style="margin-bottom: 32px; padding: 20px; background: rgba(184, 115, 51, 0.08); border-radius: 8px;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">👥 Weekly Guidance Sessions</h3>
+                        <p style="color: var(--text-secondary);">Personal sessions with Acharya Upendra Ji to integrate insights and work with remedies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONIALS / SOCIAL PROOF -->
+    <section class="section" style="background: rgba(184, 115, 51, 0.04);">
+        <div class="container">
+            <h2 class="section-title">Real Transformations</h2>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--copper-primary);">99.99%</div>
+                <p style="font-size: 1.1rem; color: var(--text-secondary);">Accuracy Rate | Thousands of Lives Transformed</p>
+            </div>
+            <div class="grid-3">
+                <div class="wireframe-box">
+                    [Profile Pic]<br>
+                    "Success Story 1"<br>
+                    <span style="font-size: 12px;">Career / Finance</span>
+                </div>
+                <div class="wireframe-box">
+                    [Profile Pic]<br>
+                    "Success Story 2"<br>
+                    <span style="font-size: 12px;">Health / Wellness</span>
+                </div>
+                <div class="wireframe-box">
+                    [Profile Pic]<br>
+                    "Success Story 3"<br>
+                    <span style="font-size: 12px;">Relationships</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ABOUT ACHARYA UPENDRA JI -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Meet Your Guide</h2>
+            <div class="grid-2" style="gap: 80px;">
+                <div class="wireframe-box" style="min-height: 300px;">[Acharya Portrait]</div>
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Acharya Upendra Ji</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-secondary);">Paragraph about spiritual lineage, expertise, and why he's the guide. His journey with Naadi Jyotish, credentials, and personal transformation story.</p>
+                    <p style="margin-bottom: 20px; color: var(--text-secondary);">How he helps people understand their readings and navigate life with wisdom and compassion.</p>
+                    <button class="cta-button">Learn More About Acharya Ji</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. THE EXPERIENCE SECTION -->
+    <section class="section" style="background: rgba(184, 115, 51, 0.04);">
+        <div class="container">
+            <h2 class="section-title">Your Naadi Jyotish Journey</h2>
+            <div class="grid-2">
+                <div class="wireframe-box">[Timeline Illustration]</div>
+                <div>
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 8px;">📋 Week 1-2: Receive Your Reading</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Access comprehensive life chapters via secure portal</p>
+                    </div>
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 8px;">🗣️ Week 2-12: Weekly Sessions</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Personal guidance and remedies explained in detail</p>
+                    </div>
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 8px;">🙏 Ongoing: Apply Remedies</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Mantra chanting, donations, pilgrimages, Vastu corrections</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 8px;">✨ Months 3+: Witness Transformation</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Gradual shifts in clarity, opportunity, and inner peace</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PRICING & TIERS -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Path</h2>
+            <div class="grid-3">
+                <div style="border: 2px solid var(--copper-primary); border-radius: 12px; padding: 40px; text-align: center;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px;">Essential</h3>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--copper-primary); margin-bottom: 16px;">₹6,000</div>
+                    <div class="wireframe-box">[Feature list]</div>
+                    <button class="cta-button" style="width: 100%; margin-top: 24px;">Get Started</button>
+                </div>
+                <div style="border: 3px solid var(--copper-primary); border-radius: 12px; padding: 40px; text-align: center; transform: scale(1.05);">
+                    <div style="background: var(--copper-primary); color: white; padding: 8px 16px; border-radius: 4px; display: inline-block; margin-bottom: 16px; font-size: 12px; font-weight: 600;">MOST POPULAR</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px;">Complete</h3>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--copper-primary); margin-bottom: 16px;">₹12,000</div>
+                    <div class="wireframe-box">[Feature list + 12 weeks guidance]</div>
+                    <button class="cta-button" style="width: 100%; margin-top: 24px;">Get Started</button>
+                </div>
+                <div style="border: 2px solid var(--copper-primary); border-radius: 12px; padding: 40px; text-align: center;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px;">Premium</h3>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--copper-primary); margin-bottom: 16px;">₹18,000</div>
+                    <div class="wireframe-box">[Premium features + extended guidance]</div>
+                    <button class="cta-button" style="width: 100%; margin-top: 24px;">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. DETAILED TESTIMONIALS -->
+    <section class="section" style="background: rgba(184, 115, 51, 0.04);">
+        <div class="container">
+            <h2 class="section-title">Success Stories in Detail</h2>
+            <div class="grid-2" style="gap: 60px; margin-bottom: 60px;">
+                <div class="wireframe-box" style="min-height: 250px;">[Video Testimonial 1]</div>
+                <div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 16px;">From Stuck Career to Leadership Role</h3>
+                    <p style="margin-bottom: 16px; color: var(--text-secondary);">"I was unsure about my career direction... The reading revealed patterns I'd been repeating. With remedies and guidance, everything changed."</p>
+                    <p style="font-weight: 600;">— Name, Profession</p>
+                </div>
+            </div>
+            <div class="grid-2" style="gap: 60px; margin-bottom: 60px;">
+                <div class="wireframe-box" style="min-height: 250px;">[Video Testimonial 2]</div>
+                <div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 16px;">Relationship Transformation</h3>
+                    <p style="margin-bottom: 16px; color: var(--text-secondary);">"Understanding past-life karma helped me rebuild my marriage with compassion..."</p>
+                    <p style="font-weight: 600;">— Name, Profession</p>
+                </div>
+            </div>
+            <div class="grid-2" style="gap: 60px;">
+                <div class="wireframe-box" style="min-height: 250px;">[Video Testimonial 3]</div>
+                <div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 16px;">Health & Wellness Journey</h3>
+                    <p style="margin-bottom: 16px; color: var(--text-secondary);">"The remedies and lifestyle changes suggested were exactly what my body needed..."</p>
+                    <p style="font-weight: 600;">— Name, Profession</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FAQ / OBJECTION HANDLING -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Common Questions</h2>
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(184, 115, 51, 0.2);">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 12px; cursor: pointer;">Is Naadi Jyotish real and scientific?</h4>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Answer goes here...</p>
+                </div>
+                <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(184, 115, 51, 0.2);">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 12px; cursor: pointer;">How accurate is it really?</h4>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Answer goes here...</p>
+                </div>
+                <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(184, 115, 51, 0.2);">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 12px; cursor: pointer;">What if the reading predicts something I don't want to hear?</h4>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Answer goes here...</p>
+                </div>
+                <div style="margin-bottom: 32px;">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 12px; cursor: pointer;">How long does a reading take?</h4>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Answer goes here...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FINAL CTA -->
+    <section class="section" style="background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-darker) 100%); color: white; text-align: center; padding: 100px 40px;">
+        <div class="container">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 24px;">Ready to Discover Your Path?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">Begin your Naadi Jyotish journey today. Access your lifetime blueprint and receive personalized guidance from Acharya Upendra Ji.</p>
+            <button class="cta-button" style="background: var(--copper-light); color: var(--brown-dark); font-size: 18px; padding: 16px 48px;">Start Your Reading Today</button>
+            <p style="margin-top: 24px; font-size: 14px; opacity: 0.7;">Only 2 steps: Submit thumb impression & choose your package</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        window.ROOT_PATH = '../';
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
