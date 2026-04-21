@@ -14,35 +14,21 @@
   overflow: hidden;
 }
 
-/* ── Floating background icon ── */
-.uc-icon-bg {
+/* ── Animated mandala background ── */
+.uc-mandala {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0.08;
+  animation: ucRotate 120s linear infinite;
   z-index: 0;
   pointer-events: none;
 }
 
-.uc-icon {
-  width: 400px;
-  height: 400px;
-  opacity: 0.08;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .uc-icon {
-    width: 280px;
-    height: 280px;
-  }
-}
-
-@media (max-width: 480px) {
-  .uc-icon {
-    width: 200px;
-    height: 200px;
-  }
+@keyframes ucRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* ── Content wrapper ── */
@@ -177,6 +163,11 @@
     padding: 40px 20px;
   }
 
+  .uc-mandala {
+    width: 250px;
+    height: 250px;
+  }
+
   .uc-title {
     font-size: 2rem;
   }
@@ -230,6 +221,7 @@
 /* ── Accessibility ── */
 @media (prefers-reduced-motion: reduce) {
   .uc-content { animation: none; }
+  .uc-mandala { animation: none; }
   .uc-loading span { animation: none; }
   .uc-button:hover { transform: none; }
 }
