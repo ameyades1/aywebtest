@@ -330,3 +330,114 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 }
+
+/* ── Problems Section ── */
+.problems-section {
+    background: var(--bg-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 56px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-top: 16px;
+}
+
+.problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.problem-card {
+    background: white;
+    border: 1px solid rgba(184, 115, 51, 0.15);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: all 0.25s ease;
+}
+
+.problem-card:hover {
+    border-color: var(--copper-primary);
+    box-shadow: 0 8px 24px rgba(184, 115, 51, 0.1);
+    transform: translateY(-2px);
+}
+
+.problem-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(184, 115, 51, 0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--copper-primary);
+}
+
+.problem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin-bottom: 8px;
+}
+
+.problem-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .problems-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .problems-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .problems-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .problem-card {
+        padding: 20px 16px;
+    }
+
+    .section-header {
+        margin-bottom: 32px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+}

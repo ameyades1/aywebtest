@@ -1,0 +1,49 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Gopal Chitre",
+      "role": "Manager, National Stock Exchange",
+      "quote": "Within a few days after sincerely completing all the remedies prescribed in my Antar Yog Naadi reading, I received a job offer from one of the largest stock exchange companies in the world i.e., the National Stock Exchange (NSE) of India without applying for it.",
+      "category": "career",
+      "imageUrl": "https://uploads.teachablecdn.com/attachments/EwcDCZySOikjKvqQE_Gopal+Chitre.png",
+      "imageFilename": "gopal-chitre.png"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Aishwarya Kharade",
+      "role": "Dentist, Public Health Professional",
+      "quote": "Within a week of completing the prescribed Antar Yog Naadi Jyotish remedies, I witnessed Acharya Upendra Ji's divine grace when my parents gave their long awaited blessings for our marriage.",
+      "category": "relationships",
+      "imageUrl": "https://uploads.teachablecdn.com/attachments/Aem5Ii7FRJoBXOwhJKC3_Ashwarya+kharade.png",
+      "imageFilename": "aishwarya-kharade.png"
+    },
+    {
+      "id": 3,
+      "name": "Anuradha Bhole",
+      "role": "Business Development Manager, Hindustan Vibrotech Pvt. Ltd",
+      "quote": "After attending various discourses and faithfully completing all the prescribed remedies, this severe health issue was negated with a minor discomfort.",
+      "category": "health",
+      "imageUrl": "https://uploads.teachablecdn.com/attachments/U9n8NicMQK9e4jrg5HWX_Anuradha+Bhole.png",
+      "imageFilename": "anuradha-bhole.png"
+    },
+    {
+      "id": 4,
+      "name": "Renuka Purandare",
+      "role": "Student, Masters in Entertainment Media & Advertising",
+      "quote": "After sincerely completing all the remedies, attending shibirs and correcting all mistakes, today I am studying in one of the leading colleges in India and passing with flying colours every semester.",
+      "category": "education",
+      "imageUrl": "https://uploads.teachablecdn.com/attachments/q7DDCNAUntJu3LKX2XvYA_Renuka+Purandare.png",
+      "imageFilename": "renuka-purandare.png"
+    },
+    {
+      "id": 5,
+      "name": "Hemant Sathe",
+      "role": "Project Manager, Siemens Mobility",
+      "quote": "I followed their guidance and performed remedies with full faith. Soon after, my career soared, I got my dream job at a prestigious organisation.",
+      "category": "career",
+      "imageUrl": "https://uploads.teachablecdn.com/attachments/HEgBARPrT6uQgjrSqZsT_Hemant+Sathe.png",
+      "imageFilename": "hemant-sathe.png"
+    }
+  ]
+}
