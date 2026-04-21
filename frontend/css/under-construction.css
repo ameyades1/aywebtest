@@ -14,21 +14,21 @@
   overflow: hidden;
 }
 
-/* ── Animated mandala background ── */
-.uc-mandala {
+/* ── Floating background icon ── */
+.uc-icon-bg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.08;
-  animation: ucRotate 120s linear infinite;
   z-index: 0;
   pointer-events: none;
 }
 
-@keyframes ucRotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+.uc-icon {
+  width: 420px;
+  height: 420px;
+  opacity: 0.12;
+  display: block;
 }
 
 /* ── Content wrapper ── */
@@ -163,9 +163,9 @@
     padding: 40px 20px;
   }
 
-  .uc-mandala {
-    width: 250px;
-    height: 250px;
+  .uc-icon {
+    width: 300px;
+    height: 300px;
   }
 
   .uc-title {
@@ -192,7 +192,7 @@
     padding: 32px 16px;
   }
 
-  .uc-mandala {
+  .uc-icon {
     width: 200px;
     height: 200px;
   }
@@ -221,7 +221,6 @@
 /* ── Accessibility ── */
 @media (prefers-reduced-motion: reduce) {
   .uc-content { animation: none; }
-  .uc-mandala { animation: none; }
   .uc-loading span { animation: none; }
   .uc-button:hover { transform: none; }
 }
