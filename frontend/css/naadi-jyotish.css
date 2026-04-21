@@ -507,13 +507,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .wyg-subtitle {
     text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--text-secondary);
-    max-width: 660px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    max-width: 700px;
     margin: -24px auto 48px;
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 /* ── Chapter Cards Grid ── */
@@ -562,47 +562,18 @@ h1, h2, h3, h4, h5, h6 {
     user-select: none;
 }
 
-.wyg-card__header-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-}
-
-.wyg-card__icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-}
-
-.wyg-card__badge {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    text-transform: uppercase;
-}
-
-.wyg-card__badge--included {
-    background: rgba(232, 184, 75, 0.18);
-    color: var(--copper-light);
-    border: 1px solid rgba(232, 184, 75, 0.35);
-}
-
-.wyg-card__badge--optional {
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(232, 184, 75, 0.7);
-    border: 1px solid rgba(232, 184, 75, 0.2);
+.wyg-card__status {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(251, 243, 232, 0.75);
 }
 
 .wyg-card__title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.55rem;
+    font-size: 1.65rem;
     font-weight: 500;
     color: #FBF3E8;
-    line-height: 1.25;
+    line-height: 1.3;
     margin: 0;
     position: relative;
     z-index: 1;
