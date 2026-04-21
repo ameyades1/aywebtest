@@ -36,9 +36,48 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
             color: var(--brown-dark);
+        }
+
+        /* Hero animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(184, 115, 51, 0.3));
+            }
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 20px rgba(184, 115, 51, 0.5));
+            }
         }
 
         .section {
@@ -107,6 +146,11 @@
         .cta-button:hover {
             background: var(--brown-dark);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(92, 48, 16, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
@@ -121,6 +165,15 @@
             .section-title {
                 font-size: 1.8rem;
             }
+
+            h1 {
+                font-size: 2.2rem !important;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -129,19 +182,81 @@
     <div id="navbar"></div>
 
     <!-- 1. HERO SECTION -->
-    <section class="section" style="background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-darker) 100%); color: white; padding: 120px 40px;">
-        <div class="container">
-            <div class="grid-2">
+    <section class="section" style="background: linear-gradient(135deg, #2C1810 0%, var(--brown-darker) 100%); color: white; padding: 100px 40px; position: relative; overflow: hidden;">
+        <!-- Decorative background elements -->
+        <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: rgba(184, 115, 51, 0.05); border-radius: 50%; z-index: 0;"></div>
+        <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: rgba(232, 184, 75, 0.03); border-radius: 50%; z-index: 0;"></div>
+
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="grid-2" style="align-items: center; gap: 80px;">
+                <!-- Left: Content -->
                 <div>
-                    <h1 style="color: white; font-size: 3rem; margin-bottom: 20px;">Unlock Your Life's Blueprint</h1>
-                    <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9;">Ancient wisdom meets modern clarity — Naadi Jyotish reveals your lifetime path through your thumb impression</p>
-                    <button class="cta-button" style="background: var(--copper-light); color: var(--brown-dark);">Discover Your Reading</button>
+                    <div style="animation: fadeInUp 1s ease-out;">
+                        <!-- Overline -->
+                        <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--copper-light); margin-bottom: 16px;">Ancient Wisdom, Modern Clarity</div>
+
+                        <!-- Main Headline -->
+                        <h1 style="color: white; font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 24px; font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: -1px;">
+                            Unlock Your Life's Blueprint
+                        </h1>
+
+                        <!-- Subheading -->
+                        <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 40px; opacity: 0.95; color: #E8D4C4; max-width: 500px;">
+                            Naadi Jyotish reveals your lifetime path—past, present, and future—through the ancient science written by Agastya Maharshi. Your thumb impression holds the answers.
+                        </p>
+
+                        <!-- CTA Button -->
+                        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                            <button class="cta-button" style="background: var(--copper-light); color: var(--brown-dark); font-weight: 700; padding: 16px 40px; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-size: 16px;">
+                                Start Your Reading
+                                <span style="margin-left: 8px;">→</span>
+                            </button>
+                            <button style="background: transparent; color: var(--copper-light); border: 2px solid var(--copper-light); padding: 14px 32px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">
+                                Learn More
+                            </button>
+                        </div>
+
+                        <!-- Trust indicators -->
+                        <div style="margin-top: 48px; display: flex; gap: 32px; flex-wrap: wrap; opacity: 0.85;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: var(--copper-light);">99.99%</div>
+                                <div style="font-size: 13px; color: #E8D4C4;">Accuracy Rate</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: var(--copper-light);">10,000+</div>
+                                <div style="font-size: 13px; color: #E8D4C4;">Lives Transformed</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: var(--copper-light);">3000+</div>
+                                <div style="font-size: 13px; color: #E8D4C4;">5-Star Reviews</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="wireframe-box" style="background: rgba(255,255,255,0.1); border-color: var(--copper-light); min-height: 300px;">
-                    [Hero Image / Spiritual Visual]
+
+                <!-- Right: Icon with visual depth -->
+                <div style="animation: slideInRight 1s ease-out 0.2s both; text-align: center;">
+                    <div style="position: relative; display: inline-block;">
+                        <!-- Background glow -->
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 280px; height: 280px; background: radial-gradient(circle, rgba(184, 115, 51, 0.15) 0%, transparent 70%); border-radius: 50%; z-index: -1;"></div>
+
+                        <!-- Icon image -->
+                        <img src="https://uploads.teachablecdn.com/attachments/GIbHoekT2OYfa18yEQuj_What+is+Antar+Yog+Naadi+Jyotish.png" alt="Naadi Jyotish Symbol" style="width: 240px; height: auto; filter: drop-shadow(0 20px 60px rgba(0,0,0,0.3)); animation: pulse-subtle 4s ease-in-out infinite;">
+
+                        <!-- Decorative orbits -->
+                        <div style="position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; border: 1px solid rgba(184, 115, 51, 0.2); border-radius: 50%; transform: translate(-50%, -50%); animation: spin 20s linear infinite; --webkit-animation: spin 20s linear infinite;"></div>
+                        <div style="position: absolute; top: 50%; left: 50%; width: 350px; height: 350px; border: 1px solid rgba(232, 184, 75, 0.1); border-radius: 50%; transform: translate(-50%, -50%); animation: spin 30s linear infinite reverse;"></div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <style>
+            @keyframes spin {
+                from { transform: translate(-50%, -50%) rotate(0deg); }
+                to { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+        </style>
     </section>
 
     <!-- 2. THE PROBLEM SECTION -->
