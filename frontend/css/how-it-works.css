@@ -13,11 +13,11 @@
   justify-content: flex-start;
 }
 
-/* ── Background: dss_panel2.png full bleed ── */
+/* ── Background: dss_panel6.png full bleed ── */
 .hiw-background {
   position: absolute;
   inset: 0;
-  background-image: url('../assets/dss_panel5.png');
+  background-image: url('../assets/dss_panel6.png');
   background-size: cover;
   background-position: right top;
   background-repeat: no-repeat;
