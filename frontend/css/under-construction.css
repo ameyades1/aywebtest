@@ -14,23 +14,6 @@
   overflow: hidden;
 }
 
-/* ── Floating background icon ── */
-.uc-icon-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.uc-icon {
-  width: 420px;
-  height: 420px;
-  opacity: 0.12;
-  display: block;
-}
-
 /* ── Content wrapper ── */
 .uc-content {
   position: relative;
@@ -163,11 +146,6 @@
     padding: 40px 20px;
   }
 
-  .uc-icon {
-    width: 300px;
-    height: 300px;
-  }
-
   .uc-title {
     font-size: 2rem;
   }
@@ -190,11 +168,6 @@
 @media (max-width: 480px) {
   .uc-container {
     padding: 32px 16px;
-  }
-
-  .uc-icon {
-    width: 200px;
-    height: 200px;
   }
 
   .uc-title {
