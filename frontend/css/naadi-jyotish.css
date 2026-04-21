@@ -345,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 .problems-headline {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 20px;
