@@ -145,9 +145,29 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-.hero-content {
-    gap: 80px;
+/* Hero Layout - Desktop: 2-column grid, Mobile: flexbox with reordering */
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "left-top  image"
+        "left-bot  image";
+    gap: 0 80px;
     align-items: center;
+}
+
+.hero-left-top {
+    grid-area: left-top;
+}
+
+.hero-left-bottom {
+    grid-area: left-bot;
+    margin-top: 40px;
+}
+
+.hero-image-col {
+    grid-area: image;
 }
 
 .hero-overline {
@@ -248,49 +268,10 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.hero-image-container {
-    position: relative;
-    display: inline-block;
-}
-
-.hero-image-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(184, 115, 51, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: -1;
-}
-
 .hero-image {
-    width: 480px;
+    width: 560px;
     height: auto;
     filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
-}
-
-.hero-orbit-1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 540px;
-    height: 540px;
-    border: 1px solid rgba(184, 115, 51, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.hero-orbit-2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 620px;
-    height: 620px;
-    border: 1px solid rgba(232, 184, 75, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
 }
 
 /* ── Responsive ── */
@@ -311,23 +292,27 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2.2rem;
     }
 
+    .hero-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-left-top {
+        order: 1;
+    }
+
+    .hero-image-col {
+        order: 2;
+        margin: 32px 0;
+    }
+
+    .hero-left-bottom {
+        order: 3;
+        margin-top: 0;
+    }
+
     .hero-image {
-        width: 300px;
-    }
-
-    .hero-image-glow {
-        width: 350px;
-        height: 350px;
-    }
-
-    .hero-orbit-1 {
-        width: 380px;
-        height: 380px;
-    }
-
-    .hero-orbit-2 {
-        width: 440px;
-        height: 440px;
+        width: 340px;
     }
 
     .cta-button {
