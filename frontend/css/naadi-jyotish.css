@@ -336,108 +336,44 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--bg-light);
 }
 
-.section-header {
+.problems-editorial {
+    max-width: 720px;
+    margin: 0 auto;
     text-align: center;
-    margin-bottom: 56px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.section-subtitle {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-top: 16px;
-}
-
-.problems-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.problem-card {
-    background: white;
-    border: 1px solid rgba(184, 115, 51, 0.15);
-    border-radius: 12px;
-    padding: 28px 24px;
-    transition: all 0.25s ease;
-}
-
-.problem-card:hover {
-    border-color: var(--copper-primary);
-    box-shadow: 0 8px 24px rgba(184, 115, 51, 0.1);
-    transform: translateY(-2px);
-}
-
-.problem-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(184, 115, 51, 0.08);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    color: var(--copper-primary);
-}
-
-.problem-title {
+.problems-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     font-weight: 600;
     color: var(--brown-dark);
-    margin-bottom: 8px;
+    line-height: 1.2;
+    margin-bottom: 24px;
 }
 
-.problem-desc {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
+.problems-body {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.85;
+    margin-bottom: 32px;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .problems-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.problems-insight {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--copper-primary);
+    line-height: 1.7;
+    border-top: 1px solid rgba(184, 115, 51, 0.2);
+    padding-top: 28px;
 }
 
 @media (max-width: 768px) {
-    .problems-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    .problems-body {
+        font-size: 1rem;
     }
 
-    .section-header {
-        margin-bottom: 40px;
-    }
-
-    .section-subtitle {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .problems-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .problem-card {
-        padding: 20px 16px;
-    }
-
-    .section-header {
-        margin-bottom: 32px;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .section-subtitle {
-        font-size: 0.9rem;
+    .problems-insight {
+        font-size: 1.1rem;
     }
 }
