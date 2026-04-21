@@ -1,0 +1,351 @@
+/* =====================================================
+   NAADI JYOTISH PAGE STYLES
+   ===================================================== */
+
+:root {
+    --copper-primary: #B87333;
+    --copper-light: #E8B84B;
+    --brown-dark: #5C3010;
+    --brown-darker: #3A1A04;
+    --bg-light: #F9F6F0;
+    --text-primary: #2C1810;
+    --text-secondary: #7A6858;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    background: var(--bg-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--brown-dark);
+}
+
+/* ── Sections ── */
+.section {
+    padding: 80px 40px;
+    border-bottom: 1px solid rgba(184, 115, 51, 0.1);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ── Grid Systems ── */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+}
+
+/* ── Wireframe Boxes ── */
+.wireframe-box {
+    background: rgba(184, 115, 51, 0.08);
+    border: 2px dashed var(--copper-primary);
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ── CTA Button ── */
+.cta-button {
+    background: var(--copper-primary);
+    color: white;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--brown-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(92, 48, 16, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* ── Hero Section ── */
+.hero-section {
+    background: linear-gradient(135deg, #2C1810 0%, var(--brown-darker) 100%);
+    color: white;
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(184, 115, 51, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(232, 184, 75, 0.03);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    gap: 80px;
+    align-items: center;
+}
+
+.hero-overline {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--copper-light);
+    margin-bottom: 16px;
+}
+
+.hero-title {
+    color: white;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    color: #E8D4C4;
+    max-width: 500px;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-primary-cta {
+    background: var(--copper-light);
+    color: var(--brown-dark);
+    font-weight: 700;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.hero-primary-cta:hover {
+    background: var(--copper-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(92, 48, 16, 0.3);
+}
+
+.hero-secondary-cta {
+    background: transparent;
+    color: var(--copper-light);
+    border: 2px solid var(--copper-light);
+    padding: 14px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.hero-secondary-cta:hover {
+    background: rgba(232, 184, 75, 0.1);
+    transform: translateY(-2px);
+}
+
+.hero-trust-indicators {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    opacity: 0.85;
+}
+
+.trust-indicator {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-indicator-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--copper-light);
+}
+
+.trust-indicator-label {
+    font-size: 13px;
+    color: #E8D4C4;
+}
+
+/* ── Hero Image ── */
+.hero-image-wrapper {
+    text-align: center;
+}
+
+.hero-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hero-image-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(184, 115, 51, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero-image {
+    width: 480px;
+    height: auto;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+}
+
+.hero-orbit-1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 540px;
+    height: 540px;
+    border: 1px solid rgba(184, 115, 51, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-orbit-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 620px;
+    height: 620px;
+    border: 1px solid rgba(232, 184, 75, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-image {
+        width: 300px;
+    }
+
+    .hero-image-glow {
+        width: 350px;
+        height: 350px;
+    }
+
+    .hero-orbit-1 {
+        width: 380px;
+        height: 380px;
+    }
+
+    .hero-orbit-2 {
+        width: 440px;
+        height: 440px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+    }
+
+    .hero-primary-cta,
+    .hero-secondary-cta {
+        width: 100%;
+    }
+
+    .hero-trust-indicators {
+        flex-direction: column;
+        gap: 24px;
+    }
+}
