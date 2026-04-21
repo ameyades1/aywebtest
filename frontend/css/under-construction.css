@@ -1,0 +1,227 @@
+/* =====================================================
+   UNDER CONSTRUCTION PAGE
+   Refined minimalism with spiritual undertones
+   ===================================================== */
+
+.uc-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: #FDFBF8;
+  overflow: hidden;
+}
+
+/* ── Animated mandala background ── */
+.uc-mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.08;
+  animation: ucRotate 120s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes ucRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ── Content wrapper ── */
+.uc-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  text-align: center;
+  animation: ucFadeIn 0.9s ease-out;
+}
+
+/* ── Header section ── */
+.uc-header {
+  margin-bottom: 48px;
+}
+
+.uc-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  color: #5C3010;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.uc-subtitle {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #B87333;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* ── Description text ── */
+.uc-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(92, 48, 16, 0.7);
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+/* ── Home button ── */
+.uc-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  background: #B87333;
+  padding: 14px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(184, 115, 51, 0.2);
+  margin-bottom: 48px;
+  display: inline-flex;
+}
+
+.uc-button:hover {
+  background: #C98B4A;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(184, 115, 51, 0.3);
+}
+
+.uc-button:focus-visible {
+  outline: 2px solid #E8B84B;
+  outline-offset: 2px;
+}
+
+/* ── Loading indicator ── */
+.uc-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.uc-loading span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #B87333;
+  opacity: 0.4;
+  animation: ucPulse 1.4s ease-in-out infinite;
+}
+
+.uc-loading span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.uc-loading span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes ucPulse {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ── Entry animation ── */
+@keyframes ucFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .uc-container {
+    min-height: 80vh;
+    padding: 40px 20px;
+  }
+
+  .uc-mandala {
+    width: 250px;
+    height: 250px;
+  }
+
+  .uc-title {
+    font-size: 2rem;
+  }
+
+  .uc-subtitle {
+    font-size: 1rem;
+  }
+
+  .uc-description {
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+  }
+
+  .uc-button {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .uc-container {
+    padding: 32px 16px;
+  }
+
+  .uc-mandala {
+    width: 200px;
+    height: 200px;
+  }
+
+  .uc-title {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+  }
+
+  .uc-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .uc-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .uc-button {
+    padding: 11px 24px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ── Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .uc-content { animation: none; }
+  .uc-mandala { animation: none; }
+  .uc-loading span { animation: none; }
+  .uc-button:hover { transform: none; }
+}
