@@ -69,6 +69,8 @@
   box-shadow: 0 2px 12px rgba(92, 48, 16, 0.07);
   transition: transform 240ms ease, box-shadow 240ms ease;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .prog-card:hover {
