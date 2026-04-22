@@ -190,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     line-height: 1.8;
     margin-bottom: 40px;
     opacity: 0.95;
@@ -340,12 +340,13 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 840px;
     margin: 0 auto;
     text-align: center;
+    font-size: 1.3rem;
 }
 
 .problems-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-    font-weight: 600;
+    font-size: clamp(1.25rem, 3vw, 1.9rem);
+    font-weight: 800;
     color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 20px;
