@@ -353,5 +353,329 @@
     </script>
     <script src="../js/main.js"></script>
     <script src="../js/naadi-testimonials-init.js"></script>
+
+    <!-- Naadi Jyotish Floating Banner -->
+    <div id="naadi-banner" class="naadi-banner">
+      <div class="naadi-banner-accent-top"></div>
+
+      <svg class="naadi-banner-bg-icon"
+           xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 120 140" width="120" height="140"
+           fill="none" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="ntb-clip">
+            <rect x="0" y="0" width="120" height="140"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#ntb-clip)"
+           stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="60" cy="72" r="2.5" fill="white" opacity="0.9"/>
+          <ellipse cx="60" cy="72" rx="7"  ry="8"  stroke-width="1.4" opacity="0.9"/>
+          <ellipse cx="60" cy="72" rx="13" ry="15" stroke-width="1.4" opacity="0.85"/>
+          <ellipse cx="60" cy="72" rx="20" ry="23" stroke-width="1.3" opacity="0.80"/>
+          <ellipse cx="60" cy="72" rx="27" ry="31" stroke-width="1.3" opacity="0.75"/>
+          <path d="M33,72 A27,31 0 1 1 87,72"  stroke-width="1.2" opacity="0.70"/>
+          <path d="M25,72 A35,40 0 1 1 95,72"  stroke-width="1.1" opacity="0.62"/>
+          <path d="M17,72 A43,49 0 1 1 103,72" stroke-width="1.0" opacity="0.54"/>
+          <path d="M9,72  A51,58 0 1 1 111,72" stroke-width="0.9" opacity="0.44"/>
+        </g>
+      </svg>
+
+      <div class="naadi-banner-container">
+        <div class="naadi-banner-content">
+          <div class="naadi-banner-title">NAADI JYOTISH READING</div>
+          <div class="naadi-banner-subtitle">Discover Your Cosmic Blueprint</div>
+          <div class="naadi-banner-detail">Ancient palm leaf wisdom • Personal guidance from Acharya Ji</div>
+        </div>
+        <div class="naadi-banner-cta-zone">
+          <button class="naadi-banner-cta" aria-label="Book your Naadi Jyotish reading">
+            <span>Book Your Reading</span>
+            <span class="naadi-banner-arrow">→</span>
+          </button>
+        </div>
+        <button class="naadi-banner-close" aria-label="Dismiss banner">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <style>
+    /* ── Naadi Jyotish Floating Banner ─────────────────────── */
+
+    #naadi-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      background: linear-gradient(135deg, #5C3010 0%, #3A1A04 100%);
+      box-shadow: 0 -4px 20px rgba(92, 48, 16, 0.25);
+      transform: translateY(100%);
+      animation: naadiBannerSlideUp 0.6s 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      font-family: 'Inter', sans-serif;
+    }
+
+    @keyframes naadiBannerSlideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .naadi-banner-accent-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #B87333 20%, #E8B84B 50%, #B87333 80%, transparent);
+      opacity: 0.8;
+    }
+
+    .naadi-banner-bg-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 120px;
+      height: 140px;
+      opacity: 0.55;
+      z-index: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .naadi-banner-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 24px;
+      max-width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .naadi-banner-content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+      margin-left: 148px;
+    }
+
+    .naadi-banner-title {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: white;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .naadi-banner-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      font-weight: 400;
+      color: #E8B84B;
+      line-height: 1.3;
+    }
+
+    .naadi-banner-detail {
+      font-size: 12px;
+      font-weight: 500;
+      color: white;
+      opacity: 0.85;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+
+    .naadi-banner-cta-zone {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .naadi-banner-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 24px;
+      background-color: #B87333;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .naadi-banner-cta:hover {
+      background-color: #5C3010;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(92, 48, 16, 0.3);
+    }
+
+    .naadi-banner-cta:active {
+      transform: translateY(0);
+    }
+
+    .naadi-banner-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .naadi-banner-cta:hover .naadi-banner-arrow {
+      transform: translateX(2px);
+    }
+
+    .naadi-banner-close {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      border: none;
+      color: #7A6858;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+      border-radius: 6px;
+    }
+
+    .naadi-banner-close:hover {
+      color: #B87333;
+      background: rgba(184, 115, 51, 0.1);
+    }
+
+    .naadi-banner-close:active {
+      background: rgba(184, 115, 51, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      #naadi-banner .naadi-banner-container {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 48px 12px 16px;
+      }
+
+      .naadi-banner-bg-icon {
+        display: none;
+      }
+
+      .naadi-banner-content {
+        flex: 1 1 100%;
+        order: 1;
+        margin-left: 0;
+      }
+
+      .naadi-banner-cta-zone {
+        flex: 1 1 100%;
+        order: 2;
+      }
+
+      .naadi-banner-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .naadi-banner-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+      }
+
+      .naadi-banner-title {
+        font-size: 14px;
+        letter-spacing: 0.8px;
+      }
+
+      .naadi-banner-subtitle {
+        font-size: 13px;
+      }
+
+      .naadi-banner-detail {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #naadi-banner .naadi-banner-container {
+        padding: 10px 44px 10px 12px;
+      }
+
+      .naadi-banner-title    { font-size: 13px; }
+      .naadi-banner-subtitle { font-size: 12px; }
+
+      .naadi-banner-cta {
+        font-size: 13px;
+        padding: 9px 18px;
+      }
+    }
+
+    .naadi-banner-dismissing {
+      animation: naadiBannerSlideDown 0.4s ease-in forwards;
+    }
+
+    @keyframes naadiBannerSlideDown {
+      from { transform: translateY(0);    opacity: 1; }
+      to   { transform: translateY(100%); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #naadi-banner {
+        animation: none;
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .naadi-banner-dismissing {
+        animation: none;
+      }
+    }
+    </style>
+
+    <script>
+    (function () {
+      'use strict';
+
+      var SESSION_KEY = 'naadi-banner-dismissed';
+      var BOOKING_URL = '#book-reading';
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var banner = document.getElementById('naadi-banner');
+        if (!banner) return;
+
+        var closeBtn = banner.querySelector('.naadi-banner-close');
+        var ctaBtn   = banner.querySelector('.naadi-banner-cta');
+
+        if (sessionStorage.getItem(SESSION_KEY)) {
+          banner.style.display = 'none';
+          return;
+        }
+
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          banner.classList.add('naadi-banner-dismissing');
+          setTimeout(function () {
+            banner.style.display = 'none';
+            sessionStorage.setItem(SESSION_KEY, '1');
+          }, 400);
+        });
+
+        ctaBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.location.href = BOOKING_URL;
+        });
+      });
+    }());
+    </script>
 </body>
 </html>
