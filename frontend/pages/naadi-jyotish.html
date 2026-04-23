@@ -358,7 +358,49 @@
     <div id="naadi-banner" class="naadi-banner">
       <div class="naadi-banner-accent-top"></div>
 
-      <img src="../assets/thumbprint.png" alt="Thumbprint symbol" class="naadi-banner-bg-icon">
+      <svg class="naadi-banner-bg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160" fill="none" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="thumbprint-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="0.3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Central whorl pattern -->
+        <g filter="url(#thumbprint-glow)" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Core center point -->
+          <circle cx="60" cy="80" r="2.5" fill="white" opacity="0.9"/>
+
+          <!-- Inner concentric arcs - tight whorls -->
+          <path d="M 52 80 Q 52 70 60 70 Q 68 70 68 80" stroke-width="1.2" opacity="0.95"/>
+          <path d="M 50 80 Q 50 65 60 62 Q 70 65 70 80" stroke-width="1.2" opacity="0.93"/>
+          <path d="M 47 80 Q 47 58 60 54 Q 73 58 73 80" stroke-width="1.1" opacity="0.90"/>
+          <path d="M 44 80 Q 44 50 60 45 Q 76 50 76 80" stroke-width="1.1" opacity="0.87"/>
+          <path d="M 40 80 Q 40 42 60 35 Q 80 42 80 80" stroke-width="1.0" opacity="0.83"/>
+
+          <!-- Mid-range arcs -->
+          <path d="M 35 80 Q 35 30 60 22 Q 85 30 85 80" stroke-width="1.0" opacity="0.78"/>
+          <path d="M 30 80 Q 30 18 60 8 Q 90 18 90 80" stroke-width="0.9" opacity="0.72"/>
+
+          <!-- Lower whorls - extending down -->
+          <path d="M 52 92 Q 52 102 60 105 Q 68 102 68 92" stroke-width="1.2" opacity="0.93"/>
+          <path d="M 50 100 Q 50 115 60 120 Q 70 115 70 100" stroke-width="1.1" opacity="0.88"/>
+          <path d="M 47 108 Q 47 128 60 135 Q 73 128 73 108" stroke-width="1.0" opacity="0.82"/>
+
+          <!-- Ridge details - fine lines for texture -->
+          <path d="M 55 65 Q 58 63 61 65" stroke-width="0.7" opacity="0.70"/>
+          <path d="M 54 72 Q 58 70 62 72" stroke-width="0.7" opacity="0.68"/>
+          <path d="M 56 88 Q 58 90 60 92" stroke-width="0.7" opacity="0.66"/>
+          <path d="M 58 98 Q 60 102 61 106" stroke-width="0.7" opacity="0.65"/>
+
+          <!-- Outer boundary - thumb silhouette suggestion -->
+          <path d="M 35 75 L 32 65 Q 30 50 35 35 Q 40 20 50 15" stroke-width="0.9" opacity="0.60"/>
+          <path d="M 85 75 L 88 65 Q 90 50 85 35 Q 80 20 70 15" stroke-width="0.9" opacity="0.60"/>
+        </g>
+      </svg>
 
       <div class="naadi-banner-container">
         <div class="naadi-banner-content">
